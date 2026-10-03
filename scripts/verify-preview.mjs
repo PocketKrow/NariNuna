@@ -11,7 +11,7 @@ const managesPreview = !process.env.NARI_PREVIEW_URL;
 let preview;
 
 if (managesPreview) {
-  preview = spawn(process.execPath, ["node_modules/vite/bin/vite.js", "preview", "--host", "127.0.0.1", "--port", "4173", "--strictPort"], {
+  preview = spawn(process.execPath, ["node_modules/astro/bin/astro.mjs", "preview", "--host", "127.0.0.1", "--port", "4173", "--ignore-lock"], {
     stdio: ["ignore", "ignore", "pipe"]
   });
 
@@ -65,10 +65,10 @@ const requiredAssets = [
 
 for (const [route, expectedTitle, expectedPreview] of routes) {
   const response = await fetch(new URL(route, origin));
-  assert.equal(response.status, 200, `${route} should direct-load successfully`);
+  assert.equal(response.status, 200, `${route} should direct-load with its expected status`);
   assert.match(response.headers.get("content-type") ?? "", /text\/html/, `${route} should be HTML`);
 
-  const html = await response.text();
+  const html = (await response.text()).replaceAll("&#39;", "'");
   assert.match(html, new RegExp(`<title>[^<]*${expectedTitle.replaceAll("?", "\\?")}`), `${route} needs its own title`);
 
   if (expectedPreview) {

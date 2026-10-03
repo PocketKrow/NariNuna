@@ -3,12 +3,17 @@
 import ResponsiveArtwork from "@/components/art/ResponsiveArtwork.vue";
 
 import { ArrowUpRight, Play } from "@lucide/vue";
-import { computed, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { storybookPostcards } from "@/data/artwork";
 import type { MediaMoment } from "@/types/content";
 
 const props = withDefaults(defineProps<{ moment: MediaMoment; presentation?: "broadcast" | "album"; featured?: boolean }>(), { presentation: "broadcast", featured: false });
 const imageFailed = ref(false);
+const thumbnail = ref<HTMLImageElement | null>(null);
+// SSR thumbnails may finish failing before hydration attaches @error. Recover that already-completed failure on mount.
+onMounted(() => {
+  if (thumbnail.value?.complete && thumbnail.value.naturalWidth === 0) imageFailed.value = true;
+});
 const fallbackSizes = computed(() => {
   if (props.presentation === "album") return "(min-width: 64rem) 42vw, (min-width: 48rem) 40vw, calc(100vw - 48px)";
   if (props.featured) return "(min-width: 72rem) 52vw, (min-width: 48rem) 58vw, calc(100vw - 48px)";
@@ -22,6 +27,7 @@ const fallbackSizes = computed(() => {
     <a :href="moment.url" target="_blank" rel="noreferrer noopener">
       <div class="media-card__image">
         <img
+          ref="thumbnail"
           v-if="moment.thumbnailUrl && !imageFailed"
           :src="moment.thumbnailUrl"
           width="480"

@@ -25,3 +25,7 @@ jobs:
         run: npm ci
       - name: Run repository quality gate
         run: npm run check
+      - name: Install Chromium for interaction checks
+        run: npx playwright install --with-deps chromium
+      - name: Verify static documents and Vue islands in Chromium
+        run: npm run verify:browser

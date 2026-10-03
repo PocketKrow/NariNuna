@@ -1,5 +1,7 @@
 # Main Security and Known Issues
 
+> **2026-10-03:** The Astro rebuild has a new lockfile and current audit/exposure analysis in [document 42](42_ASTRO_REBUILD.md). Package counts below are historical and do not describe that branch.
+
 **Review date:** 9 September 2026
 **Audited revision:** `fa83954f09938a864fd53f6a26739e50e2277970` (`main`, merged PR #18)
 **Change scope:** documentation and audit evidence only; no fixes to dependencies or runtime

@@ -282,3 +282,13 @@ Rollback: revert the focused refinement commit. Existing source artwork and hist
 Jake supplied the repository optimization handoff and directed continuation. Scope: compact browser artwork metadata with retained full provenance; remove proven obsolete cult styles; consolidate only adjacent identical-selector blocks with ordered-declaration equivalence; explanatory comments across owned code; syntax-safe ownership for generated/strict data and vectors; operational documentation and review PR. Reduced-motion fragment handling and dormant widget/listener defects identified in the handoff are corrected separately from byte savings.
 
 No public content, raster bytes, crop, source/retention contract, architecture, dependency version, client/right approval, merge or deployment is changed. Chromium installation failed, so lossy encoding and broader active-cascade restructuring remain deferred. Structural comparison and automated gate evidence, exact metrics and rollback are in [document 37](37_SIZE_MAINTENANCE.md). This records implementation authority, not release clearance.
+
+### ADR-011 — Static Astro documents with focused Vue islands
+
+**Date:** 2026-10-03. **Status:** accepted for the owner-requested implementation/review. **Authority:** Jake explicitly requested a ground-up Astro rebuild preserving the website, with Vue reuse as needed. This supersedes ADR-001 and ADR-009’s Vite/client-router implementation choices.
+
+Astro owns all twelve native page templates, the shared document shell, metadata and responsive preloads. Existing Vue art primitives render at build time; the menu, Passport, doorway, floorboard and media fallbacks hydrate explicitly. There is no client router, empty app mount or second framework scaffold. Next/Nuxt would duplicate routing; Three.js would add an unused graphics runtime. All retained artwork, copy, external destinations, route paths and review/release boundaries remain.
+
+Consequences: meaningful initial HTML and no-JavaScript navigation; independent component state; CSP hashes for Astro’s inline island loaders; browser failure checks covering early SSR-thumbnail errors. New MIT tooling: Astro, official Vue integration/checker and compatible Astro lint plugin. Playwright is development-only browser verification. The old app bootstrap, router and mount-specific chunk recovery are retired. Vite remains in the test toolchain.
+
+Current source owners, tests, dependency impact, limitations and recorded checks are in [document 42](42_ASTRO_REBUILD.md). Rollback: revert this focused migration or restore the baseline’s build artifact. This records implementation authority; it does not merge or release the build or settle client/artwork approvals.

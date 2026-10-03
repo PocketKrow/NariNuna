@@ -1,8 +1,8 @@
 # Nari Nuna’s Haven
 
-A character-led late-fall refuge connecting Nari’s streams, self-taught nail art, community, stories and public profiles. Twelve real HTML documents share Vue components and responsive artwork; each room retains its own composition and metadata.
+A character-led late-fall refuge connecting Nari’s streams, self-taught nail art, community, stories and public profiles. Twelve prerendered Astro documents share focused Vue islands and responsive artwork; each room retains its own composition and metadata.
 
-**Implementation baseline:** `main` at `d1b495cd8aa0be5aaaa8a9255e2bc756d9b5491e`, merged PR #21, 11 September 2026. The current Credits implementation is documented in [credits and copy humanization](docs/40_CREDITS_AND_COPY_HUMANIZATION.md).
+**Current architecture:** Astro 7 static MPA with Vue 3 islands, strict TypeScript and SCSS. The owner-directed rebuild starts from `main` at `c8af50f5921ea8851e738b310b16d24ce2b8fdbf`. [Migration and verification](docs/42_ASTRO_REBUILD.md) owns the current implementation; older dated architecture records are historical.
 
 **Status:** client review. The active site uses one Nari atmosphere; final theme direction, canon, content, rights/credits, contact/Discord, host/domain and release QA decisions remain open. Public repository visibility is not artwork permission or production clearance.
 
@@ -19,13 +19,14 @@ npm run dev
 npm run check
 ```
 
-The required gate runs ESLint, strict Vue/TypeScript checks, Vitest, the production build, document and performance validators, then an HTTP preview check. `dist/` is generated output; do not commit it.
+The required gate runs ESLint, strict Astro/Vue/TypeScript checks, the production build and validators, Vitest against the artifact, then HTTP preview verification. `dist/` is generated output; do not commit it.
 
 | Command | Purpose |
 | --- | --- |
 | `npm run build` | Typecheck, validate credits, build the twelve documents and enforce document/artwork/graph budgets |
 | `npm run validate:credits` | Validate attribution records, asset-family coverage, links and artwork-display boundaries |
 | `npm run preview` | Serve the existing production build locally |
+| `npm run verify:browser` | Chromium checks on the built artifact with its actual CSP; install once with `npx playwright install chromium` |
 | `npm run verify:preview` | Start/stop a local preview and verify documents/assets; `NARI_PREVIEW_URL` can target an existing preview |
 | `npm run lint` / `npm run typecheck` / `npm test` | Run an individual gate while editing |
 | `npm run audit:assets` | Read-only asset reference/hash inventory; candidates are not deletion permission |
@@ -33,18 +34,18 @@ The required gate runs ESLint, strict Vue/TypeScript checks, Vitest, the product
 | `npm audit --json` | Explicit full dependency advisory check; may exit nonzero when findings exist |
 | `npm audit --omit=dev --json` | Separate production dependency advisory check |
 
-`.npmrc` disables automatic install audits. A passing quality gate therefore does not mean the dependency audit is clean. The fresh maintenance audit still reports four affected development packages and zero production advisories; see [security and known issues](docs/36_MAIN_SECURITY_AND_KNOWN_ISSUES.md).
+`.npmrc` disables automatic install audits. A passing quality gate does not mean the dependency audit is clean. Current audit results and exposure analysis are in [the Astro rebuild record](docs/42_ASTRO_REBUILD.md); the dated maintenance audit in document 36 describes an older lockfile.
 
 ## Architecture and owners
 
-Vue 3, strict TypeScript, Vite, Vue Router, SCSS, Motion for Vue and Lucide. Keep npm and the committed lockfile. No Tailwind, second scaffold, backend, CMS, analytics, account, form handler or embedded player is part of this foundation.
+Astro 7, Vue 3 islands, strict TypeScript, SCSS and Lucide. Vite remains the internal compiler and Vitest tooling; there is no client router or full-app bootstrap. Motion for Vue is retained only by the existing dormant Ghostie widget. Keep npm and the committed lockfile. No Tailwind, second scaffold, backend, CMS, analytics, account, form handler or embedded player is part of this foundation.
 
 | Location | Responsibility |
 | --- | --- |
-| `pages/` | Twelve real HTML entries, titles, descriptions, robots and social metadata |
+| `src/pages/` | Twelve native Astro routes and page-specific compositions |
+| `src/layouts/SiteLayout.astro` | Document metadata, preloads, landmarks and shared shell |
 | `src/data/projectPages.json` | Shared document registry for build entries, preloads and validation |
-| `src/main.ts`, `src/App.vue` | Router-ready mount, guarded chunk recovery and ordinary/secret shell choice |
-| `src/router/` | Explicit lazy route modules and history/fragment scrolling |
+| `astro.config.mjs`, `vitest.config.ts` | Static build with Vue integration; separate Vue/composable test compiler |
 | `src/components/layout/` | Header, keyboard-aware mobile directory, ten-room passage and compact room-specific footer |
 | `src/components/haven/`, `src/composables/useHavenDoor.ts` | Three-knock invitation, deferred interior, focus transfer, reset and optional floorboard |
 | `src/components/art/` | Single-root native image delivery and decorative/meaningful Ghostie semantics |
@@ -52,11 +53,11 @@ Vue 3, strict TypeScript, Vite, Vue Router, SCSS, Motion for Vue and Lucide. Kee
 | `src/data/` | Local editorial records, destinations and artwork lookup keys |
 | `src/styles/main.scss` | Explicit global cascade; final focal and phone layers follow shared foundations |
 | `src/styles/rooms/` | Scoped page interiors, materials and reading layouts |
-| `public/` | Directly served assets and host/crawler configuration; Vite copies every file |
+| `public/` | Directly served assets and host/crawler configuration; Astro copies every file |
 | `src/assets/source/` | Retained source/retired artwork and preservation inventory; excluded from deployment |
 | `scripts/`, `tests/` | Build, delivery, preservation and behavior contracts |
 
-Top-level navigation uses ordinary anchors. Vue Router resolves the initial document and lazy-loads its view; this is a true MPA, not a universal SPA fallback. The hidden page supplies its own main landmark. Ordinary pages use `SiteShell`; `RoomPassage` excludes recovery and secret routes.
+Top-level navigation uses ordinary anchors. Astro prerenders the page body, header and footer at build time. Only the menu, Passport, three-knock doorway, floorboard and media fallbacks hydrate. The hidden page supplies its own main landmark and sends no island JavaScript. `RoomPassage.astro` excludes recovery and secret routes. Native document navigation owns fragments and history; page content remains readable without JavaScript.
 
 The complete [code ownership record](docs/38_CODE_OWNERSHIP.md) explains active versus dormant modules, per-file maintenance comments, strict JSON and imported SVG treatment. Dormant `GhostieSummoner`, `SectionHeading`, resource demo fixtures and the retained Prinny registry are not instructions to restore retired UI.
 

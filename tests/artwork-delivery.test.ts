@@ -63,7 +63,7 @@ describe("responsive artwork delivery", () => {
     const total = maximum(environmentArtwork.homeSunset) + maximum(communityGhostieArtwork.wave, 256)
       + maximum(detailArtwork.lavender);
     expect(total).toBeLessThanOrEqual(200_000);
-    const home = readFileSync("src/pages/HomePage.vue", "utf8");
+    const home = readFileSync("src/pages/index.astro", "utf8");
     expect(home).not.toContain("storybookPostcards");
   });
 

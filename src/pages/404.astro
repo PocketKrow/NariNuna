@@ -1,0 +1,62 @@
+---
+import SiteLayout from "@/layouts/SiteLayout.astro";
+
+// Independent recovery view with a clear Home exit. Static-host unknown-path status still belongs to deployment configuration.
+import { ArrowLeft, MapPinOff } from "@lucide/vue";
+import GhostieArt from "@/components/art/GhostieArt.vue";
+---
+
+<SiteLayout pageId="notFound">
+  <!-- Recovery stays meaningful when decorative art is unavailable. -->
+  <section class="not-found page-width section-pad">
+    <GhostieArt
+      class="not-found__ghostie"
+      sizes="(min-width: 48rem) 320px, 80vw"
+      variant="panicked"
+      decorative={false}
+      label="A panicked Nari Nuna Ghostie who cannot find the missing room"
+    />
+    <div>
+      <MapPinOff size={34} aria-hidden="true" />
+      <p class="eyebrow">This room wandered off</p>
+      <h1>
+        A Ghostie moved
+        <br />
+        <em>the door again.</em>
+      </h1>
+      <p>We would blame the pillow fort, but honestly? This one has Prinny energy.</p>
+      <a class="button button--ember" href="/">
+        <ArrowLeft size={18} aria-hidden="true" /> Back to the Haven
+      </a>
+    </div>
+  </section>
+</SiteLayout>
+<style>
+  /* Recovery layout stays compact and readable without relying on a hero preload. */
+  .not-found {
+    position: relative;
+    min-height: calc(100svh - var(--header-height));
+  }
+  .not-found::before {
+    position: absolute;
+    z-index: -1;
+    inset: 12% 4%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--lavender) 12%, transparent), transparent 68%);
+    content: "";
+  }
+  .not-found__ghostie {
+    --ghostie-size: 18rem;
+    min-height: 18rem;
+    padding: 0.5rem;
+    background: color-mix(in srgb, var(--story-surface) 50%, transparent);
+    border: 1px solid var(--story-line);
+    border-radius: 0.35rem;
+    box-shadow: 0 1rem 2.4rem rgb(12 7 10 / 18%);
+  }
+  @media (min-width: 56rem) {
+    .not-found__ghostie {
+      --ghostie-size: 22rem;
+      min-height: 24rem;
+    }
+  }
+</style>

@@ -1,0 +1,126 @@
+---
+import SiteLayout from "@/layouts/SiteLayout.astro";
+
+// Own the introduction, identity journal and boundary note. Pillar order is coupled to the Ghostie tuple below; keep these in sync.
+import { heroStyle } from "@/data/artworkDelivery";
+import { ArrowRight, Eye, Gamepad2, Heart, MoonStar, Paintbrush, Sparkles } from "@lucide/vue";
+import GhostieArt, { type GhostieArtVariant } from "@/components/art/GhostieArt.vue";
+import ArtworkCreditLink from "@/components/art/ArtworkCreditLink.vue";
+import RoomDiscovery from "@/components/ui/RoomDiscovery.vue";
+import { environmentArtwork } from "@/data/artwork";
+import { identityPillars } from "@/data/content";
+
+const identityEntries = identityPillars.map((pillar, index) => ({
+  ...pillar,
+  ghostie: (["heart", "chaotic", "nailTech"] satisfies GhostieArtVariant[])[index],
+}));
+---
+
+<SiteLayout pageId="meetNari">
+  <!-- Character-led arrival, identity journal, then protective promise; preserve that reading order on mobile. -->
+  <section
+    class="character-intro character-intro--storybook character-intro--integrated page-width responsive-hero"
+    style={heroStyle(environmentArtwork.meetNari)}
+  >
+    <div class="character-intro__copy">
+      <p class="eyebrow">
+        <Sparkles size={16} aria-hidden="true" /> Chapter one · the girl behind the door
+      </p>
+      <h1>
+        Hi, I'm <em>Nari.</em>
+      </h1>
+      <p class="character-intro__subtitle">VTuber. Gamer. Nail-polish menace. Your loud big sister.</p>
+      <p class="character-intro__text">
+        Nari is a warm, protective, curious VTuber, gamer, self-taught nail artist, and prolific yapper.
+      </p>
+      <div class="tag-row" aria-label="Nari's creative roles">
+        <span>
+          <Gamepad2 size={16} aria-hidden="true" /> VTuber & gamer
+        </span>
+        <span>
+          <Paintbrush size={16} aria-hidden="true" /> Self-taught nail artist
+        </span>
+        <span>
+          <Heart size={16} aria-hidden="true" /> Protective big sister
+        </span>
+      </div>
+      <a class="button button--ember" href="/haven/">
+        Come see the Haven <ArrowRight size={18} aria-hidden="true" />
+      </a>
+      <ArtworkCreditLink creditId="website-storybook-artwork" />
+    </div>
+  </section>
+  <!-- The identity tuple above determines both copy order and decorative Ghostie pose. -->
+  <section class="nari-journal room-section page-width" aria-labelledby="journal-title">
+    <header class="nari-journal__opening">
+      <p class="room-kicker">Notes from the girl next door</p>
+      <h2 id="journal-title">
+        A soft place to land.
+        <br />
+        <em>A little chaos included.</em>
+      </h2>
+      <p>Warm welcome. Sharp boundaries. Glitter somewhere it should not be.</p>
+    </header>
+    <div class="nari-journal__surface">
+      <span class="nari-journal__bookmark" aria-hidden="true">
+        NARI
+      </span>
+      <div class="nari-journal__entries">
+        {identityEntries.map((entry, index) => (
+          <article class="journal-entry">
+            <div class="journal-entry__marker">
+              <span aria-hidden="true">0{index + 1}</span>
+              <p class="room-kicker">{entry.eyebrow}</p>
+            </div>
+            <div class="journal-entry__copy">
+              <h3>{entry.title}</h3>
+              <p>{entry.text}</p>
+            </div>
+            <GhostieArt
+              class="journal-entry__ghostie"
+              sizes="(min-width: 48rem) 176px, 104px"
+              variant={entry.ghostie}
+            />
+          </article>
+        ))}
+      </div>
+    </div>
+    <RoomDiscovery discoveryId="journal-letter" />
+  </section>
+  <!-- Boundary copy follows the introduction; symbolism stays limited to Nari-approved meaning. -->
+  <section class="nari-promise-note room-section page-width" aria-labelledby="promise-title">
+    <GhostieArt class="nari-promise-note__guardian" sizes="(min-width: 48rem) 320px, 192px" variant="protective" />
+    <div>
+      <p class="room-kicker">Sweet doesn't mean spineless</p>
+      <h2 id="promise-title">
+        We take care
+        <br />
+        <em>of our people here.</em>
+      </h2>
+      <p>
+        The jokes can be loud and the chaos can be legendary. But nobody has to earn basic respect, and nobody gets to
+        mistake kindness for permission to cross a boundary.
+      </p>
+      <dl class="nari-promise-note__details">
+        <div>
+          <dt>
+            <Eye size={18} aria-hidden="true" /> Look for the emerald.
+          </dt>
+          <dd>Nari's bright green eyes are a familiar little signature.</dd>
+        </div>
+        <div>
+          <dt>
+            <MoonStar size={18} aria-hidden="true" /> Some stories stay hers.
+          </dt>
+          <dd>Family, heritage, sun, and moon symbolism are hers to share in her own words and timing.</dd>
+        </div>
+      </dl>
+      <a class="text-link" href="/haven/">
+        See what the Haven protects <ArrowRight size={16} aria-hidden="true" />
+      </a>
+    </div>
+  </section>
+</SiteLayout>
+<style lang="scss">
+  @use "../../styles/rooms/meet-nari.scss";
+</style>

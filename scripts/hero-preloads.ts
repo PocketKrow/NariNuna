@@ -1,8 +1,6 @@
-// Build-time registry projection; use the same hero bands as CSS/picture consumers to prevent competing image downloads.
+// Shared route/hero projection used by delivery tests; SiteLayout renders these bands directly into Astro heads.
 import projectPages from "../src/data/projectPages.json" with { type: "json" };
-import type { Plugin } from "vite";
 import { environmentArtwork } from "../src/data/artwork.ts";
-import { heroSources } from "../src/data/artworkDelivery.ts";
 
 export const routeHeroArtwork: Record<string, string> = Object.fromEntries(
   projectPages.filter(({ hero }) => hero !== null).map(({ document, hero }) => {
@@ -10,23 +8,3 @@ export const routeHeroArtwork: Record<string, string> = Object.fromEntries(
     return [document, environmentArtwork[hero as keyof typeof environmentArtwork]];
   })
 );
-
-/** Inject only registered hero documents; secret and recovery entries return no preload tags. */
-export function heroPreloads(): Plugin {
-  return {
-    name: "nari-route-hero-preloads",
-    transformIndexHtml: {
-      order: "pre",
-      handler(_html, context) {
-        const document = context.path.replace(/^\//, "");
-        const source = routeHeroArtwork[document];
-        if (!source) return [];
-        return heroSources(source).map(({ media, src, srcset }) => ({
-          tag: "link",
-          attrs: { rel: "preload", as: "image", type: "image/webp", href: src, imagesrcset: srcset, media, fetchpriority: "high" },
-          injectTo: "head" as const
-        }));
-      }
-    }
-  };
-}

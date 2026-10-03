@@ -1,5 +1,7 @@
 # Code ownership and maintenance comments
 
+> **2026-10-03 Astro migration:** Jake explicitly requested the rebuild in Astro. ADR-011 and [42 — Astro rebuild](42_ASTRO_REBUILD.md) own the current route, shell, dependency, validation and rollback contracts. Vite-MPA/client-router paths below are dated history. Product content, imagery, privacy and release approval boundaries still apply.
+
 **Reviewed:** 11 September 2026, maintenance branch based on `8c7fe67`.
 
 The 101 baseline code-bearing files and the new reduced-motion regression test have local explanatory coverage. Notes explain responsibility, ordering, failure/cleanup, semantic regions and cascade boundaries; they are not a comment on every line. Existing substantive comments remain. Source-only TS/SCSS comments do not constitute a delivery-size regression; public HTML/vector comments can remain in deployment.

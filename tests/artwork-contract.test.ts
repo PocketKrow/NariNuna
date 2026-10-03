@@ -56,11 +56,11 @@ describe("approved-source artwork contracts", () => {
     }
 
     const consumers = [
-      "src/pages/MeetNariPage.vue",
-      "src/pages/NailStudioPage.vue",
-      "src/pages/HavenPage.vue",
-      "src/pages/SupportPage.vue",
-      "src/pages/NotFoundPage.vue",
+      "src/pages/meet-nari/index.astro",
+      "src/pages/nail-studio/index.astro",
+      "src/pages/haven/index.astro",
+      "src/pages/support/index.astro",
+      "src/pages/404.astro",
       "src/components/layout/SiteHeader.vue"
     ];
 
@@ -92,7 +92,7 @@ describe("approved-source artwork contracts", () => {
     const worldStyles = readFileSync(resolve(process.cwd(), "src/styles/_world.scss"), "utf8");
 
     expect(worldStyles).not.toContain(environmentArtwork.homeSunset);
-    const homePage = readFileSync(resolve(process.cwd(), "src/pages/HomePage.vue"), "utf8");
+    const homePage = readFileSync(resolve(process.cwd(), "src/pages/index.astro"), "utf8");
     expect(homePage).toContain("heroStyle(environmentArtwork.homeSunset)");
     expect(worldStyles).not.toContain(environmentArtwork.homeNight);
     expect(worldStyles).not.toContain(environmentArtwork.homeDaylight);
@@ -102,8 +102,8 @@ describe("approved-source artwork contracts", () => {
   });
 
   it("integrates Nari into distinct Home and Meet Nari hero paintings without separate model overlays", () => {
-    const homePage = readFileSync(resolve(process.cwd(), "src/pages/HomePage.vue"), "utf8");
-    const meetPage = readFileSync(resolve(process.cwd(), "src/pages/MeetNariPage.vue"), "utf8");
+    const homePage = readFileSync(resolve(process.cwd(), "src/pages/index.astro"), "utf8");
+    const meetPage = readFileSync(resolve(process.cwd(), "src/pages/meet-nari/index.astro"), "utf8");
     const meetHero = meetPage.slice(0, meetPage.indexOf("</section>") + "</section>".length);
 
     expect(environmentArtwork.meetNari).not.toBe(environmentArtwork.homeSunset);
@@ -114,7 +114,7 @@ describe("approved-source artwork contracts", () => {
   });
 
   it("keeps secret Prinny artwork out of indexing and ordinary primary navigation", () => {
-    const secretDocument = readFileSync(resolve(process.cwd(), "pages/the-prinny-cult/index.html"), "utf8");
+    const secretDocument = readFileSync(resolve(process.cwd(), "dist/the-prinny-cult/index.html"), "utf8");
     const primaryNavigation = readFileSync(resolve(process.cwd(), "src/data/navigation.ts"), "utf8");
     expect(secretDocument).toContain('content="noindex, nofollow"');
     expect(primaryNavigation).not.toContain("/the-prinny-cult/");

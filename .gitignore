@@ -35,3 +35,6 @@ yarn-error.log*
 
 # Local Python generator bytecode is reproducible and is never source evidence.
 __pycache__/
+
+# Astro-generated types and build cache
+/.astro/

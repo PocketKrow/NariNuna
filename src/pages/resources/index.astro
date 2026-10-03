@@ -1,0 +1,107 @@
+---
+import SiteLayout from "@/layouts/SiteLayout.astro";
+
+// Render three stable shelf fragments with curating copy. Category positions below must remain Nail desk, Creator shelf, Game pile.
+import ResponsiveArtwork from "@/components/art/ResponsiveArtwork.vue";
+import RoomDiscovery from "@/components/ui/RoomDiscovery.vue";
+import { heroSources } from "@/data/artworkDelivery";
+import { BookMarked, HeartHandshake } from "@lucide/vue";
+import { environmentArtwork, storybookPostcards } from "@/data/artwork";
+import { resourceCategories } from "@/data/content";
+
+const resourceShelves = [
+  { id: "nail-desk", category: resourceCategories[0], art: storybookPostcards.nails },
+  { id: "creator-shelf", category: resourceCategories[1], art: storybookPostcards.work },
+  { id: "game-pile", category: resourceCategories[2], art: storybookPostcards.streams },
+];
+---
+
+<SiteLayout pageId="resources">
+  <!-- Shelf fragments are public link contracts used by Nail Studio and Work; descriptive examples are not product endorsements. -->
+  <section class="room-opening room-opening--resources page-width">
+    <div class="room-opening__copy">
+      <p class="eyebrow">
+        <BookMarked size={16} aria-hidden="true" /> Chapter five · the very helpful shelf
+      </p>
+      <h1>
+        Useful things.
+        <br />
+        <em>Chosen with care.</em>
+      </h1>
+      <p>
+        The shelves are sparse on purpose. Nothing gets a label until Nari has actually used it and wants to explain why
+        it belongs here.
+      </p>
+      <div class="room-opening__signals">
+        <span>
+          <HeartHandshake size={15} aria-hidden="true" /> People before products
+        </span>
+      </div>
+    </div>
+    <picture class="room-opening__art room-opening__art--resources">
+      {heroSources(environmentArtwork.resources).map((source) => (
+        <source media={source.media} srcset={source.srcset} />
+      ))}
+      <ResponsiveArtwork
+        fallbackWidth={1280}
+        sizes="100vw"
+        loading="eager"
+        artwork={environmentArtwork.resources}
+        alt="An intricately hand-painted autumn library where little Ghosties keep watch over Nari's books, creative tools, lavender, and helpful shelves"
+        fetchpriority="high"
+      />
+    </picture>
+  </section>
+  <!-- Keep the three shelves even while recommendations are being curated. -->
+  <section class="resource-library room-section page-width" aria-labelledby="shelf-title">
+    <header class="resource-library__index">
+      <p class="room-kicker">The collection</p>
+      <h2 id="shelf-title">
+        A little less searching.
+        <br />
+        <em>A little more making.</em>
+      </h2>
+      <p class="room-caption">Nari is still choosing. Empty space beats a recommendation she cannot stand behind.</p>
+    </header>
+    <div class="resource-library__shelves">
+      {resourceShelves.map((shelf, index) => (
+        <article id={shelf.id} class="resource-shelf">
+          <div class="resource-shelf__heading">
+            <span class="resource-shelf__number" aria-hidden="true">
+              0{index + 1}
+            </span>
+            <div>
+              <p class="room-kicker">{shelf.category.status}</p>
+              <h3>{shelf.category.title}</h3>
+            </div>
+            <ResponsiveArtwork
+              artwork={shelf.art}
+              sizes="(min-width: 64rem) 160px, (min-width: 40rem) 128px, 96px"
+              alt=""
+            />
+          </div>
+          <p>{shelf.category.description}</p>
+          <ul>
+            {shelf.category.examples.map((example) => (
+              <li>{example}</li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+    <RoomDiscovery discoveryId="shelf-broadcast-stub" />
+  </section>
+  <!-- Policy is separate from shelf examples so placeholders cannot imply an endorsement. -->
+  <section class="resource-review page-width" aria-label="Recommendation policy">
+    <div class="shelf-policy">
+      <BookMarked size={24} aria-hidden="true" />
+      <div>
+        <h2>A recommendation should earn its place.</h2>
+        <p>Nari's picks will include her own context and clear disclosures for any paid or affiliate relationship.</p>
+      </div>
+    </div>
+  </section>
+</SiteLayout>
+<style lang="scss">
+  @use "../../styles/rooms/resources.scss";
+</style>
