@@ -1,0 +1,16 @@
+// Shared physical language. Route styles own composition; this layer owns the quiet shell and readable material colors.
+:root { --paper-edge: #8a657b; }
+.site-header { background: #2a1820fa; backdrop-filter: none; }
+.site-header__live-link { border-radius: 0.25rem; }
+.button { border-radius: 0.25rem; }
+.tag-row > span { border-radius: 0.25rem; }
+.site-footer { background: var(--bg-inset); }
+.room-section { padding-block: clamp(2.5rem,5vw,4.5rem); }
+.room-heading h2 { font-size: clamp(2rem,3vw,3rem); }
+.credits-opening h1 { font-size: clamp(2.5rem,4vw,4rem); }
+
+@media (max-width: 47.99rem) {
+  .eyebrow, .room-kicker { letter-spacing: 0.08em; }
+  .room-heading { margin-bottom: 1.5rem; }
+  .tiny-easter-egg, .not-found { overflow-wrap: anywhere; }
+}

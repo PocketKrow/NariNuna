@@ -1,5 +1,8 @@
 # Nari Nuna's Haven — Documentation Hub
 
+Current implementation: [43 — vNext experience, authority, source owners, validation and rollback](43_VNEXT_EXPERIENCE.md). Older tour/Passport and hero-cascade descriptions are superseded.
+
+
 > **2026-10-03 Astro migration:** Jake explicitly requested the rebuild in Astro. ADR-011 and [42 — Astro rebuild](42_ASTRO_REBUILD.md) own the current route, shell, dependency, validation and rollback contracts. Vite-MPA/client-router paths below are dated history. Product content, imagery, privacy and release approval boundaries still apply.
 
 This directory owns the product contracts, engineering guidance, and release evidence. Start with the current audit; dated implementation logs preserve history rather than defining today's branch status.

@@ -1,4 +1,4 @@
-// Cascade entry: foundations, shared world/material layers, then image selection, reading rhythm, focal positions and final phone composition.
+// Retained interior foundations, then shared materials. RoomArrival owns all painted hero geometry independently.
 @use "tokens";
 @use "base";
 @use "components";
@@ -11,5 +11,5 @@
 @use "chapters";
 @use "artwork-delivery";
 @use "room-language";
-@use "face-safe";
-@use "mobile-first";
+
+@use "materials";

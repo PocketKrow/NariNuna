@@ -93,7 +93,7 @@ describe("approved-source artwork contracts", () => {
 
     expect(worldStyles).not.toContain(environmentArtwork.homeSunset);
     const homePage = readFileSync(resolve(process.cwd(), "src/pages/index.astro"), "utf8");
-    expect(homePage).toContain("heroStyle(environmentArtwork.homeSunset)");
+    expect(homePage).toContain("artwork={environmentArtwork.homeSunset}");
     expect(worldStyles).not.toContain(environmentArtwork.homeNight);
     expect(worldStyles).not.toContain(environmentArtwork.homeDaylight);
     expect(retainedAssetExists(environmentArtwork.homeSunset)).toBe(true);
@@ -108,7 +108,7 @@ describe("approved-source artwork contracts", () => {
 
     expect(environmentArtwork.meetNari).not.toBe(environmentArtwork.homeSunset);
     expect(meetHero).toContain("environmentArtwork.meetNari");
-    expect(meetHero).toContain("character-intro--integrated");
+    expect(meetHero).toContain('room="meet"');
     expect(homePage).not.toContain("nariArtwork.fullbody");
     expect(meetHero).not.toContain("nariArtwork.portrait");
   });

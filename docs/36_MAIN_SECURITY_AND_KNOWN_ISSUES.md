@@ -1,5 +1,8 @@
 # Main Security and Known Issues
 
+> **2026-10-05 vNext:** A targeted upstream `http-cache-semantics` update from 4.2.0 to 4.3.0 resolves GHSA-ch52-4w7c-c8xp without changing Astro 7.3.5. The fresh full audit reports zero vulnerabilities. [Document 43](43_VNEXT_EXPERIENCE.md) owns current evidence; earlier audit counts below are historical.
+
+
 > **2026-10-03:** The Astro rebuild has a new lockfile and current audit/exposure analysis in [document 42](42_ASTRO_REBUILD.md). Package counts below are historical and do not describe that branch.
 
 **Review date:** 9 September 2026

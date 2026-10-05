@@ -1,10 +1,10 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
+import RoomArrival from "@/components/astro/RoomArrival.astro";
 
 // Render three stable shelf fragments with curating copy. Category positions below must remain Nail desk, Creator shelf, Game pile.
 import ResponsiveArtwork from "@/components/art/ResponsiveArtwork.vue";
 import RoomDiscovery from "@/components/ui/RoomDiscovery.vue";
-import { heroSources } from "@/data/artworkDelivery";
 import { BookMarked, HeartHandshake } from "@lucide/vue";
 import { environmentArtwork, storybookPostcards } from "@/data/artwork";
 import { resourceCategories } from "@/data/content";
@@ -18,10 +18,10 @@ const resourceShelves = [
 
 <SiteLayout pageId="resources">
   <!-- Shelf fragments are public link contracts used by Nail Studio and Work; descriptive examples are not product endorsements. -->
-  <section class="room-opening room-opening--resources page-width">
-    <div class="room-opening__copy">
+  <RoomArrival room="resources" artwork={environmentArtwork.resources} description="A painted autumn library of books, creative tools, and helpful little Ghosties." note="USEFUL THINGS, CHOSEN WITH CARE">
+
       <p class="eyebrow">
-        <BookMarked size={16} aria-hidden="true" /> Chapter five · the very helpful shelf
+        <BookMarked size={16} aria-hidden="true" /> the very helpful shelf
       </p>
       <h1>
         Useful things.
@@ -37,21 +37,8 @@ const resourceShelves = [
           <HeartHandshake size={15} aria-hidden="true" /> People before products
         </span>
       </div>
-    </div>
-    <picture class="room-opening__art room-opening__art--resources">
-      {heroSources(environmentArtwork.resources).map((source) => (
-        <source media={source.media} srcset={source.srcset} />
-      ))}
-      <ResponsiveArtwork
-        fallbackWidth={1280}
-        sizes="100vw"
-        loading="eager"
-        artwork={environmentArtwork.resources}
-        alt="An intricately hand-painted autumn library where little Ghosties keep watch over Nari's books, creative tools, lavender, and helpful shelves"
-        fetchpriority="high"
-      />
-    </picture>
-  </section>
+
+  </RoomArrival>
   <!-- Keep the three shelves even while recommendations are being curated. -->
   <section class="resource-library room-section page-width" aria-labelledby="shelf-title">
     <header class="resource-library__index">

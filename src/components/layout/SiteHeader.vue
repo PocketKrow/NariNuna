@@ -3,7 +3,7 @@
 import { ChevronDown, Menu, Radio, Sparkles, X } from "@lucide/vue";
 import { onBeforeUnmount, onMounted, ref, watch } from "vue";
 import GhostieArt from "@/components/art/GhostieArt.vue";
-import { havenRoomNotes } from "@/data/journey";
+import { havenRoomNotes } from "@/data/rooms";
 import { footerNavigation, primaryNavigation } from "@/data/navigation";
 import { twitchUrl } from "@/data/socials";
 
@@ -28,7 +28,7 @@ function isCurrent(href: string): boolean {
   return props.currentPath === href || (href === "/" && props.currentPath === "");
 }
 
-/** Share journey descriptions, with a harmless fallback for a newly registered room. */
+/** Share room descriptions, with a harmless fallback for a newly registered room. */
 function roomNoteFor(href: string): string {
   return havenRoomNotes[href] ?? "Another corner of the Haven.";
 }
@@ -123,7 +123,7 @@ onBeforeUnmount(() => {
       </button>
 
       <div id="primary-navigation" ref="menuPanel" class="site-header__panel" :class="{ 'is-open': menuOpen }">
-        <p class="site-header__mobile-context"><Sparkles :size="14" aria-hidden="true" /> The Haven, room by room</p>
+        <p class="site-header__mobile-context"><Sparkles :size="14" aria-hidden="true" /> Make yourself at home</p>
         <!-- Separate link groups let CSS switch layouts without rebuilding open-menu focus state. -->
         <nav class="site-header__mobile-nav" aria-label="Haven rooms">
           <a

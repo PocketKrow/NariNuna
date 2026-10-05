@@ -1,8 +1,8 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
+import RoomArrival from "@/components/astro/RoomArrival.astro";
 
 // Keep free support first and the optional wishlist subordinate. Support never changes access, boundaries or claims on time.
-import { heroStyle } from "@/data/artworkDelivery";
 import { ArrowUpRight, Eye, Gift, Heart, Share2 } from "@lucide/vue";
 import GhostieArt, { type GhostieArtVariant } from "@/components/art/GhostieArt.vue";
 import { environmentArtwork } from "@/data/artwork";
@@ -33,11 +33,8 @@ const ways: { icon: typeof Eye; title: string; text: string; ghostie: GhostieArt
 
 <SiteLayout pageId="support">
   <!-- Free ways to participate precede financial options in both DOM and visual order. -->
-  <section
-    class="support-welcome support-welcome--painted page-width responsive-hero"
-    style={heroStyle(environmentArtwork.commonRoom)}
-  >
-    <div>
+  <RoomArrival room="support" artwork={environmentArtwork.commonRoom} description="Nari and Ghosties in the illustrated common room." note="YOUR PRESENCE ALREADY COUNTS">
+
       <p class="eyebrow">
         <Heart size={15} aria-hidden="true" /> A gentle reminder, before anything else
       </p>
@@ -50,8 +47,8 @@ const ways: { icon: typeof Eye; title: string; text: string; ghostie: GhostieArt
         You matter here whether you spend money or not. Laughing, learning, lurking, checking in, and simply being kind
         are all real support.
       </p>
-    </div>
-  </section>
+
+  </RoomArrival>
   <section class="kindness-notes room-section page-width" aria-labelledby="kindness-title">
     <header class="room-heading">
       <div>

@@ -97,7 +97,7 @@ const fallbackSizes = computed(() => {
 .media-card--album .media-card__body { padding: 0; }
 .media-card--album .media-card__body h3 { color: var(--ink); }
 .media-card--album .media-card__body > p:not(.eyebrow) { color: var(--ink-muted); }
-.media-card--album .media-card__body .eyebrow { color: color-mix(in srgb, var(--ember) 72%, var(--ink)); }
+.media-card--album .media-card__body .eyebrow { color: var(--ink-muted); }
 .media-card--album .text-link { color: var(--emerald-ink); }
 @media (max-width: 47.99rem) {
   .media-card--broadcast.media-card--featured > a,

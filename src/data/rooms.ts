@@ -1,16 +1,11 @@
-// Ordered ten-room journey, independent of header grouping. The last room links Home; unknown routes have no passage.
-export interface HavenJourneyRoom {
+export interface HavenRoom {
   label: string;
   href: string;
   note: string;
 }
 
-/**
- * The intended narrative order through the ordinary public rooms. This is
- * deliberately separate from header priority: navigation helps visitors find
- * a destination, while the journey helps them keep wandering once they arrive.
- */
-export const havenJourney: readonly HavenJourneyRoom[] = [
+// Public room descriptions serve the header and footer; this is not a prescribed path or progress system.
+export const havenRooms: readonly HavenRoom[] = [
   { label: "Home", href: "/", note: "The little world next door." },
   { label: "Meet Nari", href: "/meet-nari/", note: "The warmth, the chaos, and the craft." },
   { label: "Streams", href: "/streams/", note: "There's always one more good bit." },
@@ -24,5 +19,5 @@ export const havenJourney: readonly HavenJourneyRoom[] = [
 ];
 
 export const havenRoomNotes = Object.fromEntries(
-  havenJourney.map(({ href, note }) => [href, note])
+  havenRooms.map(({ href, note }) => [href, note])
 ) as Record<string, string>;

@@ -1,8 +1,8 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
+import RoomArrival from "@/components/astro/RoomArrival.astro";
 
 // Present the same curated moments as Streams in an album. The first record leads; no new story or participant permission is inferred.
-import { heroStyle } from "@/data/artworkDelivery";
 import { ArrowRight, BookOpenText } from "@lucide/vue";
 import MediaCard from "@/components/ui/MediaCard.vue";
 import ArtworkCreditLink from "@/components/art/ArtworkCreditLink.vue";
@@ -15,13 +15,10 @@ const albumMemories = featuredMoments.slice(1);
 
 <SiteLayout pageId="stories">
   <!-- The ordered album retains featured-media priority while keeping its distinct room presentation. -->
-  <section
-    class="story-opening story-opening--painted page-width responsive-hero"
-    style={heroStyle(environmentArtwork.stories)}
-  >
-    <div>
+  <RoomArrival room="stories" artwork={environmentArtwork.stories} description="Nari in the lantern-lit illustrated memory room." note="SOME MOMENTS DESERVE TO STAY">
+
       <p class="eyebrow">
-        <BookOpenText size={16} aria-hidden="true" /> Chapter seven · lanterns, blankets, one more story
+        <BookOpenText size={16} aria-hidden="true" /> lanterns, blankets, one more story
       </p>
       <h1>
         Some moments
@@ -32,8 +29,8 @@ const albumMemories = featuredMoments.slice(1);
         A small archive for stream clips worth finding again. Personal stories wait until Nari chooses them herself.
       </p>
       <ArtworkCreditLink creditId="website-storybook-artwork" />
-    </div>
-  </section>
+
+  </RoomArrival>
   <!-- Album order follows the media record; no participant or story permissions are inferred here. -->
   <section class="memory-album room-section page-width" aria-labelledby="album-title">
     <header class="room-heading">
@@ -47,7 +44,7 @@ const albumMemories = featuredMoments.slice(1);
       </div>
       <p>Three public clips for now. No invented memories filling the empty pages.</p>
     </header>
-    <ol class="memory-album__pages">
+    <ol class="memory-album__pages" data-material-reveal>
       <li class="memory-album__lead">
         <MediaCard moment={leadMemory} presentation="album" featured client:load />
       </li>

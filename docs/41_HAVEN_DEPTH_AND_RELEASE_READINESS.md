@@ -1,5 +1,8 @@
 # Haven Depth and Release Readiness
 
+> **2026-10-05 vNext:** [Document 43](43_VNEXT_EXPERIENCE.md) owns the current experience. The guided bottom passage and Passport are retired; prior descriptions below are historical. Astro/static content, rights and release boundaries remain. All painted arrivals now have one composition owner; CSS/GSAP and selective deferred Three.js replace Motion-V.
+
+
 **Date:** 12 September 2026  
 **Baseline:** open PR #22 head `d3200d7a9f68c195d9d3cb1474b920bd9715137e`  
 **Review branch:** `kiva/haven-depth-release-readiness`  

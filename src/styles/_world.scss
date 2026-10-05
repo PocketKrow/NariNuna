@@ -70,78 +70,6 @@
   box-shadow: 0 0 0.6rem var(--emerald);
 }
 
-body[data-route="home"] // Footer foundation; the compact component owns final spacing and closing notes.
-.site-footer {
-  display: none;
-}
-
-.haven-landing {
-  position: relative;
-  display: flex;
-  min-height: calc(100svh - var(--header-height));
-  flex-direction: column;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-.haven-landing__scene,
-.haven-landing__veil {
-  position: absolute;
-  z-index: -2;
-  inset: 0;
-  pointer-events: none;
-}
-
-.haven-landing__scene {
-  background-image: var(--haven-scene);
-    background-size: cover;
-}
-
-.haven-landing__veil {
-  z-index: -1;
-  background: var(--scene-veil);
-}
-
-.haven-landing__sprig {
-  position: absolute;
-            transform: rotate(-14deg);
-  pointer-events: none;
-}
-
-.haven-landing__inner {
-  display: grid;
-    flex: 1;
-  grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.04fr);
-  align-items: center;
-}
-
-.haven-landing__welcome {
-  position: relative;
-  z-index: 2;
-    padding-block: 1.8rem;
-}
-
-.haven-landing__kicker {
-  display: inline-flex;
-  align-items: center;
-          }
-
-.haven-landing h1 {
-    align-items: baseline;
-          white-space: nowrap;
-}
-
-.haven-landing h1 em {
-  color: var(--lavender);
-}
-
-.haven-landing__subtitle {
-    font-size: clamp(0.98rem, 1.5vw, 1.22rem);
-  }
-
-.haven-landing__intro {
-      color: var(--text-muted);
-  }
 
 // Initial shared profile-control geometry; later polish/mobile layers own final label treatment.
 .social-dock {
@@ -168,51 +96,6 @@ body[data-route="home"] // Footer foundation; the compact component owns final s
   border: 1px solid var(--art-border);
   }
 
-.haven-landing__meet {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-      font-weight: 730;
-  text-decoration: none;
-}
-
-.haven-landing__rooms {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-.haven-landing__rooms > a {
-      grid-template-columns: auto 1fr auto;
-        background: color-mix(in srgb, var(--bg-raised) 91%, transparent);
-      text-decoration: none;
-  transition: border-color var(--duration-fast) ease, transform var(--duration-fast) ease;
-}
-
-.haven-landing__rooms > a:hover {
-  border-color: var(--lavender);
-  transform: translateY(-2px);
-}
-
-.haven-landing__rooms > a > svg:first-child {
-  color: var(--lavender);
-}
-
-.haven-landing__rooms span {
-  display: grid;
-  min-width: 0;
-}
-
-.haven-landing__rooms strong {
-  font-size: 0.79rem;
-}
-
-.haven-landing__rooms small {
-  overflow: hidden;
-  color: var(--text-muted);
-  font-size: 0.67rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 .tag-row {
   display: flex;
   flex-wrap: wrap;
@@ -235,47 +118,6 @@ body[data-route="home"] // Footer foundation; the compact component owns final s
 }
 
 // Character introduction foundation; integrated painting replaces the older separate portrait treatment.
-.character-intro {
-  position: relative;
-  display: grid;
-  min-height: min(47rem, calc(100svh - var(--header-height)));
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.87fr);
-  align-items: center;
-  gap: 2rem;
-  overflow: hidden;
-}
-
-.character-intro__copy {
-  z-index: 2;
-  padding-block: 3rem;
-}
-
-.character-intro h1 {
-  margin-block-end: 0.85rem;
-  font-size: clamp(3.1rem, 7vw, 5.65rem);
-}
-
-.character-intro h1 em,
-.room-opening h1 em,
-.studio-opening h1 em,
-.haven-heart h1 em {
-  color: var(--lavender);
-}
-
-.character-intro__subtitle {
-  max-width: 32rem;
-  font-size: 1.13rem;
-  font-weight: 720;
-}
-
-.character-intro__text {
-  max-width: 34rem;
-  color: var(--text-muted);
-}
-
-.character-intro .tag-row {
-  margin-block: 1.55rem 1.7rem;
-}
 
 .expression-ribbon {
   border-block: 1px solid var(--line);
@@ -387,69 +229,6 @@ body[data-route="home"] // Footer foundation; the compact component owns final s
 }
 
 // Shared room-opening geometry; preserve later route-specific masks and focal overrides.
-.room-opening {
-      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-    gap: 2.3rem;
-  padding-block: 4rem;
-}
-
-.room-opening__copy h1,
-.studio-opening h1,
-.haven-heart h1 {
-  font-size: clamp(3rem, 5.4vw, 4.55rem);
-}
-
-.room-opening__copy > p:not(.eyebrow),
-.studio-opening__inner > div > p:not(.eyebrow),
-.haven-heart__inner > div > p:not(.eyebrow) {
-  max-width: 33rem;
-  color: var(--text-muted);
-  font-size: 1.02rem;
-}
-
-.room-opening .button-row {
-  margin-block: 1.65rem;
-}
-
-.room-opening__signals {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-block-start: 1.4rem;
-}
-
-.room-opening__signals > span {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.38rem;
-  color: var(--text-muted);
-  }
-
-.room-opening__signals > span > svg {
-  color: var(--emerald);
-}
-
-.room-opening__art {
-    border: 1px solid var(--art-border);
-    box-shadow: var(--shadow-deep);
-}
-
-.room-opening__companion {
-  position: absolute;
-        filter: drop-shadow(0 0.5rem 0.8rem rgb(32 19 39 / 29%));
-  animation: ghostie-bob 4.8s ease-in-out infinite;
-}
-
-.room-opening__nari-portrait {
-  position: absolute;
-  right: 4%;
-  bottom: 0;
-  width: clamp(7.5rem, 17vw, 12rem);
-  max-height: 82%;
-  object-fit: contain;
-  object-position: bottom;
-  filter: drop-shadow(0 0.5rem 0.8rem rgb(32 19 39 / 43%));
-}
 
 .stream-door-grid > a {
           text-decoration: none;
@@ -495,51 +274,6 @@ body[data-route="home"] // Footer foundation; the compact component owns final s
 }
 
 // Background-led hero structure shared by studio and Haven, with independent page art variables.
-.studio-opening,
-.haven-heart {
-  position: relative;
-  min-height: 32rem;
-  overflow: hidden;
-  background: var(--bg-raised);
-  isolation: isolate;
-}
-
-.studio-opening__backdrop,
-.haven-heart__environment {
-  position: absolute;
-  z-index: -2;
-  inset: 0;
-    background-size: cover;
-}
-
-.studio-opening::after,
-.haven-heart::after {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  background: linear-gradient(90deg, color-mix(in srgb, var(--bg) 96%, transparent), color-mix(in srgb, var(--bg) 76%, transparent) 50%, color-mix(in srgb, var(--bg) 17%, transparent));
-  content: "";
-}
-
-.studio-opening__inner,
-.haven-heart__inner {
-  display: grid;
-  min-height: 32rem;
-    align-items: center;
-  gap: 2rem;
-  padding-block: 3.5rem;
-}
-
-.studio-opening__ghostie,
-.haven-heart__inner > img {
-  width: min(100%, 23rem);
-  justify-self: center;
-  filter: drop-shadow(0 1rem 1.8rem rgb(27 17 35 / 37%));
-}
-
-.studio-opening .tag-row {
-  margin-block-start: 1.5rem;
-}
 
 .honest-gallery {
   background: var(--bg-inset);
@@ -609,74 +343,6 @@ body[data-route="home"] // Footer foundation; the compact component owns final s
   align-items: center;
   gap: 1.3rem;
   padding-block: 4rem;
-}
-
-.support-welcome > div > p:not(.eyebrow),
-.story-opening > div > p:not(.eyebrow) {
-  max-width: 40rem;
-  color: var(--text-muted);
-}
-
-.support-welcome,
-.story-opening {
-  position: relative;
-  display: grid;
-  min-height: min(38rem, calc(100svh - var(--header-height)));
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
-  align-items: center;
-  gap: 2rem;
-  padding-block: 4rem;
-}
-
-.support-welcome > img:first-child {
-  width: min(100%, 22rem);
-  justify-self: center;
-}
-
-.support-welcome h1,
-.story-opening h1 {
-  font-size: clamp(3rem, 6vw, 5rem);
-}
-
-.support-welcome h1 em,
-.story-opening h1 em {
-  color: var(--lavender);
-}
-
-.support-welcome__ghostie {
-  position: absolute;
-  right: var(--page-gutter);
-  bottom: 1rem;
-  width: 6rem;
-  animation: ghostie-bob 5.5s ease-in-out infinite;
-}
-
-.story-opening {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
-}
-
-.story-opening__art {
-    display: grid;
-  place-items: center;
-}
-
-.story-opening__art > img:first-child {
-  width: min(100%, 20rem);
-}
-
-.story-opening__art > img:nth-child(2),
-.story-opening__art > img:nth-child(3) {
-  position: absolute;
-  }
-
-.story-opening__art > img:nth-child(2) {
-  top: 0;
-  right: 4%;
-}
-
-.story-opening__art > img:nth-child(3) {
-  bottom: 7%;
-  left: 0;
 }
 
 .work-values__grid > article > svg {
@@ -764,52 +430,13 @@ body[data-route="home"] // Footer foundation; the compact component owns final s
     width: max-content;
   }
 
-  .haven-landing__welcome {
-    padding-block: 2rem;
-  }
-
   .social-dock > a {
     width: 3.55rem;
   }
 
-  .room-opening,
-  .character-intro,
-  .studio-opening__inner,
-  .haven-heart__inner,
-  .haven-belonging__inner,
-  .support-welcome,
-  .story-opening {
+
+  .haven-belonging__inner {
     grid-template-columns: 1fr;
-  }
-
-  .room-opening {
-    min-height: auto;
-    gap: 2rem;
-    padding-block: 4rem;
-  }
-
-  .room-opening__art {
-    max-width: 40rem;
-  }
-
-  .character-intro {
-    min-height: auto;
-    gap: 0;
-    padding-block-start: 2rem;
-  }
-
-  .character-intro__copy {
-    padding-block: 1rem;
-  }
-
-  .studio-opening__inner,
-  .haven-heart__inner {
-        gap: 0.5rem;
-  }
-
-  .studio-opening__ghostie,
-  .haven-heart__inner > img {
-    max-width: 19rem;
   }
 
 
@@ -844,21 +471,8 @@ body[data-route="home"] // Footer foundation; the compact component owns final s
 
 @media (max-width: 42rem) {
 
-  .haven-landing__veil {
-    background: linear-gradient(180deg, color-mix(in srgb, var(--bg) 93%, transparent), color-mix(in srgb, var(--bg) 83%, transparent) 48%, color-mix(in srgb, var(--bg) 58%, transparent));
-  }
-
-  .haven-landing__welcome {
-        padding-block: 2.2rem 1rem;
-  }
-
   .social-dock {
     justify-content: flex-start;
-  }
-
-  .haven-landing__rooms {
-    grid-template-columns: 1fr;
-    padding-block: 1rem 1.5rem;
   }
 
   .expression-ribbon__inner {
@@ -917,14 +531,5 @@ body[data-route="home"] // Footer foundation; the compact component owns final s
   .site-footer__statement {
     grid-template-columns: 5rem minmax(0, 1fr);
     gap: 0.8rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .haven-landing__ghostie,
-  .character-intro__ghostie,
-  .room-opening__companion,
-  .support-welcome__ghostie {
-    animation: none;
   }
 }
