@@ -38,3 +38,6 @@ __pycache__/
 
 # Astro-generated types and build cache
 /.astro/
+
+/test-results/
+/playwright-report/

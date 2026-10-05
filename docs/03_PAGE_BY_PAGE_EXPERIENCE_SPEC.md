@@ -1,5 +1,8 @@
 # Page-by-Page Experience Specification
 
+> **2026-10-05 vNext:** [Document 43](43_VNEXT_EXPERIENCE.md) owns the current experience. The guided bottom passage and Passport are retired; prior descriptions below are historical. Astro/static content, rights and release boundaries remain. All painted arrivals now have one composition owner; CSS/GSAP and selective deferred Three.js replace Motion-V.
+
+
 > 2026-09-07 implementation delta: [integrated visual refinement](34_DISTINCTIVE_UI_REFINEMENT.md) records current layouts, style ownership, content disclosures, and observed QA. Earlier implementation descriptions below are historical where superseded; product and release requirements remain in force.
 
 > 2026-09-08 mobile delta: below `48rem`, ordinary chapter openings use an art-first composition with overlapping copy, and Resources proceeds directly from its opening into the three shelves without category jump links. Desktop composition, shelf IDs, content order, actions, and publication gates are unchanged. See [document 35](35_MOBILE_FIRST_OVERHAUL.md).

@@ -51,7 +51,7 @@ export async function startBrowserPreview() {
   });
   await new Promise((done, reject) => {
     server.once("error", reject);
-    server.listen(0, "127.0.0.1", done);
+    server.listen(Number(process.env.NARI_PREVIEW_PORT ?? 0), "127.0.0.1", done);
   });
   const address = server.address();
   if (!address || typeof address === "string") throw new Error("Preview did not receive a TCP address.");

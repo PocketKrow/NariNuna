@@ -6,20 +6,6 @@
  */
 
 /* Home: one deliberate desktop viewport with a clean, uninterrupted arrival. */
-.haven-landing {
-  height: calc(100svh - var(--header-height));
-  min-height: 38rem;
-  padding-block-end: 0;
-}
-
-.haven-landing__inner {
-  min-height: 100%;
-  padding-block-end: 1rem;
-}
-
-.haven-landing__welcome {
-  padding-block: clamp(1rem, 4svh, 2.2rem) 1rem;
-}
 
 #haven-door,
 #nari-links {
@@ -73,87 +59,15 @@ body[data-route="haven"] .haven-entry {
    * Keep Home a composed scene on phones. Copy remains in the left visual lane
    * and the CTA shrinks to its content instead of crossing the painting.
    */
-  .haven-landing {
-    min-height: 39rem;
-  }
-
-  .haven-landing__scene {
-    background-position: 64% center;
-  }
-
-  .haven-landing__veil {
-    background:
-      linear-gradient(90deg, color-mix(in srgb, var(--bg) 96%, transparent) 0%, color-mix(in srgb, var(--bg) 88%, transparent) 52%, color-mix(in srgb, var(--bg) 50%, transparent) 76%, transparent 100%),
-      linear-gradient(180deg, color-mix(in srgb, var(--bg) 28%, transparent), transparent 48%, color-mix(in srgb, var(--bg) 70%, transparent) 100%);
-  }
-
-  .haven-landing__inner {
-    align-items: start;
-    padding-inline: 1rem;
-    padding-block-end: 1rem;
-  }
-
-  .haven-landing__welcome {
-    width: min(100%, 22rem);
-    max-width: 22rem;
-    padding-block: clamp(0.9rem, 3svh, 1.7rem) 0.35rem;
-  }
-
-  .haven-landing h1 {
-    font-size: clamp(3rem, 14vw, 4.35rem);
-  }
-
-  .haven-landing__intro {
-    max-width: 19rem;
-    margin-block-end: 0.55rem;
-    font-size: 0.8rem;
-    line-height: 1.55;
-  }
 
   .social-dock {
     width: min(100%, 18rem);
     margin-block: 0.5rem 0.65rem;
   }
 
-  .haven-landing__actions {
-    align-items: flex-start;
-    gap: 0.2rem;
-  }
-
-  .haven-landing__actions > .button {
-    width: fit-content;
-    max-width: 100%;
-    min-height: 2.7rem;
-  }
-
-  .haven-landing__meet {
-    min-height: 2.35rem;
-    justify-content: flex-start;
-  }
-
 }
 
 @media (max-width: 42rem) and (max-height: 44rem) {
-  .haven-landing {
-    min-height: 35rem;
-  }
-
-  .haven-landing h1 {
-    font-size: clamp(2.75rem, 13vw, 3.8rem);
-  }
-
-  .haven-landing__kicker {
-    margin-block-end: 0.2rem;
-  }
-
-  .haven-landing__subtitle {
-    margin-block-end: 0.35rem;
-  }
-
-  .haven-landing__intro {
-    font-size: 0.76rem;
-    line-height: 1.45;
-  }
 
   .social-dock {
     margin-block: 0.35rem 0.5rem;

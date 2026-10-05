@@ -1,11 +1,11 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
+import RoomArrival from "@/components/astro/RoomArrival.astro";
 
 // Present self-taught practice and the illustrated desk honestly. Keep the real-photo hold and exact resource-shelf destination.
 import ResponsiveArtwork from "@/components/art/ResponsiveArtwork.vue";
 import ArtworkCreditLink from "@/components/art/ArtworkCreditLink.vue";
 import RoomDiscovery from "@/components/ui/RoomDiscovery.vue";
-import { heroStyle } from "@/data/artworkDelivery";
 import { ArrowRight, Heart, Paintbrush, Sparkles } from "@lucide/vue";
 import GhostieArt from "@/components/art/GhostieArt.vue";
 import { environmentArtwork, storybookPostcards } from "@/data/artwork";
@@ -13,16 +13,10 @@ import { environmentArtwork, storybookPostcards } from "@/data/artwork";
 
 <SiteLayout pageId="nailStudio">
   <!-- Illustrated atmosphere leads into practice notes and an honest real-work hold; artwork is not portfolio evidence. -->
-  <section class="studio-opening responsive-hero" style={heroStyle(environmentArtwork.nails)}>
-    <div
-      class="studio-opening__backdrop"
-      aria-hidden="true"
-      style={{ backgroundImage: "var(--responsive-hero-art)" }}
-    ></div>
-    <div class="studio-opening__inner page-width">
-      <div>
+  <RoomArrival room="nails" artwork={environmentArtwork.nails} description="An illustrated view of Nari's autumn nail-art desk. This is atmosphere, not a nail portfolio." note="POLISH, PRACTICE & PATIENCE">
+
         <p class="eyebrow">
-          <Paintbrush size={16} aria-hidden="true" /> Chapter three · her favorite little desk
+          <Paintbrush size={16} aria-hidden="true" /> her favorite little desk
         </p>
         <h1>
           Tiny canvases.
@@ -39,9 +33,8 @@ import { environmentArtwork, storybookPostcards } from "@/data/artwork";
           </span>
         </div>
         <ArtworkCreditLink creditId="website-storybook-artwork" />
-      </div>
-    </div>
-  </section>
+
+  </RoomArrival>
   <section class="studio-workbench room-section page-width" aria-labelledby="workbench-title">
     <header class="room-heading">
       <div>
@@ -55,7 +48,7 @@ import { environmentArtwork, storybookPostcards } from "@/data/artwork";
       <p>Color, tiny details, glitter experiments, and honest practice on her own nails.</p>
     </header>
     <div class="studio-workbench__spread">
-      <figure class="studio-workbench__scene">
+      <figure class="studio-workbench__scene" data-material-reveal>
         <ResponsiveArtwork
           artwork={storybookPostcards.nails}
           sizes="(min-width: 80rem) 760px, (min-width: 48rem) 58vw, calc(100vw - 32px)"

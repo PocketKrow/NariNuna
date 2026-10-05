@@ -1,5 +1,8 @@
 # Mobile-first experience overhaul
 
+> **2026-10-05 vNext:** [Document 43](43_VNEXT_EXPERIENCE.md) owns the current experience. The guided bottom passage and Passport are retired; prior descriptions below are historical. Astro/static content, rights and release boundaries remain. All painted arrivals now have one composition owner; CSS/GSAP and selective deferred Three.js replace Motion-V.
+
+
 **Status:** PRs #16 and #17 `MERGED`; shared journey polish `IMPLEMENTED` on `kiva/journey-polish-desktop` for client review; production clearance remains blocked
 **Date:** 2026-09-09
 **Branches:** `kiva/mobile-first-overhaul`; `kiva/mobile-refinement-pass-2`

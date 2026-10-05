@@ -1,7 +1,7 @@
 ---
 // Build-time shell projection; navigation is ordinary document anchors.
 import { ArrowUpRight, Heart } from "@lucide/vue";
-import { havenRoomNotes } from "@/data/journey";
+import { havenRoomNotes } from "@/data/rooms";
 import { footerNavigation } from "@/data/navigation";
 import { socialLinks } from "@/data/socials";
 interface Props {
@@ -97,7 +97,7 @@ const roomNote = havenRoomNotes[currentPath] ?? "The little world next door.";
     color: var(--story-chip-copy);
     background: var(--story-chip);
     border: 1px solid var(--story-line);
-    border-radius: 999px;
+    border-radius: 0.2rem;
     font-size: 0.875rem;
     font-weight: 750;
     text-decoration: none;

@@ -1,8 +1,7 @@
 ---
-// One document shell owns metadata, early hero delivery, landmarks and optional journey islands.
+// One document shell owns metadata, early hero delivery, landmarks.
 import SiteHeader from "@/components/layout/SiteHeader.vue";
 import SiteFooter from "@/components/layout/SiteFooter.astro";
-import RoomPassage from "@/components/layout/RoomPassage.astro";
 import { primaryNavigation, footerNavigation } from "@/data/navigation";
 import pages from "@/data/projectPages.json";
 import { environmentArtwork } from "@/data/artwork";
@@ -78,7 +77,6 @@ const noScriptLinks = [...primaryNavigation, ...footerNavigation];
         <main id="main-content" tabindex="-1">
           <slot />
         </main>
-        <RoomPassage currentPath={page.path} />
         <SiteFooter currentPath={page.path} />
       </Fragment>
     )}

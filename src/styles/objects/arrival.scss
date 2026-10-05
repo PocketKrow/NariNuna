@@ -1,0 +1,112 @@
+// Painting, copy and material edge share geometry. Mobile shows the art above paper; desktop keeps Nari clear of the copy lane.
+.room-arrival {
+  --arrival-focus: 72% 45%;
+  --arrival-desktop-focus: center 35%;
+  --arrival-height: clamp(24rem, 39vw, 39rem);
+  position: relative;
+  isolation: isolate;
+  max-width: 120rem;
+  margin-inline: auto;
+  overflow: clip;
+  border-bottom: 1px solid var(--story-line);
+  background: var(--bg-inset);
+}
+.room-arrival__painting {
+  position: relative;
+  height: var(--arrival-height);
+  background: var(--responsive-hero-art) var(--arrival-focus) / cover no-repeat;
+}
+.room-arrival__light {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgb(32 19 25 / 30%), transparent 40%);
+  pointer-events: none;
+}
+.room-arrival__annotation {
+  position: absolute;
+  bottom: 1.25rem;
+  right: max(var(--page-gutter), calc((100vw - var(--page-width)) / 2));
+  padding: 0.4rem 0.7rem;
+  color: #fff2e7;
+  background: #35202ce6;
+  font: 0.7rem / 1.5 var(--font-detail);
+  letter-spacing: 0.06em;
+}
+.room-arrival__body { position: relative; z-index: 1; padding-block: 2rem 2.25rem; }
+.room-arrival__copy { max-width: 34rem; }
+.room-arrival__copy h1 { margin-bottom: 1.25rem; font-size: clamp(2.4rem, 4.3vw, 4.2rem); line-height: 1.08; letter-spacing: -0.04em; }
+.room-arrival__copy h1 em { color: var(--lavender); }
+.room-arrival__copy > p:not(.eyebrow) { max-width: 32rem; color: var(--text-muted); line-height: 1.75; }
+.room-arrival__copy .eyebrow { color: var(--storybook-gold); font-size: 0.7rem; letter-spacing: 0.09em; }
+.room-arrival__copy .tag-row { gap: 0.5rem; margin-bottom: 1.5rem; }
+.room-arrival__copy .tag-row > span { border-radius: 0.2rem; font-size: 0.8rem; }
+.room-arrival__copy .button-row { gap: 0.75rem; }
+.room-arrival__copy .artwork-credit-link { margin-top: 1rem; }
+.room-arrival__copy .room-opening__signals { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.25rem; color: var(--text-muted); font-size: 0.8rem; }
+.room-arrival__copy .room-opening__signals > span { display: flex; align-items: center; gap: 0.4rem; }
+.ambient-field { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.55; }
+.atmosphere-control {
+  position: absolute; z-index: 3; top: 0.75rem; right: var(--page-gutter);
+  min-height: 2.75rem; padding: 0.5rem 0.75rem; border: 1px solid var(--story-line);
+  background: #2a1820eb; color: var(--text); border-radius: 0.2rem;
+  font-size: 0.75rem; cursor: pointer;
+}
+.atmosphere-control[hidden] { display: none; }
+.room-arrival--home { --arrival-focus: 73% 40%; --arrival-height: clamp(21rem, 65vw, 34rem); }
+.room-arrival--home .room-arrival__body { padding-block: 2rem 2.5rem; }
+.room-arrival--home h1 { display: flex; flex-wrap: wrap; gap: 0.3em; font-size: clamp(3rem, 5.5vw, 5rem); }
+.arrival-subtitle { font-family: var(--font-display); font-size: 1.4rem; font-style: italic; }
+.arrival-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.25rem; margin-block: 1.5rem 0; }
+.room-arrival--home .social-dock { justify-content: start; margin-block: 1.25rem; gap: 0.5rem; }
+.room-arrival--home .social-dock > a { width: 2.75rem; height: 2.75rem; border-radius: 0.25rem; background: #ffffff08; border-color: var(--story-line); }
+.room-arrival--home .social-dock__label { display: none; }
+.room-arrival--meet { --arrival-focus: 76% 34%; --arrival-desktop-focus: center top; }
+.room-arrival--nails { --arrival-focus: 73% 48%; }
+.room-arrival--haven { --arrival-focus: 75% 45%; }
+.room-arrival--resources { --arrival-focus: 62% 50%; }
+.room-arrival--work { --arrival-focus: 74% 40%; }
+.room-arrival--stories { --arrival-focus: 75% 44%; }
+.room-arrival--support { --arrival-focus: 75% 45%; }
+@media (min-width: 64rem) {
+  .room-arrival { min-height: clamp(35rem, 44vw, 44rem); }
+  .room-arrival__painting { position: absolute; inset: 0; height: 100%; background-position: var(--arrival-desktop-focus); }
+  .room-arrival__light { background: linear-gradient(90deg, #21151ef7 0%, #21151eed 23%, #21151e9c 39%, transparent 62%); }
+  .room-arrival__body { display: flex; min-height: inherit; align-items: center; padding-block: 4rem; }
+  .room-arrival__copy { width: min(37vw, 32rem); }
+  .room-arrival--home { min-height: min(48rem, calc(100svh - var(--header-height))); }
+  .room-arrival--home .room-arrival__body { min-height: inherit; padding-block: 3rem; }
+  .room-arrival--home h1 { display: grid; gap: 0; font-size: clamp(4rem, 6vw, 5.4rem); }
+  .room-arrival--home h1 em { margin-left: 1.2rem; }
+  .room-arrival--resources .room-arrival__light { background: linear-gradient(90deg, #21151efc 0%, #21151ee8 31%, #21151e66 58%, transparent); }
+  .room-arrival--work { min-height: 35rem; }
+}
+@media (max-width: 63.99rem) {
+  .room-arrival__body { background: var(--bg); border-top: 3px solid var(--storybook-gold); }
+  .room-arrival--meet .room-arrival__body,
+  .room-arrival--nails .room-arrival__body,
+  .room-arrival--work .room-arrival__body {
+    background: var(--storybook-paper); color: var(--ink);
+    border-top-color: var(--plum);
+  }
+  :is(.room-arrival--meet, .room-arrival--nails, .room-arrival--work) .room-arrival__copy > p:not(.eyebrow) { color: var(--ink-muted); }
+  :is(.room-arrival--meet, .room-arrival--nails, .room-arrival--work) .room-arrival__copy h1 em { color: #79516b; }
+  :is(.room-arrival--meet, .room-arrival--nails, .room-arrival--work) .eyebrow { color: var(--ink-muted); }
+  :is(.room-arrival--meet, .room-arrival--nails, .room-arrival--work) .tag-row > span { background: transparent; border-color: var(--line-dark); color: var(--ink-muted); }
+  .room-arrival__copy { max-width: 40rem; margin-inline: auto; }
+  .room-arrival--home .room-arrival__copy { max-width: 34rem; }
+}
+@media (max-width: 30rem) {
+  .room-arrival { --arrival-height: 19rem; }
+  .room-arrival--home { --arrival-height: 21rem; }
+  .room-arrival__body { padding-block: 1.75rem 2rem; }
+  .room-arrival__copy h1 { font-size: clamp(2.25rem, 9vw, 2.75rem); }
+  .room-arrival--home h1 { font-size: clamp(3rem, 12vw, 3.5rem); }
+  .room-arrival__annotation { font-size: 0.65rem; }
+  .arrival-actions { align-items: stretch; flex-direction: column; gap: 0.5rem; }
+  .arrival-actions > a { justify-content: center; }
+  .room-arrival__copy .button-row { flex-direction: column; align-items: stretch; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ambient-field, .atmosphere-control { display: none; }
+  .room-arrival__painting { transform: none !important; }
+}

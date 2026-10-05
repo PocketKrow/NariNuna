@@ -113,13 +113,8 @@ try {
   await page.getByRole("link", { name: "Return upstairs" }).click();
   await page.waitForURL("**/haven/#haven-door");
   log.push("Floorboard reveal reaches the noindex standalone secret room and returns upstairs.");
-  await page.waitForFunction(() => !document.querySelector('astro-island[client="idle"]')?.hasAttribute("ssr"));
-  let visits = await page.evaluate(() => JSON.parse(localStorage.getItem("nari-haven-passport:v1")).visited);
-  assert.deepEqual(visits, ["/", "/haven/"]);
-  await page.locator(".haven-passport > summary").click();
-  await page.getByRole("button", { name: "Reset passport" }).click();
-  assert.equal(await page.evaluate(() => localStorage.getItem("nari-haven-passport:v1")), null);
-  log.push("Passport records distinct ordinary visits across documents and resets persisted stamps.");
+  assert.equal(await page.locator(".room-passage, .haven-passport").count(), 0);
+  log.push("Guided-tour and Passport UI are absent.");
   await page.emulateMedia({ reducedMotion: "reduce" });
   assert.equal(await page.evaluate(() => getComputedStyle(document.documentElement).scrollBehavior), "auto");
   log.push("Changing reduced motion disables smooth scrolling.");
@@ -147,20 +142,6 @@ try {
   assert.match(await nojsPage.locator("h1").innerText(), /Hi, I'm Nari/);
   log.push("At 320px with JavaScript disabled, content and ordinary-room navigation remain usable.");
   await nojs.close();
-  const denied = await browser.newContext();
-  await denied.addInitScript(() => {
-    Object.defineProperty(window, "localStorage", {
-      get() {
-        throw new DOMException("denied", "SecurityError");
-      },
-    });
-  });
-  const deniedPage = await denied.newPage();
-  await deniedPage.goto(`${preview.origin}/haven/`);
-  await deniedPage.waitForFunction(() => !document.querySelector('astro-island[client="idle"]')?.hasAttribute("ssr"));
-  assert.match(await deniedPage.locator(".haven-passport summary").innerText(), /1 \/ 10/);
-  await denied.close();
-  log.push("Passport works in memory when browser storage is denied.");
   console.log(JSON.stringify({ passed: log }, null, 2));
 } finally {
   await browser.close();

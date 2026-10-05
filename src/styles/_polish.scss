@@ -85,64 +85,6 @@
 }
 
 /* Home starts as a natural mobile document instead of a forced desktop viewport. */
-.haven-landing {
-  min-height: calc(100svh - var(--header-height));
-  max-height: none;
-  }
-
-.haven-landing::before {
-  inset: 0.55rem;
-}
-
-.haven-landing__margin-note {
-  display: none;
-}
-
-.haven-landing__inner {
-  width: 100%;
-  grid-template-columns: 1fr;
-  padding-inline: 1rem;
-}
-
-.haven-landing__welcome {
-  max-width: 31rem;
-  padding-block: 1.6rem 0.6rem;
-}
-
-.haven-landing h1 {
-  font-size: clamp(3.15rem, 16vw, 4.7rem);
-  line-height: 0.84;
-}
-
-.haven-landing__kicker {
-  font-size: 0.58rem;
-  line-height: 1.5;
-}
-
-.haven-landing__subtitle {
-  font-size: 1rem;
-}
-
-.haven-landing__intro {
-  font-size: 0.84rem;
-  line-height: 1.7;
-}
-
-.haven-landing__actions {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 0.45rem;
-}
-
-.haven-landing__actions > .button {
-  width: 100%;
-}
-
-.haven-landing__meet {
-  min-height: 2.75rem;
-  justify-content: center;
-}
 
 /* Haven values use banner-canon scene crops instead of a second Ghostie style. */
 
@@ -395,56 +337,6 @@
 
   .social-dock {
     width: min(100%, 20.25rem);
-  }
-
-  .haven-landing {
-    min-height: calc(100svh - var(--header-height));
-    max-height: calc(100svh - var(--header-height));
-    padding-block-end: 0;
-  }
-
-  .haven-landing::before {
-    inset: 1rem;
-  }
-
-  .haven-landing__inner {
-    width: min(100%, 90rem);
-    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-    padding-inline: clamp(3.8rem, 9vw, 9rem);
-  }
-
-  .haven-landing__margin-note {
-    display: flex;
-  }
-
-  .haven-landing__welcome {
-    padding-block: 1rem 0.5rem;
-  }
-
-  .haven-landing h1 {
-    font-size: clamp(4.1rem, 8.4vw, 7.6rem);
-    line-height: 0.8;
-  }
-
-  .haven-landing__kicker {
-    font-size: 0.64rem;
-  }
-
-  .haven-landing__subtitle {
-    font-size: clamp(1.12rem, 1.65vw, 1.45rem);
-  }
-
-  .haven-landing__intro {
-    font-size: clamp(0.79rem, 1vw, 0.92rem);
-  }
-
-  .haven-landing__actions {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .haven-landing__actions > .button {
-    width: auto;
   }
 
   .haven-door {

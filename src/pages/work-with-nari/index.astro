@@ -1,9 +1,9 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
+import RoomArrival from "@/components/astro/RoomArrival.astro";
 
 // Own the correspondence letter and native public-profile directory. Keep both fragment destinations and the unpublished-inbox disclosure.
 import ResponsiveArtwork from "@/components/art/ResponsiveArtwork.vue";
-import { heroSources } from "@/data/artworkDelivery";
 import { ArrowRight, ArrowUpRight, Handshake } from "@lucide/vue";
 import { environmentArtwork, storybookPostcards } from "@/data/artwork";
 import { nariLinks } from "@/data/socials";
@@ -26,10 +26,10 @@ const fits = [
 
 <SiteLayout pageId="workWithNari">
   <!-- The letter and profile directory are separately addressable; preserve painted margin clearance around the text. -->
-  <section class="room-opening room-opening--work page-width">
-    <div class="room-opening__copy">
+  <RoomArrival room="work" artwork={environmentArtwork.work} description="Nari at her autumn correspondence desk while a Ghostie carries a letter." note="FROM THE WRITING DESK">
+
       <p class="eyebrow">
-        <Handshake size={16} aria-hidden="true" /> Chapter six · a note from the writing desk
+        <Handshake size={16} aria-hidden="true" /> a note from the writing desk
       </p>
       <h1>
         Let's make
@@ -40,21 +40,8 @@ const fits = [
       <a class="button button--ember" href="#collaboration-note">
         Read the collaboration note <ArrowRight size={17} aria-hidden="true" />
       </a>
-    </div>
-    <picture class="room-opening__art room-opening__art--work">
-      {heroSources(environmentArtwork.work).map((source) => (
-        <source media={source.media} srcset={source.srcset} />
-      ))}
-      <ResponsiveArtwork
-        fallbackWidth={1280}
-        sizes="100vw"
-        loading="eager"
-        artwork={environmentArtwork.work}
-        alt="Nari sits at her beautifully illustrated autumn correspondence desk while a tiny Ghostie helps carry a letter"
-        fetchpriority="high"
-      />
-    </picture>
-  </section>
+
+  </RoomArrival>
   <!-- This fragment is linked from the hero; keep the correspondence margin outside the letter text. -->
   <section id="collaboration-note" class="correspondence room-section page-width" aria-labelledby="letter-title">
     <div class="correspondence__margin">
@@ -74,7 +61,7 @@ const fits = [
         Nari Nuna
       </span>
     </div>
-    <div class="collaboration-letter">
+    <div class="collaboration-letter" data-material-reveal>
       <div class="collaboration-letter__masthead">
         <span>Work with Nari</span>
         <span>A good first conversation</span>

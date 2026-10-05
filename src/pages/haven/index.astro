@@ -1,8 +1,8 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
+import RoomArrival from "@/components/astro/RoomArrival.astro";
 
 // Values precede the three-knock Discord threshold; the optional floorboard follows it. Keep the door fragment stable for inbound links.
-import { heroStyle } from "@/data/artworkDelivery";
 import { House } from "@lucide/vue";
 import GhostieArt from "@/components/art/GhostieArt.vue";
 import ArtworkCreditLink from "@/components/art/ArtworkCreditLink.vue";
@@ -15,16 +15,10 @@ import { communityValues } from "@/data/content";
 
 <SiteLayout pageId="haven">
   <!-- The charter establishes boundaries before any community invitation or hidden-room discovery. -->
-  <section class="haven-heart responsive-hero" style={heroStyle(environmentArtwork.commonRoom)}>
-    <div
-      class="haven-heart__environment"
-      aria-hidden="true"
-      style={{ backgroundImage: "var(--responsive-hero-art)" }}
-    ></div>
-    <div class="haven-heart__inner page-width">
-      <div>
+  <RoomArrival room="haven" artwork={environmentArtwork.commonRoom} description="Nari and her Ghosties in the warm illustrated common room." note="COME AS YOU ARE">
+
         <p class="eyebrow">
-          <House size={16} aria-hidden="true" /> Chapter four · the room that feels like exhaling
+          <House size={16} aria-hidden="true" /> the room that feels like exhaling
         </p>
         <h1>
           You don't have to
@@ -36,9 +30,8 @@ import { communityValues } from "@/data/content";
           respect for the human on the other side of the screen.
         </p>
         <ArtworkCreditLink creditId="website-storybook-artwork" />
-      </div>
-    </div>
-  </section>
+
+  </RoomArrival>
   <section class="haven-charter room-section page-width" aria-labelledby="charter-title">
     <div class="haven-charter__welcome">
       <p class="room-kicker">What keeps this place a home</p>
@@ -54,7 +47,7 @@ import { communityValues } from "@/data/content";
         Room to be yourself.
       </p>
     </div>
-    <ol class="haven-charter__values">
+    <ol class="haven-charter__values" data-material-reveal>
       {communityValues.map((value, index) => (
         <li>
           <span class="haven-charter__number" aria-hidden="true">
@@ -72,7 +65,9 @@ import { communityValues } from "@/data/content";
     <RoomDiscovery discoveryId="charter-memory-scrap" />
   </div>
   <!-- The public fragment targets both invitation and optional discovery, after the charter. -->
-  <section id="haven-door" class="haven-entry page-width section-pad">
+  <section id="haven-door" class="haven-entry page-width section-pad" data-experience>
+    <canvas class="ambient-field haven-entry__atmosphere" data-atmosphere aria-hidden="true"></canvas>
+    <button class="atmosphere-control" type="button" data-atmosphere-control hidden aria-pressed="false">Pause atmosphere</button>
     <HavenDoor client:load />
     <LooseFloorboard client:load />
   </section>

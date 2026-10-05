@@ -31,17 +31,17 @@ Never claim a test, build, branch, commit, PR, deployment, link, right, or appro
 
 ## Locked architecture
 
-- Astro 7 static output + Vue 3 islands + strict TypeScript + SCSS + Lucide. Vite/Vitest own compilation/tests; there is no client router. Existing Motion for Vue is dormant.
+- Astro 7 static output + Vue 3 islands + strict TypeScript + SCSS + Lucide. Vite/Vitest own compilation/tests; there is no client router. CSS micro-motion plus deferred GSAP/ScrollTrigger; selective Three.js on Home/Haven.
 - npm with committed lockfile and Node.js 22.13+.
 - Twelve prerendered documents owned by `src/pages/*.astro` and nested `index.astro` routes.
 - Ordinary anchors for top-level document navigation.
-- Shared `SiteLayout.astro`; static page bodies/footer/passage; explicit Vue client directives only for behavior.
+- Shared `SiteLayout.astro`; static page bodies/footer; explicit Vue client directives only for behavior.
 - Metadata and preload coverage derive from `projectPages.json`; never restore the removed root `pages/` scaffold.
 - Phase A review branch: one Nari atmosphere with semantic tokens; Dark/Light removal remains a reversible client-review proposal, not an approved product-foundation change.
 - Local typed content; no backend, CMS, analytics, form, account, or embeds in the foundation.
 - No Tailwind, general UI kit, second scaffold, SPA rewrite, or client secrets.
 
-ADR-011 records Jake’s explicit 2026-10-03 Astro migration instruction. `docs/42_ASTRO_REBUILD.md` supersedes the dated Vite path/route/tooling instructions in older documents. Further architecture departures require an accepted decision record.
+ADR-011 records Jake’s explicit 2026-10-03 Astro migration instruction. `docs/42_ASTRO_REBUILD.md` supersedes the dated Vite path/route/tooling instructions in older documents. ADR-012 and `docs/43_VNEXT_EXPERIENCE.md` authorize the vNext redesign, tour/Passport retirement and optional effects. Further architecture departures require an accepted decision record.
 
 ## Product and content boundaries
 
