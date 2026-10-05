@@ -128,9 +128,9 @@ test("native navigation retains back and forward behavior", async ({ page }) => 
 });
 
 
-test("short phones, text enlargement and wide screens preserve layouts", async ({ page }) => {
-  await page.emulateMedia({ reducedMotion: "reduce" });
-  for (const viewport of [{ width: 390, height: 568 }, { width: 768, height: 900 }, { width: 1920, height: 1080 }, { width: 3840, height: 2160 }]) {
+for (const viewport of [{ width: 390, height: 568 }, { width: 768, height: 900 }, { width: 1920, height: 1080 }, { width: 3840, height: 2160 }]) {
+  test(`short phone, text enlargement or wide layout at ${viewport.width}px`, async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
     await page.setViewportSize(viewport);
     for (const path of ["/", "/meet-nari/", "/haven/", "/nail-studio/", "/work-with-nari/"]) {
       await page.goto(path); await settle(page);
@@ -138,5 +138,5 @@ test("short phones, text enlargement and wide screens preserve layouts", async (
       expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), `${path} at ${viewport.width}px`).toBe(false);
       await expect(page.locator("h1")).toBeVisible();
     }
-  }
-});
+  });
+}
