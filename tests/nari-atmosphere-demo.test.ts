@@ -1,7 +1,7 @@
 // Check deterministic Nari-only metadata and absence of persisted theme UI. This is implementation evidence, not final client acceptance.
 import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { pageEntries } from "../vite.config";
+import projectPages from "@/data/projectPages.json";
 
 function sourceAt(path: string): string {
   return readFileSync(path, "utf8");
@@ -9,11 +9,11 @@ function sourceAt(path: string): string {
 
 describe("Nari-only atmosphere demo", () => {
   it("keeps every document on the Nari atmosphere without a pre-paint preference runtime", () => {
-    for (const document of Object.values(pageEntries)) {
-      const html = sourceAt(document);
+    for (const { document } of projectPages) {
+      const html = sourceAt(`dist/${document}`);
 
       expect(html).toContain('<html lang="en" data-theme="nari">');
-      expect(html).toContain('<meta name="theme-color" content="#2a1820" />');
+      expect(html).toContain('name="theme-color" content="#2a1820"');
       expect(html).not.toContain("theme-boot.js");
     }
 

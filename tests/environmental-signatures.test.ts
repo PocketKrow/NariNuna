@@ -1,14 +1,13 @@
+import { readFileSync } from "node:fs";
 // Structural style/source guards protect the room material language. Rendered appearance still requires browser comparison.
-import { createSSRApp, h } from "vue";
-import { renderToString } from "vue/server-renderer";
 import { describe, expect, it } from "vitest";
-import MeetPage from "@/pages/MeetNariPage.vue";
-import StreamsPage from "@/pages/StreamsPage.vue";
-import NailsPage from "@/pages/NailStudioPage.vue";
-import ResourcesPage from "@/pages/ResourcesPage.vue";
-import WorkPage from "@/pages/WorkWithNariPage.vue";
-import StoriesPage from "@/pages/StoriesPage.vue";
-import SupportPage from "@/pages/SupportPage.vue";
+const MeetPage = "meet-nari/index.html";
+const StreamsPage = "streams/index.html";
+const NailsPage = "nail-studio/index.html";
+const ResourcesPage = "resources/index.html";
+const WorkPage = "work-with-nari/index.html";
+const StoriesPage = "stories/index.html";
+const SupportPage = "support/index.html";
 
 // Layout freedom must preserve semantic headings, sized art, and usable destinations.
 describe("interior page semantics", () => {
@@ -16,7 +15,7 @@ describe("interior page semantics", () => {
     ["Meet Nari", MeetPage], ["Streams", StreamsPage], ["Nails", NailsPage],
     ["Resources", ResourcesPage], ["Work", WorkPage], ["Stories", StoriesPage], ["Support", SupportPage]
   ] as const)("keeps %s readable and navigable without decoration", async (_name, page) => {
-    const html = await renderToString(createSSRApp({ render: () => h(page) }));
+    const html = readFileSync(`dist/${page}`, "utf8");
     expect(html.match(/<h1\b/g)).toHaveLength(1);
     expect(html).not.toMatch(/<h[123][^>]*>\s*<\/h[123]>/);
     for (const image of html.match(/<img\b[^>]*>/g) ?? []) {

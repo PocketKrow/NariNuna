@@ -1,39 +1,44 @@
 {
   "name": "nari-nuna-haven",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
-  "description": "Nari Nuna's multi-page Haven website.",
+  "description": "Nari Nuna's static Astro Haven with focused Vue islands.",
   "engines": {
     "node": ">=22.13.0"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc --noEmit && npm run validate:credits && vite build && node scripts/validate-build.mjs && node scripts/validate-performance.mjs",
-    "preview": "vite preview",
+    "dev": "astro dev --host 0.0.0.0",
+    "build": "npm run typecheck && npm run validate:credits && astro build && node scripts/secure-build.mjs && node scripts/validate-build.mjs && node scripts/validate-performance.mjs",
+    "preview": "astro preview",
     "verify:preview": "node scripts/verify-preview.mjs",
     "verify:release": "npm run build && node scripts/verify-release.mjs",
     "start": "npm run preview",
-    "test": "vitest run",
-    "typecheck": "vue-tsc --noEmit",
-    "check": "npm run lint && npm run typecheck && npm run test && npm run build && npm run verify:preview",
+    "test": "vitest run --config vitest.config.ts",
+    "typecheck": "astro check && vue-tsc --noEmit",
+    "check": "npm run lint && npm run build && npm run test && npm run verify:preview",
     "lint": "eslint . --ignore-pattern dist",
     "artwork:prepare": "python3 scripts/prepare-responsive-artwork.py",
     "audit:assets": "node scripts/audit-assets.mjs",
-    "validate:credits": "node scripts/validate-credits.mjs"
+    "validate:credits": "node scripts/validate-credits.mjs",
+    "verify:browser": "node scripts/verify-browser.mjs"
   },
   "dependencies": {
+    "@astrojs/vue": "7.0.3",
     "@lucide/vue": "^1.31.0",
+    "astro": "7.3.5",
     "motion-v": "^2.3.0",
-    "vue": "^3.5.41",
-    "vue-router": "^5.2.0"
+    "vue": "^3.5.41"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.5",
+    "@astrojs/check": "0.9.10",
+    "@eslint/js": "10.0.1",
     "@types/node": "22.19.19",
     "@vitejs/plugin-vue": "^6.0.1",
-    "eslint": "9.39.4",
-    "eslint-plugin-vue": "^10.4.0",
+    "eslint": "10.12.0",
+    "eslint-plugin-astro": "3.2.1",
+    "eslint-plugin-vue": "^10.11.1",
     "globals": "^16.4.0",
+    "playwright": "1.62.1",
     "sass": "^1.92.1",
     "typescript": "5.9.3",
     "typescript-eslint": "^8.67.0",

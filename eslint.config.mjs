@@ -3,12 +3,14 @@ import eslint from "@eslint/js";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 import vue from "eslint-plugin-vue";
+import astro from "eslint-plugin-astro";
 
 export default tseslint.config(
-  { ignores: ["dist/**", "node_modules/**", ".npm-cache/**"] },
+  { ignores: ["dist/**", "node_modules/**", ".npm-cache/**", ".astro/**"] },
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
   ...vue.configs["flat/recommended"],
+  ...astro.configs.recommended,
   {
     files: ["**/*.{js,mjs}"],
     languageOptions: {
@@ -16,7 +18,7 @@ export default tseslint.config(
     }
   },
   {
-    files: ["**/*.{ts,vue}"],
+    files: ["**/*.{ts,vue,astro}"],
     languageOptions: {
       globals: { ...globals.browser, ...globals.node },
       parserOptions: { parser: tseslint.parser }

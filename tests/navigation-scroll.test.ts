@@ -1,34 +1,22 @@
-// Exercise fragment, history and ordinary-entry scroll decisions directly; preference mocks do not simulate physical browser motion.
-import { afterEach, describe, expect, it, vi } from "vitest";
-import type { RouteLocationNormalized, RouteLocationNormalizedLoaded } from "vue-router";
-import { scrollBehavior } from "@/router/scrollBehavior";
+// Native document/fragment navigation replaces Vue Router; CSS respects the OS preference.
+import { readFileSync } from "node:fs";
+import { describe, expect, it } from "vitest";
 
-const route = (hash = "") => ({ hash }) as RouteLocationNormalized;
-const loadedRoute = () => ({}) as RouteLocationNormalizedLoaded;
-
-describe("document navigation scroll targets", () => {
-  afterEach(() => vi.unstubAllGlobals());
-
-  it("honors reduced motion at each fragment navigation without changing its target", () => {
-    const preference = { matches: true };
-    vi.stubGlobal("window", { matchMedia: () => preference });
-    expect(scrollBehavior(route("#haven-door"), loadedRoute(), null)).toEqual({ el: "#haven-door", behavior: "instant" });
-    preference.matches = false;
-    expect(scrollBehavior(route("#haven-door"), loadedRoute(), null)).toEqual({ el: "#haven-door", behavior: "smooth" });
+describe("native document navigation", () => {
+  it("preserves fragment destinations in static output", () => {
+    for (const [document, ids] of [
+      ["haven/index.html", ["haven-door"]],
+      ["resources/index.html", ["nail-desk", "creator-shelf", "game-pile"]],
+      ["work-with-nari/index.html", ["nari-links", "collaboration-note"]]
+    ] as const) {
+      const html = readFileSync(`dist/${document}`, "utf8");
+      for (const id of ids) expect(html).toContain(`id="${id}"`);
+    }
   });
-
-  it("lands fragment links on their named section", () => {
-    expect(scrollBehavior(route("#game-pile"), loadedRoute(), null)).toEqual({
-      el: "#game-pile",
-      behavior: "smooth"
-    });
-  });
-
-  it("preserves browser history positions", () => {
-    expect(scrollBehavior(route(), loadedRoute(), { left: 12, top: 640 })).toEqual({ left: 12, top: 640 });
-  });
-
-  it("starts ordinary document navigation at the top", () => {
-    expect(scrollBehavior(route(), loadedRoute(), null)).toEqual({ top: 0 });
+  it("lets reduced motion disable smooth scrolling and document transitions", () => {
+    const styles = readFileSync("src/styles/_responsive.scss", "utf8");
+    expect(styles).toContain("@media (prefers-reduced-motion: reduce)");
+    expect(styles).toContain("scroll-behavior: auto !important");
+    expect(readFileSync("src/layouts/SiteLayout.astro", "utf8")).not.toContain("ClientRouter");
   });
 });

@@ -3,7 +3,11 @@
     "target": "ES2022",
     "useDefineForClassFields": true,
     "module": "ESNext",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "skipLibCheck": true,
     "moduleResolution": "Bundler",
     "allowImportingTsExtensions": true,
@@ -14,15 +18,24 @@
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": [
+        "src/*"
+      ]
     },
-    "types": ["vite/client", "node"]
+    "types": [
+      "vite/client",
+      "node"
+    ]
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.vue",
+    ".astro/types.d.ts",
+    "src/**/*",
     "tests/**/*.ts",
-    "vite.config.ts",
-    "worker/**/*.ts"
+    "vitest.config.ts"
+  ],
+  "extends": "astro/tsconfigs/strict",
+  "exclude": [
+    "dist",
+    "node_modules"
   ]
 }

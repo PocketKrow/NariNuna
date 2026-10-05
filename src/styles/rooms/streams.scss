@@ -33,7 +33,7 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(1rem, 3vw, 2rem);
 }
-.clip-desk__supporting :deep(.media-card + .media-card) {
+.clip-desk__supporting :global(.media-card + .media-card) {
   padding-inline-start: clamp(1rem, 3vw, 2rem);
   border-inline-start: 1px solid var(--story-line);
 }
@@ -79,7 +79,7 @@
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
-  .clip-desk__supporting :deep(.media-card + .media-card) {
+  .clip-desk__supporting :global(.media-card + .media-card) {
     padding-block-start: 1.25rem;
     padding-inline-start: 0;
     border-block-start: 1px solid var(--story-line);

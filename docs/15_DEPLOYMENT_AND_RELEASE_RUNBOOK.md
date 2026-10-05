@@ -1,5 +1,7 @@
 # Deployment and Release Runbook
 
+> **2026-10-03 Astro migration:** Jake explicitly requested the rebuild in Astro. ADR-011 and [42 — Astro rebuild](42_ASTRO_REBUILD.md) own the current route, shell, dependency, validation and rollback contracts. Vite-MPA/client-router paths below are dated history. Product content, imagery, privacy and release approval boundaries still apply.
+
 **Status:** Provider/domain `BLOCKED`; provider-neutral artifact contract `DEFINED`  
 **Owns:** Build artifact, host requirements, environment configuration, verification, release, rollback, post-release checks  
 **Update trigger:** Provider, domain, routing, headers, cache, CI/CD, preview, or rollback procedure changes

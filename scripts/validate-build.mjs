@@ -1,4 +1,4 @@
-// Run from repository root after Vite. Missing documents, metadata or compiled asset references fail the build; this is not browser rendering.
+// Run from repository root after Astro. Missing documents, metadata or compiled asset references fail the build; this is not browser rendering.
 import projectPages from "../src/data/projectPages.json" with { type: "json" };
 import { access, readFile } from "node:fs/promises";
 import { resolve } from "node:path";

@@ -1,0 +1,117 @@
+---
+import SiteLayout from "@/layouts/SiteLayout.astro";
+
+// Standalone noindex Easter egg with two exits upstairs. Its main landmark replaces the shared shell; retained roster data is not a UI requirement.
+import { ArrowLeft, Sparkles } from "@lucide/vue";
+import { prinnyEasterEggArtwork } from "@/data/easterEgg";
+---
+
+<SiteLayout pageId="prinnyCult">
+  <!-- Keep a visible route upstairs before and after the small joke; no ordinary site navigation promotes it. -->
+  <main id="main-content" class="tiny-easter-egg">
+    <a class="tiny-easter-egg__back" href="/haven/#haven-door">
+      <ArrowLeft size={16} aria-hidden="true" /> Back to the Haven
+    </a>
+    <section class="tiny-easter-egg__card" aria-labelledby="tiny-easter-egg-title">
+      <img
+        src={prinnyEasterEggArtwork.src}
+        width="160"
+        height="160"
+        alt={prinnyEasterEggArtwork.alt}
+        fetchpriority="high"
+      />
+      <p class="eyebrow">
+        <Sparkles size={14} aria-hidden="true" /> Beneath one very specific floorboard
+      </p>
+      <h1 id="tiny-easter-egg-title">A suspicious little dood.</h1>
+      <p>
+        You found it. That's the whole bit now: one tiny basement joke, no initiation ceremony, no sprawling secret
+        order, and no required lore homework.
+      </p>
+      <p class="tiny-easter-egg__note">
+        The Haven belongs to Nari and her Ghosties. This little dood stays off to the side where an Easter egg belongs.
+      </p>
+      <a class="button button--ember" href="/haven/#haven-door">
+        Return upstairs <ArrowLeft size={16} aria-hidden="true" />
+      </a>
+    </section>
+  </main>
+</SiteLayout>
+<style>
+  /* Tiny standalone recovery-sized card; keep both upstairs exits within narrow-screen bounds. */
+  .tiny-easter-egg {
+    display: grid;
+    width: min(calc(100% - 2rem), 44rem);
+    max-width: 100%;
+    min-height: calc(100svh - var(--header-height));
+    align-content: center;
+    gap: 1rem;
+    padding-block: 2rem;
+    margin-inline: auto;
+  }
+
+  .tiny-easter-egg__back {
+    display: inline-flex;
+    width: fit-content;
+    min-height: 2.75rem;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-weight: 750;
+    text-decoration: none;
+  }
+
+  .tiny-easter-egg__back:hover,
+  .tiny-easter-egg__back:focus-visible {
+    color: var(--text);
+  }
+
+  .tiny-easter-egg__card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    min-width: 0;
+    justify-items: start;
+    padding: clamp(1.25rem, 5vw, 2.4rem);
+    color: var(--story-copy);
+    background: var(--story-surface);
+    border: 1px solid var(--story-line);
+    border-radius: 0.8rem;
+    box-shadow: 0 1rem 3rem rgb(15 9 13 / 16%);
+  }
+
+  .tiny-easter-egg__card > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .tiny-easter-egg__card > img {
+    width: min(9rem, 42vw);
+    margin-block-end: 0.8rem;
+    object-fit: contain;
+  }
+
+  .tiny-easter-egg__card h1 {
+    margin-block-end: 0.65rem;
+    color: var(--story-copy);
+    font-size: clamp(2.1rem, 9vw, 3.5rem);
+    overflow-wrap: anywhere;
+  }
+
+  .tiny-easter-egg__card > p:not(.eyebrow) {
+    max-width: 36rem;
+    color: var(--story-muted);
+  }
+
+  .tiny-easter-egg__note {
+    padding-block-start: 0.85rem;
+    border-top: 1px solid var(--story-line);
+    font-size: 0.82rem;
+  }
+
+  .tiny-easter-egg__card .button {
+    width: 100%;
+    max-width: 100%;
+    margin-block-start: 0.4rem;
+  }
+</style>

@@ -1,0 +1,103 @@
+---
+// One document shell owns metadata, early hero delivery, landmarks and optional journey islands.
+import SiteHeader from "@/components/layout/SiteHeader.vue";
+import SiteFooter from "@/components/layout/SiteFooter.astro";
+import RoomPassage from "@/components/layout/RoomPassage.astro";
+import { primaryNavigation, footerNavigation } from "@/data/navigation";
+import pages from "@/data/projectPages.json";
+import { environmentArtwork } from "@/data/artwork";
+import { heroSources } from "@/data/artworkDelivery";
+import "@/styles/main.scss";
+
+interface Props {
+  pageId: string;
+}
+const page = pages.find(({ id }) => id === Astro.props.pageId);
+if (!page) throw new Error(`Unregistered Haven page: ${Astro.props.pageId}`);
+const secret = page.id === "prinnyCult";
+const preloadSources = page.hero ? heroSources(environmentArtwork[page.hero as keyof typeof environmentArtwork]) : [];
+const noScriptLinks = [...primaryNavigation, ...footerNavigation];
+---
+
+<!doctype html>
+<html lang="en" data-theme="nari">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2a1820" />
+    <meta name="description" content={page.description} />
+    <title>{page.title}</title>
+    {page.socialImage ? (
+      <Fragment>
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={page.title} />
+        <meta property="og:description" content={page.socialDescription} />
+        <meta property="og:image" content={page.socialImage} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={page.socialImage} />
+      </Fragment>
+    ) : (
+      <meta name="robots" content="noindex, nofollow" />
+    )}
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    {preloadSources.map(({ media, src, srcset }) => (
+      <link
+        rel="preload"
+        as="image"
+        type="image/webp"
+        href={src}
+        imagesrcset={srcset}
+        media={media}
+        fetchpriority="high"
+      />
+    ))}
+  </head>
+  <body data-route={page.routeName}>
+    {secret ? (
+      <slot />
+    ) : (
+      <Fragment>
+        <a class="skip-link" href="#main-content">
+          Skip to content
+        </a>
+        <SiteHeader currentPath={page.path} client:load />
+        <noscript>
+          <style is:inline>
+            .nav-toggle {
+              display: none;
+            }
+          </style>
+          <nav class="no-script-navigation page-width" aria-label="Haven rooms">
+            {noScriptLinks.map(({ href, label }) => (
+              <a href={href}>{label}</a>
+            ))}
+          </nav>
+        </noscript>
+        <main id="main-content" tabindex="-1">
+          <slot />
+        </main>
+        <RoomPassage currentPath={page.path} />
+        <SiteFooter currentPath={page.path} />
+      </Fragment>
+    )}
+  </body>
+</html>
+<style is:global>
+  /* Astro's island host must not introduce boxes between existing grid/flex compositions. */
+  astro-island {
+    display: contents;
+  }
+  .no-script-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    padding-block: 1rem;
+  }
+  .no-script-navigation a {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+  }
+</style>

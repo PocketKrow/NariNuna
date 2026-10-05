@@ -1,0 +1,112 @@
+---
+import SiteLayout from "@/layouts/SiteLayout.astro";
+
+// Keep free support first and the optional wishlist subordinate. Support never changes access, boundaries or claims on time.
+import { heroStyle } from "@/data/artworkDelivery";
+import { ArrowUpRight, Eye, Gift, Heart, Share2 } from "@lucide/vue";
+import GhostieArt, { type GhostieArtVariant } from "@/components/art/GhostieArt.vue";
+import { environmentArtwork } from "@/data/artwork";
+import { throneUrl, twitchUrl } from "@/data/socials";
+
+const ways: { icon: typeof Eye; title: string; text: string; ghostie: GhostieArtVariant; mirror?: boolean }[] = [
+  {
+    icon: Eye,
+    title: "Just be here",
+    text: "Watch, lurk, laugh, or take a break. You never need to perform to deserve your place.",
+    ghostie: "blanket",
+  },
+  {
+    icon: Share2,
+    title: "Share a favorite moment",
+    text: "Send a clip to somebody who needs a laugh. Genuine little moments mean a lot.",
+    ghostie: "pointLeft",
+    mirror: true,
+  },
+  {
+    icon: Heart,
+    title: "Be good to the room",
+    text: "Kindness, respect, and healthy boundaries help everyone in the Haven breathe.",
+    ghostie: "heart",
+  },
+];
+---
+
+<SiteLayout pageId="support">
+  <!-- Free ways to participate precede financial options in both DOM and visual order. -->
+  <section
+    class="support-welcome support-welcome--painted page-width responsive-hero"
+    style={heroStyle(environmentArtwork.commonRoom)}
+  >
+    <div>
+      <p class="eyebrow">
+        <Heart size={15} aria-hidden="true" /> A gentle reminder, before anything else
+      </p>
+      <h1>
+        Your presence
+        <br />
+        <em>already counts.</em>
+      </h1>
+      <p>
+        You matter here whether you spend money or not. Laughing, learning, lurking, checking in, and simply being kind
+        are all real support.
+      </p>
+    </div>
+  </section>
+  <section class="kindness-notes room-section page-width" aria-labelledby="kindness-title">
+    <header class="room-heading">
+      <div>
+        <p class="room-kicker">The things that cost nothing</p>
+        <h2 id="kindness-title">
+          Little things.
+          <br />
+          <em>A whole lot of meaning.</em>
+        </h2>
+      </div>
+    </header>
+    <div class="kindness-notes__wall">
+      {ways.map((way) => (
+        <article>
+          <GhostieArt
+            class="kindness-notes__ghostie"
+            sizes="(min-width: 48rem) 160px, 112px"
+            variant={way.ghostie}
+            mirror={way.mirror}
+          />
+          <div>
+            {(() => {
+              const Icon = way.icon;
+              return <Icon size={22} aria-hidden="true" />;
+            })()}
+            <h3>{way.title}</h3>
+            <p>{way.text}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+    <!-- Financial support remains optional and subordinate to the free ways above. -->
+    <aside class="wishlist-note" aria-labelledby="wishlist-title">
+      <Gift size={28} aria-hidden="true" />
+      <div>
+        <p class="room-kicker">Only if you'd like to</p>
+        <h2 id="wishlist-title">There's a wishlist, too.</h2>
+        <p>
+          Financial support never buys access, extra attention, ownership, permission to cross a boundary, or a claim on
+          Nari's time. Ever.
+        </p>
+        <div class="button-row">
+          <a class="text-link" href={throneUrl} target="_blank" rel="noreferrer noopener">
+            Visit Throne <ArrowUpRight size={17} aria-hidden="true" />
+            <span class="sr-only"> (opens in a new tab)</span>
+          </a>
+          <a class="text-link" href={twitchUrl} target="_blank" rel="noreferrer noopener">
+            Or just come hang out <ArrowUpRight size={15} aria-hidden="true" />
+            <span class="sr-only"> (opens in a new tab)</span>
+          </a>
+        </div>
+      </div>
+    </aside>
+  </section>
+</SiteLayout>
+<style lang="scss">
+  @use "../../styles/rooms/support.scss";
+</style>

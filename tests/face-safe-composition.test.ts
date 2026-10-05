@@ -18,14 +18,14 @@ describe("Nari face-safe composition contract", () => {
 
   it("covers every page whose hero painting explicitly contains Nari", () => {
     const pages = {
-      home: sourceAt("src/pages/HomePage.vue"),
-      meet: sourceAt("src/pages/MeetNariPage.vue"),
-      streams: sourceAt("src/pages/StreamsPage.vue"),
-      nails: sourceAt("src/pages/NailStudioPage.vue"),
-      haven: sourceAt("src/pages/HavenPage.vue"),
-      support: sourceAt("src/pages/SupportPage.vue"),
-      stories: sourceAt("src/pages/StoriesPage.vue"),
-      work: sourceAt("src/pages/WorkWithNariPage.vue")
+      home: sourceAt("src/pages/index.astro"),
+      meet: sourceAt("src/pages/meet-nari/index.astro"),
+      streams: sourceAt("src/pages/streams/index.astro"),
+      nails: sourceAt("src/pages/nail-studio/index.astro"),
+      haven: sourceAt("src/pages/haven/index.astro"),
+      support: sourceAt("src/pages/support/index.astro"),
+      stories: sourceAt("src/pages/stories/index.astro"),
+      work: sourceAt("src/pages/work-with-nari/index.astro")
     };
 
     expect(pages.home).toContain("Nari, with emerald eyes");

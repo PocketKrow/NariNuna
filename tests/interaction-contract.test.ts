@@ -46,8 +46,8 @@ describe("client-feedback interaction contracts", () => {
   });
 
   it("routes Come sit with us directly into the Haven doorway", () => {
-    const home = sourceAt("src/pages/HomePage.vue");
-    const haven = sourceAt("src/pages/HavenPage.vue");
+    const home = sourceAt("src/pages/index.astro");
+    const haven = sourceAt("src/pages/haven/index.astro");
 
     expect(home).toContain('class="button button--ember haven-landing__haven-cta" href="/haven/#haven-door"');
     expect(home).not.toContain('import { twitchUrl } from "@/data/socials"');
@@ -55,8 +55,8 @@ describe("client-feedback interaction contracts", () => {
   });
 
   it("keeps the Home arrival clean and sends Nail Studio to its exact resource shelf", () => {
-    const home = sourceAt("src/pages/HomePage.vue");
-    const nails = sourceAt("src/pages/NailStudioPage.vue");
+    const home = sourceAt("src/pages/index.astro");
+    const nails = sourceAt("src/pages/nail-studio/index.astro");
 
     expect(home).not.toContain("haven-landing__rooms");
     expect(home).not.toContain('number: "01"');
@@ -79,7 +79,7 @@ describe("client-feedback interaction contracts", () => {
   it("keeps secondary mobile actions readable and touch-sized", () => {
     const floorboard = sourceAt("src/components/haven/LooseFloorboard.vue");
     const doorway = sourceAt("src/components/haven/HavenDoor.vue");
-    const cult = sourceAt("src/pages/PrinnyCultPage.vue");
+    const cult = sourceAt("src/pages/the-prinny-cult/index.astro");
     const mobile = sourceAt("src/styles/_mobile-first.scss");
 
     expect(floorboard).toContain("font-size: 0.875rem");
@@ -94,7 +94,7 @@ describe("client-feedback interaction contracts", () => {
   });
 
   it("keeps the hidden Prinny route tiny instead of restoring a cult system", () => {
-    const cult = sourceAt("src/pages/PrinnyCultPage.vue");
+    const cult = sourceAt("src/pages/the-prinny-cult/index.astro");
 
     expect(cult).toContain("prinnyEasterEggArtwork");
     expect(cult).toContain("A suspicious little dood.");
@@ -107,14 +107,14 @@ describe("client-feedback interaction contracts", () => {
   });
 
   it("keeps Work With Nari's directory native and Linktree-free", () => {
-    const work = sourceAt("src/pages/WorkWithNariPage.vue");
+    const work = sourceAt("src/pages/work-with-nari/index.astro");
     const links = sourceAt("src/data/socials.ts");
 
     expect(work).toContain('id="nari-links"');
-    expect(work).toContain('v-for="(link, index) in nariLinks"');
+    expect(work).toContain('nariLinks.map((link, index)');
     expect(work).toContain('aria-label="Nari\'s public links"');
     expect(work).toContain('href="#nari-links"');
-    expect(work).toContain('artwork="storybookPostcards.work"');
+    expect(work).toContain('artwork={storybookPostcards.work}');
     expect(work).not.toContain("work-contact-vignette.svg");
     expect(work).toContain("Read the collaboration note");
     expect(work).not.toContain("Linktree");
@@ -123,7 +123,7 @@ describe("client-feedback interaction contracts", () => {
   });
 
   it("keeps Story Time clip chrome free of repeated numbering and branding", () => {
-    const stories = sourceAt("src/pages/StoriesPage.vue");
+    const stories = sourceAt("src/pages/stories/index.astro");
 
     expect(stories).not.toContain("memory-album__folio");
     expect(stories).not.toContain("Lead memory");
@@ -149,7 +149,7 @@ describe("client-feedback interaction contracts", () => {
   });
 
   it("keeps Resources recommendations free of client preview samples", () => {
-    const page = sourceAt("src/pages/ResourcesPage.vue");
+    const page = sourceAt("src/pages/resources/index.astro");
     expect(page).not.toContain("resourceDemoEntries");
     expect(page).not.toContain("resource-samples");
     expect(page).toContain("shelf-policy");
@@ -187,16 +187,16 @@ describe("client-feedback interaction contracts", () => {
   });
 
   it("turns ordinary routes into one accessible room-to-room journey", () => {
-    const shell = sourceAt("src/components/layout/SiteShell.vue");
-    const passage = sourceAt("src/components/layout/RoomPassage.vue");
+    const shell = sourceAt("src/layouts/SiteLayout.astro");
+    const passage = sourceAt("src/components/layout/RoomPassage.astro");
     const base = sourceAt("src/styles/_base.scss");
 
-    expect(shell).toContain("<RoomPassage />");
+    expect(shell).toContain("<RoomPassage currentPath={page.path} />");
     expect(passage).toContain('role="progressbar"');
-    expect(passage).toContain(':aria-valuetext="`${currentRoom.label}, room ${activeIndex + 1} of ${havenJourney.length}`"');
+    expect(passage).toContain('aria-valuetext={`${currentRoom.label}, room ${activeIndex + 1} of ${havenJourney.length}`}');
     expect(passage).toContain('aria-label="Continue through Nari\'s Haven"');
-    expect(passage).toContain(':href="previousRoom.href"');
-    expect(passage).toContain(':href="nextRoom.href"');
+    expect(passage).toContain('href={previousRoom.href}');
+    expect(passage).toContain('href={nextRoom.href}');
     expect(passage).toContain('@media (prefers-reduced-motion: reduce)');
     expect(base).toContain("@view-transition");
     expect(base).toContain("navigation: none");

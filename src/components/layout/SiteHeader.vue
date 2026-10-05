@@ -1,19 +1,19 @@
 <script setup lang="ts">
 // Own mobile-directory state, native More disclosure and keyboard focus. Keep the 56rem layout listener aligned with the CSS breakpoint.
 import { ChevronDown, Menu, Radio, Sparkles, X } from "@lucide/vue";
-import { computed, onBeforeUnmount, onMounted, ref, watch } from "vue";
+import { onBeforeUnmount, onMounted, ref, watch } from "vue";
 import GhostieArt from "@/components/art/GhostieArt.vue";
 import { havenRoomNotes } from "@/data/journey";
 import { footerNavigation, primaryNavigation } from "@/data/navigation";
 import { twitchUrl } from "@/data/socials";
 
+const props = defineProps<{ currentPath: string }>();
 const menuOpen = ref(false);
 const moreMenu = ref<HTMLDetailsElement | null>(null);
 const menuToggle = ref<HTMLButtonElement | null>(null);
 const menuPanel = ref<HTMLElement | null>(null);
 const moreToggle = ref<HTMLElement | null>(null);
-// Document navigation remounts this component; normalize explicit index URLs for aria-current.
-const currentPath = computed(() => window.location.pathname.replace(/index\.html$/, ""));
+// Astro passes the canonical route, so current-page labels are correct before hydration.
 const principalLinks = primaryNavigation.filter((item) =>
   ["/meet-nari/", "/streams/", "/haven/", "/work-with-nari/"].includes(item.href)
 );
@@ -25,7 +25,7 @@ const mobileLinks = [...principalLinks, ...moreLinks];
 
 /** Compare normalized document destinations; labels are free to change independently. */
 function isCurrent(href: string): boolean {
-  return currentPath.value === href || (href === "/" && currentPath.value === "");
+  return props.currentPath === href || (href === "/" && props.currentPath === "");
 }
 
 /** Share journey descriptions, with a harmless fallback for a newly registered room. */
@@ -71,25 +71,28 @@ function handleNavigationKeys(event: KeyboardEvent): void {
 }
 
 // Clear mobile-only state when the desktop navigation takes over.
-const desktopNavigation = window.matchMedia("(min-width: 56rem)");
+let desktopNavigation: MediaQueryList | undefined;
 function handleNavigationLayout(): void {
-  if (!desktopNavigation.matches || !menuOpen.value) return;
+  if (!desktopNavigation?.matches || !menuOpen.value) return;
   const active = document.activeElement;
   const focusWasInMenu = active === menuToggle.value || (active instanceof Node && menuPanel.value?.contains(active));
   closeMenu();
   if (focusWasInMenu) menuPanel.value?.querySelector<HTMLElement>(".site-header__main-nav a")?.focus();
 }
-onMounted(() => desktopNavigation.addEventListener("change", handleNavigationLayout));
+onMounted(() => {
+  desktopNavigation = window.matchMedia("(min-width: 56rem)");
+  desktopNavigation.addEventListener("change", handleNavigationLayout);
+  window.addEventListener("keydown", handleNavigationKeys);
+});
 
 // Body scroll lock follows local state and is removed on teardown, even mid-navigation.
 watch(menuOpen, (open) => {
   document.body.classList.toggle("nav-is-open", open);
 });
 
-window.addEventListener("keydown", handleNavigationKeys);
 onBeforeUnmount(() => {
   window.removeEventListener("keydown", handleNavigationKeys);
-  desktopNavigation.removeEventListener("change", handleNavigationLayout);
+  desktopNavigation?.removeEventListener("change", handleNavigationLayout);
   document.body.classList.remove("nav-is-open");
 });
 </script>

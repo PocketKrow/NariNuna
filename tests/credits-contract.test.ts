@@ -3,11 +3,9 @@ import { execFileSync, spawnSync } from "node:child_process";
 import { mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
-import { createSSRApp, h } from "vue";
-import { renderToString } from "vue/server-renderer";
 import { describe, expect, it } from "vitest";
 import { artCreditRegistry } from "@/data/artCredits";
-import CreditsPage from "@/pages/CreditsPage.vue";
+const CreditsPage = "credits/index.html";
 
 function validateFixture(mutator: (registry: typeof artCreditRegistry) => void) {
   const fixture = structuredClone(artCreditRegistry);
@@ -94,7 +92,7 @@ describe("creative credit registry", () => {
   });
 
   it("renders every public group from data without exposing blocked artwork", async () => {
-    const html = await renderToString(createSSRApp({ render: () => h(CreditsPage) }));
+    const html = readFileSync(`dist/${CreditsPage}`, "utf8").split('id="main-content"')[1].split("</main>")[0];
     expect(html).toContain("The people behind");
     expect(html).toContain("Somber Crow");
     expect(html).toContain("Awaiting confirmation");
