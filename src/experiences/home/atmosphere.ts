@@ -1,8 +1,29 @@
 import { BufferAttribute, BufferGeometry, OrthographicCamera, Points, Scene, ShaderMaterial, WebGLRenderer } from "three";
 import { dustFragment, dustVertex } from "@/shaders/dust";
+import { getAtmosphereContext, releaseContext } from "../core/webgl";
 
 export function createAtmosphere(canvas: HTMLCanvasElement): () => void {
-  const renderer = new WebGLRenderer({ canvas, alpha: true, antialias: false, powerPreference: "low-power" });
+  const host = canvas.closest<HTMLElement>("[data-experience]") ?? canvas.parentElement;
+  const control = host?.querySelector<HTMLButtonElement>("[data-atmosphere-control]");
+  canvas.dataset.atmosphereState = "static";
+  if (control) { control.hidden = true; control.textContent = "Pause atmosphere"; control.setAttribute("aria-pressed", "false"); }
+  const resetCanvas = () => {
+    // Lost contexts stay attached to their canvas. A fresh inert layer permits preference/BFCache re-entry.
+    canvas.dataset.atmosphereState = "static";
+    canvas.replaceWith(canvas.cloneNode(false));
+  };
+  const candidate = getAtmosphereContext(canvas);
+  if (!candidate) { resetCanvas(); return () => {}; }
+  const context = candidate;
+  let renderer: WebGLRenderer;
+  try {
+    // Use the context we validated; letting Three create a different one defeats the guard.
+    renderer = new WebGLRenderer({ canvas, context, alpha: true, antialias: false, powerPreference: "low-power" });
+  } catch {
+    releaseContext(context);
+    resetCanvas();
+    return () => {};
+  }
   renderer.setPixelRatio(Math.min(devicePixelRatio, 1.25));
   const scene = new Scene();
   const camera = new OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
@@ -23,8 +44,6 @@ export function createAtmosphere(canvas: HTMLCanvasElement): () => void {
     transparent: true, depthWrite: false,
   });
   scene.add(new Points(geometry, material));
-  const host = canvas.closest<HTMLElement>("[data-experience]") ?? canvas.parentElement;
-  const control = host?.querySelector<HTMLButtonElement>("[data-atmosphere-control]");
   let visible = false;
   let paused = false;
   let disposed = false;
@@ -32,8 +51,13 @@ export function createAtmosphere(canvas: HTMLCanvasElement): () => void {
   let last = 0;
   let elapsed = 0;
   const resize = () => {
+    if (disposed) return;
     const rect = canvas.getBoundingClientRect();
-    renderer.setSize(Math.min(rect.width, 1600), Math.min(rect.height, 900), false);
+    try {
+      renderer.setSize(Math.min(rect.width, 1600), Math.min(rect.height, 900), false);
+    } catch {
+      dispose();
+    }
   };
   const tick = (now: number) => {
     frame = 0;
@@ -45,7 +69,14 @@ export function createAtmosphere(canvas: HTMLCanvasElement): () => void {
       const door = host?.querySelector<HTMLElement>(".haven-threshold__scene");
       const step = door?.className.match(/is-step-(\d)/)?.[1];
       material.uniforms.response.value = Number(step ?? 0) / 3;
-      renderer.render(scene, camera);
+      try {
+        if (context.isContextLost()) { dispose(); return; }
+        renderer.render(scene, camera);
+      } catch {
+        // Runtime graphics failure must not escape the animation frame or keep scheduling work.
+        dispose();
+        return;
+      }
     }
     frame = requestAnimationFrame(tick);
   };
@@ -79,11 +110,12 @@ export function createAtmosphere(canvas: HTMLCanvasElement): () => void {
     canvas.removeEventListener("webglcontextlost", contextLost);
     control?.removeEventListener("click", toggle);
     if (control) control.hidden = true;
-    geometry.dispose(); material.dispose(); renderer.dispose();
-    renderer.forceContextLoss();
-    canvas.dataset.atmosphereState = "static";
+    resetCanvas();
+    geometry.dispose(); material.dispose();
+    try { renderer.dispose(); } catch { /* A lost graphics context can also reject disposal. */ }
+    releaseContext(context);
   }
   resize();
-  canvas.dataset.atmosphereState = "active";
+  if (!disposed) canvas.dataset.atmosphereState = "active";
   return dispose;
 }

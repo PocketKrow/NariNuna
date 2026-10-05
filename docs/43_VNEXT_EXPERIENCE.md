@@ -19,7 +19,7 @@ All existing raster/source bytes, provenance, rights records, credit states, fac
 - Astro owns documents, metadata, readable content, materials and navigation.
 - Vue owns menu, Haven doorway, floorboard and media fallback state.
 - `experiences/core/lifecycle.ts` loads optional modules only after the load event and an idle opportunity. Generation checks discard pending imports after navigation/preferences change. Pagehide disposes; persisted pageshow restores.
-- `capabilities.ts` rejects reduced motion and save-data. Mobile/coarse pointers also skip decorative runtimes. Graphics additionally require a wide viewport, at least four reported CPU threads and working WebGL2.
+- `capabilities.ts` rejects reduced motion and save-data. Mobile/coarse pointers also skip decorative runtimes. Graphics additionally require a wide viewport, at least four reported CPU threads and working WebGL2. `experiences/core/webgl.ts` owns nullable/throwing shader-precision checks and safe context release; both the pre-download probe and the actual rendering canvas must pass.
 - GSAP 3.15.0 / ScrollTrigger shifts artwork by at most 18px and material objects by 12px. It does not hide readable content, pin sections, hijack scrolling or move navigation. MatchMedia/context teardown returns styles to static values.
 - Three.js uses a WebGL2 renderer, 48 deterministic soft motes, capped pixel ratio, capped drawing buffer and approximately 30fps. Home uses warm/lavender dust. Haven's doorway receives a sparse emerald response based on the actual knock state. There is no camera drift, WebGPU requirement, external shader/texture, audio or whole-site canvas.
 - The atmosphere has a keyboard-accessible pause/resume control. Rendering stops offscreen and when the document is hidden. Disposal releases observers, animation frames, renderer, geometry, material, handlers and context. Context loss falls back to the static scene.
@@ -73,3 +73,20 @@ The official local Playwright browser download returned an incomplete archive. A
 ## Rollback
 
 Revert the vNext commit or use the PR #24 artifact. No source-art deletion, data migration, backend, account or new external service is involved. Do not merge or publish production without Jake's instruction.
+
+## 5 October 2026 — shader precision and canvas recovery fix
+
+Jake reported `THREE.WebGLRenderer` reading `.precision` from a null `getShaderPrecisionFormat()` result in the deployed atmosphere. Three r186 assumes a non-null shader precision object; the previous guard tested only WebGL2 context existence. The underlying reason for his browser returning null is unknown. MDN documents null as a valid error result: <https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/getShaderPrecisionFormat>.
+
+The focused `kiva/webgl-precision-fallback` branch starts from merged main `e9bac95`. `webgl.ts` checks vertex/fragment high-float precision and context-loss state before the graphics import and again on the actual canvas. The renderer receives that exact validated context. Missing/zero/null/throwing support leaves a static composition and hidden atmosphere control. Rendering/resize exceptions stop animation and dispose resources. No library/browser API is patched in production, no precision result is fabricated, and no dependency, artwork, content, CSS or release approval changes.
+
+An additional regression reproduced a lost-canvas reuse bug: reduced motion on disposed the context, then reduced motion off could not restart it. Disposal now replaces the inert decorative canvas after releasing its owned observers/listeners/resources. The old context is lost; later preference or persisted-page re-entry can obtain a fresh context. The same pause/resume control remains usable after recovery.
+
+Observed on this fix's final built artifact with Node 24.19.0 / npm 11.9.0 / Chromium 153.0.8010.0:
+
+- Fresh `npm ci` and `npm run check` passed: lint/types, 12-document build, artwork/CSP/payload/HTTP validators and 98 unit tests in 20 files.
+- `npm run verify:browser` passed all 12 routes at 320/390/768/1440 and the menu, three-knock/reset, hidden-room, image-failure, 404 and no-JavaScript contracts.
+- Focused Chromium experience checks passed nine cases, with zero skips: unavailable/throwing context creation, null precision on the probe and actual canvas, throwing precision queries, real context loss, rejected draw, pause/resume and reduced-motion off/on recovery, and runtime exclusion for reduced motion/save-data/mobile. Both Home and Haven fault cases keep content/navigation usable with no collected page or console errors. The off/on recovery test failed before canvas replacement and passed afterward.
+- Home/Haven initial JS/CSS are 56.97/67.49 KB gzip; the conservative optional graph is 174.85 KB, within the unchanged 120/180 KB gates.
+
+The official browser download again returned a truncated archive. A temporary external Chromium binary selected with `NARI_BROWSER_PATH` supplied local validation without altering project dependencies. The new graphics-injection tests skip only when an engine lacks usable WebGL2; unavailable/throwing context cases still run. Firefox/WebKit and Jake's specific browser/driver environment were not tested locally. The existing full axe/screenshot suite was not rerun locally for this nonvisual fix; the PR quality gate runs it. No merge or deployment is authorized by this report. Rollback is a normal revert of this focused fix.
