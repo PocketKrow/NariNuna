@@ -1,5 +1,6 @@
 <script setup lang="ts">
 // Presentation and focus owner for the three-knock sequence. The composable owns steps and image eligibility; opening is narrative, not access control.
+import GhostieArt from "@/components/art/GhostieArt.vue";
 import ResponsiveArtwork from "@/components/art/ResponsiveArtwork.vue";
 import { ArrowUpRight, HeartHandshake, ShieldCheck } from "@lucide/vue";
 import { computed, nextTick, ref } from "vue";
@@ -93,6 +94,7 @@ async function closeFromStory(): Promise<void> {
       <div class="haven-threshold__ivy haven-threshold__ivy--right" aria-hidden="true"></div>
       <div class="haven-threshold__lantern haven-threshold__lantern--left" aria-hidden="true"></div>
       <div class="haven-threshold__lantern haven-threshold__lantern--right" aria-hidden="true"></div>
+      <GhostieArt v-if="step === 2" class="haven-threshold__visitor" variant="peek" sizes="96px" aria-hidden="true" />
       <div class="haven-threshold__keystone" aria-hidden="true">☾</div>
 
       <div class="haven-threshold__arch">
@@ -222,13 +224,15 @@ async function closeFromStory(): Promise<void> {
   overflow: hidden;
   color: var(--story-copy);
   background: var(--story-surface);
-  border: 0.35rem solid color-mix(in srgb, var(--story-line) 74%, var(--storybook-gold));
-  border-radius: 1.25rem;
+  border: 1px solid var(--story-line);
+  border-radius: 0.35rem;
   box-shadow:
     0 1.15rem 3.2rem rgb(15 9 13 / 20%),
     0 0 0 0.18rem color-mix(in srgb, var(--story-surface-deep) 92%, transparent),
     0 0 0 0.7rem color-mix(in srgb, var(--story-surface) 68%, transparent);
 }
+
+.haven-threshold__visitor { --ghostie-size: 6rem; position: absolute; z-index: 8; right: 8%; bottom: 15%; width: 6rem; height: 6rem; pointer-events: none; }
 
 /* Scene geometry keeps the entire painted room behind the arch; adornments do not receive input. */
 .haven-threshold__scene {

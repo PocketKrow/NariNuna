@@ -49,7 +49,7 @@ describe("client-feedback interaction contracts", () => {
     const home = sourceAt("src/pages/index.astro");
     const haven = sourceAt("src/pages/haven/index.astro");
 
-    expect(home).toContain('class="button button--ember haven-landing__haven-cta" href="/haven/#haven-door"');
+    expect(home).toContain('class="button button--ember" href="/haven/#haven-door"');
     expect(home).not.toContain('import { twitchUrl } from "@/data/socials"');
     expect(haven).toContain('id="haven-door" class="haven-entry page-width section-pad"');
   });
@@ -80,7 +80,7 @@ describe("client-feedback interaction contracts", () => {
     const floorboard = sourceAt("src/components/haven/LooseFloorboard.vue");
     const doorway = sourceAt("src/components/haven/HavenDoor.vue");
     const cult = sourceAt("src/pages/the-prinny-cult/index.astro");
-    const mobile = sourceAt("src/styles/_mobile-first.scss");
+    const arrival = sourceAt("src/styles/objects/arrival.scss");
 
     expect(floorboard).toContain("font-size: 0.875rem");
     expect(floorboard).toContain("min-height: 2.75rem");
@@ -89,8 +89,8 @@ describe("client-feedback interaction contracts", () => {
     expect(doorway).toContain("font-size: 0.8125rem");
     expect(cult).toContain("font-size: 0.875rem");
     expect(cult).toContain("min-height: 2.75rem");
-    expect(mobile).toContain("font-size: 0.8125rem");
-    expect(mobile).toContain("font-size: 0.875rem");
+    expect(arrival).toContain("min-height: 2.75rem");
+    expect(arrival).toContain("font-size: 0.75rem");
   });
 
   it("keeps the hidden Prinny route tiny instead of restoring a cult system", () => {
@@ -141,7 +141,7 @@ describe("client-feedback interaction contracts", () => {
     expect(dock).toContain('fill="currentColor"');
     expect(dock).toContain('class="social-dock__label"');
     expect(sourceAt("src/styles/_polish.scss")).toContain(".social-dock__label");
-    expect(sourceAt("src/styles/_mobile-first.scss")).toContain(".haven-landing .social-dock__label");
+    expect(sourceAt("src/styles/objects/arrival.scss")).toContain(".room-arrival--home .social-dock__label");
 
     for (const platform of ["twitch", "youtube", "tiktok", "instagram", "x", "throne"]) {
       expect(links).toContain(`platform: "${platform}"`);
@@ -186,19 +186,12 @@ describe("client-feedback interaction contracts", () => {
     expect(header.match(/@click="closeMenu"/g)).toHaveLength(3);
   });
 
-  it("turns ordinary routes into one accessible room-to-room journey", () => {
+  it("keeps natural navigation without the retired tour", () => {
     const shell = sourceAt("src/layouts/SiteLayout.astro");
-    const passage = sourceAt("src/components/layout/RoomPassage.astro");
     const base = sourceAt("src/styles/_base.scss");
-
-    expect(shell).toContain("<RoomPassage currentPath={page.path} />");
-    expect(passage).toContain('role="progressbar"');
-    expect(passage).toContain('aria-valuetext={`${currentRoom.label}, room ${activeIndex + 1} of ${havenJourney.length}`}');
-    expect(passage).toContain('aria-label="Continue through Nari\'s Haven"');
-    expect(passage).toContain('href={previousRoom.href}');
-    expect(passage).toContain('href={nextRoom.href}');
-    expect(passage).toContain('@media (prefers-reduced-motion: reduce)');
-    expect(base).toContain("@view-transition");
-    expect(base).toContain("navigation: none");
+    expect(shell).not.toContain("RoomPassage");
+    expect(shell).toContain("<SiteFooter");
+    expect(base).not.toContain("navigation: auto");
+    expect(shell).not.toContain("ClientRouter");
   });
 });

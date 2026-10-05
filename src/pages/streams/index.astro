@@ -1,9 +1,8 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
+import RoomArrival from "@/components/astro/RoomArrival.astro";
 
 // Own the Twitch/YouTube broadcast desk. The first curated moment leads; MediaCard owns blocked-thumbnail fallback.
-import ResponsiveArtwork from "@/components/art/ResponsiveArtwork.vue";
-import { heroSources } from "@/data/artworkDelivery";
 import { ArrowUpRight, Gamepad2, MessageCircle, Radio, Video } from "@lucide/vue";
 import MediaCard from "@/components/ui/MediaCard.vue";
 import { environmentArtwork } from "@/data/artwork";
@@ -17,10 +16,10 @@ const supportingMoments = featuredMoments.slice(1);
 
 <SiteLayout pageId="streams">
   <!-- Hero sources precede the fallback img and match head preloads; clips remain outbound links with no embedded player. -->
-  <section class="room-opening room-opening--streams page-width">
-    <div class="room-opening__copy">
+  <RoomArrival room="streams" artwork={environmentArtwork.streams} description="Nari laughs at her autumn streaming desk beside a Ghostie wearing lavender headphones." note="SOMEWHERE AFTER MIDNIGHT">
+
       <p class="eyebrow">
-        <Radio size={16} aria-hidden="true" /> Chapter two · somewhere after midnight
+        <Radio size={16} aria-hidden="true" /> somewhere after midnight
       </p>
       <h1>
         Come for the game.
@@ -51,21 +50,8 @@ const supportingMoments = featuredMoments.slice(1);
           <Gamepad2 size={15} aria-hidden="true" /> Plans optional
         </span>
       </div>
-    </div>
-    <picture class="room-opening__art room-opening__art--streams">
-      {heroSources(environmentArtwork.streams).map((source) => (
-        <source media={source.media} srcset={source.srcset} />
-      ))}
-      <ResponsiveArtwork
-        fallbackWidth={1280}
-        sizes="100vw"
-        loading="eager"
-        artwork={environmentArtwork.streams}
-        alt="Nari laughs at her hand-painted autumn streaming desk beside a little Ghostie wearing matching lavender headphones"
-        fetchpriority="high"
-      />
-    </picture>
-  </section>
+
+  </RoomArrival>
   <!-- The curated lead and supporting clips share MediaCard fallback behavior. -->
   <section class="clip-desk room-section page-width" aria-labelledby="moments-title">
     <header class="room-heading">

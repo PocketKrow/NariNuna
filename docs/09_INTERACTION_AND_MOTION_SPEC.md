@@ -1,5 +1,8 @@
 # Interaction and Motion Specification
 
+> **2026-10-05 vNext:** [Document 43](43_VNEXT_EXPERIENCE.md) owns the current experience. The guided bottom passage and Passport are retired; prior descriptions below are historical. Astro/static content, rights and release boundaries remain. All painted arrivals now have one composition owner; CSS/GSAP and selective deferred Three.js replace Motion-V.
+
+
 > Current 2026-09-09 behavior: the shared room passage appears on phone, tablet, and desktop using normal previous/next document anchors. The expanded mobile directory contains Tab focus and closes with Escape/focus return; crossing into desktop clears the mobile scroll lock and returns focus to a visible navigation link when needed. PR #17 introduced progressive, reduced-motion-safe cross-document transitions. Historical interaction descriptions below are superseded where they differ; current implementation and evidence are recorded in [document 35](35_MOBILE_FIRST_OVERHAUL.md).
 
 **Status:** Core interactions `IMPLEMENTED`; final manual/device review `PENDING`  

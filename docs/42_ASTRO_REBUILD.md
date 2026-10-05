@@ -1,5 +1,8 @@
 # Astro rebuild — 2026-10-03
 
+> **2026-10-05 vNext:** [Document 43](43_VNEXT_EXPERIENCE.md) owns the current experience. The guided bottom passage and Passport are retired; prior descriptions below are historical. Astro/static content, rights and release boundaries remain. All painted arrivals now have one composition owner; CSS/GSAP and selective deferred Three.js replace Motion-V.
+
+
 ## Authority and outcome
 
 Jake requested a ground-up Astro rebuild of NariNuna, preserving the current website and reusing Vue as needed. ADR-011 supersedes the older Vite document scaffold and client-router contracts. Baseline: `main` at `c8af50f5921ea8851e738b310b16d24ce2b8fdbf`. Review branch: `kiva/astro-rebuild`.

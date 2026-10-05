@@ -1,6 +1,6 @@
 // Local record and source contracts protect route count, safe destinations and content boundaries; no external destination is fetched.
 import { describe, expect, it } from "vitest";
-import { havenJourney, havenRoomNotes } from "@/data/journey";
+import { havenRooms, havenRoomNotes } from "@/data/rooms";
 import { featuredMoments } from "@/data/media";
 import { footerNavigation, primaryNavigation } from "@/data/navigation";
 import { resourceDemoEntries } from "@/data/resources";
@@ -27,25 +27,10 @@ describe("content contracts", () => {
     ]);
   });
 
-  it("keeps a complete chapter-order journey through the ordinary public rooms", () => {
-    const journeyPaths = havenJourney.map((room) => room.href);
-    const publicPaths = [...primaryNavigation, ...footerNavigation].map((item) => item.href);
-
-    expect(journeyPaths).toEqual([
-      "/",
-      "/meet-nari/",
-      "/streams/",
-      "/nail-studio/",
-      "/haven/",
-      "/resources/",
-      "/work-with-nari/",
-      "/stories/",
-      "/support/",
-      "/credits/"
-    ]);
-    expect(new Set(journeyPaths)).toEqual(new Set(publicPaths));
-    expect(havenJourney.every((room) => room.note.length > 0)).toBe(true);
-    expect(havenJourney.every((room) => havenRoomNotes[room.href] === room.note)).toBe(true);
+  it("provides a description for each ordinary navigation destination", () => {
+    const paths = [...primaryNavigation, ...footerNavigation].map((item) => item.href);
+    expect(new Set(havenRooms.map((room) => room.href))).toEqual(new Set(paths));
+    expect(havenRooms.every((room) => havenRoomNotes[room.href] === room.note && room.note.length > 0)).toBe(true);
   });
 
   it("uses one secure source of truth for Nari's common public links", () => {

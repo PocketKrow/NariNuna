@@ -5,7 +5,7 @@ import { describe, expect, it } from "vitest";
 import generated from "@/data/responsive-artwork.json";
 import runtime from "@/data/responsive-artwork.runtime.json";
 import { artworkCandidates, artworkSrc, artworkSrcset, heroSources } from "@/data/artworkDelivery";
-import { communityGhostieArtwork, detailArtwork, environmentArtwork, storybookPostcards } from "@/data/artwork";
+import { communityGhostieArtwork, environmentArtwork, storybookPostcards } from "@/data/artwork";
 import { routeHeroArtwork } from "../scripts/hero-preloads";
 
 const manifest = generated.artworks;
@@ -57,14 +57,15 @@ describe("responsive artwork delivery", () => {
     expect(() => artworkCandidates("/missing.webp")).toThrow("Missing responsive artwork");
   });
 
-  it("keeps the simplified Home image composition below 200 KB", () => {
+  it("keeps the initial Home artwork below 200 KB with lazy room postcards", () => {
     // Byte budgets belong to build evidence, never the browser's selection API.
     const maximum = (source: keyof typeof manifest, maxWidth = Infinity) => Math.max(...manifest[source].candidates.filter((candidate) => candidate.width <= maxWidth).map((candidate) => candidate.bytes));
-    const total = maximum(environmentArtwork.homeSunset) + maximum(communityGhostieArtwork.wave, 256)
-      + maximum(detailArtwork.lavender);
+    const total = maximum(environmentArtwork.homeSunset) + maximum(communityGhostieArtwork.wave, 256);
     expect(total).toBeLessThanOrEqual(200_000);
     const home = readFileSync("src/pages/index.astro", "utf8");
-    expect(home).not.toContain("storybookPostcards");
+    expect(home).toContain("storybookPostcards");
+    const component = readFileSync("src/components/art/ResponsiveArtwork.vue", "utf8");
+    expect(component).toContain('loading: "lazy"');
   });
 
   it("gives all nine ordinary documents matching CSS/picture/preload candidates", () => {

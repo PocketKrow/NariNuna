@@ -1,0 +1,17 @@
+// Three room objects form a shelf, not a sequential guided tour.
+.haven-corners { padding-block: clamp(2.5rem, 5vw, 4.5rem); }
+.haven-corners__shelf { display: grid; gap: 2rem; }
+.haven-corner { min-width: 0; color: var(--text); text-decoration: none; }
+.haven-corner__frame { padding: 0.45rem; margin-bottom: 1.4rem; background: var(--storybook-paper); box-shadow: 0 0.75rem 1.75rem #10080c40; transition: transform 180ms ease; }
+.haven-corner__frame img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.haven-corner > .room-kicker { margin-bottom: 0.5rem; }
+.haven-corner h3 { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; font-size: 1.65rem; }
+.haven-corner > p:last-child { color: var(--text-muted); font-size: 0.9rem; margin: 0; }
+.haven-corner:hover .haven-corner__frame { transform: translateY(-4px); }
+@media (min-width: 40rem) { .haven-corners__shelf { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 64rem) {
+  .haven-corners__shelf { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
+  .haven-corner:nth-child(2) { margin-top: 2rem; }
+  .haven-corner:nth-child(3) { margin-top: 0.75rem; }
+}
+@media (prefers-reduced-motion: reduce) { .haven-corner__frame { transition: none; transform: none !important; } }

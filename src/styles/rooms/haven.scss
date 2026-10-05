@@ -1,118 +1,26 @@
-// Scoped textile charter and doorway approach. The removed lower protrusion must stay absent; HavenDoor owns its own scene.
-.haven-charter {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.5fr);
-  gap: clamp(2rem, 6vw, 6rem);
-  align-items: center;
-  padding: clamp(1.25rem, 4vw, 3rem);
-  background: linear-gradient(118deg, color-mix(in srgb, var(--bg-raised) 78%, transparent), color-mix(in srgb, var(--bg-inset) 58%, transparent));
-  border-block: 1px solid var(--story-line);
-  box-shadow: inset 0 -1rem 2.5rem color-mix(in srgb, var(--bg-inset) 28%, transparent);
-}
-.haven-charter__welcome {
-  position: relative;
-  padding: clamp(1.35rem, 4vw, 2.5rem);
-  background:
-    radial-gradient(circle at 26% 24%, color-mix(in srgb, var(--storybook-gold) 78%, transparent) 0 0.13rem, transparent 0.16rem),
-    radial-gradient(circle at 74% 24%, color-mix(in srgb, var(--storybook-gold) 78%, transparent) 0 0.13rem, transparent 0.16rem),
-    radial-gradient(circle at 50% 62%, color-mix(in srgb, var(--storybook-gold) 72%, transparent) 0 0.13rem, transparent 0.16rem),
-    linear-gradient(145deg, color-mix(in srgb, var(--plum) 78%, var(--story-surface)), color-mix(in srgb, var(--bg-inset) 82%, var(--rose)));
-  border: 1px solid color-mix(in srgb, var(--lavender) 34%, var(--story-line));
-  border-bottom-width: 0.35rem;
-  border-radius: 3.4rem 3.4rem 0.75rem 0.75rem;
-  box-shadow: inset 0 0 0 0.5rem color-mix(in srgb, var(--story-surface) 30%, transparent), 0 1.15rem 2.2rem rgb(13 7 12 / 22%);
-}
-.haven-charter::after {
-  position: absolute;
-  right: 1rem;
-  bottom: -0.35rem;
-  left: 1rem;
-  height: 0.35rem;
-  background: repeating-linear-gradient(90deg, var(--storybook-gold) 0 0.45rem, transparent 0.45rem 0.9rem);
-  content: "";
-  opacity: 0.34;
-}
-.haven-charter__welcome h2 {
-  font-size: clamp(2.2rem, 4vw, 3.8rem);
-  line-height: 1.1;
-}
-.haven-charter__welcome .ghostie-art {
-  --ghostie-size: 18rem;
-  max-width: 18rem;
-  height: 17rem;
-}
-.haven-charter__welcome .room-caption {
-  margin: 0;
-}
-.haven-charter__values {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  border-top: 1px solid var(--story-line);
-}
-.haven-charter__values li {
-  display: grid;
-  grid-template-columns: 3rem minmax(0, 1fr);
-  gap: 1.25rem;
-  padding-block: 1.75rem;
-  border-bottom: 1px solid var(--story-line);
-}
-.haven-charter__number {
-  color: var(--storybook-gold);
-  font-family: var(--font-display);
-  font-size: 2rem;
-  font-style: italic;
-  line-height: 1;
-}
-.haven-charter__values h3 {
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
-  line-height: 1.2;
-}
-.haven-charter__values p {
-  color: var(--text-muted);
-  margin: 0;
-  max-width: 39rem;
-}
-.haven-entry {
-  padding-top: 1rem;
-}
+// The promise is a quiet textile heading beside a paper charter. The doorway is the room's focal interaction.
+.haven-charter { display: grid; grid-template-columns: minmax(0,0.8fr) minmax(0,1.4fr); gap: 3rem; align-items: center; padding-block: 4rem; }
+.haven-charter__welcome { padding: 0; }
+.haven-charter__welcome h2 { font-size: clamp(2.4rem,3.8vw,3.7rem); line-height: 1.12; }
+.haven-charter__welcome .ghostie-art { --ghostie-size: 12rem; height: 12rem; }
+.haven-charter__welcome .room-caption { margin: 0; }
+.haven-charter__values { list-style: none; margin: 0; padding: 0.75rem clamp(1.5rem,3vw,2.5rem); color: var(--ink); background: var(--storybook-paper); border-top: 0.3rem solid #8a657b; box-shadow: 0.5rem 0.6rem 0 #1a0e1640; }
+.haven-charter__values li { display: grid; grid-template-columns: 2rem minmax(0,1fr); gap: 1rem; padding-block: 1.5rem; }
+.haven-charter__values li + li { border-top: 1px solid var(--line-dark); }
+.haven-charter__number { white-space: nowrap; color: #81526a; font: italic 1.5rem var(--font-display); }
+.haven-charter__values h3 { font-size: 1.65rem; line-height: 1.2; }
+.haven-charter__values p { color: var(--ink-muted); margin: 0; line-height: 1.75; }
+.haven-entry { position: relative; isolation: isolate; padding-block: 3rem 4rem; }
+.haven-entry__atmosphere { z-index: 2; top: 3rem; left: var(--page-gutter); width: calc(42% - var(--page-gutter)); height: calc(100% - 7rem); }
+.haven-entry > .atmosphere-control { top: 3.5rem; right: auto; left: calc(var(--page-gutter) + 0.75rem); }
 @media (max-width: 47.99rem) {
-  .haven-charter {
-    width: calc(100% - var(--page-gutter) * 2);
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 0.85rem;
-    margin-inline: auto;
-  }
-  .haven-charter__welcome {
-    display: grid;
-    grid-template-columns: 1fr 6.5rem;
-    padding: 1.1rem;
-    border-radius: 1.7rem 1.7rem 0.55rem 0.55rem;
-  }
-  .haven-charter__welcome .room-kicker {
-    grid-column: 1 / -1;
-  }
-  .haven-charter__welcome .ghostie-art {
-    --ghostie-size: 6.5rem;
-    height: 7.5rem;
-    grid-column: 2;
-    grid-row: 2 / 4;
-  }
-  .haven-charter__values li {
-    grid-template-columns: 2rem minmax(0, 1fr);
-    gap: 0.75rem;
-    padding-block: 1.2rem;
-  }
-  .haven-charter__values h3 { font-size: 1.55rem; }
-  .haven-charter__values p { font-size: 0.9rem; line-height: 1.55; }
-}
-@media (max-width: 24rem) {
-  .haven-charter__welcome {
-    grid-template-columns: 1fr;
-  }
-  .haven-charter__welcome .ghostie-art {
-    display: none;
-  }
+  .haven-charter { grid-template-columns: 1fr; gap: 1.5rem; padding-block: 2.5rem; }
+  .haven-charter__welcome { display: grid; grid-template-columns: minmax(0,1fr) 5rem; gap: 0 0.5rem; }
+  .haven-charter__welcome .room-kicker { grid-column: 1 / -1; }
+  .haven-charter__welcome .ghostie-art { --ghostie-size: 5rem; height: 5rem; grid-column: 2; grid-row: 2; }
+  .haven-charter__welcome h2 { font-size: clamp(2rem,8vw,2.6rem); }
+  .haven-charter__welcome .room-caption { grid-column: 1 / -1; }
+  .haven-charter__values { padding-inline: 1.25rem; }
+  .haven-charter__values li { grid-template-columns: 1.4rem minmax(0,1fr); gap: 0.65rem; }
+  .haven-entry { padding-block: 2rem; }
 }
