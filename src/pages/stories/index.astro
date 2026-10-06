@@ -1,4 +1,5 @@
 ---
+import RoomCompanion from "@/components/astro/RoomCompanion.astro";
 import SiteLayout from "@/layouts/SiteLayout.astro";
 import RoomArrival from "@/components/astro/RoomArrival.astro";
 
@@ -44,6 +45,7 @@ const albumMemories = featuredMoments.slice(1);
       </div>
       <p>Three public clips for now. No invented memories filling the empty pages.</p>
     </header>
+    <RoomCompanion pose="cozy" placement="bookmark" />
     <ol class="memory-album__pages" data-material-reveal>
       <li class="memory-album__lead">
         <MediaCard moment={leadMemory} presentation="album" featured client:load />

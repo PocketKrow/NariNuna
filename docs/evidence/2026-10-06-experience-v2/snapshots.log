@@ -1,0 +1,26 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+[WebServer] (node:31) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 8 tests using 1 worker
+
+(node:43) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+/workspace/scratch/50c02282deda/NariNuna/browser-tests/snapshots/home-390.png is re-generated, writing actual.
+  ✓  1 [chromium] › browser-tests/experience.spec.ts:26:5 › home composition at 390px (3.8s)
+/workspace/scratch/50c02282deda/NariNuna/browser-tests/snapshots/meet-390.png is re-generated, writing actual.
+  ✓  2 [chromium] › browser-tests/experience.spec.ts:26:5 › meet composition at 390px (2.6s)
+/workspace/scratch/50c02282deda/NariNuna/browser-tests/snapshots/haven-390.png is re-generated, writing actual.
+  ✓  3 [chromium] › browser-tests/experience.spec.ts:26:5 › haven composition at 390px (3.9s)
+/workspace/scratch/50c02282deda/NariNuna/browser-tests/snapshots/nails-390.png is re-generated, writing actual.
+  ✓  4 [chromium] › browser-tests/experience.spec.ts:26:5 › nails composition at 390px (2.7s)
+/workspace/scratch/50c02282deda/NariNuna/browser-tests/snapshots/home-1440.png is re-generated, writing actual.
+  ✓  5 [chromium] › browser-tests/experience.spec.ts:26:5 › home composition at 1440px (5.0s)
+/workspace/scratch/50c02282deda/NariNuna/browser-tests/snapshots/meet-1440.png is re-generated, writing actual.
+  ✓  6 [chromium] › browser-tests/experience.spec.ts:26:5 › meet composition at 1440px (7.0s)
+/workspace/scratch/50c02282deda/NariNuna/browser-tests/snapshots/haven-1440.png is re-generated, writing actual.
+  ✓  7 [chromium] › browser-tests/experience.spec.ts:26:5 › haven composition at 1440px (8.6s)
+/workspace/scratch/50c02282deda/NariNuna/browser-tests/snapshots/nails-1440.png is re-generated, writing actual.
+  ✓  8 [chromium] › browser-tests/experience.spec.ts:26:5 › nails composition at 1440px (6.6s)
+
+  8 passed (41.1s)

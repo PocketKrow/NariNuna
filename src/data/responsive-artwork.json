@@ -1243,6 +1243,250 @@
         }
       ]
     },
+    "/media/vnext/scenes/haven-room.webp": {
+      "sourceFile": "src/assets/source/vnext/delivery/media/vnext/scenes/haven-room.webp",
+      "role": "scene",
+      "sourceSha256": "481c9cc27ca55c21390f1077dd0e4bd7c5a61af6d17febe991aa90f61897858e",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "candidates": [
+        {
+          "src": "/media/responsive/scene-haven-room-768.c2e234bee774dbd1.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 92002,
+          "sha256": "c2e234bee774dbd15926a1484123725960c58566adfbe0f87cc6ba61afea1d88",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/scene-haven-room-1280.4b39978e9ae5a9ee.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 138198,
+          "sha256": "4b39978e9ae5a9ee97c9c5b6afef0cd49b30539526df73c4f8774d4788bf9b9e",
+          "quality": 76
+        },
+        {
+          "src": "/media/responsive/scene-haven-room-1672.884ab6beec9f4090.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 136870,
+          "sha256": "884ab6beec9f4090b24c72e24ea47ea2e0c9e8e72e4f75df7391406b1ad610ae",
+          "quality": 50
+        }
+      ]
+    },
+    "/media/vnext/characters/nari-window-seat.webp": {
+      "sourceFile": "src/assets/source/vnext/delivery/media/vnext/characters/nari-window-seat.webp",
+      "role": "character",
+      "sourceSha256": "7e4638c5339d67aa5adece1b7213c14d17e7aa8c0931d7a8bb458fbbe44133fd",
+      "width": 1672,
+      "height": 941,
+      "alpha": true,
+      "candidates": [
+        {
+          "src": "/media/responsive/character-nari-window-seat-768.0e5928ffbac388d2.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 37758,
+          "sha256": "0e5928ffbac388d2de8d0b6a5d3a5c94b110c0aaf06355a535222fac9ea62356",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/character-nari-window-seat-1280.c1fe8ee3f02bf9df.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 73572,
+          "sha256": "c1fe8ee3f02bf9df15f6bd315b965dfeb88f0d9951cd7126f7b1ce7b56a0cb9a",
+          "quality": 78
+        }
+      ]
+    },
+    "/media/vnext/layers/hearth-still-life.webp": {
+      "sourceFile": "src/assets/source/vnext/delivery/media/vnext/layers/hearth-still-life.webp",
+      "role": "layer",
+      "sourceSha256": "a80e2e47885bb7b20d714e17b7c5b977a8113abaee852d02897e384d5c0b32af",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "candidates": [
+        {
+          "src": "/media/responsive/layer-hearth-still-life-128.6ad0728c3eab9239.webp",
+          "width": 128,
+          "height": 85,
+          "bytes": 5306,
+          "sha256": "6ad0728c3eab923985a9ba190ea080d38510716da9d5fcb487374cf50be284c5",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/layer-hearth-still-life-256.c66c20222c599da9.webp",
+          "width": 256,
+          "height": 171,
+          "bytes": 14770,
+          "sha256": "c66c20222c599da93c539d14aba5778c11a1955641906ab446f4dd938c47a11f",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/layer-hearth-still-life-480.cecedeb492bd9675.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 38388,
+          "sha256": "cecedeb492bd9675c92903f9d8c47818656eb62fdfd365c7f888de9d44419f18",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/layer-hearth-still-life-768.4fcca69814f26d56.webp",
+          "width": 768,
+          "height": 512,
+          "bytes": 81608,
+          "sha256": "4fcca69814f26d56347666fa071db41e51124ba928dedbf46e7a057cd47fe7ef",
+          "quality": 84
+        }
+      ]
+    },
+    "/media/vnext/layers/lavender-curtain.webp": {
+      "sourceFile": "src/assets/source/vnext/delivery/media/vnext/layers/lavender-curtain.webp",
+      "role": "layer",
+      "sourceSha256": "4c57e3ca516b880ffba2c80ae161de288ed53f33d864918b1d8d7b96678cec7e",
+      "width": 1024,
+      "height": 1536,
+      "alpha": true,
+      "candidates": [
+        {
+          "src": "/media/responsive/layer-lavender-curtain-128.c05796eb96a2d32f.webp",
+          "width": 128,
+          "height": 192,
+          "bytes": 5978,
+          "sha256": "c05796eb96a2d32f7727fa904354a91c3cdbe204f470dc23d5ef9545af7e45d2",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/layer-lavender-curtain-256.32f4e488473fa9f0.webp",
+          "width": 256,
+          "height": 384,
+          "bytes": 16522,
+          "sha256": "32f4e488473fa9f0ba9785dc14a4ae89141053a794c6d3feffb0cc4263e5590a",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/layer-lavender-curtain-480.20e051363b12bb3a.webp",
+          "width": 480,
+          "height": 720,
+          "bytes": 46778,
+          "sha256": "20e051363b12bb3aea7a56adcc2e586ba735af084fca0c1854171b22ee687864",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/layer-lavender-curtain-768.e62bccf0a29e73ee.webp",
+          "width": 768,
+          "height": 1152,
+          "bytes": 89664,
+          "sha256": "e62bccf0a29e73ee623ff4da6710a846c61dc8386fa489f5bb53bf6d3e83d459",
+          "quality": 62
+        }
+      ]
+    },
+    "/media/vnext/ghosties/ghostie-doorway.webp": {
+      "sourceFile": "src/assets/source/vnext/delivery/media/vnext/ghosties/ghostie-doorway.webp",
+      "role": "ghostie",
+      "sourceSha256": "507fa351c3c4826f5e4e4d9e0fb22a2fbeb235621309d17c8d23d60f3b59a30c",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "candidates": [
+        {
+          "src": "/media/responsive/ghostie-ghostie-doorway-64.3245addce913c45f.webp",
+          "width": 64,
+          "height": 64,
+          "bytes": 2080,
+          "sha256": "3245addce913c45fc023d7c2ef1a4c75fefcf3a717ad2ace828482cb0e0622d4",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/ghostie-ghostie-doorway-128.c3636556c3534af9.webp",
+          "width": 128,
+          "height": 128,
+          "bytes": 4626,
+          "sha256": "c3636556c3534af97ef5be037b6b0fa06d4b751c71c465fa37c0973025f4ca32",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/ghostie-ghostie-doorway-256.77c2735c25e4ccb8.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 11606,
+          "sha256": "77c2735c25e4ccb86254280f8ed7316091d349d33f6ed035d62019979c141846",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/ghostie-ghostie-doorway-512.858d86afd0a0cb5b.webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 31118,
+          "sha256": "858d86afd0a0cb5bae336dd23e9bdfa29b1898568a64a4f7d8db0b28c8f5590d",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/ghostie-ghostie-doorway-768.20081b2172d80a68.webp",
+          "width": 768,
+          "height": 768,
+          "bytes": 63642,
+          "sha256": "20081b2172d80a682714227224e1192e52fe5fad1cf8bdf1702200be23429655",
+          "quality": 84
+        }
+      ]
+    },
+    "/media/vnext/ghosties/ghostie-welcome.webp": {
+      "sourceFile": "src/assets/source/vnext/delivery/media/vnext/ghosties/ghostie-welcome.webp",
+      "role": "ghostie",
+      "sourceSha256": "237e5b35de79e546c8f604185779f64c0a26cb4235db799cdeb7f441011f5fe2",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "candidates": [
+        {
+          "src": "/media/responsive/ghostie-ghostie-welcome-64.7a07b8cfc1d451a7.webp",
+          "width": 64,
+          "height": 64,
+          "bytes": 2166,
+          "sha256": "7a07b8cfc1d451a77d57d0f5e414b83c04eb14ed4be4e7f786c5d85a533d8060",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/ghostie-ghostie-welcome-128.c64bc38e9a25f57d.webp",
+          "width": 128,
+          "height": 128,
+          "bytes": 5064,
+          "sha256": "c64bc38e9a25f57d4ba4547bccc8f2e6e97a0d2eea1e8bc93808806fd5496823",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/ghostie-ghostie-welcome-256.a5570274e55a4f32.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 12436,
+          "sha256": "a5570274e55a4f32deeec2c8e29cf43fcc716d2f064590238830fd9f8c81ed33",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/ghostie-ghostie-welcome-512.a9ae55e015ec99ec.webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 31690,
+          "sha256": "a9ae55e015ec99ec146a8d257ecb9de3b0c2c2c823c19aa919147bf3683441bf",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/ghostie-ghostie-welcome-768.378e74174e1df8ab.webp",
+          "width": 768,
+          "height": 768,
+          "bytes": 63028,
+          "sha256": "378e74174e1df8abed592778b122ce6d3ec81cda0bc1593dd094f9d126c2ed73",
+          "quality": 84
+        }
+      ]
+    },
     "/media/motifs/lavender-sprig.webp": {
       "sourceFile": "src/assets/source/delivery/media/motifs/lavender-sprig.webp",
       "role": "motif",

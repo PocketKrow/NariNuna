@@ -33,6 +33,7 @@ for (const width of [390, 1440]) {
       // Normalize Linux test fonts so CI checks composition rather than the host's optional serif aliases.
       await page.addStyleTag({ content: ':root { --font-display: "DejaVu Serif"; --font-body: "DejaVu Sans"; --font-detail: "DejaVu Sans Mono"; }' });
       for (const image of await page.locator("img").all()) {
+        if (!await image.isVisible()) continue; // Desktop-only depth plates are intentionally absent on phones.
         await image.scrollIntoViewIfNeeded();
         await image.evaluate((element: HTMLImageElement) => element.decode().catch(() => undefined));
       }
@@ -68,16 +69,19 @@ test("static documents survive JavaScript and enhancement failure", async ({ bro
   await context.close();
 });
 
-test("reduced motion, save-data and mobile never fetch decorative runtimes", async ({ browser }) => {
+test("reduced motion and save-data fetch no effects; mobile skips desktop runtimes", async ({ browser }) => {
   for (const mode of ["reduced", "save-data", "mobile"] as const) {
     const context = await browser.newContext({ reducedMotion: mode === "reduced" ? "reduce" : "no-preference", viewport: { width: mode === "mobile" ? 390 : 1440, height: 900 } });
     if (mode === "save-data") await context.addInitScript(() => Object.defineProperty(navigator, "connection", { value: { saveData: true } }));
     const page = await context.newPage();
     const enhancements: string[] = [];
-    page.on("request", (request) => { if (/\/assets\/(motion|atmosphere)\./.test(request.url())) enhancements.push(request.url()); });
+    page.on("request", (request) => { if (/\/assets\/(motion|atmosphere|touch)\./.test(request.url())) enhancements.push(request.url()); });
     await page.goto("http://127.0.0.1:4175/"); await settle(page);
     await page.waitForTimeout(1800);
-    expect(enhancements).toEqual([]);
+    if (mode === "mobile") {
+      expect(enhancements.some((url) => /\/touch\./.test(url))).toBe(true);
+      expect(enhancements.some((url) => /\/(motion|atmosphere)\./.test(url))).toBe(false);
+    } else expect(enhancements).toEqual([]);
     await expect(page.getByRole("button", { name: "Pause atmosphere" })).toBeHidden();
     await context.close();
   }
@@ -85,7 +89,7 @@ test("reduced motion, save-data and mobile never fetch decorative runtimes", asy
 
 test("optional chunk failure leaves the page and navigation usable", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
-  await page.route(/\/assets\/(motion|atmosphere)\./, (route) => route.abort());
+  await page.route(/\/assets\/(motion|atmosphere|touch)\./, (route) => route.abort());
   const errors: string[] = []; page.on("pageerror", (error) => errors.push(error.message));
   await page.goto("/"); await settle(page); await page.waitForTimeout(1800);
   await expect(page.locator("h1")).toContainText("Nari");

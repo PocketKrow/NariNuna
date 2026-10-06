@@ -9,6 +9,10 @@ export interface ExperienceCapabilities {
 export function canAnimate(capabilities: ExperienceCapabilities): boolean {
   return !capabilities.reducedMotion && !capabilities.saveData;
 }
+export function experienceTier(capabilities: ExperienceCapabilities): "static" | "touch" | "depth" {
+  if (!canAnimate(capabilities)) return "static";
+  return capabilities.coarsePointer || capabilities.width < 1024 ? "touch" : "depth";
+}
 export function canRenderAtmosphere(capabilities: ExperienceCapabilities): boolean {
   return canAnimate(capabilities) && !capabilities.coarsePointer && capabilities.width >= 1024 && capabilities.cores >= 4;
 }

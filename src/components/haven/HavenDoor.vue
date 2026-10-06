@@ -94,7 +94,7 @@ async function closeFromStory(): Promise<void> {
       <div class="haven-threshold__ivy haven-threshold__ivy--right" aria-hidden="true"></div>
       <div class="haven-threshold__lantern haven-threshold__lantern--left" aria-hidden="true"></div>
       <div class="haven-threshold__lantern haven-threshold__lantern--right" aria-hidden="true"></div>
-      <GhostieArt v-if="step === 2" class="haven-threshold__visitor" variant="peek" sizes="96px" aria-hidden="true" />
+      <GhostieArt v-if="step === 2" class="haven-threshold__visitor" variant="doorway" sizes="96px" aria-hidden="true" />
       <div class="haven-threshold__keystone" aria-hidden="true">☾</div>
 
       <div class="haven-threshold__arch">

@@ -1,3 +1,5 @@
+> **6 October 2026 experience v2:** [Document 44](44_IMMERSIVE_HAVEN.md) owns the layered Home, new alpha assets, contextual residents, tiered touch/desktop motion, evidence and rollback. It supersedes the frozen-art/mobile-exclusion statements below; rights and release gates remain.
+
 # Nari Nuna's Haven — Documentation Hub
 
 Current implementation: [43 — vNext experience, authority, source owners, validation and rollback](43_VNEXT_EXPERIENCE.md). Older tour/Passport and hero-cascade descriptions are superseded.

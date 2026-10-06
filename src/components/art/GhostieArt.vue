@@ -37,8 +37,6 @@ withDefaults(
       :artwork="communityGhostieArtwork[variant]"
       :sizes="sizes"
       :alt="decorative ? '' : label"
-      width="1254"
-      height="1254"
       :loading="loading"
       decoding="async"
     />

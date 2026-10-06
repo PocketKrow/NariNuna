@@ -12,7 +12,7 @@ const idPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 function assetExists(asset) {
   const relative = asset.replace(/^\//, "");
-  return existsSync(resolve("public", relative)) || existsSync(resolve("src/assets/source/delivery", relative));
+  return existsSync(resolve("public", relative)) || existsSync(resolve("src/assets/source/delivery", relative)) || existsSync(resolve("src/assets/source/vnext/delivery", relative));
 }
 
 export function validateCreditRegistry(registry) {

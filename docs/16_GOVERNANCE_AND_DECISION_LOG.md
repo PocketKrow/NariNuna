@@ -301,3 +301,13 @@ Current source owners, tests, dependency impact, limitations and recorded checks
 Astro still owns all static content and native documents; Vue owns actual interaction. One RoomArrival/material object replaces the overlapping hero cascade. Room descriptions and natural navigation remain; passage, Passport and visit storage are removed. Graphics are local procedural atmosphere only on Home/Haven, with capability gating, pause/resume, preference/visibility disposal and static fallback. Keep the 120 KB initial gzip gate and add a separate 180 KB deferred enhancement graph gate with accurate module parsing. This explicitly authorized optional transfer is disclosed; it is not hidden by the initial metric. No backend, CMS, new external integration, canon, asset-rights decision, merge or production release is authorized. Native document transitions were evaluated and retired after rapid history navigation reproduced browser-level abort errors; ordinary navigation stays immediate.
 
 New dependencies: GSAP (distributed Standard License), Three.js (MIT), development-only Three types, Playwright Test and axe. Motion-V is removed. Content Collections were considered and deferred because current approved records already have typed/permission validation and new editorial entries are unavailable. Source owners, evidence, limits and rollback are in document 43. Revert this experience commit to restore the PR #24 composition and tour; source artwork is untouched.
+
+
+### ADR-013 — Immersive Haven asset revision and progressive tiers
+
+**State:** `ACCEPTED` for implementation/review; public rights/adoption/release unresolved.
+**Date:** 2026-10-06.
+**Authority:** Jake's attached NariNuna vNext asset/experience rebuild brief.
+**Decision:** Preserve Astro/Vue/SCSS/GSAP/Three; retain migration source bytes while creating versioned transparent prop/Ghostie plates and an aligned Home room/character pair. Centralize room depth metadata. Allow finite lightweight touch motion separately from desktop GSAP depth and selective graphics. Keep the 120/180 KB runtime budgets and existing 250 KB first-viewport artwork ceiling.
+**Consequences:** New source, responsive, registry, validator, consumer, screenshot and release records move together. No generic UI runtime, new identity, real nail-photo claim, View Transition, merge or production deployment. Model-derived Home plates inherit blocked rights; production release still fails until owner/client/rights evidence is resolved.
+**Implementation/evidence:** [44_IMMERSIVE_HAVEN.md](44_IMMERSIVE_HAVEN.md), ASSET-2026-022, isolated branch stacked on #28.

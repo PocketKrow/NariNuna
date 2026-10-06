@@ -30,6 +30,8 @@ export const ghostieArtwork = {
 
 // Aliases deliberately share candidate sets; a pose label does not imply a separate source file.
 export const communityGhostieArtwork = {
+  welcome: "/media/vnext/ghosties/ghostie-welcome.webp",
+  doorway: "/media/vnext/ghosties/ghostie-doorway.webp",
   sleeping: "/media/ghosties/community/ghostie-sleeping.webp",
   chaotic: "/media/ghosties/community/ghostie-chaotic.webp",
   protective: "/media/ghosties/community/ghostie-protective.webp",
@@ -44,7 +46,7 @@ export const communityGhostieArtwork = {
   sign: "/media/ghosties/community/ghostie-sign.webp",
   blushing: "/media/ghosties/community/ghostie-shy.webp",
   pointLeft: "/media/ghosties/community/ghostie-sign.webp",
-  wave: "/media/ghosties/community/ghostie-heart.webp",
+  wave: "/media/vnext/ghosties/ghostie-welcome.webp",
   floating: "/media/ghosties/community/ghostie-chaotic.webp",
   blanket: "/media/ghosties/community/ghostie-sleeping.webp",
   support: "/media/ghosties/community/ghostie-heart.webp",
@@ -68,7 +70,7 @@ export const officialEmotes = {
 // Alternate atmospheres and the old gathering remain retained keys with no active runtime candidates.
 // Only active keys may be passed to the delivery helpers.
 export const environmentArtwork = {
-  homeSunset: "/media/storybook/scenes/haven-sunset.webp",
+  homeSunset: "/media/vnext/scenes/haven-room.webp",
   homeNight: "/media/storybook/scenes/haven-midnight.webp",
   homeDaylight: "/media/storybook/scenes/haven-daybreak.webp",
   meetNari: "/media/storybook/scenes/meet-nari.webp",

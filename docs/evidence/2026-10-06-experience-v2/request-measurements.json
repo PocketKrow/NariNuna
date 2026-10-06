@@ -1,0 +1,884 @@
+[
+  {
+    "setup": {
+      "name": "desktop-depth",
+      "width": 1440,
+      "dpr": 1,
+      "touch": false,
+      "reduced": "no-preference"
+    },
+    "firstViewportArtworkBytes": 239814,
+    "firstViewportArtwork": [
+      {
+        "path": "/media/responsive/scene-haven-room-1672.884ab6beec9f4090.webp",
+        "type": "image",
+        "bytes": 136870
+      },
+      {
+        "path": "/media/responsive/character-nari-window-seat-1280.c1fe8ee3f02bf9df.webp",
+        "type": "image",
+        "bytes": 73572
+      },
+      {
+        "path": "/media/responsive/ghostie-ghostie-welcome-64.7a07b8cfc1d451a7.webp",
+        "type": "image",
+        "bytes": 2166
+      },
+      {
+        "path": "/media/responsive/ghostie-ghostie-welcome-256.a5570274e55a4f32.webp",
+        "type": "image",
+        "bytes": 12436
+      },
+      {
+        "path": "/media/responsive/layer-hearth-still-life-256.c66c20222c599da9.webp",
+        "type": "image",
+        "bytes": 14770
+      }
+    ],
+    "allImageBodyBytes": 361032,
+    "scripts": [
+      {
+        "path": "/assets/RoomArrival.astro_astro_type_script_index_0_lang.BNn1hTcD.js",
+        "type": "script",
+        "bytes": 3858
+      },
+      {
+        "path": "/assets/SiteHeader.Bnp1_eP8.js",
+        "type": "script",
+        "bytes": 6836
+      },
+      {
+        "path": "/assets/client.yLftpcjt.js",
+        "type": "script",
+        "bytes": 1019
+      },
+      {
+        "path": "/assets/createLucideIcon.CNdwmFiO.js",
+        "type": "script",
+        "bytes": 1419
+      },
+      {
+        "path": "/assets/socials.CqDcOTKE.js",
+        "type": "script",
+        "bytes": 2488
+      },
+      {
+        "path": "/assets/runtime-dom.esm-bundler.XLpVVs5O.js",
+        "type": "script",
+        "bytes": 9454
+      },
+      {
+        "path": "/assets/runtime-core.esm-bundler.ChbyxWIE.js",
+        "type": "script",
+        "bytes": 67417
+      },
+      {
+        "path": "/assets/sparkles.BxL7fmQD.js",
+        "type": "script",
+        "bytes": 494
+      },
+      {
+        "path": "/assets/artwork.DGcUCZkf.js",
+        "type": "script",
+        "bytes": 20482
+      },
+      {
+        "path": "/assets/motion.CzUlLyUx.js",
+        "type": "script",
+        "bytes": 114384
+      }
+    ],
+    "note": "Fresh context, no scrolling; local server sends uncompressed bodies. Hero+header deduplicated separately from browser lazy-prefetch of below-fold art. JS budget uses build gzip graph, not these uncompressed bodies. Header also includes its initial SSR srcset candidate, even if hydration reuses the already cached resident candidate.",
+    "responses": [
+      {
+        "path": "/",
+        "type": "document",
+        "bytes": 34034
+      },
+      {
+        "path": "/assets/RoomArrival.CcDCkYWk.css",
+        "type": "stylesheet",
+        "bytes": 8241
+      },
+      {
+        "path": "/media/responsive/scene-haven-room-1672.884ab6beec9f4090.webp",
+        "type": "image",
+        "bytes": 136870
+      },
+      {
+        "path": "/assets/SiteLayout.Bui1VYDc.css",
+        "type": "stylesheet",
+        "bytes": 55798
+      },
+      {
+        "path": "/assets/ArtworkCreditLink.CSAVUXaR.css",
+        "type": "stylesheet",
+        "bytes": 600
+      },
+      {
+        "path": "/assets/index.QpEnMwsK.css",
+        "type": "stylesheet",
+        "bytes": 2472
+      },
+      {
+        "path": "/media/responsive/character-nari-window-seat-1280.c1fe8ee3f02bf9df.webp",
+        "type": "image",
+        "bytes": 73572
+      },
+      {
+        "path": "/media/responsive/ghostie-ghostie-welcome-64.7a07b8cfc1d451a7.webp",
+        "type": "image",
+        "bytes": 2166
+      },
+      {
+        "path": "/media/responsive/ghostie-ghostie-welcome-256.a5570274e55a4f32.webp",
+        "type": "image",
+        "bytes": 12436
+      },
+      {
+        "path": "/media/responsive/layer-hearth-still-life-256.c66c20222c599da9.webp",
+        "type": "image",
+        "bytes": 14770
+      },
+      {
+        "path": "/assets/RoomArrival.astro_astro_type_script_index_0_lang.BNn1hTcD.js",
+        "type": "script",
+        "bytes": 3858
+      },
+      {
+        "path": "/assets/SiteHeader.Bnp1_eP8.js",
+        "type": "script",
+        "bytes": 6836
+      },
+      {
+        "path": "/assets/client.yLftpcjt.js",
+        "type": "script",
+        "bytes": 1019
+      },
+      {
+        "path": "/media/responsive/postcard-nails-atelier-480.e6e6f4878c0ddc11.webp",
+        "type": "image",
+        "bytes": 33746
+      },
+      {
+        "path": "/media/responsive/postcard-streams-atelier-480.d41efef4412afb90.webp",
+        "type": "image",
+        "bytes": 34272
+      },
+      {
+        "path": "/media/responsive/ghostie-ghostie-nail-tech-128.cd99742bac3dfee8.webp",
+        "type": "image",
+        "bytes": 6924
+      },
+      {
+        "path": "/media/responsive/ghostie-ghostie-gaming-128.8b6008be3d064c99.webp",
+        "type": "image",
+        "bytes": 6758
+      },
+      {
+        "path": "/media/responsive/ghostie-ghostie-doorway-128.c3636556c3534af9.webp",
+        "type": "image",
+        "bytes": 4626
+      },
+      {
+        "path": "/media/responsive/postcard-haven-community-480.e59e555a574c568c.webp",
+        "type": "image",
+        "bytes": 34892
+      },
+      {
+        "path": "/assets/createLucideIcon.CNdwmFiO.js",
+        "type": "script",
+        "bytes": 1419
+      },
+      {
+        "path": "/assets/socials.CqDcOTKE.js",
+        "type": "script",
+        "bytes": 2488
+      },
+      {
+        "path": "/assets/runtime-dom.esm-bundler.XLpVVs5O.js",
+        "type": "script",
+        "bytes": 9454
+      },
+      {
+        "path": "/assets/runtime-core.esm-bundler.ChbyxWIE.js",
+        "type": "script",
+        "bytes": 67417
+      },
+      {
+        "path": "/assets/sparkles.BxL7fmQD.js",
+        "type": "script",
+        "bytes": 494
+      },
+      {
+        "path": "/assets/artwork.DGcUCZkf.js",
+        "type": "script",
+        "bytes": 20482
+      },
+      {
+        "path": "/assets/motion.CzUlLyUx.js",
+        "type": "script",
+        "bytes": 114384
+      }
+    ]
+  },
+  {
+    "setup": {
+      "name": "desktop-static",
+      "width": 1440,
+      "dpr": 1,
+      "touch": false,
+      "reduced": "reduce"
+    },
+    "firstViewportArtworkBytes": 239814,
+    "firstViewportArtwork": [
+      {
+        "path": "/media/responsive/scene-haven-room-1672.884ab6beec9f4090.webp",
+        "type": "image",
+        "bytes": 136870
+      },
+      {
+        "path": "/media/responsive/character-nari-window-seat-1280.c1fe8ee3f02bf9df.webp",
+        "type": "image",
+        "bytes": 73572
+      },
+      {
+        "path": "/media/responsive/ghostie-ghostie-welcome-64.7a07b8cfc1d451a7.webp",
+        "type": "image",
+        "bytes": 2166
+      },
+      {
+        "path": "/media/responsive/layer-hearth-still-life-256.c66c20222c599da9.webp",
+        "type": "image",
+        "bytes": 14770
+      },
+      {
+        "path": "/media/responsive/ghostie-ghostie-welcome-256.a5570274e55a4f32.webp",
+        "type": "image",
+        "bytes": 12436
+      }
+    ],
+    "allImageBodyBytes": 361032,
+    "scripts": [
+      {
+        "path": "/assets/RoomArrival.astro_astro_type_script_index_0_lang.BNn1hTcD.js",
+        "type": "script",
+        "bytes": 3858
+      },
+      {
+        "path": "/assets/SiteHeader.Bnp1_eP8.js",
+        "type": "script",
+        "bytes": 6836
+      },
+      {
+        "path": "/assets/client.yLftpcjt.js",
+        "type": "script",
+        "bytes": 1019
+      },
+      {
+        "path": "/assets/socials.CqDcOTKE.js",
+        "type": "script",
+        "bytes": 2488
+      },
+      {
+        "path": "/assets/createLucideIcon.CNdwmFiO.js",
+        "type": "script",
+        "bytes": 1419
+      },
+      {
+        "path": "/assets/sparkles.BxL7fmQD.js",
+        "type": "script",
+        "bytes": 494
+      },
+      {
+        "path": "/assets/runtime-dom.esm-bundler.XLpVVs5O.js",
+        "type": "script",
+        "bytes": 9454
+      },
+      {
+        "path": "/assets/runtime-core.esm-bundler.ChbyxWIE.js",
+        "type": "script",
+        "bytes": 67417
+      },
+      {
+        "path": "/assets/artwork.DGcUCZkf.js",
+        "type": "script",
+        "bytes": 20482
+      }
+    ],
+    "note": "Fresh context, no scrolling; local server sends uncompressed bodies. Hero+header deduplicated separately from browser lazy-prefetch of below-fold art. JS budget uses build gzip graph, not these uncompressed bodies. Header also includes its initial SSR srcset candidate, even if hydration reuses the already cached resident candidate.",
+    "responses": [
+      {
+        "path": "/",
+        "type": "document",
+        "bytes": 34034
+      },
+      {
+        "path": "/media/responsive/scene-haven-room-1672.884ab6beec9f4090.webp",
+        "type": "image",
+        "bytes": 136870
+      },
+      {
+        "path": "/assets/RoomArrival.CcDCkYWk.css",
+        "type": "stylesheet",
+        "bytes": 8241
+      },
+      {
+        "path": "/assets/SiteLayout.Bui1VYDc.css",
+        "type": "stylesheet",
+        "bytes": 55798
+      },
+      {
+        "path": "/assets/ArtworkCreditLink.CSAVUXaR.css",
+        "type": "stylesheet",
+        "bytes": 600
+      },
+      {
+        "path": "/assets/index.QpEnMwsK.css",
+        "type": "stylesheet",
+        "bytes": 2472
+      },
+      {
+        "path": "/media/responsive/character-nari-window-seat-1280.c1fe8ee3f02bf9df.webp",
+        "type": "image",
+        "bytes": 73572
+      },
+      {
+        "path": "/media/responsive/ghostie-ghostie-welcome-64.7a07b8cfc1d451a7.webp",
+        "type": "image",
+        "bytes": 2166
+      },
+      {
+        "path": "/media/responsive/layer-hearth-still-life-256.c66c20222c599da9.webp",
+        "type": "image",
+        "bytes": 14770
+      },
+      {
+        "path": "/media/responsive/ghostie-ghostie-welcome-256.a5570274e55a4f32.webp",
+        "type": "image",
+        "bytes": 12436
+      },
+      {
+        "path": "/assets/RoomArrival.astro_astro_type_script_index_0_lang.BNn1hTcD.js",
+        "type": "script",
+        "bytes": 3858
+      },
+      {
+        "path": "/assets/SiteHeader.Bnp1_eP8.js",
+        "type": "script",
+        "bytes": 6836
+      },
+      {
+        "path": "/assets/client.yLftpcjt.js",
+        "type": "script",
+        "bytes": 1019
+      },
+      {
+        "path": "/media/responsive/postcard-streams-atelier-480.d41efef4412afb90.webp",
+        "type": "image",
+        "bytes": 34272
+      },
+      {
+        "path": "/media/responsive/postcard-nails-atelier-480.e6e6f4878c0ddc11.webp",
+        "type": "image",
+        "bytes": 33746
+      },
+      {
+        "path": "/media/responsive/ghostie-ghostie-gaming-128.8b6008be3d064c99.webp",
+        "type": "image",
+        "bytes": 6758
+      },
+      {
+        "path": "/media/responsive/ghostie-ghostie-nail-tech-128.cd99742bac3dfee8.webp",
+        "type": "image",
+        "bytes": 6924
+      },
+      {
+        "path": "/media/responsive/postcard-haven-community-480.e59e555a574c568c.webp",
+        "type": "image",
+        "bytes": 34892
+      },
+      {
+        "path": "/media/responsive/ghostie-ghostie-doorway-128.c3636556c3534af9.webp",
+        "type": "image",
+        "bytes": 4626
+      },
+      {
+        "path": "/assets/socials.CqDcOTKE.js",
+        "type": "script",
+        "bytes": 2488
+      },
+      {
+        "path": "/assets/createLucideIcon.CNdwmFiO.js",
+        "type": "script",
+        "bytes": 1419
+      },
+      {
+        "path": "/assets/sparkles.BxL7fmQD.js",
+        "type": "script",
+        "bytes": 494
+      },
+      {
+        "path": "/assets/runtime-dom.esm-bundler.XLpVVs5O.js",
+        "type": "script",
+        "bytes": 9454
+      },
+      {
+        "path": "/assets/runtime-core.esm-bundler.ChbyxWIE.js",
+        "type": "script",
+        "bytes": 67417
+      },
+      {
+        "path": "/assets/artwork.DGcUCZkf.js",
+        "type": "script",
+        "bytes": 20482
+      }
+    ]
+  },
+  {
+    "setup": {
+      "name": "phone-touch",
+      "width": 390,
+      "dpr": 2,
+      "touch": true,
+      "reduced": "no-preference"
+    },
+    "firstViewportArtworkBytes": 229270,
+    "firstViewportArtwork": [
+      {
+        "path": "/media/responsive/scene-haven-room-1280.4b39978e9ae5a9ee.webp",
+        "type": "image",
+        "bytes": 138198
+      },
+      {
+        "path": "/media/responsive/character-nari-window-seat-1280.c1fe8ee3f02bf9df.webp",
+        "type": "image",
+        "bytes": 73572
+      },
+      {
+        "path": "/media/responsive/ghostie-ghostie-welcome-128.c64bc38e9a25f57d.webp",
+        "type": "image",
+        "bytes": 5064
+      },
+      {
+        "path": "/media/responsive/ghostie-ghostie-welcome-256.a5570274e55a4f32.webp",
+        "type": "image",
+        "bytes": 12436
+      }
+    ],
+    "allImageBodyBytes": 478854,
+    "scripts": [
+      {
+        "path": "/assets/RoomArrival.astro_astro_type_script_index_0_lang.BNn1hTcD.js",
+        "type": "script",
+        "bytes": 3858
+      },
+      {
+        "path": "/assets/client.yLftpcjt.js",
+        "type": "script",
+        "bytes": 1019
+      },
+      {
+        "path": "/assets/SiteHeader.Bnp1_eP8.js",
+        "type": "script",
+        "bytes": 6836
+      },
+      {
+        "path": "/assets/socials.CqDcOTKE.js",
+        "type": "script",
+        "bytes": 2488
+      },
+      {
+        "path": "/assets/createLucideIcon.CNdwmFiO.js",
+        "type": "script",
+        "bytes": 1419
+      },
+      {
+        "path": "/assets/runtime-dom.esm-bundler.XLpVVs5O.js",
+        "type": "script",
+        "bytes": 9454
+      },
+      {
+        "path": "/assets/sparkles.BxL7fmQD.js",
+        "type": "script",
+        "bytes": 494
+      },
+      {
+        "path": "/assets/runtime-core.esm-bundler.ChbyxWIE.js",
+        "type": "script",
+        "bytes": 67417
+      },
+      {
+        "path": "/assets/artwork.DGcUCZkf.js",
+        "type": "script",
+        "bytes": 20482
+      },
+      {
+        "path": "/assets/touch.CB78gaHe.js",
+        "type": "script",
+        "bytes": 637
+      }
+    ],
+    "note": "Fresh context, no scrolling; local server sends uncompressed bodies. Hero+header deduplicated separately from browser lazy-prefetch of below-fold art. JS budget uses build gzip graph, not these uncompressed bodies. Header also includes its initial SSR srcset candidate, even if hydration reuses the already cached resident candidate.",
+    "responses": [
+      {
+        "path": "/",
+        "type": "document",
+        "bytes": 34034
+      },
+      {
+        "path": "/media/responsive/scene-haven-room-1280.4b39978e9ae5a9ee.webp",
+        "type": "image",
+        "bytes": 138198
+      },
+      {
+        "path": "/assets/RoomArrival.CcDCkYWk.css",
+        "type": "stylesheet",
+        "bytes": 8241
+      },
+      {
+        "path": "/assets/SiteLayout.Bui1VYDc.css",
+        "type": "stylesheet",
+        "bytes": 55798
+      },
+      {
+        "path": "/assets/ArtworkCreditLink.CSAVUXaR.css",
+        "type": "stylesheet",
+        "bytes": 600
+      },
+      {
+        "path": "/assets/index.QpEnMwsK.css",
+        "type": "stylesheet",
+        "bytes": 2472
+      },
+      {
+        "path": "/media/responsive/character-nari-window-seat-1280.c1fe8ee3f02bf9df.webp",
+        "type": "image",
+        "bytes": 73572
+      },
+      {
+        "path": "/media/responsive/ghostie-ghostie-welcome-128.c64bc38e9a25f57d.webp",
+        "type": "image",
+        "bytes": 5064
+      },
+      {
+        "path": "/media/responsive/ghostie-ghostie-welcome-256.a5570274e55a4f32.webp",
+        "type": "image",
+        "bytes": 12436
+      },
+      {
+        "path": "/assets/RoomArrival.astro_astro_type_script_index_0_lang.BNn1hTcD.js",
+        "type": "script",
+        "bytes": 3858
+      },
+      {
+        "path": "/assets/client.yLftpcjt.js",
+        "type": "script",
+        "bytes": 1019
+      },
+      {
+        "path": "/assets/SiteHeader.Bnp1_eP8.js",
+        "type": "script",
+        "bytes": 6836
+      },
+      {
+        "path": "/media/responsive/postcard-streams-atelier-768.440c8b0ce7cb8ca8.webp",
+        "type": "image",
+        "bytes": 64714
+      },
+      {
+        "path": "/media/responsive/ghostie-ghostie-gaming-256.c6af764307a14e9e.webp",
+        "type": "image",
+        "bytes": 16884
+      },
+      {
+        "path": "/media/responsive/postcard-nails-atelier-768.bbdf0f6312976a62.webp",
+        "type": "image",
+        "bytes": 69984
+      },
+      {
+        "path": "/media/responsive/ghostie-ghostie-nail-tech-256.402279bb4621d829.webp",
+        "type": "image",
+        "bytes": 17002
+      },
+      {
+        "path": "/media/responsive/postcard-haven-community-768.e535fc0d74c2e858.webp",
+        "type": "image",
+        "bytes": 69394
+      },
+      {
+        "path": "/media/responsive/ghostie-ghostie-doorway-256.77c2735c25e4ccb8.webp",
+        "type": "image",
+        "bytes": 11606
+      },
+      {
+        "path": "/assets/socials.CqDcOTKE.js",
+        "type": "script",
+        "bytes": 2488
+      },
+      {
+        "path": "/assets/createLucideIcon.CNdwmFiO.js",
+        "type": "script",
+        "bytes": 1419
+      },
+      {
+        "path": "/assets/runtime-dom.esm-bundler.XLpVVs5O.js",
+        "type": "script",
+        "bytes": 9454
+      },
+      {
+        "path": "/assets/sparkles.BxL7fmQD.js",
+        "type": "script",
+        "bytes": 494
+      },
+      {
+        "path": "/assets/runtime-core.esm-bundler.ChbyxWIE.js",
+        "type": "script",
+        "bytes": 67417
+      },
+      {
+        "path": "/assets/artwork.DGcUCZkf.js",
+        "type": "script",
+        "bytes": 20482
+      },
+      {
+        "path": "/assets/touch.CB78gaHe.js",
+        "type": "script",
+        "bytes": 637
+      }
+    ]
+  },
+  {
+    "setup": {
+      "name": "wide-depth",
+      "width": 3840,
+      "dpr": 1,
+      "touch": false,
+      "reduced": "no-preference"
+    },
+    "firstViewportArtworkBytes": 239814,
+    "firstViewportArtwork": [
+      {
+        "path": "/media/responsive/scene-haven-room-1672.884ab6beec9f4090.webp",
+        "type": "image",
+        "bytes": 136870
+      },
+      {
+        "path": "/media/responsive/character-nari-window-seat-1280.c1fe8ee3f02bf9df.webp",
+        "type": "image",
+        "bytes": 73572
+      },
+      {
+        "path": "/media/responsive/ghostie-ghostie-welcome-64.7a07b8cfc1d451a7.webp",
+        "type": "image",
+        "bytes": 2166
+      },
+      {
+        "path": "/media/responsive/ghostie-ghostie-welcome-256.a5570274e55a4f32.webp",
+        "type": "image",
+        "bytes": 12436
+      },
+      {
+        "path": "/media/responsive/layer-hearth-still-life-256.c66c20222c599da9.webp",
+        "type": "image",
+        "bytes": 14770
+      }
+    ],
+    "allImageBodyBytes": 462214,
+    "scripts": [
+      {
+        "path": "/assets/RoomArrival.astro_astro_type_script_index_0_lang.BNn1hTcD.js",
+        "type": "script",
+        "bytes": 3858
+      },
+      {
+        "path": "/assets/SiteHeader.Bnp1_eP8.js",
+        "type": "script",
+        "bytes": 6836
+      },
+      {
+        "path": "/assets/client.yLftpcjt.js",
+        "type": "script",
+        "bytes": 1019
+      },
+      {
+        "path": "/assets/socials.CqDcOTKE.js",
+        "type": "script",
+        "bytes": 2488
+      },
+      {
+        "path": "/assets/sparkles.BxL7fmQD.js",
+        "type": "script",
+        "bytes": 494
+      },
+      {
+        "path": "/assets/createLucideIcon.CNdwmFiO.js",
+        "type": "script",
+        "bytes": 1419
+      },
+      {
+        "path": "/assets/runtime-dom.esm-bundler.XLpVVs5O.js",
+        "type": "script",
+        "bytes": 9454
+      },
+      {
+        "path": "/assets/runtime-core.esm-bundler.ChbyxWIE.js",
+        "type": "script",
+        "bytes": 67417
+      },
+      {
+        "path": "/assets/artwork.DGcUCZkf.js",
+        "type": "script",
+        "bytes": 20482
+      },
+      {
+        "path": "/assets/motion.CzUlLyUx.js",
+        "type": "script",
+        "bytes": 114384
+      },
+      {
+        "path": "/assets/atmosphere.Dzekq5At.js",
+        "type": "script",
+        "bytes": 527864
+      }
+    ],
+    "note": "Fresh context, no scrolling; local server sends uncompressed bodies. Hero+header deduplicated separately from browser lazy-prefetch of below-fold art. JS budget uses build gzip graph, not these uncompressed bodies. Header also includes its initial SSR srcset candidate, even if hydration reuses the already cached resident candidate.",
+    "responses": [
+      {
+        "path": "/",
+        "type": "document",
+        "bytes": 34034
+      },
+      {
+        "path": "/media/responsive/scene-haven-room-1672.884ab6beec9f4090.webp",
+        "type": "image",
+        "bytes": 136870
+      },
+      {
+        "path": "/assets/RoomArrival.CcDCkYWk.css",
+        "type": "stylesheet",
+        "bytes": 8241
+      },
+      {
+        "path": "/assets/ArtworkCreditLink.CSAVUXaR.css",
+        "type": "stylesheet",
+        "bytes": 600
+      },
+      {
+        "path": "/assets/SiteLayout.Bui1VYDc.css",
+        "type": "stylesheet",
+        "bytes": 55798
+      },
+      {
+        "path": "/assets/index.QpEnMwsK.css",
+        "type": "stylesheet",
+        "bytes": 2472
+      },
+      {
+        "path": "/media/responsive/character-nari-window-seat-1280.c1fe8ee3f02bf9df.webp",
+        "type": "image",
+        "bytes": 73572
+      },
+      {
+        "path": "/assets/RoomArrival.astro_astro_type_script_index_0_lang.BNn1hTcD.js",
+        "type": "script",
+        "bytes": 3858
+      },
+      {
+        "path": "/media/responsive/ghostie-ghostie-welcome-64.7a07b8cfc1d451a7.webp",
+        "type": "image",
+        "bytes": 2166
+      },
+      {
+        "path": "/media/responsive/ghostie-ghostie-welcome-256.a5570274e55a4f32.webp",
+        "type": "image",
+        "bytes": 12436
+      },
+      {
+        "path": "/media/responsive/layer-hearth-still-life-256.c66c20222c599da9.webp",
+        "type": "image",
+        "bytes": 14770
+      },
+      {
+        "path": "/assets/SiteHeader.Bnp1_eP8.js",
+        "type": "script",
+        "bytes": 6836
+      },
+      {
+        "path": "/assets/client.yLftpcjt.js",
+        "type": "script",
+        "bytes": 1019
+      },
+      {
+        "path": "/media/responsive/ghostie-ghostie-gaming-128.8b6008be3d064c99.webp",
+        "type": "image",
+        "bytes": 6758
+      },
+      {
+        "path": "/media/responsive/ghostie-ghostie-nail-tech-128.cd99742bac3dfee8.webp",
+        "type": "image",
+        "bytes": 6924
+      },
+      {
+        "path": "/media/responsive/postcard-streams-atelier-768.440c8b0ce7cb8ca8.webp",
+        "type": "image",
+        "bytes": 64714
+      },
+      {
+        "path": "/media/responsive/postcard-nails-atelier-768.bbdf0f6312976a62.webp",
+        "type": "image",
+        "bytes": 69984
+      },
+      {
+        "path": "/media/responsive/postcard-haven-community-768.e535fc0d74c2e858.webp",
+        "type": "image",
+        "bytes": 69394
+      },
+      {
+        "path": "/media/responsive/ghostie-ghostie-doorway-128.c3636556c3534af9.webp",
+        "type": "image",
+        "bytes": 4626
+      },
+      {
+        "path": "/assets/socials.CqDcOTKE.js",
+        "type": "script",
+        "bytes": 2488
+      },
+      {
+        "path": "/assets/sparkles.BxL7fmQD.js",
+        "type": "script",
+        "bytes": 494
+      },
+      {
+        "path": "/assets/createLucideIcon.CNdwmFiO.js",
+        "type": "script",
+        "bytes": 1419
+      },
+      {
+        "path": "/assets/runtime-dom.esm-bundler.XLpVVs5O.js",
+        "type": "script",
+        "bytes": 9454
+      },
+      {
+        "path": "/assets/runtime-core.esm-bundler.ChbyxWIE.js",
+        "type": "script",
+        "bytes": 67417
+      },
+      {
+        "path": "/assets/artwork.DGcUCZkf.js",
+        "type": "script",
+        "bytes": 20482
+      },
+      {
+        "path": "/assets/motion.CzUlLyUx.js",
+        "type": "script",
+        "bytes": 114384
+      },
+      {
+        "path": "/assets/atmosphere.Dzekq5At.js",
+        "type": "script",
+        "bytes": 527864
+      }
+    ]
+  }
+]

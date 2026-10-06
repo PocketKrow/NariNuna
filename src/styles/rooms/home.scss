@@ -15,3 +15,11 @@
   .haven-corner:nth-child(3) { margin-top: 0.75rem; }
 }
 @media (prefers-reduced-motion: reduce) { .haven-corner__frame { transition: none; transform: none !important; } }
+// A resident sits outside each room glimpse, on its own depth plane; the painting keeps its native ratio.
+.haven-corner__window { position: relative; padding-bottom: 1.2rem; margin-bottom: 0.5rem; }
+.haven-corner__window::after { content: ""; position: absolute; left: -0.35rem; right: -0.35rem; bottom: 1rem; height: 0.6rem; background: #5b3e43; border-top: 1px solid #bb927270; box-shadow: 0 0.5rem 0.8rem #10080c55; }
+.haven-corner__frame { border-radius: 2.5rem 2.5rem 0.2rem 0.2rem; padding: 0.55rem; background: #614746; border: 1px solid #ba976c66; }
+.haven-corner__frame img { border-radius: 2rem 2rem 0 0; }
+.haven-corner__resident { --ghostie-size: 7rem; position: absolute !important; z-index: 1; right: 0.5rem; bottom: -0.65rem; width: 7rem !important; height: 7rem !important; }
+.haven-corner:focus-visible { outline-offset: 0.6rem; }
+.haven-corner h3 { font-size: clamp(1.4rem, 2vw, 1.65rem); }

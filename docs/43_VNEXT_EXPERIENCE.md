@@ -1,3 +1,5 @@
+> **6 October 2026 experience v2:** [Document 44](44_IMMERSIVE_HAVEN.md) owns the layered Home, new alpha assets, contextual residents, tiered touch/desktop motion, evidence and rollback. It supersedes the frozen-art/mobile-exclusion statements below; rights and release gates remain.
+
 # NariNuna vNext experience
 
 Owner instruction: Jake's 5 October 2026 handoff explicitly authorizes a substantial experience redesign based on `kiva/astro-rebuild` / PR #24, removal of the bottom guided tour, GSAP/ScrollTrigger, selective Three.js and a new review PR. The baseline is `fea296225e5e57721b60d91797eb173738b8590a`. This document supersedes older passage/Passport, Motion-V and hero-cascade instructions. Implementation/review authority does not authorize merge or production release.

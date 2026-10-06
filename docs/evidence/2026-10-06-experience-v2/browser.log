@@ -1,0 +1,19 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> nari-nuna-haven@0.3.0 verify:browser
+> node scripts/verify-browser.mjs
+
+{
+  "passed": [
+    "All twelve routes at 320/390/768/1440px: one main/heading, no overflow, no runtime/CSP/hydration errors; failed thumbnails recover.",
+    "Mobile menu opens, locks scrolling, traps Tab and restores focus on Escape.",
+    "Resize closes mobile menu; desktop More closes on Escape.",
+    "Exactly three keyboard knocks reveal Discord, focus transfers, reset hides it and restores focus.",
+    "Floorboard reveal reaches the noindex standalone secret room and returns upstairs.",
+    "Guided-tour and Passport UI are absent.",
+    "Changing reduced motion disables smooth scrolling.",
+    "Early blocked thumbnails recover to three local illustrations on Streams and Stories.",
+    "Unknown URLs render the branded 404 with status 404.",
+    "At 320px with JavaScript disabled, content and ordinary-room navigation remain usable."
+  ]
+}

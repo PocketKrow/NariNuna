@@ -1,0 +1,4234 @@
+{
+  "note": "Review candidates only; this command never deletes files. Source preservation is recorded in src/assets/source/delivery/inventory.json.",
+  "totals": {
+    "static-site-file": {
+      "files": 7,
+      "bytes": 396430
+    },
+    "runtime-reference": {
+      "files": 45,
+      "bytes": 3599432
+    },
+    "contract-or-provenance-reference": {
+      "files": 129,
+      "bytes": 1077594
+    },
+    "retained-collection": {
+      "files": 26,
+      "bytes": 1188284
+    },
+    "generated-delivery": {
+      "files": 144,
+      "bytes": 7043084
+    }
+  },
+  "assets": [
+    {
+      "url": "/_headers",
+      "bytes": 812,
+      "sha256": "e771839cfe4c3e67c84acfe7c2792926c5aee0ed2507e6856f7574004c2f0278",
+      "role": "static-site-file",
+      "references": [],
+      "records": [
+        "scripts/browser-preview.mjs",
+        "scripts/secure-build.mjs",
+        "tests/static-security.test.ts",
+        "docs/10_ACCESSIBILITY_PERFORMANCE_PRIVACY_SECURITY.md",
+        "docs/15_DEPLOYMENT_AND_RELEASE_RUNBOOK.md",
+        "docs/36_MAIN_SECURITY_AND_KNOWN_ISSUES.md",
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/42_ASTRO_REBUILD.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/apple-touch-icon.png",
+      "bytes": 46621,
+      "sha256": "a073743b54deb82a1133d8de2c357cda10f4cd04e01dc1d9ab5b5c579a11c204",
+      "role": "static-site-file",
+      "references": [],
+      "records": [
+        "scripts/prepare-client-assets.sh",
+        "docs/asset-records/ASSET-2026-018-owner-authorized-storybook-nari.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/favicon.png",
+      "bytes": 14979,
+      "sha256": "ea395c17a9cb990a3a4ea3adc0faa19af1a35f8c73900bdf34a94e11159122aa",
+      "role": "static-site-file",
+      "references": [],
+      "records": [
+        "scripts/prepare-client-assets.sh",
+        "scripts/verify-preview.mjs",
+        "docs/asset-records/ASSET-2026-018-owner-authorized-storybook-nari.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/icon-192.png",
+      "bytes": 52514,
+      "sha256": "1e9148ae9288072a98eeaadd1d4102731a9472bb2409460c0adfa967fb7bc44e",
+      "role": "static-site-file",
+      "references": [],
+      "records": [
+        "scripts/prepare-client-assets.sh",
+        "docs/asset-records/ASSET-2026-018-owner-authorized-storybook-nari.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/icon-512.png",
+      "bytes": 280951,
+      "sha256": "13d43be9aca79eeb7b94dcfc4498b4684253cd91f54a84b6431925304199c79f",
+      "role": "static-site-file",
+      "references": [],
+      "records": [
+        "scripts/prepare-client-assets.sh",
+        "docs/asset-records/ASSET-2026-018-owner-authorized-storybook-nari.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/emotes/nari-bonk.webp",
+      "bytes": 18152,
+      "sha256": "ff3e159c0e8da425052402c0599ad6b98e21d10a4b2a5e0643c1578407b4b478",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/artwork.ts"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/emotes/nari-comfy.webp",
+      "bytes": 12300,
+      "sha256": "07391edb06baea7994fefb785fc9db05310f95cb4a11bd373be111a50c24be9f",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/artCredits.json",
+        "src/data/artwork.ts"
+      ],
+      "records": [
+        "scripts/verify-preview.mjs",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/emotes/nari-copium.webp",
+      "bytes": 15908,
+      "sha256": "17172acc4fb406865484b791cadd546d6d31f573bdf1ec766ab8dcb42f29c93d",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/artwork.ts"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/emotes/nari-cry.webp",
+      "bytes": 13444,
+      "sha256": "f56d2497a9f975fe5ff6593a1a18bf65bd770a1b348e8e96000abaacd65f168f",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/artwork.ts"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/emotes/nari-fire.webp",
+      "bytes": 18198,
+      "sha256": "f3de3454645da0866cb349a0c7f0fbf4d5d96ea30f7814c85a6ca0452feddf6e",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/artwork.ts"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/emotes/nari-loading.webp",
+      "bytes": 11520,
+      "sha256": "a10a5b17a95bf9382c3d2bc08adb2cb4ad3461d09895e55c8fdf9aab39333e77",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/artwork.ts"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/emotes/nari-nose-bleed.webp",
+      "bytes": 17822,
+      "sha256": "7b27d3163a39629ac0c070294c27fb231d40f0192db139b1e0d9f14ad4231004",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/artwork.ts"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/emotes/nari-panic.webp",
+      "bytes": 13420,
+      "sha256": "460712b49b4408201655168cd124fc09341b4b2e770b7226456e8a9020a5691b",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/artCredits.json",
+        "src/data/artwork.ts"
+      ],
+      "records": [
+        "scripts/verify-preview.mjs",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/emotes/nari-shy-nb.webp",
+      "bytes": 16788,
+      "sha256": "2b38a592e59a62b12a2e61fda2e661a57fc1e8eeb3ae39d8e53268ecdf8a4834",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/emotes/nari-shy.webp",
+      "bytes": 14464,
+      "sha256": "71a902f004b7a742970216925e6e4b50ecde6c7db1a201233e39913fe1de9638",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/artwork.ts"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/emotes/nari-uwu-nb.webp",
+      "bytes": 12284,
+      "sha256": "edca4823c4f2def70a77a446ce2e66b278d4a4726d8443d7b7447500c0e3729f",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/emotes/nari-uwu.webp",
+      "bytes": 11840,
+      "sha256": "042d5e307bb108a93cbbe661792cf2756b9a0070d6ca7601f9a14dbaca7fb028",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/artwork.ts"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/environments/haven-common-room.svg",
+      "bytes": 3992,
+      "sha256": "1e1ff2a6cf2f7cc886a85a1f09b5ec91fb56e4a2fd7b2c481b70ea91f89f2858",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/environments/haven-room-daylight.svg",
+      "bytes": 4407,
+      "sha256": "a93f126f8b69ce49f6865c986ae7eb2474b74b49ef1589dcea2941d51f1189dc",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/environments/haven-room-night.svg",
+      "bytes": 4469,
+      "sha256": "2e931e399bc75c6de08cb422d223475fce1d5d33f3b9faa82f0d6ad61936efa9",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/environments/haven-room-sunset.svg",
+      "bytes": 7544,
+      "sha256": "dd85eed613a745075e9669aba41a9a1d675eb5660b023c37c75c0e6af724dad2",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/environments/streams-room.svg",
+      "bytes": 4173,
+      "sha256": "e98cd2c68a60fc54008745fbea8528734c3ccdeb7b04baf170aa2e4f7f7bae1c",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ghosties/ghostie-chaotic.webp",
+      "bytes": 32246,
+      "sha256": "cb2a896784ff15831191d26edfe77a337fd619e5bd558fd056a277aa6b83ffd4",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ghosties/ghostie-cozy.webp",
+      "bytes": 32746,
+      "sha256": "f5202ae2f73bfd9faf6148965b833bd32bff8b4d156f60e72bb9e1c4474912f3",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ghosties/ghostie-derpy.webp",
+      "bytes": 19668,
+      "sha256": "8a2f1d3ddd7bab2d48c0dacc64a8b1a6d206e90bb7f60e62cf665aeaaca9a01c",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ghosties/ghostie-floating.webp",
+      "bytes": 35612,
+      "sha256": "11b5d2dd928695f2667736d65ecbabc76deb233cb3b88de14074abf5fca57a12",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ghosties/ghostie-friendly.webp",
+      "bytes": 25524,
+      "sha256": "8c1924ac02ea09d007dd1f0e3bcae9d57d90cdaad7829fa40eba4281f8f7e1ac",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ghosties/ghostie-heart.webp",
+      "bytes": 38264,
+      "sha256": "861744237b78a877a5670875a5a39f3134e63a5b36beb96774bd0bbfbb654945",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ghosties/ghostie-nails.webp",
+      "bytes": 36378,
+      "sha256": "b06ba72a69b26c5cfca73b181293c17dfb05a2d01b26f05cd38ae9a1ac352a4f",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ghosties/ghostie-peeking-left.webp",
+      "bytes": 18130,
+      "sha256": "88c1d7fba6f376e40a9c26cc1ff588946bdf89207063c13666cb1088cff73dce",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ghosties/ghostie-peeking-right.webp",
+      "bytes": 21156,
+      "sha256": "50b2f43158c358653ba2ff5d78e275d649ac4ca742d82806dd61a407336b9c57",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ghosties/ghostie-peeking.webp",
+      "bytes": 25366,
+      "sha256": "19cbad38a313d9c353ac74a966e14b2584d0752189121172bdad33a58a7812de",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ghosties/ghostie-protective.webp",
+      "bytes": 37050,
+      "sha256": "03b66a763cc62f403ce7937bc29ed1433e2b7947a7f01820ef68a2b20758bb66",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ghosties/ghostie-shy.webp",
+      "bytes": 37490,
+      "sha256": "23c1066c9e6c85caeca1f0fe75b1f95ff4ee9327f5c4d33ee1a3eaaf10a8255d",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ghosties/ghostie-waving.webp",
+      "bytes": 27338,
+      "sha256": "aa059f74552a77a09f655f55222b718982f36c88d4ce464afbd496262d5894ec",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/identity/nari-icon.webp",
+      "bytes": 41940,
+      "sha256": "74070f5cfc7768c29c2437bf756393c6a2e1268ba83b61b3d054bf21f3738432",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/artwork.ts"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/identity/nari-wordmark.webp",
+      "bytes": 82132,
+      "sha256": "69159154fc0a0d000afae2d49f4e85e8565943b46b504145246eae6fdfe6ede6",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/artwork.ts"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/motifs/autumn-leaves.webp",
+      "bytes": 74976,
+      "sha256": "4a13577d9557b7cb019c76a2ca01a0ea70d8803c17093c99de3b3ab6d34ebb3e",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/artwork.ts"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/motifs/ghostie-wisps.webp",
+      "bytes": 150778,
+      "sha256": "4b94e4ad053679720e2eee1176d4dbb21e0703dbffe5fba74296d93ce6140c3b",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/motifs/heart-sparkles.webp",
+      "bytes": 88400,
+      "sha256": "ad9b5b2e5133bbdc96280156ec7492b3eb4c5d362eae1f18871ee472f88cec50",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/artwork.ts"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/motifs/lavender-ribbon.webp",
+      "bytes": 42774,
+      "sha256": "c3990f6ebaecb6e3d95cefc3652a7969ac2a05c3cb182a974e838acb387c3b36",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/artwork.ts"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/motifs/motif-autumn-leaf.svg",
+      "bytes": 1120,
+      "sha256": "02d5969e0e0fb0e73d8d2c769d13ce15e5b44e539e94912eaf9bca1bc454a25f",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/motifs/motif-charm-trinket.svg",
+      "bytes": 1461,
+      "sha256": "c57c2dbfdf4982142474c27ae3eaf507a3557aae07a7c878ee3dff2189c5acd3",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/motifs/motif-cute-warning.svg",
+      "bytes": 1183,
+      "sha256": "f2ef2acffbf647981aea21045ed873bb4ea99609555263a4e6da200f4e885249",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/motifs/motif-emerald-eye-spark.svg",
+      "bytes": 1270,
+      "sha256": "5edcb9d89c0fc916ec63f44d0ce496f5e28d097c728e5e7372ce1c0efaa66665",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/motifs/motif-fabric-stitch.svg",
+      "bytes": 1274,
+      "sha256": "fe4df21162ac332f842ef7a4bb8430078213fcdf25495056c442ae670f9503c7",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/motifs/motif-ghost-wisp.svg",
+      "bytes": 1409,
+      "sha256": "f7e89121054a4e0053090311d2e8644813e9beb747c421eeffed76e4ac7df5c3",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/motifs/motif-heart-spark.svg",
+      "bytes": 1149,
+      "sha256": "9e7c91b567c068d85e1ac76183e0eef1e25355da05bd9891f0bfa02ccb5d3543",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/motifs/motif-lavender-sprig-1.svg",
+      "bytes": 2186,
+      "sha256": "474581c7801f1d944eba2ee9d84eb7c9d668cacb737eae540c39722bfb17c447",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/motifs/motif-lavender-sprig-2.svg",
+      "bytes": 2270,
+      "sha256": "f2ed06efcf28e00b25948100180186d83ba00b4db232aa760cc001fc1701ee08",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/motifs/motif-nail-polish-swipe.svg",
+      "bytes": 1225,
+      "sha256": "d07d2d10e2b6e2d6f806f75d2c751faa8fd8530435a5bacdfeebf77e410a03c2",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/motifs/motif-ribbon-accent.svg",
+      "bytes": 1270,
+      "sha256": "9a64315b6bb968828d30352446d728414826d1877fef269d860be931c2818977",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/motifs/motif-sickle-silhouette.svg",
+      "bytes": 1266,
+      "sha256": "0f15654dd9ea5bbbf45f83e2a4ddc9627bc5241763f14645b9d6c2ec8e241267",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/motifs/motif-soft-star.svg",
+      "bytes": 1175,
+      "sha256": "befe9a6acc3e08ba2ad36d1f4ce8717a307ade2190a55ef5e18eb02e976cd822",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/motifs/motif-soul-flame.svg",
+      "bytes": 1291,
+      "sha256": "71238ddc83b83cabbfb0f9eee864e778402c18bc89bd1dcc50fd117ed1ccf58a",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/motifs/motif-sun-moon-celestial.svg",
+      "bytes": 1391,
+      "sha256": "4f4efc896a945b7e2650a33882a165c843c50b6ab92364a91a90c107a22a3388",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/nails/nails-brushstroke-divider-01.svg",
+      "bytes": 1853,
+      "sha256": "700d12ae165ead423c7a48fb080e68b7e005398f5ee1c3d5a1b4530946417b6b",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/nails/nails-brushstroke-divider-02.svg",
+      "bytes": 1879,
+      "sha256": "6f074f32d7cad1b8d045304c16a953930bc8ff6eeac5bf41f7d2854e033a1315",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/nails/nails-brushstroke-divider-03.svg",
+      "bytes": 1841,
+      "sha256": "8bf14d26714d1bf2e477bb94efe82a8167daaf192f030c2fc7a41bbace04d6bc",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/nails/nails-environment-support.svg",
+      "bytes": 6717,
+      "sha256": "5a3da5ed27dbdd7db0ca7caa0ee41f0a8b42e02bef694ed7f27391363d51d7e1",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/nails/nails-glitter-accent-01.svg",
+      "bytes": 1621,
+      "sha256": "8498419d6fe5ffc896c74124e4cfb70672397ff8b9a693313d20e81a44cc9cf3",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/nails/nails-glitter-accent-02.svg",
+      "bytes": 2600,
+      "sha256": "f5dc90b16dea4710b5e25b39dd8393047c2fa4ef97b08e60561c5d5b42f10998",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/nails/nails-glitter-accent-03.svg",
+      "bytes": 1683,
+      "sha256": "c1cb4f6d5ea9bea893436bc75773d0f7b170796155546aca11f6c7d762cea938",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/nails/nails-glitter-accent-04.svg",
+      "bytes": 3803,
+      "sha256": "76c26ee95b291570bfdcb24e2299c61bc55377f7624d711a39800889935f1f3d",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/nails/nails-glitter-accent-05.svg",
+      "bytes": 1563,
+      "sha256": "7fa767484b4732afbac74c3152781bcfec7f6d80534d06684fde4d66677c1f77",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/nails/nails-glitter-accent-06.svg",
+      "bytes": 2255,
+      "sha256": "ec0f2a577e7c2ff3764f40c5c4bfe157b4d09cd911e33fed875c2d881e5955fc",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/nails/nails-glitter-accent-07.svg",
+      "bytes": 1834,
+      "sha256": "782156beea302a7c87676ab8ebb7860b23f25b07a9577c5324329e06bb5c84a2",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/nails/nails-glitter-accent-08.svg",
+      "bytes": 4563,
+      "sha256": "11581d87efd28a818502232f613c94ab2e1ea043e336fa6aa336d40f1638e708",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/nails/nails-glitter-accent-09.svg",
+      "bytes": 1892,
+      "sha256": "13039eefbd59a01448eab383d86f1e31db3c80da8110f2d45daed29488b614f7",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/nails/nails-glitter-accent-10.svg",
+      "bytes": 2192,
+      "sha256": "c5105c05d87f4137b97645e9b9ad5248fd23c942ddf2bdc1d791d2467c370e42",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/nails/nails-manicure-station-vignette.svg",
+      "bytes": 7340,
+      "sha256": "9a6b5abc41a1f8b561b819d1a5f79f14bc039a40445518b4e10b63f34cc8e0d6",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/nails/nails-polish-bottle-illustration.svg",
+      "bytes": 2533,
+      "sha256": "ea26e89c1ac89ea93ab2a30a9b7dc2002aadbb8f1cc1dbe4c21a9b71be364af3",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/nails/nails-polish-ghostie.svg",
+      "bytes": 3108,
+      "sha256": "b79479acea655ccc72332c29d55d6b2597518b0947b6048afc90423be1ade53c",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/nari/nari-comfy-original.webp",
+      "bytes": 67910,
+      "sha256": "e953a222972b01dc405d5a15ad8a45d6e2d705a09fbeda8a0cd98814713ac359",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/artCredits.json",
+        "src/data/artwork.ts"
+      ],
+      "records": [
+        "scripts/verify-preview.mjs",
+        "docs/asset-records/ASSET-2026-015-nari-supplied-character-and-emotes.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/nari/nari-model-fullbody.webp",
+      "bytes": 124398,
+      "sha256": "546ddee296cb95b36f16c89800f40af387bc33967d7f2d3a2eb32be642b2517c",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/artCredits.json",
+        "src/data/artwork.ts"
+      ],
+      "records": [
+        "scripts/verify-preview.mjs",
+        "docs/asset-records/ASSET-2026-015-nari-supplied-character-and-emotes.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/nari/nari-model-portrait.webp",
+      "bytes": 87746,
+      "sha256": "7adccd5482282c0227ef9a4fbe5bdd474025ad68caccee937785ad723d583f4d",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/artCredits.json",
+        "src/data/artwork.ts"
+      ],
+      "records": [
+        "scripts/verify-preview.mjs",
+        "docs/asset-records/ASSET-2026-015-nari-supplied-character-and-emotes.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/prinny-altar-illustrated-v2.webp",
+      "bytes": 353488,
+      "sha256": "86444f752d60611864355f625d3e1e5846fc2a23476cdd9213fe13582ecd9985",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/prinnyCult.ts"
+      ],
+      "records": [
+        "docs/asset-records/ASSET-2026-020-prinny-sanctum-illustrated-environments.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/prinny-altar.svg",
+      "bytes": 1700,
+      "sha256": "b2809366bc846e3ad5483ca2581422e3a2a269edad9db46935861955fc2fe011",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/prinnyCult.ts"
+      ],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/prinny-cult-banner.svg",
+      "bytes": 1145,
+      "sha256": "cfd31dc6a415170bc78441a41db5cb9d45e1d982ad437c33eb0acfea671169e9",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/prinnyCult.ts"
+      ],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/prinny-cult-easteregg-reward.svg",
+      "bytes": 1729,
+      "sha256": "87351984def52b9427dbc1e7f5c1e16888bf5dde32045d05ccd3967ee64c34d4",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/prinnyCult.ts"
+      ],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/prinny-cult-entry-state.svg",
+      "bytes": 1537,
+      "sha256": "ba849387634ffeba707bb99c2210a81496ef3d2f4a339d52a8face6c422e2173",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/prinnyCult.ts"
+      ],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/prinny-cult-room.svg",
+      "bytes": 3254,
+      "sha256": "f5246e3e39b791b383f1d7ee709feb08ab4e5c3d2010f51d72d96ec7e74b1a39",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/prinnyCult.ts"
+      ],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/prinny-membership-seal.svg",
+      "bytes": 1118,
+      "sha256": "37b61b96ebc9e178c2ebcbb3f2e38bf0e8b9209c09d099c9102c5b0653ba71c0",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/prinnyCult.ts"
+      ],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/prinny-offering-box.svg",
+      "bytes": 1243,
+      "sha256": "185e06be0e192c528d1a9bbd638a810889aff93c65d492dfacd55a1e590a8f7f",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/prinnyCult.ts"
+      ],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/prinny-pedestal.svg",
+      "bytes": 1365,
+      "sha256": "b22d24103b9d6ac6df294939a63cb02ecbc0c39dd2c9f2dc87d618a937c861a0",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/prinnyCult.ts"
+      ],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/prinny-rank-badge-set.svg",
+      "bytes": 1193,
+      "sha256": "4287fea1f8aa58741fde5b0af96da1034292b96d1c9760cc97e69ace5e1e0088",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/prinnyCult.ts"
+      ],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/prinny-roster-card-template.svg",
+      "bytes": 1116,
+      "sha256": "ee23c84c54f20447120809cc65889a6d2c83dc3ce06e68921e8fb749cf0effda",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/prinnyCult.ts"
+      ],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/prinny-sanctum-illustrated-v2.webp",
+      "bytes": 278174,
+      "sha256": "3faa2b65e2f9f59f70ab2a692749b0615ebbd98fba1e0d3b7a49cd1325da1a9c",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/prinnyCult.ts"
+      ],
+      "records": [
+        "docs/asset-records/ASSET-2026-020-prinny-sanctum-illustrated-environments.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/prinny-summoning-circle.svg",
+      "bytes": 1344,
+      "sha256": "1e424639db7329fa987f0054b8bdcc7ab9e29bae351fd40f37705856b61f7f97",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/prinnyCult.ts"
+      ],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/prinny-titleplate-template.svg",
+      "bytes": 933,
+      "sha256": "87a53cccdb503c1f1c71c78c0541ec417949c958b3540b3a6cea22bb7fb141da",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/prinnyCult.ts"
+      ],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/prinny-warning-sign.svg",
+      "bytes": 1004,
+      "sha256": "dabf9a2a4050b0cc3acff7e709e66f3d840d85ddebd9f24fc48c4d49c589e3f3",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/prinnyCult.ts"
+      ],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/roster/batman.webp",
+      "bytes": 41466,
+      "sha256": "6841953ace543a976e35cf3d2818071df03ed29524da48b1cf460fa27057b15e",
+      "role": "retained-collection",
+      "references": [],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/roster/bulgarian-traitor.webp",
+      "bytes": 45074,
+      "sha256": "6e7b862311e68a1727649a90d1c22e3d911d0cf9199d963728311c690169ab03",
+      "role": "retained-collection",
+      "references": [],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/roster/cpurkitty.webp",
+      "bytes": 61624,
+      "sha256": "e83a06e5bd5a5f6025795e26da50dbaa46400f07a77a037f763117c458f93cb1",
+      "role": "retained-collection",
+      "references": [],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/roster/death.webp",
+      "bytes": 34840,
+      "sha256": "f06814f06ba4f30e4ec2a43c221595e61a7ca5fc5056254f78e21a80748e93df",
+      "role": "retained-collection",
+      "references": [],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/roster/derpy-batman.webp",
+      "bytes": 34532,
+      "sha256": "1a8e12ed1d6147c22e20e97fe5b0f3f9f0e8ae0b50a25cb688ed65cbe7831257",
+      "role": "retained-collection",
+      "references": [],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/roster/emo-frog.webp",
+      "bytes": 37314,
+      "sha256": "d11d18b393bf39d6667e9661ed013bcb369822805fc56f0fce8dad2d0ea373ab",
+      "role": "retained-collection",
+      "references": [],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/roster/frog.webp",
+      "bytes": 40636,
+      "sha256": "69eab819757056842aa49210d982fc39bd03e8a69d95dbcd5850202ae302950e",
+      "role": "retained-collection",
+      "references": [],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/roster/good-and-evil.webp",
+      "bytes": 22140,
+      "sha256": "5905405dfd489c30e45b1b7f208fc6110761c546768283a6824e58ce22efff27",
+      "role": "retained-collection",
+      "references": [],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/roster/hambone-1.webp",
+      "bytes": 67180,
+      "sha256": "b14560b7c53b2c35cf2f0c29d170eb98c670ef92b220300e454f8662ddf9a780",
+      "role": "retained-collection",
+      "references": [],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/roster/monster-hunter-frog.webp",
+      "bytes": 44708,
+      "sha256": "20e5dca6bd860ace5b66fadab30987d29082c0cb5990bc933f4f4b6d14cf1f98",
+      "role": "retained-collection",
+      "references": [],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/roster/monster-hunter-frog2.webp",
+      "bytes": 41476,
+      "sha256": "dc9cd68749e832c607da570bc4e0d95a0dbe4de6d49f84bc5781262b431115e7",
+      "role": "retained-collection",
+      "references": [],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/roster/monster-hunter-frog3.webp",
+      "bytes": 47384,
+      "sha256": "ebd70420f72f72a4d1d658e652e225c0f8e58cfdd1979394199c83d69cc9536e",
+      "role": "retained-collection",
+      "references": [],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/roster/monster-hunter-frog4.webp",
+      "bytes": 59340,
+      "sha256": "daeed9489abcf557793cd057a5894e164379b690ea0a775fc7e0867d0aee541a",
+      "role": "retained-collection",
+      "references": [],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/roster/monster-hunter-frog5.webp",
+      "bytes": 65994,
+      "sha256": "b2158589978b3209dedf0c0e655ba24e6202949e58fec6d78beb3339d79e3e4d",
+      "role": "retained-collection",
+      "references": [],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/roster/monster-hunter-frog6.webp",
+      "bytes": 37060,
+      "sha256": "19e5e0d13c9c88ef2eda03e071d83ddbd72e889fff190600da878e05350feadb",
+      "role": "retained-collection",
+      "references": [],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/roster/monster-hunter-kitty.webp",
+      "bytes": 54246,
+      "sha256": "549431df0d1650101d61ce8cfbba1148d23706643a3544e8242189ec7149bf1b",
+      "role": "retained-collection",
+      "references": [],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/roster/monster-hunter-kitty2.webp",
+      "bytes": 75086,
+      "sha256": "d52177016ba93a90c8ab091f3e36eb6897aa109aa43769de7d2d93b1f0cb67de",
+      "role": "retained-collection",
+      "references": [],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/roster/monster-hunter-orin.webp",
+      "bytes": 58130,
+      "sha256": "83c7b6c3e3045b48376818d3518a6101bd5922eb947f79c04b9f3bb019b44741",
+      "role": "retained-collection",
+      "references": [],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/roster/original.webp",
+      "bytes": 30898,
+      "sha256": "7ed8fccd1049ea5cdb55b70f74e6c9006e0c262200a8d9897b90b22409828692",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/artCredits.json",
+        "src/data/easterEgg.ts"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/roster/orin-as-prinny-fire-eyes.webp",
+      "bytes": 46804,
+      "sha256": "ade3dbc12819bfc1339a13045c99a26e2ded7e62d718dfdc6f10a97026293b5f",
+      "role": "retained-collection",
+      "references": [],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/roster/orin.webp",
+      "bytes": 30104,
+      "sha256": "8bec5e1ed1dd77e6e288050f81e196717a63064e1c97e5355fdb16de331a9380",
+      "role": "retained-collection",
+      "references": [],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/roster/pajama-batman.webp",
+      "bytes": 29182,
+      "sha256": "4f8ef25c05bfdc9a8626c83e26a3cd7fb3f82aa7d956dde56c2e65c318f29e8f",
+      "role": "retained-collection",
+      "references": [],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/roster/panda.webp",
+      "bytes": 33932,
+      "sha256": "c08455f49ee250535cb15f4b4f16b22d9bc93bd9c6d713c3c688a8d608e3134b",
+      "role": "retained-collection",
+      "references": [],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/roster/prinny.webp",
+      "bytes": 31292,
+      "sha256": "445174e95f521e77abf69ea6cf11fa7ecbd8fcbf0554073a99c2c6376e555ba1",
+      "role": "retained-collection",
+      "references": [],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/roster/puzzle.webp",
+      "bytes": 45414,
+      "sha256": "8e5b7fb9de4f2e656f36ce5f1775805d7b5be079945ea0434ca089a3834852cb",
+      "role": "retained-collection",
+      "references": [],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/roster/slime.webp",
+      "bytes": 65946,
+      "sha256": "e6389bbb7b2646ce5f014a34da4a24f7f8bcd470691fe48c61d1e8202bd1651a",
+      "role": "retained-collection",
+      "references": [],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/prinny-cult/roster/traitor.webp",
+      "bytes": 37380,
+      "sha256": "e3074a697f32a6cba66932c89ab88c0a59227dcf272e4bd790fa2e2975db7878",
+      "role": "retained-collection",
+      "references": [],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/resources/resources-divider-celestial.svg",
+      "bytes": 698,
+      "sha256": "00136943265e17a8a2e7be854fa2d7b79b1b40dd45f6f3047b6391f960187787",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/resources/resources-divider-lavender.svg",
+      "bytes": 984,
+      "sha256": "5c842f5b049c93d77f5e430262e73a1dbcb39776b23f1e1a9bcbf456fc5b6cff",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/resources/resources-divider-wisp.svg",
+      "bytes": 624,
+      "sha256": "2c0015f456b60532fb6854094524c0f1336a6ce2871be0bbd088f9493a025e56",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/resources/resources-environment-support.svg",
+      "bytes": 7432,
+      "sha256": "c9422f6ecd2aa2580c5c78b7a7de0f1d54031c6003fc422079e1cb2d4a3da36c",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/resources/resources-helper-ghostie.svg",
+      "bytes": 5636,
+      "sha256": "382ac5758599b1ac4f887964bc97c0d3a5f20d24b18af084afe5b02c82f95813",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/resources/resources-section-icon-community.svg",
+      "bytes": 489,
+      "sha256": "aebfe7cd6eb2210422467f4900deb9b17eb3fb29a16e7484c176d00cfb2b1104",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/resources/resources-section-icon-creator.svg",
+      "bytes": 452,
+      "sha256": "bdfa5b0f5aac73c1f0a571c8f27f697f6e13775a3438b4fd6e98b42bc0a74d46",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/resources/resources-section-icon-external-link.svg",
+      "bytes": 426,
+      "sha256": "3665fc6a403c0a6f0aa208a235a3168d8e0b77f051156f7d43db295af8d52020",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/resources/resources-section-icon-important.svg",
+      "bytes": 414,
+      "sha256": "14c3dc6dcf65d634083d624078ae7d0a97897381db8ab75a878f6a00efac46fc",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/resources/resources-section-icon-nails.svg",
+      "bytes": 461,
+      "sha256": "bd321419a85e45cacb6a7daa4cfa30e1eac3744c0d16204705314da656f5182e",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/resources/resources-section-icon-safety.svg",
+      "bytes": 408,
+      "sha256": "da73c43acedd0ceedf16e70e6b73a363388894ed0a02d2887c636e09243a1069",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/resources/resources-section-icon-streaming.svg",
+      "bytes": 498,
+      "sha256": "a64312c4b81a5830e2293cd442f147f316c088c8f12c7688e54da9a41adeddce",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/resources/resources-section-icon-technical.svg",
+      "bytes": 473,
+      "sha256": "933c43b7b3e8b3ca2eb2b376a09b13bf4f18b2877a45d9a3a4695b8dc44f26f6",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/resources/resources-section-icon-wellness.svg",
+      "bytes": 441,
+      "sha256": "a43492b2e570bbaf1ba944ab9bbef44ec62dc2ed9a6db255d87136b3f5878e86",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/character-nari-window-seat-1280.c1fe8ee3f02bf9df.webp",
+      "bytes": 73572,
+      "sha256": "c1fe8ee3f02bf9df15f6bd315b965dfeb88f0d9951cd7126f7b1ce7b56a0cb9a",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json",
+        "docs/evidence/2026-10-06-experience-v2/request-measurements.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/character-nari-window-seat-768.0e5928ffbac388d2.webp",
+      "bytes": 37758,
+      "sha256": "0e5928ffbac388d2de8d0b6a5d3a5c94b110c0aaf06355a535222fac9ea62356",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-bonked-128.56ce1573c9799e73.webp",
+      "bytes": 7682,
+      "sha256": "56ce1573c9799e735cebf41659b03cce79be1b6171307bf5055dacda82d18c2d",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-bonked-256.80f522b69d9aa386.webp",
+      "bytes": 19418,
+      "sha256": "80f522b69d9aa3863cdeb991697e2dffacfbf153c571d2db6ba69b6f6bb4bb6d",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-bonked-512.23cf16d989782470.webp",
+      "bytes": 52784,
+      "sha256": "23cf16d9897824700df763775156f9e32aedf9dd8830e6ac86973c026f183f56",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-bonked-64.fead17f05e10910b.webp",
+      "bytes": 3254,
+      "sha256": "fead17f05e10910b2437d651b145978753ba56c15f5b027f7658fa796dcaef3d",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-bonked-768.334c15a58b579f79.webp",
+      "bytes": 87060,
+      "sha256": "334c15a58b579f79a537b24d01f77469793febc28e366d70f6316f4f1244090f",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-chaotic-128.b72d4e3248972a98.webp",
+      "bytes": 7270,
+      "sha256": "b72d4e3248972a98ade12ba7de93b84120f73044547cd54e55d456afc00e21c9",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-chaotic-256.928550c04e950c2c.webp",
+      "bytes": 17334,
+      "sha256": "928550c04e950c2c2e24fde8a58d12e8eba1741ff8d07b1806ffef38555def70",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-chaotic-512.5cb0b5bff245c625.webp",
+      "bytes": 42876,
+      "sha256": "5cb0b5bff245c62537903e8afd97252f2d635d041127f30ad2c8edad85fa9eca",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-chaotic-64.d9d5bd209b6600e2.webp",
+      "bytes": 3244,
+      "sha256": "d9d5bd209b6600e20a0ca8a0de8d6e2b2a224c9bde076818e2ae9dc9f75c8215",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-chaotic-768.26169dc0a91b77cf.webp",
+      "bytes": 76568,
+      "sha256": "26169dc0a91b77cfa5c78d6ef61c5280440901dd8ef5d9cc1fd08856a609bb7a",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-cozy-128.acef03f449962436.webp",
+      "bytes": 7738,
+      "sha256": "acef03f449962436e191ffa88898a39491c1ca10b70ac33b805f24b1c9c6a14f",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-cozy-256.6a74b3554c611d81.webp",
+      "bytes": 20734,
+      "sha256": "6a74b3554c611d81caad05c89b4be7f96a196b4c7615ddd67825d1f62ca7ae2b",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-cozy-512.4a9b1fc17c6a348a.webp",
+      "bytes": 57380,
+      "sha256": "4a9b1fc17c6a348a0573532b4f2b1099aa2cd94f4e55301522200413630765a0",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-cozy-64.8505e8b16154e668.webp",
+      "bytes": 3166,
+      "sha256": "8505e8b16154e668983bfdf008d796ec7edf52ca13ed90a652771b18740c6722",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-cozy-768.dd0281d1e3dcfed8.webp",
+      "bytes": 87746,
+      "sha256": "dd0281d1e3dcfed871431685a5244436f08707053aada7f7817d00813fc35fe5",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-doorway-128.c3636556c3534af9.webp",
+      "bytes": 4626,
+      "sha256": "c3636556c3534af97ef5be037b6b0fa06d4b751c71c465fa37c0973025f4ca32",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json",
+        "docs/evidence/2026-10-06-experience-v2/request-measurements.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-doorway-256.77c2735c25e4ccb8.webp",
+      "bytes": 11606,
+      "sha256": "77c2735c25e4ccb86254280f8ed7316091d349d33f6ed035d62019979c141846",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json",
+        "docs/evidence/2026-10-06-experience-v2/request-measurements.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-doorway-512.858d86afd0a0cb5b.webp",
+      "bytes": 31118,
+      "sha256": "858d86afd0a0cb5bae336dd23e9bdfa29b1898568a64a4f7d8db0b28c8f5590d",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-doorway-64.3245addce913c45f.webp",
+      "bytes": 2080,
+      "sha256": "3245addce913c45fc023d7c2ef1a4c75fefcf3a717ad2ace828482cb0e0622d4",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-doorway-768.20081b2172d80a68.webp",
+      "bytes": 63642,
+      "sha256": "20081b2172d80a682714227224e1192e52fe5fad1cf8bdf1702200be23429655",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-gaming-128.8b6008be3d064c99.webp",
+      "bytes": 6758,
+      "sha256": "8b6008be3d064c9953438c8adfb22a2e22088d2a1e517c714c1cdd354001c1c0",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json",
+        "docs/evidence/2026-10-06-experience-v2/request-measurements.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-gaming-256.c6af764307a14e9e.webp",
+      "bytes": 16884,
+      "sha256": "c6af764307a14e9e629d264ed7858cbe145c2a76375a8d9bbf734c8913efe069",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json",
+        "docs/evidence/2026-10-06-experience-v2/request-measurements.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-gaming-512.5f02b051beb6f44f.webp",
+      "bytes": 46430,
+      "sha256": "5f02b051beb6f44ffde5737c610a163a32daed535e661e66744abe87495ed0f6",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-gaming-64.895c0304d1dfbd4c.webp",
+      "bytes": 2974,
+      "sha256": "895c0304d1dfbd4c925fbffbb76fdc1c0f62adae6f0ef104bc9e20eea9a23be5",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-gaming-768.88aebcb448d3e812.webp",
+      "bytes": 89862,
+      "sha256": "88aebcb448d3e8122765062b0be1a39dd924e1fa3f4b14787bf179ef82fbeb4e",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-heart-128.e5355397a6b280e7.webp",
+      "bytes": 5272,
+      "sha256": "e5355397a6b280e7f607dcf8bf9a9087a6f813f5f35fbeaa610245c7d6acb9f0",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-heart-256.f95e19c3d108e0b2.webp",
+      "bytes": 12396,
+      "sha256": "f95e19c3d108e0b2fcf8641f04536f150e288368ebdafc32c15355def0d63c00",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-heart-512.6e6df039e2308295.webp",
+      "bytes": 32606,
+      "sha256": "6e6df039e2308295833a911d83d8c3475b1046c1f904aa9e907f07e80459a0f1",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-heart-64.ddd85fb64253d9fe.webp",
+      "bytes": 2424,
+      "sha256": "ddd85fb64253d9feb2d464ea3ff15b02f453d0a0f45c6df6aa271d872fb463a2",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-heart-768.37028c28f801857b.webp",
+      "bytes": 59414,
+      "sha256": "37028c28f801857b5678188b15c26c0168cd07cb504165c047b278c2aa7e7bde",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-nail-tech-128.cd99742bac3dfee8.webp",
+      "bytes": 6924,
+      "sha256": "cd99742bac3dfee80b45a2bb723ce343000b230a2ac419960ed8fa623dacdf1c",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json",
+        "docs/evidence/2026-10-06-experience-v2/request-measurements.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-nail-tech-256.402279bb4621d829.webp",
+      "bytes": 17002,
+      "sha256": "402279bb4621d829a0a704332ddc67abeead351f0c0654440164354ebf77d3d1",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json",
+        "docs/evidence/2026-10-06-experience-v2/request-measurements.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-nail-tech-512.127c40fbd18707ab.webp",
+      "bytes": 45442,
+      "sha256": "127c40fbd18707ab83063439ad2aaf57d8359eb97ba8a64557f86176fbf7531b",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-nail-tech-64.49edfd7b6f7a7713.webp",
+      "bytes": 3114,
+      "sha256": "49edfd7b6f7a7713e64755adfc69ad64adcf50a27f6d07c91159198de6b21dd9",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-nail-tech-768.65490fc5d80d57b6.webp",
+      "bytes": 84904,
+      "sha256": "65490fc5d80d57b6f4798a3f7c9209f8dc842f37624114f3eaf1c2e271cbb004",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-peek-128.996a441ca6ceb5a2.webp",
+      "bytes": 5732,
+      "sha256": "996a441ca6ceb5a213ddf683716e15f78fe8c49db1f2d85f1d6e48bf79c6d5cf",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-peek-256.984863c7538f4747.webp",
+      "bytes": 15318,
+      "sha256": "984863c7538f4747fb97bc3bd5e9cf6b80d0c7e2d4885b6b9d49cacd3cf8324f",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-peek-512.439094515fe9a146.webp",
+      "bytes": 46016,
+      "sha256": "439094515fe9a1465bfbad9c8b6d596c862e20fee445afa4f0046803c758af12",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-peek-64.8de4bfa1f7ae724a.webp",
+      "bytes": 2442,
+      "sha256": "8de4bfa1f7ae724ace0b7082aa6ee748033d96306ff6267bb32d08fe63ac4022",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-peek-768.b02ea81d21ed1028.webp",
+      "bytes": 87932,
+      "sha256": "b02ea81d21ed10289e4b6504236996e6a9ba31131c898b497bb09f7d638d7cc6",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-protective-128.b403b8c750c5729f.webp",
+      "bytes": 6510,
+      "sha256": "b403b8c750c5729fc62e366ae709c566715a0f2f08f5483646921691f5e2acfd",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-protective-256.448952edac40afb7.webp",
+      "bytes": 15880,
+      "sha256": "448952edac40afb7bd72c184f840cb29ddce232efd4c8b0e8a4286237432eab2",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-protective-512.1f133899728fbd6a.webp",
+      "bytes": 41084,
+      "sha256": "1f133899728fbd6a0291218a09b1997973726285f764a831d1a3a5b60e8ffd13",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-protective-64.e6d9932676e3a072.webp",
+      "bytes": 2938,
+      "sha256": "e6d9932676e3a07281be3023a438759faa472fe63604de537fd02cc3762083d9",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-protective-768.4ecf9d4aeeb7509a.webp",
+      "bytes": 75210,
+      "sha256": "4ecf9d4aeeb7509a1e5329559cc4a7ec1cf3bc0f28221c370a567e4aee1c526e",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-shy-128.4e1b8b900f928e96.webp",
+      "bytes": 4666,
+      "sha256": "4e1b8b900f928e967aebbe57bfe5be2c98492b735db09590ee0e632805f10be5",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-shy-256.dca1a27367a3c317.webp",
+      "bytes": 10440,
+      "sha256": "dca1a27367a3c3170da53bb73f018b8515d60730939a91db3d4283c49216c19d",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-shy-512.584dfd1ecb8902cc.webp",
+      "bytes": 25630,
+      "sha256": "584dfd1ecb8902cc6ba7c262077d89938d0abdee4783e9e7ad58fd072eab22c4",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-shy-64.581b2af34460e18e.webp",
+      "bytes": 2346,
+      "sha256": "581b2af34460e18e27cd4b617ca1ceee4306d721d6c78bba1045debf61201d4e",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-shy-768.09433ddc81266e11.webp",
+      "bytes": 45208,
+      "sha256": "09433ddc81266e117ec5d770d357771fdb1d6e80701d9a68f9d4fdb61046a831",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-sign-128.b3ec98e2464a7c04.webp",
+      "bytes": 6740,
+      "sha256": "b3ec98e2464a7c04b178b5ffc69c0160e086bd2021d80a96713a81a6eba9646d",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-sign-256.be537aafac50318a.webp",
+      "bytes": 17480,
+      "sha256": "be537aafac50318a280d00163787598429b9199d73b425ee17df19f5d6201908",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-sign-512.cfdc9623690592d4.webp",
+      "bytes": 47604,
+      "sha256": "cfdc9623690592d4a5989fa8a837e4c93ae8db2cb0c4972e481780983988d48c",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-sign-64.3101bc9d185d8df0.webp",
+      "bytes": 2968,
+      "sha256": "3101bc9d185d8df0c384c941c8339737f6f309a6bf9fef93647696dd1234dcf6",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-sign-768.9dc0994d59025de7.webp",
+      "bytes": 87392,
+      "sha256": "9dc0994d59025de75d488b7c581eb6e3b99ad60bb225a1784bfcb300b763cbb5",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-sleeping-128.345a5ac6453dd17d.webp",
+      "bytes": 5948,
+      "sha256": "345a5ac6453dd17d51926ffae95890a2cc53a5aac4ee778aee31adf621839532",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-sleeping-256.3f2c20078fb85625.webp",
+      "bytes": 14720,
+      "sha256": "3f2c20078fb85625ed606228053d82cd1f44bfe05f76ce1bd2e2726471aedff1",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-sleeping-512.9ca3fad0e359a955.webp",
+      "bytes": 41492,
+      "sha256": "9ca3fad0e359a9552b81b5179f0a78ad12dea92db8957df7aac7059ed17781c2",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-sleeping-64.cc3dbc28ab37f125.webp",
+      "bytes": 2662,
+      "sha256": "cc3dbc28ab37f125b5e6e53765d05687de818740b4456eba1e92d41eda6fa5c6",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-sleeping-768.6934ca914cb24807.webp",
+      "bytes": 78480,
+      "sha256": "6934ca914cb248078af569e93de2f5d7c31ead014e1b9dff45bb6d8933374caa",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-study-128.2c830017b9b8a60a.webp",
+      "bytes": 8002,
+      "sha256": "2c830017b9b8a60a8e3a2987d1793dc4c617627795d1fbacdd3ec294762d2288",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-study-256.629c526d96a87896.webp",
+      "bytes": 20424,
+      "sha256": "629c526d96a87896ced8e9b8d154676fb7eb805a54af7fa73fcdc3e2c198db93",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-study-512.baad18df3a2da7e6.webp",
+      "bytes": 59148,
+      "sha256": "baad18df3a2da7e6b934d60b9ee3ecb393ba8e1c33ca17dea88ddac78e220fc1",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-study-64.9cff3ef7afd62b45.webp",
+      "bytes": 3372,
+      "sha256": "9cff3ef7afd62b45f3a98305a763a93e7f8ef1a62aba150ca54f63567b96a6a6",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-study-768.e1b8f89bd47e9ddd.webp",
+      "bytes": 89298,
+      "sha256": "e1b8f89bd47e9ddd4fdbc45e49fb93bfa0ad4a112c4781a32b6cadd94e17cf6c",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-welcome-128.c64bc38e9a25f57d.webp",
+      "bytes": 5064,
+      "sha256": "c64bc38e9a25f57d4ba4547bccc8f2e6e97a0d2eea1e8bc93808806fd5496823",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json",
+        "docs/evidence/2026-10-06-experience-v2/request-measurements.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-welcome-256.a5570274e55a4f32.webp",
+      "bytes": 12436,
+      "sha256": "a5570274e55a4f32deeec2c8e29cf43fcc716d2f064590238830fd9f8c81ed33",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json",
+        "docs/evidence/2026-10-06-experience-v2/request-measurements.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-welcome-512.a9ae55e015ec99ec.webp",
+      "bytes": 31690,
+      "sha256": "a9ae55e015ec99ec146a8d257ecb9de3b0c2c2c823c19aa919147bf3683441bf",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-welcome-64.7a07b8cfc1d451a7.webp",
+      "bytes": 2166,
+      "sha256": "7a07b8cfc1d451a77d57d0f5e414b83c04eb14ed4be4e7f786c5d85a533d8060",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json",
+        "docs/evidence/2026-10-06-experience-v2/request-measurements.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/ghostie-ghostie-welcome-768.378e74174e1df8ab.webp",
+      "bytes": 63028,
+      "sha256": "378e74174e1df8abed592778b122ce6d3ec81cda0bc1593dd094f9d126c2ed73",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/layer-hearth-still-life-128.6ad0728c3eab9239.webp",
+      "bytes": 5306,
+      "sha256": "6ad0728c3eab923985a9ba190ea080d38510716da9d5fcb487374cf50be284c5",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/layer-hearth-still-life-256.c66c20222c599da9.webp",
+      "bytes": 14770,
+      "sha256": "c66c20222c599da93c539d14aba5778c11a1955641906ab446f4dd938c47a11f",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json",
+        "docs/evidence/2026-10-06-experience-v2/request-measurements.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/layer-hearth-still-life-480.cecedeb492bd9675.webp",
+      "bytes": 38388,
+      "sha256": "cecedeb492bd9675c92903f9d8c47818656eb62fdfd365c7f888de9d44419f18",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/layer-hearth-still-life-768.4fcca69814f26d56.webp",
+      "bytes": 81608,
+      "sha256": "4fcca69814f26d56347666fa071db41e51124ba928dedbf46e7a057cd47fe7ef",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/layer-lavender-curtain-128.c05796eb96a2d32f.webp",
+      "bytes": 5978,
+      "sha256": "c05796eb96a2d32f7727fa904354a91c3cdbe204f470dc23d5ef9545af7e45d2",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/layer-lavender-curtain-256.32f4e488473fa9f0.webp",
+      "bytes": 16522,
+      "sha256": "32f4e488473fa9f0ba9785dc14a4ae89141053a794c6d3feffb0cc4263e5590a",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/layer-lavender-curtain-480.20e051363b12bb3a.webp",
+      "bytes": 46778,
+      "sha256": "20e051363b12bb3aea7a56adcc2e586ba735af084fca0c1854171b22ee687864",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/layer-lavender-curtain-768.e62bccf0a29e73ee.webp",
+      "bytes": 89664,
+      "sha256": "e62bccf0a29e73ee623ff4da6710a846c61dc8386fa489f5bb53bf6d3e83d459",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/motif-lavender-sprig-128.d8b0114efee05665.webp",
+      "bytes": 9686,
+      "sha256": "d8b0114efee0566536b176dd2e51de777926ab622d1f27a3e7e67a78eb715f80",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/motif-lavender-sprig-256.8c5a339f1743b877.webp",
+      "bytes": 26682,
+      "sha256": "8c5a339f1743b8779d7fb2acb4bc2548b62d866a332cc3245d50d95944235ff6",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-haven-community-128.89ddc8aa333dfb46.webp",
+      "bytes": 3376,
+      "sha256": "89ddc8aa333dfb4611adf0037e000965780df47e74dccea8f0d9e8849996938a",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-haven-community-256.6438ca9737db8404.webp",
+      "bytes": 11538,
+      "sha256": "6438ca9737db84044d822c0f569487af1ff34649f8e91c3ee766d09ce5d8e67f",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-haven-community-480.e59e555a574c568c.webp",
+      "bytes": 34892,
+      "sha256": "e59e555a574c568c06f5bc4d69979b8bc49a1b37de6a6740753ca1865b8f93a4",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json",
+        "docs/evidence/2026-10-06-experience-v2/request-measurements.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-haven-community-768.e535fc0d74c2e858.webp",
+      "bytes": 69394,
+      "sha256": "e535fc0d74c2e8587c7dca8a38c4201fc545a1640f91d4397634cf05a8286d4c",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json",
+        "docs/evidence/2026-10-06-experience-v2/request-measurements.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-haven-sunset-128.ae1b447da4dc5d69.webp",
+      "bytes": 3326,
+      "sha256": "ae1b447da4dc5d695f82afbbe70c694b287f49157543e9c0a7f6ffe2dbeb5330",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-haven-sunset-256.16776720ece7aa55.webp",
+      "bytes": 11280,
+      "sha256": "16776720ece7aa55eaf94a3b0743683357df8c52ba9aaedfa46c6a72d0e10533",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-haven-sunset-480.179028c540bf855c.webp",
+      "bytes": 34102,
+      "sha256": "179028c540bf855c740f2b2a74a9fda037275f9b4b89ad524ab9092898b46317",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-haven-sunset-768.e67f8c5ba4d95e0b.webp",
+      "bytes": 68526,
+      "sha256": "e67f8c5ba4d95e0b7104f78cead907c005f955f63a8f26cc37e45f1db9f17c9c",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-meet-nari-128.c4cc0aef2f068504.webp",
+      "bytes": 3546,
+      "sha256": "c4cc0aef2f06850487dd22f540a5ce1f3c8d6fb6cf78ae96e5ee7591545690b1",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-meet-nari-256.3c9fdca0e6dc9ef1.webp",
+      "bytes": 12074,
+      "sha256": "3c9fdca0e6dc9ef10b353dc20f22e8f42e176f70120f69a15a4600ff6f370118",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-meet-nari-480.5ad8a3debbd5ceb1.webp",
+      "bytes": 38636,
+      "sha256": "5ad8a3debbd5ceb137637751d11b803c7bec5540cd1708ff21d0021a5b5158ec",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-meet-nari-768.01a79c9ebbfa7efe.webp",
+      "bytes": 67806,
+      "sha256": "01a79c9ebbfa7efe1970cdb5a263a96ddc8e14cb0535f672547585dd9f13fddb",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-nails-atelier-128.4ee2b5e3f78238b4.webp",
+      "bytes": 3098,
+      "sha256": "4ee2b5e3f78238b49f02ed7e2f407cd0afe70645af77addc76c8c74c805d9ef6",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-nails-atelier-256.11ec935139346a14.webp",
+      "bytes": 10572,
+      "sha256": "11ec935139346a14fb50d8f2ce3148d41046e949c991e7ed3d525cc7a2344116",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-nails-atelier-480.e6e6f4878c0ddc11.webp",
+      "bytes": 33746,
+      "sha256": "e6e6f4878c0ddc1102dd8d4f01c7a6465a22f239d2e14e74c7ba20492cc80c63",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json",
+        "docs/evidence/2026-10-06-experience-v2/request-measurements.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-nails-atelier-768.bbdf0f6312976a62.webp",
+      "bytes": 69984,
+      "sha256": "bbdf0f6312976a6277919d9f9b32b81c7740f6e28519374c6c98af09e8fd90ae",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json",
+        "docs/evidence/2026-10-06-experience-v2/request-measurements.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-resources-library-128.385a7e0806b6d596.webp",
+      "bytes": 2898,
+      "sha256": "385a7e0806b6d596d0723e416cd275cfd7bfc18df4135549cafd88fae8e9466c",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-resources-library-256.465b60c1d961c3a6.webp",
+      "bytes": 10040,
+      "sha256": "465b60c1d961c3a69ac082a8072d0fe57d3a9d8519260e729fbe0fcdf942447c",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-resources-library-480.4adcb0de666cf4c5.webp",
+      "bytes": 31064,
+      "sha256": "4adcb0de666cf4c563c554efa36a5e7e446df8097bc2e81927b519f638b6260a",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-resources-library-768.fd4a8d1be5c23406.webp",
+      "bytes": 69768,
+      "sha256": "fd4a8d1be5c23406390f5271c169423a4812948ed45bb3177d720a0b49afa517",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-stories-lantern-128.347afc643ba795f8.webp",
+      "bytes": 2962,
+      "sha256": "347afc643ba795f8a7bd31fbe5201071de0e6ba401bcb8d6abd29dabe0173cf7",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-stories-lantern-256.1dd4c8eef58f09c6.webp",
+      "bytes": 9916,
+      "sha256": "1dd4c8eef58f09c6cc1d24094bd0733be29d9a589bf318033370701f5cf4533e",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-stories-lantern-480.376e09a6f75c54e3.webp",
+      "bytes": 31366,
+      "sha256": "376e09a6f75c54e37281b4be182061bea5ec4f6d386f1d2010a8fee1a04653fe",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-stories-lantern-768.e8dc970bfec265e9.webp",
+      "bytes": 68808,
+      "sha256": "e8dc970bfec265e983e01dcaf22693a5a29ffd51a8f4a69ef49bb7af4e18941d",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-streams-atelier-128.a7b57071e5654498.webp",
+      "bytes": 3284,
+      "sha256": "a7b57071e565449829d6c1853f346bebccb45ebbd7e09c55313de61688928fc1",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-streams-atelier-256.937f8256db495a6a.webp",
+      "bytes": 10882,
+      "sha256": "937f8256db495a6acd0dea437090ac070a5539c876ddf8b54eb3bc3df157d540",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-streams-atelier-480.d41efef4412afb90.webp",
+      "bytes": 34272,
+      "sha256": "d41efef4412afb9045affb2d102f1629bd9c00f976f8e76cba630d0ad38edd72",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json",
+        "docs/evidence/2026-10-06-experience-v2/request-measurements.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-streams-atelier-768.440c8b0ce7cb8ca8.webp",
+      "bytes": 64714,
+      "sha256": "440c8b0ce7cb8ca829e7762e046e8ff8d0aa8a4cee4b04e6cb578aa414059da1",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json",
+        "docs/evidence/2026-10-06-experience-v2/request-measurements.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-work-correspondence-128.21b3cd0c03a6bf87.webp",
+      "bytes": 2888,
+      "sha256": "21b3cd0c03a6bf87e825126a38cd1d7bf9b256599afa10507aa4d0baffa5849b",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-work-correspondence-256.5b151fd12f95d4bd.webp",
+      "bytes": 9500,
+      "sha256": "5b151fd12f95d4bd4f1dd839eb5f5a74e4ebd3d614dca302d42d8a48fca6b5e8",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-work-correspondence-480.cbb2cdb1646dda73.webp",
+      "bytes": 30342,
+      "sha256": "cbb2cdb1646dda73a5233a14e6cb8ae77625857bc7da9e8348706352dfcaa905",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/postcard-work-correspondence-768.c6c8e93ef9a774cd.webp",
+      "bytes": 68408,
+      "sha256": "c6c8e93ef9a774cd31fe1e748002c81b26ded1d2bc1d2ba5154d4063f44f808b",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-haven-community-1280.4f2368e80df669bc.webp",
+      "bytes": 146110,
+      "sha256": "4f2368e80df669bc2e1cc38114b6f40c1036ef2a8219bda242faeca1003ecb34",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-haven-community-1672.6c865fc0a4f9c363.webp",
+      "bytes": 147748,
+      "sha256": "6c865fc0a4f9c3634e0d4ce58ebba2634745cebc6d2d3f7f556baf288bfd5dc6",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-haven-community-768.260f46866966296e.webp",
+      "bytes": 79594,
+      "sha256": "260f46866966296e2aaad11233616dd413b87f925ee228d9f76ff52c497f4c32",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-haven-doorway-interior-320.cb82559e413ef1e1.webp",
+      "bytes": 50174,
+      "sha256": "cb82559e413ef1e19a92c5d8e53fa9ac64bdd3aa52bf9fcd1b74582b7e503556",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-haven-doorway-interior-640.4a79227b1c7bb2aa.webp",
+      "bytes": 143694,
+      "sha256": "4a79227b1c7bb2aaec5dc68d4d765943a1d6b8dcf1440d4918bda22d7243a5b5",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-haven-doorway-interior-768.340eb4df654dcf31.webp",
+      "bytes": 143944,
+      "sha256": "340eb4df654dcf31636aeccac4afcd4583d915bc4e9bdc42f89c2d46c3fa2c1a",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-haven-room-1280.4b39978e9ae5a9ee.webp",
+      "bytes": 138198,
+      "sha256": "4b39978e9ae5a9ee97c9c5b6afef0cd49b30539526df73c4f8774d4788bf9b9e",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json",
+        "docs/evidence/2026-10-06-experience-v2/request-measurements.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-haven-room-1672.884ab6beec9f4090.webp",
+      "bytes": 136870,
+      "sha256": "884ab6beec9f4090b24c72e24ea47ea2e0c9e8e72e4f75df7391406b1ad610ae",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json",
+        "docs/evidence/2026-10-06-experience-v2/request-measurements.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-haven-room-768.c2e234bee774dbd1.webp",
+      "bytes": 92002,
+      "sha256": "c2e234bee774dbd15926a1484123725960c58566adfbe0f87cc6ba61afea1d88",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-haven-sunset-1280.a7c90055b81e76b6.webp",
+      "bytes": 144764,
+      "sha256": "a7c90055b81e76b67ccf526fb11304c654a57ecb5bdfe1c930a02c0eaa08e200",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-haven-sunset-1672.241d015394438c1f.webp",
+      "bytes": 146078,
+      "sha256": "241d015394438c1f7bc3f7f05706e85fd1a691577a08ded21b8499c4f2317d20",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-haven-sunset-768.c5afdd8f62f9edff.webp",
+      "bytes": 78940,
+      "sha256": "c5afdd8f62f9edff5fa261c554aaf556e050e3eac9c38dd88ebf9293d0be8679",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-meet-nari-1280.5ac42bdd67d50335.webp",
+      "bytes": 143018,
+      "sha256": "5ac42bdd67d503352c5b05bbf528b94a89b9de0ad827745a52ee7e5328d3a3ac",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-meet-nari-1672.613f0aee145d1c47.webp",
+      "bytes": 145342,
+      "sha256": "613f0aee145d1c47b13b6d9fd031077f8dde75aecdd6727134bfe90e4c81e0e6",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-meet-nari-768.516f68062df543e6.webp",
+      "bytes": 89434,
+      "sha256": "516f68062df543e6a1b19e2d93f676c529b9c27562e8b6e465f3476f7b99b06e",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-nails-atelier-1280.874fe7a908c32088.webp",
+      "bytes": 147884,
+      "sha256": "874fe7a908c32088cecf69a42101c8fd23e49e5212a53e86bdd802a92f75514f",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-nails-atelier-1672.7f81a8d681866fe7.webp",
+      "bytes": 145890,
+      "sha256": "7f81a8d681866fe728695f9b32e06f750fb811d6314ae900d25e4a3863bb1f2b",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-nails-atelier-768.8f01018d663e6a35.webp",
+      "bytes": 79760,
+      "sha256": "8f01018d663e6a351cdb68d1efff8ab4e3c7160e1679f167462c2d961c232424",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-resources-library-1280.8c95042c06b76dba.webp",
+      "bytes": 144258,
+      "sha256": "8c95042c06b76dbaa139c588ab76bb082bf3624f8404877a4a99defd2fcc4585",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-resources-library-1672.874f33c7ec5d5fac.webp",
+      "bytes": 144928,
+      "sha256": "874f33c7ec5d5facd6481e19d8ff515be33f71df1d32bb25ea43adb3125a753d",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-resources-library-768.aacc9a59cb706dc4.webp",
+      "bytes": 72494,
+      "sha256": "aacc9a59cb706dc4ed00d2f8d1917dd004976c46ab4847b2b931fd6f7962816f",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-stories-lantern-1280.f590fbd2dcddf2fc.webp",
+      "bytes": 141934,
+      "sha256": "f590fbd2dcddf2fc2e76d5fd8c0b7a53228a0c4b7fd208e058bb0fa529a07a46",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-stories-lantern-1672.f872ca8307c6f18d.webp",
+      "bytes": 143062,
+      "sha256": "f872ca8307c6f18d8621fb8c338c180f3abccfacfe7a8a083ef95a819425c85b",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-stories-lantern-768.b4e103820e50f4b3.webp",
+      "bytes": 71966,
+      "sha256": "b4e103820e50f4b3c522465d49bb6b27491e9689f5bcb547e7ad69c7264a3a22",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-streams-atelier-1280.98f8e93d1fb519d5.webp",
+      "bytes": 140956,
+      "sha256": "98f8e93d1fb519d582c8f642102f60b9ed4b23356238a1e2d39d87dc5408f2d3",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-streams-atelier-1672.c97cd21f53ff29dd.webp",
+      "bytes": 144810,
+      "sha256": "c97cd21f53ff29ddb4e7cfaf584aeb59cf75a85ffc49276cd6a306801584db77",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-streams-atelier-768.421db5b0b4617282.webp",
+      "bytes": 80264,
+      "sha256": "421db5b0b4617282911a9475c1ca668d7637ef85e015f4a576a6917eac8b07a4",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-work-correspondence-1280.463627b4fdc1ae65.webp",
+      "bytes": 143618,
+      "sha256": "463627b4fdc1ae65d5d6f9634b43d07e96a4791abd0e91d28e1c07fa93eb6de9",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-work-correspondence-1672.6def6da5e10e61fa.webp",
+      "bytes": 144268,
+      "sha256": "6def6da5e10e61faa925a25c65739d0968a69b7bf090cd305dd70f0ea0704a3a",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/responsive/scene-work-correspondence-768.8e3fbd819746fe46.webp",
+      "bytes": 70164,
+      "sha256": "8e3fbd819746fe46cd7fb6d63cc3d153f0a5b10de6685d1311decf483b4b8df8",
+      "role": "generated-delivery",
+      "references": [
+        "src/data/responsive-artwork.runtime.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/states/state-404-lost-ghostie.svg",
+      "bytes": 3245,
+      "sha256": "a2e94fc0d77f4d0adca0c9b4a109ae017831fe3e2c74d4c2e1ded700d84e81ac",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/states/state-500-chaos-ghostie.svg",
+      "bytes": 3342,
+      "sha256": "5f5eb0db4ec426583290e48e2211d17300f7c8deed8c3accf773ebe703d41e4b",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/states/state-coming-soon.svg",
+      "bytes": 3356,
+      "sha256": "1935890d736ffd955b8cc558c63aaa21c62559913e584d4536c29fc6e1fc0d91",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/states/state-contact-sent.svg",
+      "bytes": 3207,
+      "sha256": "183377629917b5aaab46daf973335c8ac5df3a33872cd315afa2b8f72361718e",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/states/state-empty-gallery.svg",
+      "bytes": 3338,
+      "sha256": "6fd5ec87ac68b9b0d7031eec131f16d25fdf1f51cf1682d014618baa75ee05ca",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/states/state-empty-streams.svg",
+      "bytes": 3459,
+      "sha256": "66d556c310e598baa9f6afad1679c01841315e73ec807787fb1bfedf70050afd",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/states/state-loading.svg",
+      "bytes": 3179,
+      "sha256": "98547a0b50f8ff16012808e8f0e45d4b846b62028e1aad6b2f48d8510dd5802c",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/states/state-no-results.svg",
+      "bytes": 3229,
+      "sha256": "c04a7243b99b8d842d9422843db9926fa6f3d812b9ac485ae0fdee34cab4a055",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/states/state-restricted.svg",
+      "bytes": 3151,
+      "sha256": "de17a19c85d4bfb0d856c0732e5e85615aa37ba79d7afe290d8e4a9e89cd6565",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/states/state-success.svg",
+      "bytes": 3071,
+      "sha256": "d5ec6f20e9ecdc17bd24138b84db659d3758b8c8efd4eebbe979c73ca64a87ea",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/storybook/characters/nari-painted-avatar.webp",
+      "bytes": 29138,
+      "sha256": "350fcc14390403848999cf51838ea21d4eaf16778ef18df4c0357ed1862c3a64",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/artwork.ts"
+      ],
+      "records": [
+        "scripts/verify-preview.mjs",
+        "docs/asset-records/ASSET-2026-018-owner-authorized-storybook-nari.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/storybook/characters/nari-painted-portrait.webp",
+      "bytes": 67828,
+      "sha256": "989dd3c4a8eb1c8a6988fc0a0878945b468e2b3dea1ed047c165dd624038dea2",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/artCredits.json",
+        "src/data/artwork.ts"
+      ],
+      "records": [
+        "scripts/verify-preview.mjs",
+        "docs/asset-records/ASSET-2026-018-owner-authorized-storybook-nari.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/storybook/characters/nari-painted-welcome.webp",
+      "bytes": 94032,
+      "sha256": "4719c27e62d44868c4b0c3ab5669b58ff8f6457a3778461617a13918efd754ae",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/artCredits.json",
+        "src/data/artwork.ts"
+      ],
+      "records": [
+        "scripts/verify-preview.mjs",
+        "docs/asset-records/ASSET-2026-018-owner-authorized-storybook-nari.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/storybook/ghosties/ghostie-chaos.webp",
+      "bytes": 64828,
+      "sha256": "a9d2625bbdeba3f140e7741f4124776a23df65a98035571bda98a43073ff9b08",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "scripts/verify-preview.mjs",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/storybook/ghosties/ghostie-cozy.webp",
+      "bytes": 69764,
+      "sha256": "14157ccab551a1f301c12994d18ce656d84eb73e119c5668fb041a0a5f0af434",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "scripts/verify-preview.mjs",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/storybook/ghosties/ghostie-heart.webp",
+      "bytes": 59290,
+      "sha256": "a3128812cc12db0c4c0563e11795db51ff935d000694dfd2fc4bc3389e44ac18",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "scripts/verify-preview.mjs",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/storybook/ghosties/ghostie-nails.webp",
+      "bytes": 66382,
+      "sha256": "a12df6257c1b9f16069f31ab52256a2f5cb1f409a4aa3875da72321b1980f703",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "scripts/verify-preview.mjs",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/storybook/ghosties/ghostie-shy.webp",
+      "bytes": 41552,
+      "sha256": "b092fca463c1d665388e02c0381b105c3eb45d30e766c71ad068fcb1457df3f3",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "scripts/verify-preview.mjs",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/storybook/share/nari-haven-social.jpg",
+      "bytes": 246239,
+      "sha256": "c5ff6d647df8a8843f2d992917a1716cbdbb00c342f14368a0e2e6a06d2984a2",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/projectPages.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/storybook/share/nari-home-social.jpg",
+      "bytes": 245550,
+      "sha256": "ccae7904e79a1fcfbe3f1a0537fc1e154fed0627af4722dbb1aa9c4eec406899",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/projectPages.json"
+      ],
+      "records": [
+        "scripts/verify-preview.mjs",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/storybook/share/nari-meet-social.jpg",
+      "bytes": 271835,
+      "sha256": "f2a94cfd5f77a17af12079a33636946360011fc4f300363098cc9b193f95532a",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/projectPages.json"
+      ],
+      "records": [
+        "scripts/verify-preview.mjs",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/storybook/share/nari-nails-social.jpg",
+      "bytes": 252596,
+      "sha256": "334bcb8dc781a3a6ed2798149a77341510556c6654fc070277f6bd66afe90f1c",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/projectPages.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/storybook/share/nari-resources-social.jpg",
+      "bytes": 232199,
+      "sha256": "96f4d2e6ec8fe2e020740929a9abe7d547cecabf299f7a6be52f3f3d68200fdf",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/projectPages.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/storybook/share/nari-stories-social.jpg",
+      "bytes": 231854,
+      "sha256": "22197a40cf8fb28a1d89531fde7a275fd57b021cbe9ca1eccfa34a93b790f42e",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/projectPages.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/storybook/share/nari-streams-social.jpg",
+      "bytes": 256219,
+      "sha256": "6318f198357be49162bd2b1f1c9cdfcc05158fbf6ab6fb2c37042df923318922",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/projectPages.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/storybook/share/nari-work-social.jpg",
+      "bytes": 233357,
+      "sha256": "47017b43c6b4b4d350671efefc17da84b07d6e70e24665573393c0ab0dd51985",
+      "role": "runtime-reference",
+      "references": [
+        "src/data/projectPages.json"
+      ],
+      "records": [
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/streams/streams-card-clips.svg",
+      "bytes": 6895,
+      "sha256": "7fceef4d5a922ba1081c72aa5fa9b5e7e16ebdce5d8963f5a172e3801d3672cd",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/streams/streams-card-highlights.svg",
+      "bytes": 7154,
+      "sha256": "b97cc4cb703d11343a541ff301d37536999b6d0d7636a4e0cbff192900ae17dd",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/streams/streams-card-vods.svg",
+      "bytes": 6580,
+      "sha256": "e5bc307c8e75fed00b40c353cf73f299c6ac84d72669f9d1da58a90504f6418c",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/streams/streams-loading-state.svg",
+      "bytes": 4913,
+      "sha256": "e7041bbaf0656a1a892fb313c7cc7b06ed40796df83bac5e53e350b7ab4ec359",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/streams/streams-no-videos-state.svg",
+      "bytes": 6238,
+      "sha256": "a693ca0d10a70eeac8689da9eee6cac5655130b8a0a2635cb140060e4edb032c",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/streams/streams-offline-state.svg",
+      "bytes": 3932,
+      "sha256": "9d1e641a880999f63faa06015b156360d87cb27d23ce63579ed2fd530feef9f1",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/streams/streams-platform-tiktok.svg",
+      "bytes": 758,
+      "sha256": "8182c8096302f93e2d717236d1822f68008a4dd5e93d5ad8942a48938e60b5a5",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/streams/streams-platform-twitch.svg",
+      "bytes": 394,
+      "sha256": "c5de89bf3c96825f259bb7b08e2fa444dfed2dab8aeac98a95ce3b7da31fdd4f",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/streams/streams-platform-youtube.svg",
+      "bytes": 510,
+      "sha256": "e64497681a3f6fd198dbcf4c11a6c42dda2e2d94639399a2c7398bc50ff3b5b8",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/badges/badge-chaotic.svg",
+      "bytes": 291,
+      "sha256": "e273f16df9b5d54b3136efe1bbd65813d04ec41a964657e69ccf3a7747119833",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/badges/badge-community.svg",
+      "bytes": 415,
+      "sha256": "53b3584bc282599cb189cf6211c8b5cbe75385834729b6948d468c0e98f419d1",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/badges/badge-cozy.svg",
+      "bytes": 367,
+      "sha256": "47540e58341b316908a218c8f79212bb45bcca846b24f440186b177794aa1ccc",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/badges/badge-ghostie-approved.svg",
+      "bytes": 493,
+      "sha256": "d1ec3dc8f41ff16432f15bbe90c038d189468ce791a11115967c0b5ff581b124",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/badges/badge-live.svg",
+      "bytes": 363,
+      "sha256": "3ea6e37b9b8233246a3bc80e1aac7fe484aca562bcc796c84e9a297f8387a64e",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/badges/badge-nails.svg",
+      "bytes": 418,
+      "sha256": "d07c7fb39d8308993c70c961cc10d7650e5e82e5b8b36fa6db0e4e99007174d9",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/badges/badge-work.svg",
+      "bytes": 406,
+      "sha256": "534c434b241743d5593b5b8007fe111042ce524afac31f196c7201da4ef20b90",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/decorations/button-decoration-set.svg",
+      "bytes": 423,
+      "sha256": "5429f61edbcc24bf47728bcd29cfd0b885c1d5d6816c9d9845620da0790d60b1",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/decorations/form-field-decoration-set.svg",
+      "bytes": 349,
+      "sha256": "49dcd0fa5fdc41ec7f90da28425bd27697c9b95503944b34ab58cd316665eae4",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/decorations/social-link-button-style-set.svg",
+      "bytes": 346,
+      "sha256": "9d44159c7b91ce7602dde14b31d2e7b04aaacc95627f650462b443f663e643c8",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/nav/nav-haven-icon.svg",
+      "bytes": 389,
+      "sha256": "0cfb64192363e1407fb7fc0cc7f086a8eeee448f0fab58e9f71712b1f348f23c",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/nav/nav-home-icon.svg",
+      "bytes": 386,
+      "sha256": "c58f022de840ab75f025e277527574d7fa59c0918b330f3ab34bc0e634df2a15",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/nav/nav-meetnari-icon.svg",
+      "bytes": 378,
+      "sha256": "066cde2bb406bb14b3eb6f75e4bedd3837e6ba3d86f0ed2e9b3b6794324679b0",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/nav/nav-nails-icon.svg",
+      "bytes": 421,
+      "sha256": "71ab8b9e7f8522b938758a8bd73d4ab0ceca52cee14cd5c9baa647b71ea795cd",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/nav/nav-prinnycult-icon.svg",
+      "bytes": 639,
+      "sha256": "622d860f9e2374b0ee13113e31b9ae1e950c83d7f3d8ddac3e008421757ac9cd",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/nav/nav-resources-icon.svg",
+      "bytes": 413,
+      "sha256": "8f5550ead7091af50d8251c2b45f867470641b70de510af35172dccebd51fd64",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/nav/nav-streams-icon.svg",
+      "bytes": 353,
+      "sha256": "a7acd16ca4cf273900e19ea008490a9ce509a85b430c7d7e1dd83784b39679f2",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/nav/nav-work-icon.svg",
+      "bytes": 409,
+      "sha256": "1e1322bf8d4f7e1e4a42cb41f1d5aec9e341613ad2fc40374e48077beacd4770",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/theme/toggle-theme-icon-dark.svg",
+      "bytes": 310,
+      "sha256": "723077de328904de96c554bd40c42203c1aaac434e0b690dc21a3bb7c8f023ca",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/theme/toggle-theme-icon-light.svg",
+      "bytes": 366,
+      "sha256": "01130423dd5c9d5d2d244f5cdc2fd188b439bd1b0478d2c390b78ad665cb149b",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/theme/toggle-theme-icon-nari.svg",
+      "bytes": 423,
+      "sha256": "258ffc15e5f3918e90a3a5c10c6343f1b21f5d3b7ee3a31b8ed77a1b137cecf4",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/utility/ui-icon-arrow-left.svg",
+      "bytes": 234,
+      "sha256": "1d736955d560fb90aa4f408f08d2731802339dfcae23de22e16fcc4def0a35bd",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/utility/ui-icon-arrow-right.svg",
+      "bytes": 234,
+      "sha256": "6da7d7050258cdd8068ac33748f1e9a6885522e0afb21958843e91d99985c82d",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/utility/ui-icon-check.svg",
+      "bytes": 227,
+      "sha256": "aed1f171ff63af54a9d01a8101fb35fe0433693835ddc7bf7dd2d0ff225a3e31",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/utility/ui-icon-chevron-down.svg",
+      "bytes": 226,
+      "sha256": "1f0780b0558cd1f5d6218d82947532c9223515742c1186900c93605946295a51",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/utility/ui-icon-close.svg",
+      "bytes": 227,
+      "sha256": "a9391b90c6e77b0ef2527d1244217e691dd0a1c56810521eae63a53021a85634",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/utility/ui-icon-copy.svg",
+      "bytes": 336,
+      "sha256": "254e3b6bea6b1ec92a18eb6aa56c1f231b425352428bff436da33fd9118e93ed",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/utility/ui-icon-expand.svg",
+      "bytes": 302,
+      "sha256": "2d129cc43a03dcb6137cf45097f9aca5a45192c338c72a881e0e1949971d699f",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/utility/ui-icon-external-link.svg",
+      "bytes": 330,
+      "sha256": "acb70a5e71cf51a2b38c9715d66fe7d2768be3be581d01ce1c9976dd32d128ad",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/utility/ui-icon-info.svg",
+      "bytes": 259,
+      "sha256": "b9bfa5a11a66304d93037d87bc6d053ccf2fa35aeaa6785ba14f96a43bfb3290",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/utility/ui-icon-menu.svg",
+      "bytes": 229,
+      "sha256": "1761dab26f93a69ca10ed92022ff330074c8429581424ca2e55194ce80c9d2c1",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/utility/ui-icon-volume-muted.svg",
+      "bytes": 271,
+      "sha256": "53989f3060a9edb3a628791c6a0821f6b3990ca08a6b6561ad8869629c51cf85",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/utility/ui-icon-volume.svg",
+      "bytes": 329,
+      "sha256": "583cfa2443fea0fb1a21cce51abd5aec22004d495500ebec861e8c1cf3609df9",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/ui/utility/ui-icon-warning.svg",
+      "bytes": 334,
+      "sha256": "3754907ea8a73bea561db6d4927779d5d8dafc506ae88f58b72cc3567dc4370b",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/work/work-business-card-graphic.svg",
+      "bytes": 2463,
+      "sha256": "cad04320177952f1f4fbc91b23e301dd06cb1585fdb1f1dffddd82ad1f7f206d",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/work/work-contact-vignette.svg",
+      "bytes": 3496,
+      "sha256": "f8b2623158b343f52b81487a9044ced6017ecb4a56b52992f3664144faf98e89",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/work/work-environment-support.svg",
+      "bytes": 3942,
+      "sha256": "d508d9c26a50fbc82adb64f0db15313555e233f10b15af61d9111c44249ab8b2",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/media/work/work-inquiry-ghostie.svg",
+      "bytes": 2974,
+      "sha256": "43891806b0f489710522c4b7f0c7f9b9cfbdecf03ebec914c60c7516a76325c4",
+      "role": "contract-or-provenance-reference",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/39_ASSET_DISPOSITION.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/robots.txt",
+      "bytes": 136,
+      "sha256": "314f2f4158c092ed2249ef90c2e548778b839932cf738bc8844890a4c87b400f",
+      "role": "static-site-file",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    },
+    {
+      "url": "/site.webmanifest",
+      "bytes": 417,
+      "sha256": "77e4f5b34659194956fb9e26ece20129dd7a056b98ff5f414679d934ac73db7c",
+      "role": "static-site-file",
+      "references": [],
+      "records": [
+        "docs/38_CODE_OWNERSHIP.md",
+        "docs/evidence/2026-10-06-experience-v2/asset-inventory.json"
+      ]
+    }
+  ]
+}

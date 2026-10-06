@@ -1,0 +1,15 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+[WebServer] (node:31) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 5 tests using 1 worker
+
+(node:43) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › browser-tests/ghostie-fit.spec.ts:62:3 › Ghostie silhouettes fit every slot at 320px (8.7s)
+  ✓  2 [chromium] › browser-tests/ghostie-fit.spec.ts:62:3 › Ghostie silhouettes fit every slot at 390px (6.8s)
+  ✓  3 [chromium] › browser-tests/ghostie-fit.spec.ts:62:3 › Ghostie silhouettes fit every slot at 768px (7.0s)
+  ✓  4 [chromium] › browser-tests/ghostie-fit.spec.ts:62:3 › Ghostie silhouettes fit every slot at 1440px (13.9s)
+  ✓  5 [chromium] › browser-tests/ghostie-fit.spec.ts:76:1 › Ghosties fit enlarged text and the second-knock doorway (9.3s)
+
+  5 passed (49.1s)

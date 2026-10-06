@@ -3,6 +3,7 @@ import { createHash } from "node:crypto";
 import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import inventory from "../src/assets/source/delivery/inventory.json";
+import intake from "../src/assets/source/vnext/intake.json";
 import generated from "@/data/responsive-artwork.json";
 
 describe("source and retired artwork preservation", () => {
@@ -20,8 +21,9 @@ describe("source and retired artwork preservation", () => {
     expect(generated._generated).toContain("npm run artwork:prepare");
     for (const [key, artwork] of Object.entries(generated.artworks)) {
       const source = inventory.assets.find(({ previousUrl }) => previousUrl === key);
-      expect(source?.sourceFile).toBe(artwork.sourceFile);
-      expect(source?.sha256).toBe(artwork.sourceSha256);
+      const revision = intake.find(({ workingFile }) => workingFile === artwork.sourceFile);
+      expect(source?.sourceFile ?? revision?.workingFile).toBe(artwork.sourceFile);
+      expect(source?.sha256 ?? revision?.workingSha256).toBe(artwork.sourceSha256);
       expect(artwork.candidates.every(({ src }) => src.startsWith("/media/responsive/"))).toBe(true);
     }
   });

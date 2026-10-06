@@ -16,6 +16,7 @@ PUBLIC = ROOT / 'public'
 SOURCES = ROOT / 'src/assets/source/delivery'
 OUTPUT = PUBLIC / 'media' / 'responsive'
 MANIFEST = ROOT / 'src' / 'data' / 'responsive-artwork.json'
+DEPTH_SOURCES = ROOT / 'src/assets/source/vnext/delivery'
 RUNTIME_MANIFEST = MANIFEST.with_name('responsive-artwork.runtime.json')
 
 
@@ -45,6 +46,10 @@ def generate():
         ('scene', sorted((SOURCES / 'media/storybook/scenes').glob('*.webp')), [768, 1280, 1672], 148_000),
         ('postcard', sorted((SOURCES / 'media/storybook/postcards').glob('*.webp')), [128, 256, 480, 768], 70_000),
         ('ghostie', sorted((SOURCES / 'media/ghosties/community').glob('*.webp')), [64, 128, 256, 512, 768], 90_000),
+        ('scene', sorted((DEPTH_SOURCES / 'media/vnext/scenes').glob('*.webp')), [768, 1280, 1672], 140_000),
+        ('character', sorted((DEPTH_SOURCES / 'media/vnext/characters').glob('*.webp')), [768, 1280], 75_000),
+        ('layer', sorted((DEPTH_SOURCES / 'media/vnext/layers').glob('*.webp')), [128, 256, 480, 768], 90_000),
+        ('ghostie', sorted((DEPTH_SOURCES / 'media/vnext/ghosties').glob('*.webp')), [64, 128, 256, 512, 768], 90_000),
         ('motif', [SOURCES / 'media/motifs/lavender-sprig.webp'], [128, 256], 30_000),
     ]
     jobs = [(role, source, widths, budget) for role, paths, widths, budget in families for source in paths]
@@ -83,7 +88,7 @@ def prepare_source(job):
         (OUTPUT / filename).write_bytes(data)
         candidates.append({'src': f'/media/responsive/{filename}', 'width': width,
                            'height': height, 'bytes': len(data), 'sha256': digest, 'quality': quality})
-    return "/" + source.relative_to(SOURCES).as_posix(), {
+    return "/" + source.relative_to(DEPTH_SOURCES if source.is_relative_to(DEPTH_SOURCES) else SOURCES).as_posix(), {
         "sourceFile": source.relative_to(ROOT).as_posix(),
         "role": role, "sourceSha256": sha256(source.read_bytes()).hexdigest(),
         "width": image.width, "height": image.height, "alpha": "A" in image.getbands(),

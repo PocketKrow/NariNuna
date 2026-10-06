@@ -1,4 +1,4 @@
-import { canAnimate, canRenderAtmosphere, readCapabilities } from "./capabilities";
+import { experienceTier, canRenderAtmosphere, readCapabilities } from "./capabilities";
 import { supportsAtmosphere } from "./webgl";
 
 // Load after the document's critical images, then idle. Async results cannot survive a page exit or preference change.
@@ -12,6 +12,7 @@ export function startExperience(): void {
   let active = true;
   const motionPreference = matchMedia("(prefers-reduced-motion: reduce)");
   const layoutPreference = matchMedia("(min-width: 1024px) and (pointer: fine)");
+  const connection = (navigator as Navigator & { connection?: EventTarget }).connection;
   const clear = () => {
     generation++;
     clearTimeout(scheduled);
@@ -24,11 +25,14 @@ export function startExperience(): void {
   const begin = async () => {
     const version = generation;
     const capabilities = readCapabilities();
-    if (!active || !canAnimate(capabilities) || capabilities.coarsePointer || capabilities.width < 1024) return;
+    const tier = experienceTier(capabilities);
+    if (!active || tier === "static") return;
     try {
-      const { choreograph } = await import("./motion");
+      const start = tier === "touch"
+        ? (await import("./touch")).settleMaterials
+        : (await import("./motion")).choreograph;
       if (!active || version !== generation) return;
-      disposeMotion = choreograph();
+      disposeMotion = start();
     } catch {
       // Static artwork and content are complete even if an optional chunk is unavailable.
     }
@@ -57,6 +61,7 @@ export function startExperience(): void {
   const leave = () => { active = false; clear(); };
   const restore = (event: PageTransitionEvent) => { if (event.persisted) { active = true; schedule(); } };
   motionPreference.addEventListener("change", schedule);
+  connection?.addEventListener("change", schedule);
   layoutPreference.addEventListener("change", schedule);
   window.addEventListener("pagehide", leave);
   window.addEventListener("pageshow", restore);

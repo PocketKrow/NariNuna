@@ -29,12 +29,12 @@ export function createAtmosphere(canvas: HTMLCanvasElement): () => void {
   const camera = new OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
   camera.position.z = 2;
   const geometry = new BufferGeometry();
-  const positions = new Float32Array(48 * 3);
-  const phases = new Float32Array(48);
-  for (let i = 0; i < 48; i++) {
+  const positions = new Float32Array(72 * 3);
+  const phases = new Float32Array(72);
+  for (let i = 0; i < 72; i++) {
     positions[i * 3] = ((i * 0.6180339887) % 1) * 2 - 1;
     positions[i * 3 + 1] = ((i * 0.4142135623) % 1) * 2 - 1;
-    phases[i] = (i + 1) / 48;
+    phases[i] = (i + 1) / 72;
   }
   geometry.setAttribute("position", new BufferAttribute(positions, 3));
   geometry.setAttribute("phase", new BufferAttribute(phases, 1));
