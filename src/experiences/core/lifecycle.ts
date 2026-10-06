@@ -1,7 +1,9 @@
 import { canAnimate, canRenderAtmosphere, readCapabilities } from "./capabilities";
+import { supportsAtmosphere } from "./webgl";
 
 // Load after the document's critical images, then idle. Async results cannot survive a page exit or preference change.
 export function startExperience(): void {
+  document.querySelectorAll<HTMLCanvasElement>("[data-atmosphere]").forEach((canvas) => { canvas.dataset.atmosphereState = "static"; });
   let disposeMotion: (() => void) | undefined;
   const atmosphereDisposers: (() => void)[] = [];
   let generation = 0;
@@ -32,10 +34,8 @@ export function startExperience(): void {
     }
     const canvases = document.querySelectorAll<HTMLCanvasElement>("[data-atmosphere]");
     if (!canvases.length || !canRenderAtmosphere(capabilities) || !active || version !== generation) return;
-    // Probe WebGL2 before downloading the graphics runtime. Release the probe immediately.
-    const probe = document.createElement("canvas").getContext("webgl2");
-    if (!probe) return;
-    probe.getExtension("WEBGL_lose_context")?.loseContext();
+    // Validate shader queries before downloading Three, then recheck the actual canvas in the renderer.
+    if (!supportsAtmosphere()) return;
     try {
       const { createAtmosphere } = await import("../home/atmosphere");
       if (!active || version !== generation) return;

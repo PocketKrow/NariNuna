@@ -110,6 +110,10 @@ test("capable desktop can pause atmosphere and switch to static mode", async ({ 
   await page.emulateMedia({ reducedMotion: "reduce" });
   await expect(field).toHaveAttribute("data-atmosphere-state", "static");
   await expect(page.getByRole("button", { name: "Pause atmosphere" })).toBeHidden();
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await expect(field).toHaveAttribute("data-atmosphere-state", "active");
+  await page.getByRole("button", { name: "Pause atmosphere" }).click();
+  await expect(field).toHaveAttribute("data-atmosphere-state", "paused");
 });
 
 
