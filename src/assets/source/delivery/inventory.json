@@ -630,6 +630,20 @@
       "bytes": 234932,
       "sha256": "4bd46bf033612dcb2567704eecb66deb0aa2bba0d24f71d29c1d6506375413ad",
       "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/haven/environments/room-dusk-v2.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/environments/room-dusk-v2.webp",
+      "bytes": 426998,
+      "sha256": "8afde8dda9abf8d03af446525f8d91108ca023237f5b66b63cce6af8eed8338f",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/haven/environments/room-mobile-v2.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/environments/room-mobile-v2.webp",
+      "bytes": 433120,
+      "sha256": "6a4cf6052c101d405f658d9cb44ead671e770aed0ca7c13a1d04c591a33a8c8f",
+      "role": "responsive-source"
     }
   ]
 }

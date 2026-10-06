@@ -1,7 +1,7 @@
 // New room composition keys. Masters/provenance stay offline; only delivery selection reaches the browser.
 export const havenArtwork = {
-  home: '/media/haven/environments/room-dusk.webp',
-  mobile: '/media/haven/environments/room-mobile.webp',
+  home: '/media/haven/environments/room-dusk-v2.webp',
+  mobile: '/media/haven/environments/room-mobile-v2.webp',
   streams: '/media/haven/environments/broadcast-desk.webp',
   nails: '/media/haven/environments/nail-worktable.webp',
   meet: '/media/haven/environments/scrapbook.webp',

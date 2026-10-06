@@ -1,7 +1,6 @@
 ---
 import SiteLayout from '@/layouts/SiteLayout.astro';
 import RoomObject from '@/components/astro/RoomObject.astro';
-import HavenImage from '@/components/astro/HavenImage.astro';
 import ArtworkCreditLink from '@/components/art/ArtworkCreditLink.vue';
 import SocialDock from '@/components/ui/SocialDock.vue';
 import { havenArtwork, roomObjects } from '@/data/havenArtwork';
@@ -9,21 +8,20 @@ import { heroStyle } from '@/data/artworkDelivery';
 import '@/styles/rooms/home.scss';
 ---
 <SiteLayout pageId="home">
+  <div class="home-room__welcome page-width">
+    <div>
+      <p class="room-kicker">Come in, Ghostie.</p>
+      <h1 id="home-title">Nari's <em>Haven.</em></h1>
+    </div>
+    <p>Your favorite chaotic big sister.<br />Pick a little corner. Make yourself at home.</p>
+  </div>
   <section class="home-room responsive-hero" style={heroStyle(havenArtwork.home)} data-experience aria-labelledby="home-title">
     <div class="home-room__painting room-arrival__painting" role="img" aria-label="A warm wooden room at dusk, with a lavender armchair, bookshelves and a view into the garden.">
       <canvas class="ambient-field" data-atmosphere aria-hidden="true"></canvas>
     </div>
-    <div class="home-room__welcome room-arrival__copy">
-      <p class="room-kicker">Come in, Ghostie.</p>
-      <h1 id="home-title">Nari's <em>Haven.</em></h1>
-      <p class="home-room__subtitle">Your favorite chaotic big sister.</p>
-      <p>Streams get loud. Polish gets everywhere.<br />Make yourself at home.</p>
-    </div>
-    <p class="home-room__instruction">Pick a little corner. The labels will take you there.</p>
     <nav class="home-room__objects" aria-label="Explore Nari's room">
       {roomObjects.map((object) => <RoomObject object={object} />)}
     </nav>
-    <HavenImage artwork="/media/haven/objects/foreground.webp" sizes="(min-width: 1024px) 200px, 80px" class="home-room__foreground" maxWidth={480} />
     <button class="atmosphere-control" type="button" data-atmosphere-control hidden aria-pressed="false">Pause atmosphere</button>
   </section>
   <div class="home-room__aftercare page-width">

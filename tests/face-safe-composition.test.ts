@@ -8,7 +8,7 @@ describe("single-owner arrival compositions", () => {
     expect(html).toContain("room-arrival__painting");
     expect(html).toContain('role="img"');
     expect(html).toMatch(/aria-label="[^"]+"/);
-    expect(html).toContain("room-arrival__copy");
+    expect(html).toContain(document === 'index.html' ? 'home-room__welcome' : 'room-arrival__copy');
     expect(html).toMatch(/<h1\b/);
     expect(html).not.toMatch(/room-passage|haven-passport/);
   });

@@ -27,6 +27,12 @@ for (const width of [320, 390, 768, 1440]) {
       const label = link.locator('.room-object__label');
       expect(await label.evaluate((el) => {
         const r = el.getBoundingClientRect();
+        const room = el.closest('.home-room')!.getBoundingClientRect();
+        return r.left >= room.left - 1 && r.right <= room.right + 1
+          && r.top >= room.top && r.bottom <= room.bottom + 1;
+      }), 'The complete label must remain inside its room plate.').toBe(true);
+      expect(await label.evaluate((el) => {
+        const r = el.getBoundingClientRect();
         return document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2)?.closest('a') === el.closest('a');
       })).toBe(true);
       await link.focus();
@@ -34,6 +40,28 @@ for (const width of [320, 390, 768, 1440]) {
       await expect(page).toHaveURL(`http://127.0.0.1:4175${destinations[index]}`);
       await page.goBack();
     }
+    await context.close();
+  });
+}
+for (const width of [320, 390]) {
+  test(`room labels reflow without JavaScript at 200% text size on ${width}px`, async ({ browser }) => {
+    const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width, height: 900 } });
+    const page = await context.newPage();
+    await page.goto('http://127.0.0.1:4175/');
+    await page.evaluate(() => { document.documentElement.style.fontSize = '200%'; });
+    const links = page.locator('.home-room__objects > a');
+    for (const link of await links.all()) {
+      await link.scrollIntoViewIfNeeded();
+      const label = link.locator('.room-object__label');
+      expect(await label.evaluate((el) => {
+        const r = el.getBoundingClientRect();
+        const room = el.closest('.home-room')!.getBoundingClientRect();
+        return r.left >= room.left - 1 && r.right <= room.right + 1
+          && r.top >= room.top && r.bottom <= room.bottom + 1
+          && document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2)?.closest('a') === el.closest('a');
+      }), 'Enlarged labels must remain readable and clickable.').toBe(true);
+    }
+    expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false);
     await context.close();
   });
 }

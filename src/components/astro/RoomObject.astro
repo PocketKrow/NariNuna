@@ -8,10 +8,10 @@ const { object } = Astro.props;
 ---
 <a class={`room-object room-object--${object.id}`} href={object.href} aria-labelledby={`object-${object.id}-label`}>
   <span class="room-object__visual" aria-hidden="true">
-    <HavenImage artwork={object.artwork} sizes={object.id === 'monitor' ? '(min-width: 1024px) 28vw, (min-width: 640px) 320px, 270px' : '(min-width: 1024px) 19vw, 160px'} class="room-object__prop" eager />
-    {object.id === 'monitor' && <span class="room-object__screen">Pull up a seat <span>Streams ↗</span></span>}
+    <HavenImage artwork={object.artwork} sizes={object.id === 'monitor' ? '(min-width: 1440px) 418px, (min-width: 1024px) 29vw, (min-width: 640px) 352px, 55vw' : object.id === 'door' ? '(min-width: 1440px) 389px, (min-width: 1024px) 27vw, (min-width: 640px) 224px, 35vw' : '(min-width: 1440px) 259px, (min-width: 1024px) 18vw, (min-width: 640px) 288px, 44vw'} class="room-object__prop" eager />
+    {object.id === 'monitor' && <span class="room-object__screen">Pull up a seat.</span>}
     {object.id === 'album' && <span class="room-object__portrait"><img src={nariArtwork.suppliedPortrait} width="880" height="1360" alt="" /></span>}
-    {object.ghostie && <HavenImage artwork={object.ghostie} sizes="(min-width: 1024px) 100px, 64px" class="room-object__ghostie" eager maxWidth={256} />}
+    {object.ghostie && <HavenImage artwork={object.ghostie} sizes="(min-width: 1024px) 48px, 28px" class="room-object__ghostie" eager maxWidth={128} />}
   </span>
   <span class="room-object__label" id={`object-${object.id}-label`}><strong>{object.label}</strong><small>{object.note}</small><span aria-hidden="true">↗</span></span>
 </a>

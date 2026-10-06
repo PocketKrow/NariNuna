@@ -44,14 +44,14 @@ export const heroBands = [
 
 /** One selection algorithm feeds picture sources, head preloads and CSS backgrounds. */
 export function heroSources(source: string) {
-  const home = source.endsWith('/room-dusk.webp');
+  const home = /\/room-dusk(?:-v2)?\.webp$/.test(source);
   const bands = home ? [
     { media: '(width < 1024px)', widths: [768, 1280] },
     { media: '(1024px <= width < 1280px)', widths: [1280, 1672] },
     { media: '(width >= 1280px)', widths: [1672] }
   ] : heroBands;
   return bands.map(({ media, widths }, index) => {
-    const selected = home && index === 0 ? '/media/haven/environments/room-mobile.webp' : source;
+    const selected = home && index === 0 ? source.replace('room-dusk', 'room-mobile') : source;
     return ({
     media,
     src: artworkSrc(selected, widths[0]),

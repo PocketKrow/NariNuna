@@ -18,6 +18,12 @@ PNG masters preserve tool metadata offline. Metadata-clean WebP source exports a
 
 Created with built-in ImageGen for this owner-requested website review. Nari owns identity decisions; creator attribution, model rights and public adoption must still be confirmed separately. No third-party artist, permission, canon or franchise ownership is inferred. Supplied character, emote and Prinny records remain unchanged. Do not represent illustrated polish/worktables as photographs of Nari’s nail work. No personal location or private communication is represented.
 
+## Composition revision v2
+
+Following the owner's rejection of the first arrangement, two additional environment masters and responsive lookup keys (`room-dusk-v2` and `room-mobile-v2`) provide a continuous desk plane and an architectural doorway recess designed around the existing props. Built-in ImageGen used the original room and monitor/polish/door as actual image inputs for desktop, then the revised desktop plate for mobile. No character inputs or character generation were used. Exact prompts and input/master hashes are appended to the existing provenance record. All original plates and props are preserved. Public adoption, credits and rights retain their previous pending states.
+
+The revised Home social preview derives from `masters/environments/home-composition-v2.png`, a Chromium capture of the actual static room DOM without browser chrome or atmosphere. It includes the unchanged supplied portrait through the existing album frame; this is a screenshot composition, not newly generated Nari artwork. The 1200×630 JPEG uses a contained resize with plum padding, preserving the entire composition. Source and export hashes are retained in provenance; the original social preview remains archived.
+
 Motion is implemented with bounded CSS hover/focus gestures, not raster frame strips; no loop plays continuously on a Ghostie. Responsive images preserve complete padded silhouettes. Optional existing GSAP/Three atmosphere has reduced-motion, capability, failure and pause fallbacks.
 
 Four browser/app icons are uncropped metadata-clean PNG resizes of the welcoming Ghostie. Their predecessors depict a nonauthoritative generated Nari; unchanged previous icon files are preserved in `masters/retired/`, with rejection reasons and hashes. Both old and new files are recorded in provenance.

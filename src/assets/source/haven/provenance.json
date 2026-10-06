@@ -393,6 +393,65 @@
           "role": "environment style only; no Nari generation"
         }
       ]
+    },
+    {
+      "id": "room-dusk-v2",
+      "master": "src/assets/source/haven/masters/environments/room-dusk-v2.png",
+      "masterSha256": "4ba91cfea5f690a0c70bcd51040d9bad1c5857d34fada32ca2e27f8cedd8a30f",
+      "lookupKey": "/media/haven/environments/room-dusk-v2.webp",
+      "prompt": "Use case: stylized-concept. Asset type: desktop environment plate for Nari's Haven, a layered interactive illustrated website, 16:9 landscape.\nInput images: image 1 reference for the existing Haven materials and warm dusk atmosphere, not its layout; images 2\u20134 are actual navigation props to be added later and dictate the camera, wood tone, perspective and lighting. DO NOT paint these props into the result.\nPrimary request: Recompose this as ONE architecturally believable, intimate creator's home. Deliberate visual hierarchy, generous calm areas, no generic fantasy-hotel styling. Camera fixed, nearly straight-on, seated visitor viewpoint tilted slightly down to see a broad work desk. Soft amber practical light from the left, muted lavender dusk from the window, restrained dark emerald accents. Background has softer, quieter contrast than the foreground props.\nComposition: a broad worn wooden desk occupies the entire lower third from x=0% to x=75%, its usable top from y=63% to y=86%; the desk front edge is nearly horizontal, NOT a diagonal edge that drops props onto the floor. Keep this desk completely empty so four separate native link props can be placed onto it later. Small brass lamp only at extreme left x=3%, subdued. Bookshelves at far left and a lavender chair at rear center, both quiet and secondary. A dusk garden window occupies x=38\u201366%, y=5\u201350%. In the rear RIGHT wall reserve one straight-on EMPTY tall dark doorway recess x=78\u201394%, y=16\u201385%, with wood wall continuing around it and floor threshold clearly connected at y=85%; a separate real door will be seated inside this architectural opening later. NO door leaf, no duplicate second doorway. Quiet dark wood wall at x=5\u201330%, y=7\u201332% for a small HTML welcome note later. Warm light guides the eye toward the left desk and then the right doorway. A few personal books, tucked fabric and dried sprigs at the margins only, never cover the desk placement area.\nStyle: match the warm hand-rendered materials of the input props, subdued illustration with visible soft texture. Lavender, warm walnut, soft cream, small emerald details. Avoid chrome, polished luxury, ornate gold everywhere, oversaturated orange, overly sharp photoreal textures, symmetrical fantasy decor, random curios.\nConstraints: NO characters, NO people, NO Nari, NO Ghosties, NO monitor, NO keyboard, NO nail polish, NO albums, NO envelopes, NO labels, NO lettering, NO watermark. This is the quiet room plate; objects will be rendered as separate DOM layers. Preserve physical scale and one common perspective.",
+      "characterGenerated": false,
+      "family": "environments",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "tool": "built-in imagegen",
+      "referenceRole": "environment and prop camera/material references only; no Nari generation",
+      "reviewState": "Composition revision following owner rejection of the original arrangement; public adoption/rights remain pending.",
+      "references": [
+        {
+          "path": "src/assets/source/delivery/media/haven/environments/room-dusk.webp",
+          "sha256": "e43e1a0fd7dccb2da5be19e5e3964ae74c8c617760a978cbc9b896cdf36e1449",
+          "role": "environment and prop camera/material references only; no Nari generation"
+        },
+        {
+          "path": "src/assets/source/delivery/media/haven/objects/monitor.webp",
+          "sha256": "12e469f97f4fee02aac8abd27fb96e3a305e640ac5cbc9dbf49862191f1fcce8",
+          "role": "environment and prop camera/material references only; no Nari generation"
+        },
+        {
+          "path": "src/assets/source/delivery/media/haven/objects/polish.webp",
+          "sha256": "3b8e21c265f0d7b3d84388e1348a4b4eb3b1a7c665bc79879b46a8d1e66d0d19",
+          "role": "environment and prop camera/material references only; no Nari generation"
+        },
+        {
+          "path": "src/assets/source/delivery/media/haven/objects/door.webp",
+          "sha256": "9e6269d5d614111c9783666970db63ab930b335a218603cb46dda7041772fb2f",
+          "role": "environment and prop camera/material references only; no Nari generation"
+        }
+      ]
+    },
+    {
+      "id": "room-mobile-v2",
+      "master": "src/assets/source/haven/masters/environments/room-mobile-v2.png",
+      "masterSha256": "2b0ec4e21d6bb19cd65b5bd8160e39496a65a253994e32a98b765d55a2b2960f",
+      "lookupKey": "/media/haven/environments/room-mobile-v2.webp",
+      "prompt": "Use case: stylized-concept. Asset type: mobile environment plate for Nari's Haven website, portrait 5:8, deliberately composed, NOT a crop of the input.\nInput image: reference of the revised desktop room; preserve its exact material language, warm left amber lighting, walnut desk, lavender dusk garden, home scale and quiet background.\nPrimary request: a closer vertical viewpoint into the same room, planning usable physical surfaces for separate native-link props that will be added afterwards. NO objects on the desk yet.\nComposition: warm wooden room with dusk garden window in upper-left/center, books at far left margin, small lavender chair behind desk. One EMPTY dark tall doorway opening built into the rear upper RIGHT wall, at x=62\u201394%, y=3\u201336%, with connected floor threshold, no door leaf. Broad empty walnut work desk occupies entire frame width from y=40% to y=95%; its rear edge nearly horizontal at y=40%, its front edge at y=95%. Its top is clearly a continuous flat surface seen from slightly above, letting a monitor stand at upper left with its keyboard at y=43%, polish bottles sit at right y=61%, and an album and letter lie at y=80% later. These four props must NOT be drawn. Small lamp at far LEFT edge only, warm light across desk, muted lavender sheen to right. Calm composition: room architecture occupies upper40%, continuous inviting empty desk top lower55%, desk apron final5%. No big foreground blooms, no random clutter obstructing these zones. Hand-rendered warm materials, soft texture, less sharp busy background detail.\nConstraints: NO people, NO Nari, NO Ghosties, NO monitor, NO keyboard, NO polish bottles, NO album, NO envelope, NO door leaf, NO writing, NO text, NO logos, NO watermarks. Portrait 5:8 composition. Matching perspective and lighting with the desktop reference.",
+      "characterGenerated": false,
+      "family": "environments",
+      "width": 992,
+      "height": 1586,
+      "alpha": false,
+      "tool": "built-in imagegen",
+      "referenceRole": "environment and prop camera/material references only; no Nari generation",
+      "reviewState": "Composition revision following owner rejection of the original arrangement; public adoption/rights remain pending.",
+      "references": [
+        {
+          "path": "src/assets/source/haven/masters/environments/room-dusk-v2.png",
+          "sha256": "4ba91cfea5f690a0c70bcd51040d9bad1c5857d34fada32ca2e27f8cedd8a30f",
+          "role": "environment and prop camera/material references only; no Nari generation"
+        }
+      ]
     }
   ],
   "identityReferences": [
@@ -495,6 +554,13 @@
       "width": 1200,
       "height": 630,
       "operation": "center fit from matching environment; quality 88 JPEG; metadata removed"
+    },
+    {
+      "path": "public/media/haven/share/home-v2.5db3940d73c705d1.jpg",
+      "sha256": "5db3940d73c705d1857a50d00ea1fe88f4702da5379e6c1d7b04c850c8fe7181",
+      "source": "Rendered v2 Home DOM at 1440px, reduced motion, no browser chrome. Original supplied Nari portrait is framed without regenerating it.",
+      "master": "src/assets/source/haven/masters/environments/home-composition-v2.png",
+      "masterSha256": "04895ac0cdcfbd175addf7ec851a5bef92395eb8b38b517d72e90aae742dfc20"
     }
   ],
   "iconExports": [

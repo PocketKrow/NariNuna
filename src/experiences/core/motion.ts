@@ -8,7 +8,8 @@ export function choreograph(): () => void {
     const context = gsap.context(() => {
       for (const arrival of document.querySelectorAll<HTMLElement>("[data-experience]")) {
         const painting = arrival.querySelector(".room-arrival__painting");
-        if (painting) gsap.to(painting, {
+        // Moving only Home's architectural plate would detach its door from the wall.
+        if (painting && !arrival.classList.contains('home-room')) gsap.to(painting, {
           y: 18, ease: "none",
           scrollTrigger: { trigger: arrival, start: "top top", end: "bottom top", scrub: 0.6 },
         });
