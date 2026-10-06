@@ -46,19 +46,21 @@ withDefaults(
 </template>
 
 <style scoped>
-/* Contain the full transparent silhouette; mirror through a custom property, not a second asset. Parent slots control size. */
+/* Parent slots may be rectangular. Fit both axes and leave the transparent silhouette/shadow unclipped. */
 .ghostie-art {
   --ghostie-mirror: 1;
   position: relative;
   display: grid;
   width: 100%;
   height: 100%;
+  min-width: 0;
   min-height: 0;
   place-items: center;
   margin: 0;
-  overflow: hidden;
+  padding: 0.25rem;
+  overflow: visible;
   background: transparent;
-  border-radius: inherit;
+  border-radius: 0;
   isolation: isolate;
 }
 
@@ -96,11 +98,15 @@ withDefaults(
   position: relative;
   z-index: 1;
   display: block;
-  width: min(94%, var(--ghostie-size, 12rem));
+  width: min(100%, var(--ghostie-size, 12rem));
   max-width: 100%;
-  height: auto;
+  height: 100%;
+  max-height: var(--ghostie-size, 12rem);
+  min-width: 0;
+  min-height: 0;
   aspect-ratio: 1;
   object-fit: contain;
+  object-position: center;
   filter: drop-shadow(0 0.65rem 0.9rem rgb(32 17 28 / 16%));
   transform: scaleX(var(--ghostie-mirror));
   transform-origin: center;

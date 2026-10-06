@@ -14,7 +14,7 @@
 .journal-entry__copy { grid-column: 1 / -1; }
 .journal-entry__copy h3 { font-size: clamp(1.6rem, 2.2vw, 2.1rem); line-height: 1.2; }
 .journal-entry__copy p { color: var(--ink-muted); margin: 0; line-height: 1.8; max-width: 37rem; }
-.journal-entry__ghostie { --ghostie-size: 6rem; grid-column: 2; grid-row: 1; height: 5rem; }
+.journal-entry__ghostie { --ghostie-size: 6rem; grid-column: 2; grid-row: 1; height: 6rem; }
 .nari-journal > .room-discovery { grid-column: 2; }
 .nari-promise-note { display: grid; grid-template-columns: 14rem minmax(0,1fr); gap: 3rem; align-items: center; max-width: 64rem; padding-block: 1rem 4rem; }
 .nari-promise-note__guardian { --ghostie-size: 14rem; height: 14rem; }
