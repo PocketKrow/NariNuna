@@ -13,7 +13,7 @@
   top: calc(var(--header-height) + 2rem);
   padding-top: 2rem;
 }
-.correspondence__margin img {
+.correspondence__margin > img {
   width: 100%;
   max-width: 21rem;
   border: 1px solid var(--story-line);
@@ -193,12 +193,12 @@
   .correspondence__margin {
     position: static;
     display: grid;
-    grid-template-columns: 1fr 14rem;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 14rem);
     align-items: center;
     column-gap: 2rem;
     padding-top: 0;
   }
-  .correspondence__margin img {
+  .correspondence__margin > img {
     grid-column: 2;
     grid-row: 1 / 4;
   }
@@ -217,7 +217,7 @@
   .correspondence__margin .room-kicker {
     grid-column: 1 / -1;
   }
-  .correspondence__margin img {
+  .correspondence__margin > img {
     grid-row: 2 / 4;
   }
   .correspondence__margin > p:not(.room-kicker) {

@@ -1,18 +1,40 @@
 ---
-// One composition owner replaces the historical hero cascade. Artwork keys and preloads stay in the delivery pipeline.
-import { heroStyle } from "@/data/artworkDelivery";
+// One scene owner: responsive painting + independently delivered alpha planes + directional lighting. Copy never moves.
+import { heroStyle, heroSources, artworkMetadata, artworkSrc, artworkSrcset } from "@/data/artworkDelivery";
+import { roomDepth, depthArtwork } from "@/data/roomDepth";
 import "@/styles/objects/arrival.scss";
 interface Props {
-  room: string;
+  room: keyof typeof roomDepth;
   artwork: string;
   description: string;
   note: string;
   atmosphere?: boolean;
 }
 const { room, artwork, description, note, atmosphere = false } = Astro.props;
+const scene = roomDepth[room];
+const foreground = depthArtwork[scene.foreground];
+const resident = artworkMetadata(scene.resident);
+const character = artworkMetadata(depthArtwork.character);
+const prop = artworkMetadata(foreground);
 ---
-<section class={`room-arrival room-arrival--${room} responsive-hero`} style={heroStyle(artwork)} data-experience>
-  <div class="room-arrival__painting" role="img" aria-label={description}>
+<section class={`room-arrival room-arrival--${room} responsive-hero`} style={heroStyle(artwork)} data-experience data-light={scene.light}>
+  <div class="room-arrival__stage" role="img" aria-label={description}>
+    <div class="room-arrival__painting" data-depth={scene.painting}></div>
+    {room === "home" && <picture class="room-arrival__character" data-depth="0.3" aria-hidden="true">
+      {heroSources(depthArtwork.character).map((source) => <source media={source.media} srcset={source.srcset} />)}
+      <img src={artworkSrc(depthArtwork.character, 768)} width={character.width} height={character.height} alt="" decoding="async" fetchpriority="high" />
+    </picture>}
+    <div class="room-arrival__illumination" aria-hidden="true"></div>
+    <div class="room-arrival__resident" data-depth={scene.residentDepth} aria-hidden="true">
+      <img src={artworkSrc(scene.resident, 128)} srcset={artworkSrcset(scene.resident, 256)} sizes="(min-width: 64rem) 160px, 88px" width={resident.width} height={resident.height} alt="" decoding="async" />
+    </div>
+    <div class={`room-arrival__foreground room-arrival__foreground--${scene.foreground}`} data-depth={scene.foregroundDepth} aria-hidden="true">
+      <!-- Art-directed sources prevent a hidden desktop plate downloading on phones. Empty mobile source has no request. -->
+      <picture>
+        <source media="(width < 1024px)" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />
+        <img src={artworkSrc(foreground, 256)} srcset={artworkSrcset(foreground, room === "home" ? 256 : 768)} sizes={scene.foreground === "hearth" ? "(min-width: 100rem) 480px, 28vw" : "(min-width: 100rem) 256px, 16vw"} width={prop.width} height={prop.height} alt="" decoding="async" />
+      </picture>
+    </div>
     <div class="room-arrival__light" aria-hidden="true"></div>
     {atmosphere && <canvas class="ambient-field" data-atmosphere aria-hidden="true"></canvas>}
     <span class="room-arrival__annotation" aria-hidden="true">{note}</span>

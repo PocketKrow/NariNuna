@@ -11,9 +11,15 @@
   border-bottom: 1px solid var(--story-line);
   background: var(--bg-inset);
 }
-.room-arrival__painting {
+.room-arrival__stage {
   position: relative;
   height: var(--arrival-height);
+  overflow: clip;
+}
+.room-arrival__painting {
+  position: absolute;
+  inset: -1.5rem;
+  height: calc(100% + 3rem);
   background: var(--responsive-hero-art) var(--arrival-focus) / cover no-repeat;
 }
 .room-arrival__light {
@@ -54,7 +60,7 @@
 .atmosphere-control[hidden] { display: none; }
 .room-arrival--home { --arrival-focus: 73% 40%; --arrival-height: clamp(21rem, 65vw, 34rem); }
 .room-arrival--home .room-arrival__body { padding-block: 2rem 2.5rem; }
-.room-arrival--home h1 { display: flex; flex-wrap: wrap; gap: 0.3em; font-size: clamp(3rem, 5.5vw, 5rem); }
+.room-arrival--home h1 { display: flex; flex-wrap: wrap; gap: 0.3em; font-size: clamp(3rem, 5.5vw, 4.5rem); }
 .arrival-subtitle { font-family: var(--font-display); font-size: 1.4rem; font-style: italic; }
 .arrival-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.25rem; margin-block: 1.5rem 0; }
 .room-arrival--home .social-dock { justify-content: start; margin-block: 1.25rem; gap: 0.5rem; }
@@ -69,13 +75,14 @@
 .room-arrival--support { --arrival-focus: 75% 45%; }
 @media (min-width: 64rem) {
   .room-arrival { min-height: clamp(35rem, 44vw, 44rem); }
-  .room-arrival__painting { position: absolute; inset: 0; height: 100%; background-position: var(--arrival-desktop-focus); }
+  .room-arrival__stage { position: absolute; inset: 0; height: 100%; }
+  .room-arrival__painting { background-position: var(--arrival-desktop-focus); }
   .room-arrival__light { background: linear-gradient(90deg, #21151ef7 0%, #21151eed 23%, #21151e9c 39%, transparent 62%); }
   .room-arrival__body { display: flex; min-height: inherit; align-items: center; padding-block: 4rem; }
   .room-arrival__copy { width: min(37vw, 32rem); }
   .room-arrival--home { min-height: min(48rem, calc(100svh - var(--header-height))); }
   .room-arrival--home .room-arrival__body { min-height: inherit; padding-block: 3rem; }
-  .room-arrival--home h1 { display: grid; gap: 0; font-size: clamp(4rem, 6vw, 5.4rem); }
+  .room-arrival--home h1 { display: grid; gap: 0; font-size: clamp(3.6rem, 5.5vw, 4.8rem); }
   .room-arrival--home h1 em { margin-left: 1.2rem; }
   .room-arrival--resources .room-arrival__light { background: linear-gradient(90deg, #21151efc 0%, #21151ee8 31%, #21151e66 58%, transparent); }
   .room-arrival--work { min-height: 35rem; }
@@ -110,3 +117,44 @@
   .ambient-field, .atmosphere-control { display: none; }
   .room-arrival__painting { transform: none !important; }
 }
+
+// Independent alpha planes have overscan, explicit safe areas and stationary reading lanes.
+.room-arrival__resident {
+  position: absolute; z-index: 2; width: 6rem; height: 6rem;
+  right: 0.75rem; bottom: 3.5rem; pointer-events: none;
+  filter: brightness(0.84) saturate(0.85) drop-shadow(0 0.6rem 0.8rem #170d1a50);
+}
+.room-arrival__resident img { width: 100%; height: 100%; object-fit: contain; }
+.room-arrival__foreground { position: absolute; z-index: 2; pointer-events: none; display: none; }
+.room-arrival__foreground img { width: 100%; height: 100%; object-fit: contain; }
+.room-arrival__illumination {
+  position: absolute; inset: -2rem; pointer-events: none; opacity: 0.65;
+  background: radial-gradient(ellipse at 84% 16%, #ffcf7c26, transparent 47%);
+  mix-blend-mode: screen;
+}
+.room-arrival[data-light="desk"] .room-arrival__illumination { background: radial-gradient(ellipse at 76% 82%, #eabd6a26, transparent 45%); }
+.room-arrival[data-light="monitor"] .room-arrival__illumination { background: radial-gradient(ellipse at 51% 60%, #b5a0ed30, transparent 38%); }
+.room-arrival[data-light="lantern"] .room-arrival__illumination { background: radial-gradient(ellipse at 90% 83%, #ffa34e30, transparent 39%); }
+.room-arrival__annotation { z-index: 3; border-inline-start: 2px solid var(--storybook-gold); }
+@media (min-width: 64rem) {
+  .room-arrival__foreground { display: block; }
+  .room-arrival__foreground--hearth { width: min(28vw, 30rem); aspect-ratio: 3 / 2; right: -1rem; bottom: 0; }
+  .room-arrival__foreground--curtain { width: min(16vw, 16rem); height: 95%; right: -2.5rem; top: -1.5rem; opacity: 0.88; }
+  .room-arrival__resident { width: 10rem; height: 10rem; right: 27%; bottom: 3.5rem; }
+  .room-arrival--home .room-arrival__resident { right: 4%; bottom: 3.25rem; width: 12rem; height: 12rem; }
+  .room-arrival--home .room-arrival__foreground--hearth { right: 25%; width: min(25vw, 25rem); bottom: -0.5rem; }
+  .room-arrival--resources .room-arrival__resident { right: 35%; bottom: 1.75rem; }
+  .room-arrival--meet .room-arrival__resident { right: 32%; bottom: 2rem; }
+  .room-arrival--stories .room-arrival__resident { right: 35%; bottom: 2rem; }
+  .room-arrival__annotation { bottom: 1rem; right: max(1.5rem, 3vw); font-size: 0.65rem; }
+  .room-arrival__copy { border-inline-start: 1px solid #dfbf8955; padding-inline-start: 1.75rem; }
+  .room-arrival__light { background: linear-gradient(90deg, #21151efa, #21151ee6 22%, #21151e80 40%, transparent 60%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .room-arrival [data-depth], .room-arrival__illumination { transform: none !important; }
+}
+
+.room-arrival__character { position: absolute; inset: -1.5rem; pointer-events: none; }
+.room-arrival__character img { width: 100%; height: 100%; object-fit: cover; object-position: var(--arrival-focus); filter: brightness(.94); }
+@media (min-width: 64rem) { .room-arrival__character img { object-position: var(--arrival-desktop-focus); } }
+@media (max-width: 63.99rem) { .room-arrival--home .room-arrival__resident { right: 0; bottom: 1.75rem; width: 7rem; height: 7rem; } }

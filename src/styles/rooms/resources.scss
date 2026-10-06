@@ -152,3 +152,8 @@
 
 .resource-review { overflow-wrap: anywhere; }
 .shelf-policy > div { min-width: 0; }
+
+.resource-shelf { padding-inline-end: 7rem; }
+.resource-shelf > .room-companion { position: absolute; right: 0; bottom: 1rem; }
+.resource-shelf__heading { margin-right: -7rem; }
+@media(max-width: 47.99rem) { .resource-shelf { padding-inline-end: 0; } .resource-shelf > .room-companion { position: relative; margin-block: 0 .5rem; } .resource-shelf__heading { margin-right: 0; } }

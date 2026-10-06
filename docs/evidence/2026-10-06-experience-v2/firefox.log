@@ -1,0 +1,52 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+[WebServer] (node:31) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 41 tests using 1 worker
+
+(node:43) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [firefox] › browser-tests/depth.spec.ts:7:3 › depth layers preserve static composition at 320px (4.2s)
+  ✓   2 [firefox] › browser-tests/depth.spec.ts:7:3 › depth layers preserve static composition at 390px (3.7s)
+  ✓   3 [firefox] › browser-tests/depth.spec.ts:7:3 › depth layers preserve static composition at 768px (3.1s)
+  ✓   4 [firefox] › browser-tests/depth.spec.ts:7:3 › depth layers preserve static composition at 1440px (3.7s)
+  ✓   5 [firefox] › browser-tests/depth.spec.ts:7:3 › depth layers preserve static composition at 1920px (3.7s)
+  ✓   6 [firefox] › browser-tests/depth.spec.ts:7:3 › depth layers preserve static composition at 3840px (3.9s)
+  ✓   7 [firefox] › browser-tests/depth.spec.ts:26:1 › touch delivers lightweight motion and excludes large desktop prop layers (917ms)
+  ✓   8 [firefox] › browser-tests/depth.spec.ts:42:1 › desktop planes travel at distinct bounded depths and restore when preferences change (1.6s)
+  ✓   9 [firefox] › browser-tests/depth.spec.ts:60:1 › missing layered artwork preserves text and navigation (929ms)
+  ✓  10 [firefox] › browser-tests/experience.spec.ts:14:3 › all routes pass axe at 390px (19.4s)
+  -  11 [firefox] › browser-tests/experience.spec.ts:26:5 › home composition at 390px
+  -  12 [firefox] › browser-tests/experience.spec.ts:26:5 › meet composition at 390px
+  -  13 [firefox] › browser-tests/experience.spec.ts:26:5 › haven composition at 390px
+  -  14 [firefox] › browser-tests/experience.spec.ts:26:5 › nails composition at 390px
+  ✓  15 [firefox] › browser-tests/experience.spec.ts:14:3 › all routes pass axe at 1440px (17.6s)
+  -  16 [firefox] › browser-tests/experience.spec.ts:26:5 › home composition at 1440px
+  -  17 [firefox] › browser-tests/experience.spec.ts:26:5 › meet composition at 1440px
+  -  18 [firefox] › browser-tests/experience.spec.ts:26:5 › haven composition at 1440px
+  -  19 [firefox] › browser-tests/experience.spec.ts:26:5 › nails composition at 1440px
+  ✓  20 [firefox] › browser-tests/experience.spec.ts:46:1 › navigation and every doorway state pass axe (6.9s)
+  ✓  21 [firefox] › browser-tests/experience.spec.ts:61:1 › static documents survive JavaScript and enhancement failure (21.4s)
+  ✓  22 [firefox] › browser-tests/experience.spec.ts:72:1 › reduced motion and save-data fetch no effects; mobile skips desktop runtimes (8.0s)
+  ✓  23 [firefox] › browser-tests/experience.spec.ts:90:1 › optional chunk failure leaves the page and navigation usable (2.7s)
+  -  24 [firefox] › browser-tests/experience.spec.ts:101:1 › capable desktop can pause atmosphere and switch to static mode
+  ✓  25 [firefox] › browser-tests/experience.spec.ts:124:1 › native navigation retains back and forward behavior (2.9s)
+  ✓  26 [firefox] › browser-tests/experience.spec.ts:140:3 › short phone, text enlargement or wide layout at 390px (1.8s)
+  ✓  27 [firefox] › browser-tests/experience.spec.ts:140:3 › short phone, text enlargement or wide layout at 768px (2.0s)
+  ✓  28 [firefox] › browser-tests/experience.spec.ts:140:3 › short phone, text enlargement or wide layout at 1920px (3.0s)
+  ✓  29 [firefox] › browser-tests/experience.spec.ts:140:3 › short phone, text enlargement or wide layout at 3840px (2.0s)
+  ✓  30 [firefox] › browser-tests/ghostie-fit.spec.ts:62:3 › Ghostie silhouettes fit every slot at 320px (6.1s)
+  ✓  31 [firefox] › browser-tests/ghostie-fit.spec.ts:62:3 › Ghostie silhouettes fit every slot at 390px (4.0s)
+  ✓  32 [firefox] › browser-tests/ghostie-fit.spec.ts:62:3 › Ghostie silhouettes fit every slot at 768px (4.1s)
+  ✓  33 [firefox] › browser-tests/ghostie-fit.spec.ts:62:3 › Ghostie silhouettes fit every slot at 1440px (4.0s)
+  ✓  34 [firefox] › browser-tests/ghostie-fit.spec.ts:76:1 › Ghosties fit enlarged text and the second-knock doorway (2.8s)
+  ✓  35 [firefox] › browser-tests/webgl-fallback.spec.ts:17:3 › WebGL fallback: unavailable (1.2s)
+  ✓  36 [firefox] › browser-tests/webgl-fallback.spec.ts:17:3 › WebGL fallback: creation throws (1.2s)
+  -  37 [firefox] › browser-tests/webgl-fallback.spec.ts:17:3 › WebGL fallback: probe precision
+  -  38 [firefox] › browser-tests/webgl-fallback.spec.ts:17:3 › WebGL fallback: canvas precision
+  -  39 [firefox] › browser-tests/webgl-fallback.spec.ts:17:3 › WebGL fallback: precision throws
+  -  40 [firefox] › browser-tests/webgl-fallback.spec.ts:68:1 › active atmosphere disposes after real context loss
+  -  41 [firefox] › browser-tests/webgl-fallback.spec.ts:90:1 › a rejected draw stops the atmosphere without a page error
+
+  14 skipped
+  27 passed (2.4m)

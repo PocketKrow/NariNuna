@@ -1,4 +1,5 @@
 ---
+import RoomCompanion from "@/components/astro/RoomCompanion.astro";
 import SiteLayout from "@/layouts/SiteLayout.astro";
 import RoomArrival from "@/components/astro/RoomArrival.astro";
 
@@ -68,6 +69,7 @@ const resourceShelves = [
             />
           </div>
           <p>{shelf.category.description}</p>
+          <RoomCompanion pose={(["nailTech", "study", "sleeping"] as const)[index]} placement="shelf" />
           <ul>
             {shelf.category.examples.map((example) => (
               <li>{example}</li>

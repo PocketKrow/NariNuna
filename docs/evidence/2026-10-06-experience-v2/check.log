@@ -1,0 +1,102 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> nari-nuna-haven@0.3.0 check
+> npm run lint && npm run build && npm run test && npm run verify:preview
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> nari-nuna-haven@0.3.0 lint
+> eslint . --ignore-pattern dist
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> nari-nuna-haven@0.3.0 build
+> npm run typecheck && npm run validate:credits && astro build && node scripts/secure-build.mjs && node scripts/validate-build.mjs && node scripts/validate-performance.mjs
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> nari-nuna-haven@0.3.0 typecheck
+> astro check && vue-tsc --noEmit
+
+16:16:18 [types] Generated 51ms
+16:16:18 [check] Getting diagnostics for Astro files in /workspace/scratch/50c02282deda/NariNuna...
+Result (61 files):
+- 0 errors
+- 0 warnings
+- 0 hints
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> nari-nuna-haven@0.3.0 validate:credits
+> node scripts/validate-credits.mjs
+
+Validated 9 credit records across 11 classified asset families.
+16:16:28 [types] Generated 59ms
+16:16:28 [build] output: "static"
+16:16:28 [build] mode: "static"
+16:16:28 [build] directory: /workspace/scratch/50c02282deda/NariNuna/dist/
+16:16:28 [build] Collecting build info...
+16:16:28 [build] ✓ Completed in 116ms.
+16:16:28 [build] Building static entrypoints...
+16:16:30 [vite] ✓ built in 1.90s
+16:16:31 [WARN] [vite] [plugin builtin:vite-reporter]
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+16:16:31 [vite] ✓ built in 1.25s
+16:16:31 [build] Rearranging server assets...
+
+ generating static routes
+16:16:31   ├─ /404.html (+74ms)
+16:16:31   ├─ /credits/index.html (+9ms)
+16:16:31   ├─ /haven/index.html (+10ms)
+16:16:31   ├─ /meet-nari/index.html (+6ms)
+16:16:31   ├─ /nail-studio/index.html (+13ms)
+16:16:31   ├─ /resources/index.html (+6ms)
+16:16:31   ├─ /stories/index.html (+7ms)
+16:16:31   ├─ /streams/index.html (+6ms)
+16:16:31   ├─ /support/index.html (+32ms)
+16:16:31   ├─ /the-prinny-cult/index.html (+4ms)
+16:16:31   ├─ /work-with-nari/index.html (+4ms)
+16:16:31   ├─ /index.html (+5ms)
+16:16:31 ✓ Completed in 188ms.
+
+16:16:31 [build] ✓ Completed in 3.38s.
+16:16:31 [build] 12 page(s) built in 3.51s
+16:16:31 [build] Complete!
+Generated static-host CSP for 2 distinct inline island loaders.
+Validated 12 built HTML documents.
+Nari Nuna's Haven: initial JS + CSS 58.46 KB gzip / 120 KB; optional graph 175.59 KB / 180 KB
+Meet Nari: initial JS + CSS 59.71 KB gzip / 120 KB; optional graph 175.59 KB / 180 KB
+Streams: initial JS + CSS 60.76 KB gzip / 120 KB; optional graph 175.59 KB / 180 KB
+Nail Studio: initial JS + CSS 59.28 KB gzip / 120 KB; optional graph 175.59 KB / 180 KB
+The Haven: initial JS + CSS 68.85 KB gzip / 120 KB; optional graph 175.59 KB / 180 KB
+Resources: initial JS + CSS 59.34 KB gzip / 120 KB; optional graph 175.59 KB / 180 KB
+Work With Nari: initial JS + CSS 59.18 KB gzip / 120 KB; optional graph 175.59 KB / 180 KB
+Support: initial JS + CSS 58.14 KB gzip / 120 KB; optional graph 175.59 KB / 180 KB
+Story Time: initial JS + CSS 60.77 KB gzip / 120 KB; optional graph 175.59 KB / 180 KB
+Credits: initial JS + CSS 54.80 KB gzip / 120 KB; optional graph 0.00 KB / 180 KB
+???: initial JS + CSS 11.88 KB gzip / 120 KB; optional graph 0.00 KB / 180 KB
+Room Not Found: initial JS + CSS 53.70 KB gzip / 120 KB; optional graph 0.00 KB / 180 KB
+Validated served artwork budgets and nine route-specific hero preloads.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> nari-nuna-haven@0.3.0 test
+> vitest run --config vitest.config.ts
+
+
+ RUN  v4.1.11 /workspace/scratch/50c02282deda/NariNuna
+
+
+ Test Files  21 passed (21)
+      Tests  101 passed (101)
+   Start at  16:16:35
+   Duration  1.20s (transform 1.93s, setup 0ms, import 2.57s, tests 894ms, environment 9ms)
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> nari-nuna-haven@0.3.0 verify:preview
+> node scripts/verify-preview.mjs
+
+Verified 12 independently served HTML documents, 160 essential identity/environment assets, and all 27 supplied Prinny designs.

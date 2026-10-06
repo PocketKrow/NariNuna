@@ -121,6 +121,24 @@
       "derivativeUseStatus": "not-applicable",
       "thirdPartyStatus": "not-applicable",
       "approvalStatus": "approved"
+    },
+    {
+      "id": "haven-depth-revision",
+      "label": "Haven layered Home, foregrounds and new Ghostie poses",
+      "assetRecord": "docs/asset-records/ASSET-2026-022-haven-depth-revision.md",
+      "trackedAssets": [
+        "/media/vnext/layers/hearth-still-life.webp",
+        "/media/vnext/layers/lavender-curtain.webp",
+        "/media/vnext/ghosties/ghostie-welcome.webp",
+        "/media/vnext/ghosties/ghostie-doorway.webp",
+        "/media/vnext/scenes/haven-room.webp",
+        "/media/vnext/characters/nari-window-seat.webp"
+      ],
+      "publicationStatus": "blocked",
+      "websiteUseStatus": "blocked",
+      "derivativeUseStatus": "blocked",
+      "thirdPartyStatus": "concern",
+      "approvalStatus": "pending"
     }
   ],
   "credits": [
@@ -216,7 +234,7 @@
       "contribution": "Owner-directed storybook scenes, Nari derivatives, room art, and supporting visual details made for this review build.",
       "creditText": "Project-created review artwork; final adoption and underlying model-derivative rights remain unresolved.",
       "links": [],
-      "assetFamilyIds": ["storybook-nari", "storybook-environments"],
+      "assetFamilyIds": ["storybook-nari", "storybook-environments", "haven-depth-revision"],
       "creditStatus": "internal",
       "artworkDisplayStatus": "not-approved",
       "artwork": [],

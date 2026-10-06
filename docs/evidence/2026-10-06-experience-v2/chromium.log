@@ -1,0 +1,55 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> nari-nuna-haven@0.3.0 verify:experience
+> playwright test --project=chromium
+
+[WebServer] (node:31) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 41 tests using 1 worker
+
+(node:43) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › browser-tests/depth.spec.ts:7:3 › depth layers preserve static composition at 320px (4.4s)
+  ✓   2 [chromium] › browser-tests/depth.spec.ts:7:3 › depth layers preserve static composition at 390px (4.3s)
+  ✓   3 [chromium] › browser-tests/depth.spec.ts:7:3 › depth layers preserve static composition at 768px (8.0s)
+  ✓   4 [chromium] › browser-tests/depth.spec.ts:7:3 › depth layers preserve static composition at 1440px (12.6s)
+  ✓   5 [chromium] › browser-tests/depth.spec.ts:7:3 › depth layers preserve static composition at 1920px (6.3s)
+  ✓   6 [chromium] › browser-tests/depth.spec.ts:7:3 › depth layers preserve static composition at 3840px (12.2s)
+  ✓   7 [chromium] › browser-tests/depth.spec.ts:26:1 › touch delivers lightweight motion and excludes large desktop prop layers (7.6s)
+  ✓   8 [chromium] › browser-tests/depth.spec.ts:42:1 › desktop planes travel at distinct bounded depths and restore when preferences change (5.2s)
+  ✓   9 [chromium] › browser-tests/depth.spec.ts:60:1 › missing layered artwork preserves text and navigation (1.5s)
+  ✓  10 [chromium] › browser-tests/experience.spec.ts:14:3 › all routes pass axe at 390px (10.5s)
+  ✓  11 [chromium] › browser-tests/experience.spec.ts:26:5 › home composition at 390px (1.7s)
+  ✓  12 [chromium] › browser-tests/experience.spec.ts:26:5 › meet composition at 390px (1.4s)
+  ✓  13 [chromium] › browser-tests/experience.spec.ts:26:5 › haven composition at 390px (3.0s)
+  ✓  14 [chromium] › browser-tests/experience.spec.ts:26:5 › nails composition at 390px (1.6s)
+  ✓  15 [chromium] › browser-tests/experience.spec.ts:14:3 › all routes pass axe at 1440px (9.8s)
+  ✓  16 [chromium] › browser-tests/experience.spec.ts:26:5 › home composition at 1440px (2.6s)
+  ✓  17 [chromium] › browser-tests/experience.spec.ts:26:5 › meet composition at 1440px (4.3s)
+  ✓  18 [chromium] › browser-tests/experience.spec.ts:26:5 › haven composition at 1440px (4.8s)
+  ✓  19 [chromium] › browser-tests/experience.spec.ts:26:5 › nails composition at 1440px (4.0s)
+  ✓  20 [chromium] › browser-tests/experience.spec.ts:46:1 › navigation and every doorway state pass axe (5.4s)
+  ✓  21 [chromium] › browser-tests/experience.spec.ts:61:1 › static documents survive JavaScript and enhancement failure (2.7s)
+  ✓  22 [chromium] › browser-tests/experience.spec.ts:72:1 › reduced motion and save-data fetch no effects; mobile skips desktop runtimes (6.3s)
+  ✓  23 [chromium] › browser-tests/experience.spec.ts:90:1 › optional chunk failure leaves the page and navigation usable (2.2s)
+  ✓  24 [chromium] › browser-tests/experience.spec.ts:101:1 › capable desktop can pause atmosphere and switch to static mode (4.0s)
+  ✓  25 [chromium] › browser-tests/experience.spec.ts:124:1 › native navigation retains back and forward behavior (9.5s)
+  ✓  26 [chromium] › browser-tests/experience.spec.ts:140:3 › short phone, text enlargement or wide layout at 390px (4.9s)
+  ✓  27 [chromium] › browser-tests/experience.spec.ts:140:3 › short phone, text enlargement or wide layout at 768px (5.0s)
+  ✓  28 [chromium] › browser-tests/experience.spec.ts:140:3 › short phone, text enlargement or wide layout at 1920px (3.8s)
+  ✓  29 [chromium] › browser-tests/experience.spec.ts:140:3 › short phone, text enlargement or wide layout at 3840px (6.6s)
+  ✓  30 [chromium] › browser-tests/ghostie-fit.spec.ts:53:3 › Ghostie silhouettes fit every slot at 320px (7.9s)
+  ✓  31 [chromium] › browser-tests/ghostie-fit.spec.ts:53:3 › Ghostie silhouettes fit every slot at 390px (7.2s)
+  ✓  32 [chromium] › browser-tests/ghostie-fit.spec.ts:53:3 › Ghostie silhouettes fit every slot at 768px (7.8s)
+  ✓  33 [chromium] › browser-tests/ghostie-fit.spec.ts:53:3 › Ghostie silhouettes fit every slot at 1440px (14.7s)
+  ✓  34 [chromium] › browser-tests/ghostie-fit.spec.ts:67:1 › Ghosties fit enlarged text and the second-knock doorway (8.7s)
+  ✓  35 [chromium] › browser-tests/webgl-fallback.spec.ts:17:3 › WebGL fallback: unavailable (3.0s)
+  ✓  36 [chromium] › browser-tests/webgl-fallback.spec.ts:17:3 › WebGL fallback: creation throws (7.6s)
+  ✓  37 [chromium] › browser-tests/webgl-fallback.spec.ts:17:3 › WebGL fallback: probe precision (4.0s)
+  ✓  38 [chromium] › browser-tests/webgl-fallback.spec.ts:17:3 › WebGL fallback: canvas precision (3.9s)
+  ✓  39 [chromium] › browser-tests/webgl-fallback.spec.ts:17:3 › WebGL fallback: precision throws (4.6s)
+  ✓  40 [chromium] › browser-tests/webgl-fallback.spec.ts:68:1 › active atmosphere disposes after real context loss (2.5s)
+  ✓  41 [chromium] › browser-tests/webgl-fallback.spec.ts:90:1 › a rejected draw stops the atmosphere without a page error (2.4s)
+
+  41 passed (3.9m)

@@ -2,14 +2,15 @@
 import SiteLayout from "@/layouts/SiteLayout.astro";
 import RoomArrival from "@/components/astro/RoomArrival.astro";
 import ResponsiveArtwork from "@/components/art/ResponsiveArtwork.vue";
+import GhostieArt from "@/components/art/GhostieArt.vue";
 import ArtworkCreditLink from "@/components/art/ArtworkCreditLink.vue";
 import { ArrowRight, Sparkles } from "@lucide/vue";
 import SocialDock from "@/components/ui/SocialDock.vue";
 import { environmentArtwork, storybookPostcards } from "@/data/artwork";
 const corners = [
-  { href: "/streams/", name: "The broadcast desk", note: "There's always one more good bit.", artwork: storybookPostcards.streams, label: "Games & good company" },
-  { href: "/nail-studio/", name: "A little color & craft", note: "A little glitter gets everywhere.", artwork: storybookPostcards.nails, label: "Nari's nail studio" },
-  { href: "/haven/", name: "The common room", note: "Leave the room a little kinder.", artwork: storybookPostcards.haven, label: "A place to belong" },
+  { href: "/streams/", name: "The broadcast desk", note: "There's always one more good bit.", artwork: storybookPostcards.streams, ghostie: "gaming" as const, label: "Games & good company" },
+  { href: "/nail-studio/", name: "A little color & craft", note: "A little glitter gets everywhere.", artwork: storybookPostcards.nails, ghostie: "nailTech" as const, label: "Nari's nail studio" },
+  { href: "/haven/", name: "The common room", note: "Leave the room a little kinder.", artwork: storybookPostcards.haven, ghostie: "doorway" as const, label: "A place to belong" },
 ];
 ---
 <SiteLayout pageId="home">
@@ -33,7 +34,7 @@ const corners = [
     <div class="haven-corners__shelf">
       {corners.map((corner) => (
         <a class="haven-corner" href={corner.href} data-material-reveal>
-          <div class="haven-corner__frame"><ResponsiveArtwork artwork={corner.artwork} sizes="(min-width: 64rem) 30vw, (min-width: 40rem) 44vw, calc(100vw - 48px)" alt="" /></div>
+          <div class="haven-corner__window"><div class="haven-corner__frame"><ResponsiveArtwork artwork={corner.artwork} sizes="(min-width: 64rem) 30vw, (min-width: 40rem) 44vw, calc(100vw - 48px)" alt="" /></div><GhostieArt class="haven-corner__resident" variant={corner.ghostie} sizes="112px" /></div>
           <p class="room-kicker">{corner.label}</p>
           <h3>{corner.name} <ArrowRight size={18} aria-hidden="true" /></h3>
           <p>{corner.note}</p>

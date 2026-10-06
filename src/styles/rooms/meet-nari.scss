@@ -37,3 +37,7 @@
   .nari-promise-note { grid-template-columns: 1fr; gap: 1rem; padding-top: 0; }
   .nari-promise-note__guardian { --ghostie-size: 7rem; width: 7rem; height: 7rem; }
 }
+
+.nari-journal__surface { isolation: isolate; margin-top: 1rem; border-radius: .1rem .4rem .4rem .1rem; box-shadow: .65rem .65rem 0 #af927133, 0 1rem 2rem #12091240, inset .75rem 0 1rem #6b475012; }
+.nari-journal__surface::after { content: ""; position: absolute; z-index: -1; inset: .75rem -.45rem -.45rem .75rem; border: 1px solid #c8af94; border-radius: .1rem .4rem .4rem .1rem; pointer-events: none; }
+.nari-journal__surface > .room-companion { margin-top: -.9rem; height: 5rem; }

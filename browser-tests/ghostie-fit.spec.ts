@@ -1,5 +1,14 @@
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test, type Locator, type Page } from "@playwright/test";
 import pages from "../src/data/projectPages.json" with { type: "json" };
+
+async function requireDecoded(image: Locator): Promise<void> {
+  // Firefox can reject decode while a lazy request or hydration srcset replacement is still starting.
+  // Retry the actual decode; a missing or invalid image still fails rather than being ignored.
+  await expect.poll(() => image.evaluate(async (element: HTMLImageElement) => {
+    try { await element.decode(); return element.complete && element.naturalWidth > 0; }
+    catch { return false; }
+  })).toBe(true);
+}
 
 async function checkGhosties(page: Page): Promise<void> {
   const figures = page.locator(".ghostie-art");
@@ -7,7 +16,7 @@ async function checkGhosties(page: Page): Promise<void> {
   for (const figure of await figures.all()) {
     await figure.scrollIntoViewIfNeeded();
     const image = figure.locator("img");
-    await image.evaluate((element: HTMLImageElement) => element.decode());
+    await requireDecoded(image);
     const result = await figure.evaluate((element) => {
       const image = element.querySelector("img")!;
       const art = image.getBoundingClientRect();
@@ -36,7 +45,7 @@ async function checkPostcards(page: Page, selector: string): Promise<void> {
   expect(await images.count()).toBeGreaterThan(0);
   for (const image of await images.all()) {
     await image.scrollIntoViewIfNeeded();
-    await image.evaluate((element: HTMLImageElement) => element.decode());
+    await requireDecoded(image);
     const result = await image.evaluate((element: HTMLImageElement) => {
       const style = getComputedStyle(element);
       const bounds = element.getBoundingClientRect();

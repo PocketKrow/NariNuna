@@ -41,7 +41,7 @@ Never claim a test, build, branch, commit, PR, deployment, link, right, or appro
 - Local typed content; no backend, CMS, analytics, form, account, or embeds in the foundation.
 - No Tailwind, general UI kit, second scaffold, SPA rewrite, or client secrets.
 
-ADR-011 records Jake’s explicit 2026-10-03 Astro migration instruction. `docs/42_ASTRO_REBUILD.md` supersedes the dated Vite path/route/tooling instructions in older documents. ADR-012 and `docs/43_VNEXT_EXPERIENCE.md` authorize the vNext redesign, tour/Passport retirement and optional effects. Further architecture departures require an accepted decision record.
+ADR-011 records Jake’s explicit 2026-10-03 Astro migration instruction. `docs/42_ASTRO_REBUILD.md` supersedes the dated Vite path/route/tooling instructions in older documents. ADR-013 and `docs/44_IMMERSIVE_HAVEN.md` authorize the 6 October asset/layer/tier revision; ADR-012 and `docs/43_VNEXT_EXPERIENCE.md` authorize the vNext redesign, tour/Passport retirement and optional effects. Further architecture departures require an accepted decision record.
 
 ## Product and content boundaries
 

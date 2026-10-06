@@ -3,11 +3,13 @@ import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { communityGhostieArtwork, environmentArtwork, ghostieArtwork, nariArtwork, officialEmotes, storybookPostcards } from "@/data/artwork";
+import { artworkMetadata } from "@/data/artworkDelivery";
 import { prinnyCultAssets, prinnyRosterCapacity, suppliedPrinnyArtwork } from "@/data/prinnyCult";
 
 function retainedAssetExists(assetPath: string): boolean {
   return existsSync(resolve(process.cwd(), "public", assetPath.replace(/^\//, "")))
-    || existsSync(resolve(process.cwd(), "src/assets/source/delivery", assetPath.replace(/^\//, "")));
+    || existsSync(resolve(process.cwd(), "src/assets/source/delivery", assetPath.replace(/^\//, "")))
+    || existsSync(resolve(process.cwd(), "src/assets/source/vnext/delivery", assetPath.replace(/^\//, "")));
 }
 
 describe("approved-source artwork contracts", () => {
@@ -34,10 +36,10 @@ describe("approved-source artwork contracts", () => {
     const ghostieComponent = readFileSync(resolve(process.cwd(), "src/components/art/GhostieArt.vue"), "utf8");
     const uniqueGhosties = [...new Set(Object.values(communityGhostieArtwork))];
 
-    expect(uniqueGhosties).toHaveLength(12);
+    expect(uniqueGhosties).toHaveLength(14);
     expect(ghostieComponent).toContain("communityGhostieArtwork[variant]");
     expect(ghostieComponent).toContain("<ResponsiveArtwork");
-    expect(ghostieComponent).toContain('width="1254"');
+    expect(ghostieComponent).toContain('sizes: "192px"');
     expect(ghostieComponent).toContain("background: transparent");
     expect(ghostieComponent).toContain("drop-shadow");
     expect(ghostieComponent).not.toContain("<canvas");
@@ -47,12 +49,13 @@ describe("approved-source artwork contracts", () => {
     expect(ghostieComponent).not.toContain("#fffaf3");
 
     for (const asset of uniqueGhosties) {
-      const bytes = readFileSync(resolve(process.cwd(), "src/assets/source/delivery", asset.replace(/^\//, "")));
+      const root = asset.startsWith("/media/vnext/") ? "src/assets/source/vnext/delivery" : "src/assets/source/delivery";
+      const bytes = readFileSync(resolve(process.cwd(), root, asset.replace(/^\//, "")));
       expect(bytes.toString("ascii", 8, 12)).toBe("WEBP");
       expect(bytes.toString("ascii", 12, 16)).toBe("VP8X");
       expect(bytes[20] & 0b00010000).toBeTruthy();
-      expect(bytes.readUIntLE(24, 3) + 1).toBe(1254);
-      expect(bytes.readUIntLE(27, 3) + 1).toBe(1254);
+      expect(bytes.readUIntLE(24, 3) + 1).toBe(artworkMetadata(asset).width);
+      expect(bytes.readUIntLE(27, 3) + 1).toBe(artworkMetadata(asset).height);
     }
 
     const consumers = [

@@ -1,4 +1,5 @@
 ---
+import RoomCompanion from "@/components/astro/RoomCompanion.astro";
 import SiteLayout from "@/layouts/SiteLayout.astro";
 import RoomArrival from "@/components/astro/RoomArrival.astro";
 
@@ -59,6 +60,7 @@ const identityEntries = identityPillars.map((pillar, index) => ({
       <p>Warm welcome. Sharp boundaries. Glitter somewhere it should not be.</p>
     </header>
     <div class="nari-journal__surface" data-material-reveal>
+      <RoomCompanion pose="shy" placement="bookmark" />
       <span class="nari-journal__bookmark" aria-hidden="true">
         NARI
       </span>

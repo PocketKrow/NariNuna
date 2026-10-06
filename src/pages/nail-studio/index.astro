@@ -1,4 +1,5 @@
 ---
+import RoomCompanion from "@/components/astro/RoomCompanion.astro";
 import SiteLayout from "@/layouts/SiteLayout.astro";
 import RoomArrival from "@/components/astro/RoomArrival.astro";
 
@@ -60,6 +61,7 @@ import { environmentArtwork, storybookPostcards } from "@/data/artwork";
         <ArtworkCreditLink creditId="website-storybook-artwork" label="About this illustration" />
       </figure>
       <div class="studio-workbench__notes">
+        <RoomCompanion pose="nailTech" placement="bookmark" />
         <article>
           <p class="room-kicker">01 · The practice</p>
           <h3>A little better, one set at a time.</h3>
