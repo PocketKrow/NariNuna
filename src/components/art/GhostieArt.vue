@@ -37,8 +37,6 @@ withDefaults(
       :artwork="communityGhostieArtwork[variant]"
       :sizes="sizes"
       :alt="decorative ? '' : label"
-      width="1254"
-      height="1254"
       :loading="loading"
       decoding="async"
     />
@@ -52,13 +50,14 @@ withDefaults(
   position: relative;
   display: grid;
   width: 100%;
-  height: 100%;
+  height: auto;
+  align-self: center;
   min-height: 0;
   place-items: center;
   margin: 0;
-  overflow: hidden;
+  overflow: visible;
   background: transparent;
-  border-radius: inherit;
+  border-radius: 0;
   isolation: isolate;
 }
 
@@ -96,7 +95,7 @@ withDefaults(
   position: relative;
   z-index: 1;
   display: block;
-  width: min(94%, var(--ghostie-size, 12rem));
+  width: min(88%, var(--ghostie-size, 12rem));
   max-width: 100%;
   height: auto;
   aspect-ratio: 1;

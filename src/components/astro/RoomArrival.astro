@@ -1,5 +1,7 @@
 ---
 // One composition owner replaces the historical hero cascade. Artwork keys and preloads stay in the delivery pipeline.
+import HavenImage from "./HavenImage.astro";
+import { nariArtwork } from "@/data/artwork";
 import { heroStyle } from "@/data/artworkDelivery";
 import "@/styles/objects/arrival.scss";
 interface Props {
@@ -10,15 +12,19 @@ interface Props {
   atmosphere?: boolean;
 }
 const { room, artwork, description, note, atmosphere = false } = Astro.props;
+const companions: Record<string,string> = { streams: 'sleepy', nails: 'mischief', meet: 'welcome', haven: 'welcome', resources: 'messenger', work: 'messenger', stories: 'sleepy', support: 'welcome' };
+const companion = companions[room];
 ---
 <section class={`room-arrival room-arrival--${room} responsive-hero`} style={heroStyle(artwork)} data-experience>
   <div class="room-arrival__painting" role="img" aria-label={description}>
     <div class="room-arrival__light" aria-hidden="true"></div>
     {atmosphere && <canvas class="ambient-field" data-atmosphere aria-hidden="true"></canvas>}
+    {companion && <HavenImage artwork={`/media/haven/ghosties/${companion}.webp`} sizes="(min-width: 1024px) 144px, 80px" class="room-arrival__companion" />}
+    {room === 'meet' && <figure class="room-arrival__portrait"><img src={nariArtwork.suppliedPortrait} width="880" height="1360" alt="Nari's supplied model: emerald eyes, asymmetric dog-and-cat ears, brown-to-purple hair and her lavender and black outfit." /><figcaption>Nari Nuna</figcaption></figure>}
     <span class="room-arrival__annotation" aria-hidden="true">{note}</span>
   </div>
   <div class="room-arrival__body page-width">
-    <div class="room-arrival__copy"><slot /></div>
+    <div class="room-arrival__copy"><a class="room-arrival__return" href="/">← Back to the room</a><slot /></div>
   </div>
   {atmosphere && <button class="atmosphere-control" type="button" data-atmosphere-control hidden aria-pressed="false">Pause atmosphere</button>}
 </section>

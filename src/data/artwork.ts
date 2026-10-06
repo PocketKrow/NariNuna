@@ -1,3 +1,4 @@
+import { havenArtwork } from "./havenArtwork";
 // Scene, postcard and community Ghostie values are stable responsive lookup keys,
 // not original-image URLs. Render through ResponsiveArtwork or heroStyle/heroSources.
 // Supplied identity/emote/Prinny assets retain their direct public URLs.
@@ -30,25 +31,25 @@ export const ghostieArtwork = {
 
 // Aliases deliberately share candidate sets; a pose label does not imply a separate source file.
 export const communityGhostieArtwork = {
-  sleeping: "/media/ghosties/community/ghostie-sleeping.webp",
-  chaotic: "/media/ghosties/community/ghostie-chaotic.webp",
-  protective: "/media/ghosties/community/ghostie-protective.webp",
-  nailTech: "/media/ghosties/community/ghostie-nail-tech.webp",
-  gaming: "/media/ghosties/community/ghostie-gaming.webp",
-  cozy: "/media/ghosties/community/ghostie-cozy.webp",
-  study: "/media/ghosties/community/ghostie-study.webp",
-  peek: "/media/ghosties/community/ghostie-peek.webp",
-  heart: "/media/ghosties/community/ghostie-heart.webp",
-  bonked: "/media/ghosties/community/ghostie-bonked.webp",
-  shy: "/media/ghosties/community/ghostie-shy.webp",
-  sign: "/media/ghosties/community/ghostie-sign.webp",
-  blushing: "/media/ghosties/community/ghostie-shy.webp",
-  pointLeft: "/media/ghosties/community/ghostie-sign.webp",
-  wave: "/media/ghosties/community/ghostie-heart.webp",
-  floating: "/media/ghosties/community/ghostie-chaotic.webp",
-  blanket: "/media/ghosties/community/ghostie-sleeping.webp",
-  support: "/media/ghosties/community/ghostie-heart.webp",
-  panicked: "/media/ghosties/community/ghostie-bonked.webp"
+  sleeping: "/media/haven/ghosties/sleepy.webp",
+  chaotic: "/media/haven/ghosties/mischief.webp",
+  protective: "/media/haven/ghosties/welcome.webp",
+  nailTech: "/media/haven/ghosties/mischief.webp",
+  gaming: "/media/haven/ghosties/sleepy.webp",
+  cozy: "/media/haven/ghosties/sleepy.webp",
+  study: "/media/haven/ghosties/messenger.webp",
+  peek: "/media/haven/ghosties/welcome.webp",
+  heart: "/media/haven/ghosties/welcome.webp",
+  bonked: "/media/haven/ghosties/mischief.webp",
+  shy: "/media/haven/ghosties/messenger.webp",
+  sign: "/media/haven/ghosties/messenger.webp",
+  blushing: "/media/haven/ghosties/messenger.webp",
+  pointLeft: "/media/haven/ghosties/messenger.webp",
+  wave: "/media/haven/ghosties/welcome.webp",
+  floating: "/media/haven/ghosties/welcome.webp",
+  blanket: "/media/haven/ghosties/sleepy.webp",
+  support: "/media/haven/ghosties/welcome.webp",
+  panicked: "/media/haven/ghosties/mischief.webp"
 } as const;
 
 export const officialEmotes = {
@@ -68,29 +69,29 @@ export const officialEmotes = {
 // Alternate atmospheres and the old gathering remain retained keys with no active runtime candidates.
 // Only active keys may be passed to the delivery helpers.
 export const environmentArtwork = {
-  homeSunset: "/media/storybook/scenes/haven-sunset.webp",
+  homeSunset: havenArtwork.home,
   homeNight: "/media/storybook/scenes/haven-midnight.webp",
   homeDaylight: "/media/storybook/scenes/haven-daybreak.webp",
-  meetNari: "/media/storybook/scenes/meet-nari.webp",
-  commonRoom: "/media/storybook/scenes/haven-community.webp",
+  meetNari: havenArtwork.meet,
+  commonRoom: havenArtwork.haven,
   havenGathering: "/media/storybook/scenes/haven-doorway-gathering.webp",
-  havenDoorInterior: "/media/storybook/scenes/haven-doorway-interior.webp",
-  streams: "/media/storybook/scenes/streams-atelier.webp",
-  nails: "/media/storybook/scenes/nails-atelier.webp",
-  resources: "/media/storybook/scenes/resources-library.webp",
-  work: "/media/storybook/scenes/work-correspondence.webp",
-  stories: "/media/storybook/scenes/stories-lantern.webp"
+  havenDoorInterior: havenArtwork.haven,
+  streams: havenArtwork.streams,
+  nails: havenArtwork.nails,
+  resources: havenArtwork.resources,
+  work: havenArtwork.work,
+  stories: havenArtwork.stories
 } as const;
 
 export const storybookPostcards = {
-  home: "/media/storybook/postcards/haven-sunset.webp",
-  meetNari: "/media/storybook/postcards/meet-nari.webp",
-  haven: "/media/storybook/postcards/haven-community.webp",
-  streams: "/media/storybook/postcards/streams-atelier.webp",
-  nails: "/media/storybook/postcards/nails-atelier.webp",
-  resources: "/media/storybook/postcards/resources-library.webp",
-  work: "/media/storybook/postcards/work-correspondence.webp",
-  stories: "/media/storybook/postcards/stories-lantern.webp"
+  home: "/media/haven/postcards/room-dusk.webp",
+  meetNari: "/media/haven/postcards/scrapbook.webp",
+  haven: "/media/haven/postcards/common-room.webp",
+  streams: "/media/haven/postcards/broadcast-desk.webp",
+  nails: "/media/haven/postcards/nail-worktable.webp",
+  resources: "/media/haven/postcards/bookshelf.webp",
+  work: "/media/haven/postcards/correspondence.webp",
+  stories: "/media/haven/postcards/memory-corner.webp"
 } as const;
 
 export const detailArtwork = {

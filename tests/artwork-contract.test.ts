@@ -34,10 +34,10 @@ describe("approved-source artwork contracts", () => {
     const ghostieComponent = readFileSync(resolve(process.cwd(), "src/components/art/GhostieArt.vue"), "utf8");
     const uniqueGhosties = [...new Set(Object.values(communityGhostieArtwork))];
 
-    expect(uniqueGhosties).toHaveLength(12);
+    expect(uniqueGhosties).toHaveLength(4);
     expect(ghostieComponent).toContain("communityGhostieArtwork[variant]");
     expect(ghostieComponent).toContain("<ResponsiveArtwork");
-    expect(ghostieComponent).toContain('width="1254"');
+    expect(ghostieComponent).toContain("overflow: visible");
     expect(ghostieComponent).toContain("background: transparent");
     expect(ghostieComponent).toContain("drop-shadow");
     expect(ghostieComponent).not.toContain("<canvas");
@@ -93,7 +93,7 @@ describe("approved-source artwork contracts", () => {
 
     expect(worldStyles).not.toContain(environmentArtwork.homeSunset);
     const homePage = readFileSync(resolve(process.cwd(), "src/pages/index.astro"), "utf8");
-    expect(homePage).toContain("artwork={environmentArtwork.homeSunset}");
+    expect(homePage).toContain("heroStyle(havenArtwork.home)");
     expect(worldStyles).not.toContain(environmentArtwork.homeNight);
     expect(worldStyles).not.toContain(environmentArtwork.homeDaylight);
     expect(retainedAssetExists(environmentArtwork.homeSunset)).toBe(true);
@@ -101,7 +101,7 @@ describe("approved-source artwork contracts", () => {
     expect(retainedAssetExists(environmentArtwork.homeDaylight)).toBe(true);
   });
 
-  it("integrates Nari into distinct Home and Meet Nari hero paintings without separate model overlays", () => {
+  it("frames the supplied model while keeping new environment paintings distinct", () => {
     const homePage = readFileSync(resolve(process.cwd(), "src/pages/index.astro"), "utf8");
     const meetPage = readFileSync(resolve(process.cwd(), "src/pages/meet-nari/index.astro"), "utf8");
     const meetHero = meetPage.slice(0, meetPage.indexOf("</section>") + "</section>".length);
@@ -111,6 +111,8 @@ describe("approved-source artwork contracts", () => {
     expect(meetHero).toContain('room="meet"');
     expect(homePage).not.toContain("nariArtwork.fullbody");
     expect(meetHero).not.toContain("nariArtwork.portrait");
+    expect(readFileSync("src/components/astro/RoomArrival.astro", "utf8")).toContain("nariArtwork.suppliedPortrait");
+    expect(readFileSync("src/components/astro/RoomObject.astro", "utf8")).toContain("nariArtwork.suppliedPortrait");
   });
 
   it("keeps secret Prinny artwork out of indexing and ordinary primary navigation", () => {

@@ -1,0 +1,17 @@
+---
+// A whole visible object is one native destination, with a label that never depends on hover.
+import HavenImage from './HavenImage.astro';
+import { roomObjects } from '@/data/havenArtwork';
+import { nariArtwork } from '@/data/artwork';
+interface Props { object: (typeof roomObjects)[number]; }
+const { object } = Astro.props;
+---
+<a class={`room-object room-object--${object.id}`} href={object.href} aria-labelledby={`object-${object.id}-label`}>
+  <span class="room-object__visual" aria-hidden="true">
+    <HavenImage artwork={object.artwork} sizes={object.id === 'monitor' ? '(min-width: 1024px) 28vw, (min-width: 640px) 320px, 270px' : '(min-width: 1024px) 19vw, 160px'} class="room-object__prop" eager />
+    {object.id === 'monitor' && <span class="room-object__screen">Pull up a seat <span>Streams ↗</span></span>}
+    {object.id === 'album' && <span class="room-object__portrait"><img src={nariArtwork.suppliedPortrait} width="880" height="1360" alt="" /></span>}
+    {object.ghostie && <HavenImage artwork={object.ghostie} sizes="(min-width: 1024px) 100px, 64px" class="room-object__ghostie" eager maxWidth={256} />}
+  </span>
+  <span class="room-object__label" id={`object-${object.id}-label`}><strong>{object.label}</strong><small>{object.note}</small><span aria-hidden="true">↗</span></span>
+</a>

@@ -1,17 +1,90 @@
-// Three room objects form a shelf, not a sequential guided tour.
-.haven-corners { padding-block: clamp(2.5rem, 5vw, 4.5rem); }
-.haven-corners__shelf { display: grid; gap: 2rem; }
-.haven-corner { min-width: 0; color: var(--text); text-decoration: none; }
-.haven-corner__frame { padding: 0.45rem; margin-bottom: 1.4rem; background: var(--storybook-paper); box-shadow: 0 0.75rem 1.75rem #10080c40; transition: transform 180ms ease; }
-.haven-corner__frame img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
-.haven-corner > .room-kicker { margin-bottom: 0.5rem; }
-.haven-corner h3 { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; font-size: 1.65rem; }
-.haven-corner > p:last-child { color: var(--text-muted); font-size: 0.9rem; margin: 0; }
-.haven-corner:hover .haven-corner__frame { transform: translateY(-4px); }
-@media (min-width: 40rem) { .haven-corners__shelf { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (min-width: 64rem) {
-  .haven-corners__shelf { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
-  .haven-corner:nth-child(2) { margin-top: 2rem; }
-  .haven-corner:nth-child(3) { margin-top: 0.75rem; }
+@use '../objects/arrival.scss';
+// Room navigation is composed from real props. Mobile gets a closer, vertical arrangement.
+.home-room {
+  --responsive-hero-art: var(--hero-art-small);
+  position: relative; isolation: isolate; overflow: clip; max-width: 120rem; margin-inline: auto;
+  background: #382725; border-bottom: 2px solid #ae8159;
 }
-@media (prefers-reduced-motion: reduce) { .haven-corner__frame { transition: none; transform: none !important; } }
+.home-room__painting {
+  position: absolute; inset: -12px; height: auto;
+  background: var(--responsive-hero-art) center / cover no-repeat;
+  pointer-events: none; z-index: -2;
+}
+.home-room::after { position: absolute; z-index: -1; inset: 0; background: linear-gradient(0deg, #24161b80, transparent 45%); content: ''; pointer-events: none; }
+.home-room__foreground { position: absolute; bottom: -1rem; left: -1rem; width: clamp(5rem, 12vw, 13rem); height: auto; pointer-events: none; opacity: 0.8; }
+.home-room__welcome { position: relative; width: min(28rem, calc(100% - 2rem)); padding: 1.4rem 1.6rem; margin: 1rem; color: var(--ink); background: #f1e2ce; border-top: 3px solid #8f657e; box-shadow: 0.3rem 0.4rem 0.8rem #170f1940; transform: rotate(-1deg); }
+.home-room__welcome .room-kicker { color: #6b4758; margin-bottom: 0.45rem; font-size: 0.65rem; }
+.home-room__welcome h1 { margin: 0 0 0.55rem; font-size: clamp(2rem, 3vw, 2.8rem); line-height: 1.1; }
+.home-room__welcome h1 em { color: #75516b; }
+.home-room__welcome > p { color: #5b3c49; font-size: 0.85rem; line-height: 1.55; margin-bottom: 0; }
+.home-room__welcome .home-room__subtitle { font-family: var(--font-display); font-style: italic; margin-bottom: 0.55rem; font-size: 1rem; }
+.home-room__instruction { position: relative; margin: 1rem; padding: 0.45rem 0.7rem; width: fit-content; max-width: calc(100% - 2rem); background: #291c26ed; color: #f7e9dc; font-size: 0.75rem; }
+.home-room__objects { position: relative; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); align-items: end; gap: 1.5rem 0.5rem; padding: 0.5rem 0.75rem 2rem; }
+.room-object { position: relative; display: grid; gap: 0.1rem; min-width: 0; color: #321e2b; text-decoration: none; border-radius: 0.2rem; outline-offset: 6px; }
+.room-object__visual { position: relative; display: block; min-width: 0; }
+.room-object__prop { display: block; width: 100%; height: auto; max-height: 12rem; object-fit: contain; filter: drop-shadow(0 0.5rem 0.4rem #160d1655); transition: transform 180ms var(--ease-out), filter 180ms; }
+.room-object__label { position: relative; z-index: 4; display: grid; grid-template-columns: minmax(0,1fr) 1rem; gap: 0.2rem 0.4rem; padding: 0.55rem 0.65rem; background: #f3e3cf; border-left: 3px solid #966580; box-shadow: 0.2rem 0.25rem 0.3rem #140e1740; }
+.room-object__label strong { font-family: var(--font-display); font-size: 1.1rem; line-height: 1.15; }
+.room-object__label small { grid-column: 1; font-size: 0.75rem; line-height: 1.4; color: #674855; }
+.room-object__label > span { grid-column: 2; grid-row: 1 / 3; align-self: center; font-size: 1.25rem; color: #0b4c3d; }
+.room-object:focus-visible { outline: 3px solid var(--focus); background: #162c2450; }
+.room-object:is(:hover,:focus-visible) .room-object__prop { transform: translateY(-4px) rotate(-1deg); filter: drop-shadow(0 0.6rem 0.5rem #dba06466) brightness(1.12); }
+.room-object:is(:hover,:focus-visible) .room-object__label { border-left-color: #0b4c3d; }
+.room-object:active .room-object__prop { filter: brightness(1.18); }
+.room-object--album:is(:hover,:focus-visible) .room-object__prop { transform: perspective(40rem) rotateY(-8deg) translateY(-4px); }
+.room-object__ghostie { position: absolute; z-index: 2; width: 4rem; height: 4rem; object-fit: contain; right: -0.2rem; bottom: 8%; pointer-events: none; transition: transform 200ms; }
+.room-object:is(:hover,:focus-visible) .room-object__ghostie { transform: translateY(-4px) rotate(4deg); }
+.room-object--monitor { grid-column: 1 / -1; width: min(100%, 25rem); justify-self: center; }
+.room-object--monitor .room-object__prop { max-height: 16rem; }
+.room-object--monitor .room-object__ghostie { right: -1%; bottom: 6%; width: 4.5rem; height: 4.5rem; }
+.room-object__screen { position: absolute; top: 32%; left: 26%; width: 48%; color: #3a2840; font: italic 0.85rem / 1.4 var(--font-display); text-align: center; transform: rotate(-4deg); pointer-events: none; }
+.room-object__screen > span { display: block; font: 600 0.7rem / 1.6 var(--font-body); }
+.room-object--polish .room-object__ghostie { right: -2%; bottom: 29%; }
+.room-object--door .room-object__prop { max-height: 17rem; }
+.room-object--door .room-object__ghostie { right: 5%; bottom: 25%; }
+.room-object--letter .room-object__ghostie { right: -3%; bottom: 22%; }
+.room-object__portrait { position: absolute; top: 20%; left: 22%; width: 26%; aspect-ratio: 3/4; overflow: hidden; background: #efdcc8; border: 3px solid #efdcc8; transform: rotate(4deg); box-shadow: 0.1rem 0.1rem 0.25rem #21142180; pointer-events: none; }
+.room-object__portrait img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.home-room__aftercare { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1.5rem; }
+.home-room__aftercare > p { font: italic 1rem var(--font-display); color: var(--text-muted); margin: 0; }
+.home-room__aftercare .social-dock { display: flex; flex-wrap: wrap; max-width: 100%; margin: 0; gap: 0.4rem; }
+.home-room__aftercare .social-dock > a { width: 2.75rem; height: 2.75rem; }
+.home-room__aftercare .social-dock__label { display: none; }
+.home-room__aftercare .artwork-credit-link { margin: 0; font-size: 0.7rem; }
+@media (min-width: 40rem) and (max-width: 63.99rem) {
+  .home-room__objects { padding-inline: 10%; gap: 1.5rem 2rem; }
+  .room-object__prop { max-height: 16rem; }
+  .room-object__label strong { font-size: 1.3rem; }
+}
+@media (min-width: 64rem) {
+  .home-room { --responsive-hero-art: var(--hero-art-medium); }
+  .home-room { height: clamp(40rem, 53vw, 58rem); }
+  .home-room__welcome { position: absolute; left: 3%; top: 3%; margin: 0; width: 23%; padding: 1.2rem; }
+  .home-room__welcome h1 { font-size: clamp(2rem, 3vw, 2.9rem); }
+  .home-room__instruction { position: absolute; top: 4%; left: 36%; margin: 0; }
+  .home-room__objects { position: absolute; inset: 0; display: block; padding: 0; }
+  .room-object { position: absolute; }
+  .room-object__prop { max-height: none; }
+  .room-object__label { width: max-content; max-width: 100%; justify-self: center; padding: 0.5rem 0.75rem; }
+  .room-object__label strong { font-size: clamp(1rem,1.4vw,1.35rem); }
+  .room-object__label small { font-size: 0.75rem; }
+  .room-object--monitor { width: 27%; left: 26%; bottom: 29%; }
+  .room-object--monitor .room-object__prop { max-height: none; }
+  .room-object--polish { width: 18%; left: 49%; bottom: 20%; }
+  .room-object--album { width: 20%; left: 7%; bottom: 2%; }
+  .room-object--door { width: 18%; right: 2%; bottom: 13%; }
+  .room-object--door .room-object__prop { max-height: clamp(22rem, 34vw, 36rem); }
+  .room-object--letter { width: 19%; left: 60%; bottom: 2%; }
+  .room-object__ghostie { width: clamp(4rem,7vw,7rem); height: auto; aspect-ratio: 1; }
+  .room-object--monitor .room-object__ghostie { width: 24%; height: auto; aspect-ratio: 1; right: -8%; bottom: 6%; }
+  .room-object__screen { font-size: clamp(0.8rem,1.3vw,1.25rem); }
+  .room-object__screen > span { font-size: 0.75em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-room__painting { transform: none !important; }
+  .room-object__prop, .room-object__ghostie { transition: none; }
+  .room-object:is(:hover,:focus-visible) .room-object__prop,
+  .room-object:is(:hover,:focus-visible) .room-object__ghostie { transform: none; }
+}
+
+@media (min-width: 80rem) { .home-room { --responsive-hero-art: var(--hero-art-wide); } }

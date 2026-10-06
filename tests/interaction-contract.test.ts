@@ -45,11 +45,12 @@ describe("client-feedback interaction contracts", () => {
     expect(transitionedCopy).not.toContain("haven-threshold__action");
   });
 
-  it("routes Come sit with us directly into the Haven doorway", () => {
+  it("routes the visibly labelled door directly into the Haven", () => {
     const home = sourceAt("src/pages/index.astro");
     const haven = sourceAt("src/pages/haven/index.astro");
 
-    expect(home).toContain('class="button button--ember" href="/haven/#haven-door"');
+    expect(home).toContain("roomObjects.map");
+    expect(sourceAt("src/data/havenArtwork.ts")).toContain("href: '/haven/'");
     expect(home).not.toContain('import { twitchUrl } from "@/data/socials"');
     expect(haven).toContain('id="haven-door" class="haven-entry page-width section-pad"');
   });
@@ -141,7 +142,7 @@ describe("client-feedback interaction contracts", () => {
     expect(dock).toContain('fill="currentColor"');
     expect(dock).toContain('class="social-dock__label"');
     expect(sourceAt("src/styles/_polish.scss")).toContain(".social-dock__label");
-    expect(sourceAt("src/styles/objects/arrival.scss")).toContain(".room-arrival--home .social-dock__label");
+    expect(sourceAt("src/styles/rooms/home.scss")).toContain(".home-room__aftercare .social-dock__label");
 
     for (const platform of ["twitch", "youtube", "tiktok", "instagram", "x", "throne"]) {
       expect(links).toContain(`platform: "${platform}"`);

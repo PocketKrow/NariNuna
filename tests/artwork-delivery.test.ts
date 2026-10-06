@@ -57,13 +57,16 @@ describe("responsive artwork delivery", () => {
     expect(() => artworkCandidates("/missing.webp")).toThrow("Missing responsive artwork");
   });
 
-  it("keeps the initial Home artwork below 200 KB with lazy room postcards", () => {
-    // Byte budgets belong to build evidence, never the browser's selection API.
-    const maximum = (source: keyof typeof manifest, maxWidth = Infinity) => Math.max(...manifest[source].candidates.filter((candidate) => candidate.width <= maxWidth).map((candidate) => candidate.bytes));
-    const total = maximum(environmentArtwork.homeSunset) + maximum(communityGhostieArtwork.wave, 256);
-    expect(total).toBeLessThanOrEqual(200_000);
-    const home = readFileSync("src/pages/index.astro", "utf8");
-    expect(home).toContain("storybookPostcards");
+  it("budgets all five object layers, inhabitants, portrait and background on Home", () => {
+    const maximum = (source: string, width = Infinity) => Math.max(...manifest[source as keyof typeof manifest].candidates.filter((candidate) => candidate.width <= width).map((candidate) => candidate.bytes));
+    const total = maximum(environmentArtwork.homeSunset)
+      + ["monitor", "polish", "album", "door", "letter"].reduce((sum, name) => sum + maximum(`/media/haven/objects/${name}.webp`), 0)
+      + ["sleepy", "mischief", "welcome", "messenger"].reduce((sum, name) => sum + maximum(`/media/haven/ghosties/${name}.webp`, 256), 0)
+      + maximum("/media/haven/objects/foreground.webp", 480)
+      + maximum(communityGhostieArtwork.wave, 128)
+      + readFileSync("public/media/nari/nari-model-portrait.webp").length;
+    // Doc 44 documents the composed-room adjustment; per-image and JS budgets stay unchanged.
+    expect(total).toBeLessThanOrEqual(600_000);
     const component = readFileSync("src/components/art/ResponsiveArtwork.vue", "utf8");
     expect(component).toContain('loading: "lazy"');
   });
@@ -79,7 +82,7 @@ describe("responsive artwork delivery", () => {
         for (const entry of band.srcset.split(", ")) {
           const [url, density] = entry.split(" ");
           expect(band.background).toContain(`url("${url}") ${density}`);
-          expect(artworkCandidates(source).some((candidate) => candidate.src === url)).toBe(true);
+          expect(artworkCandidates(band.source).some((candidate) => candidate.src === url)).toBe(true);
         }
       }
     }

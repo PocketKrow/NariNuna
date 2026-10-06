@@ -105,9 +105,7 @@ async function closeFromStory(): Promise<void> {
           <ResponsiveArtwork
             :fallback-width="640" loading="eager" :artwork="environmentArtwork.havenDoorInterior"
             sizes="(min-width: 68rem) 368px, 320px"
-            width="1024"
-            height="1536"
-            alt="Nari welcomes you into a lantern-lit autumn cottage surrounded by her cheerful little scythe-hairpin Ghosties"
+            alt="The warm common room beyond the door, with comfortable chairs, blankets and mugs"
             decoding="async"
           />
           <figcaption v-if="isOpen">
@@ -124,19 +122,7 @@ async function closeFromStory(): Promise<void> {
           :disabled="isOpen"
           @click="knock"
         >
-          <span class="haven-threshold__door-grain" aria-hidden="true"></span>
-          <span class="haven-threshold__door-panel" aria-hidden="true"></span>
-          <span class="haven-threshold__door-inlay haven-threshold__door-inlay--upper" aria-hidden="true"></span>
-          <span class="haven-threshold__door-inlay haven-threshold__door-inlay--lower" aria-hidden="true"></span>
-          <span class="haven-threshold__hinge haven-threshold__hinge--upper" aria-hidden="true"></span>
-          <span class="haven-threshold__hinge haven-threshold__hinge--lower" aria-hidden="true"></span>
-          <span class="haven-threshold__door-moon" aria-hidden="true">✦</span>
-          <span class="haven-threshold__sign" aria-hidden="true">
-            <span>THE HAVEN</span>
-            <small>three knocks, please</small>
-          </span>
-          <span class="haven-threshold__knocker" aria-hidden="true"></span>
-          <span class="haven-threshold__knob" aria-hidden="true"></span>
+          <ResponsiveArtwork class="haven-threshold__door-art" artwork="/media/haven/objects/door.webp" alt="" sizes="(min-width: 768px) 320px, 260px" aria-hidden="true" />
           <span v-if="!isOpen" class="haven-threshold__door-prompt" aria-hidden="true">{{ doorPrompt }}</span>
         </button>
 
@@ -347,9 +333,9 @@ async function closeFromStory(): Promise<void> {
   height: 74%;
   overflow: hidden;
   background: #20131d;
-  border: 0.8rem solid #85676d;
+  border: 0;
   border-bottom: 0;
-  border-radius: 11rem 11rem 0.15rem 0.15rem;
+  border-radius: 0;
   box-shadow:
     inset 0 0 0 0.14rem rgb(244 200 159 / 34%),
     0 0 0 0.16rem rgb(244 206 175 / 40%),
@@ -369,33 +355,14 @@ async function closeFromStory(): Promise<void> {
   transition: opacity 360ms ease;
 }
 
-/* Transform the door around its hinge; steps below change the angle without remounting the scene. */
+/* The same painted door seen on Home now opens on its native button. */
 .haven-threshold__door {
-  position: absolute;
-  z-index: 4;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  padding: 0;
-  background:
-    radial-gradient(ellipse at 50% 15%, rgb(228 166 110 / 15%), transparent 36%),
-    linear-gradient(145deg, #79515c 0%, #573547 46%, #362333 100%);
-  border: 0;
-  border-right: 0.16rem solid rgb(33 17 27 / 55%);
-  border-radius: 10.5rem 10.5rem 0 0;
-  cursor: pointer;
-  transform: rotateY(var(--door-angle));
-  transform-origin: left center;
-  transform-style: preserve-3d;
-  box-shadow: inset -1.4rem 0 1.8rem rgb(29 13 23 / 18%);
-  transition:
-    transform 520ms cubic-bezier(0.22, 0.78, 0.22, 1),
-    filter 180ms ease,
-    box-shadow 320ms var(--ease-out);
-  will-change: transform;
+  position: absolute; z-index: 4; inset: 0; display: block; width: 100%; height: 100%; overflow: visible;
+  padding: 0; background: transparent; border: 0; cursor: pointer;
+  transform: rotateY(var(--door-angle)); transform-origin: left center;
+  transition: transform 520ms cubic-bezier(0.22,0.78,0.22,1),filter 180ms;
 }
+.haven-threshold__door-art { display: block; width: 100%; height: 100%; object-fit: contain; }
 
 .haven-threshold__door:hover:not(:disabled) {
   filter: brightness(1.1) saturate(1.04);

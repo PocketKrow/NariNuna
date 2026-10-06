@@ -1,0 +1,534 @@
+{
+  "generatedOn": "2026-10-06",
+  "assets": [
+    {
+      "id": "room-dusk",
+      "family": "environments",
+      "master": "src/assets/source/haven/masters/environments/room-dusk.png",
+      "masterSha256": "fb2f718ac1ef829e1eaa3155b7455b1946521dd9fcd55cc519185a580e0d5dad",
+      "lookupKey": "/media/haven/environments/room-dusk.webp",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "tool": "built-in imagegen",
+      "prompt": "Use case: illustration-story. Asset type: desktop layered website environment master for Nari's Haven. Create a beautiful wide 16:9 painterly storybook room at dusk, warm amber lamps, worn walnut timber, cream paper, muted lavender fabric, restrained emerald details. Perspective front view slightly above a desk, coherent believable room, luminous detailed illustration with clean readable silhouettes and atmospheric depth. Background: large window center left with cool blue lavender dusk garden and distant trees, wood panel walls, hanging lavender at upper left, open bookshelves at back left. Midground: broad EMPTY wooden desk surface in lower left half (we will overlay monitor and nail-polish raster props in HTML); lavender cushioned armchair and blanket center back, low EMPTY side table at center right, simple EMPTY doorway recess at far right (we overlay a door). Foreground: warm floorboards, cream and lavender rug, just one soft out-of-focus lavender stem at lower left. Keep foreground/midground/background separable visually. No humans, no character artwork, no ghosts, no monitor, no nail bottles, no album, no envelope, no closed door. No text/logos/watermark. Artwork fills canvas. Clear uncluttered composition with gentle personal warmth, not photorealism, not cartoon vector, no excessive glitter. Light from upper left warm lamp and center window.",
+      "referenceRole": "environment style only; no Nari generation",
+      "reviewState": "owner review; no public adoption inferred",
+      "references": []
+    },
+    {
+      "id": "room-mobile",
+      "family": "environments",
+      "master": "src/assets/source/haven/masters/environments/room-mobile.png",
+      "masterSha256": "a68175434f684ee944085d9c939b55b0129f05f44882a3fe5421138bd472131c",
+      "lookupKey": "/media/haven/environments/room-mobile.webp",
+      "width": 971,
+      "height": 1619,
+      "alpha": false,
+      "tool": "built-in imagegen",
+      "prompt": "Use case: illustration-story. Asset type: Nari's Haven website environment. Match supplied room STYLE, materials and dusk lighting exactly: warm amber lamp from left, worn walnut, soft cream paper, muted lavender fabric, restrained emerald, cool lavender blue sky outdoors. Painterly high-detail storybook, cozy lived-in, tasteful personal clutter, clear focal shape. No people, no character portraits, no ghosties, no text, no logos. Create a deliberately composed VERTICAL 3:5 intimate close view of this room. Tall blue-dusk window upper center, bookshelves left, armchair tucked right, empty broad wooden desk spanning lower center and a narrow empty door recess at right. Preserve generous empty desk area for interactive object overlays and title upper left. No monitor, no nail bottles, no albums, no envelopes. Full canvas.",
+      "referenceRole": "environment style only; no Nari generation",
+      "reviewState": "owner review; no public adoption inferred",
+      "references": [
+        {
+          "path": "src/assets/source/haven/masters/environments/room-dusk.png",
+          "sha256": "fb2f718ac1ef829e1eaa3155b7455b1946521dd9fcd55cc519185a580e0d5dad",
+          "role": "environment style only; no Nari generation"
+        }
+      ]
+    },
+    {
+      "id": "broadcast-desk",
+      "family": "environments",
+      "master": "src/assets/source/haven/masters/environments/broadcast-desk.png",
+      "masterSha256": "193c1f318bf69fc0de019dfab24a1ab5507b73d65d08009fdbcf536504861755",
+      "lookupKey": "/media/haven/environments/broadcast-desk.webp",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "tool": "built-in imagegen",
+      "prompt": "Use case: illustration-story. Asset type: Nari's Haven website environment. Match supplied room STYLE, materials and dusk lighting exactly: warm amber lamp from left, worn walnut, soft cream paper, muted lavender fabric, restrained emerald, cool lavender blue sky outdoors. Painterly high-detail storybook, cozy lived-in, tasteful personal clutter, clear focal shape. No people, no character portraits, no ghosties, no text, no logos. Wide 16:9 view of the broadcast desk within this home. Two clear lavender glowing monitors at right, microphone on boom, keyboard, lavender headphones, chair, plant, dusk window and wood wall. Keep left quarter quiet with soft shadow for HTML interface. No live badges or invented stream imagery.",
+      "referenceRole": "environment style only; no Nari generation",
+      "reviewState": "owner review; no public adoption inferred",
+      "references": [
+        {
+          "path": "src/assets/source/haven/masters/environments/room-dusk.png",
+          "sha256": "fb2f718ac1ef829e1eaa3155b7455b1946521dd9fcd55cc519185a580e0d5dad",
+          "role": "environment style only; no Nari generation"
+        }
+      ]
+    },
+    {
+      "id": "nail-worktable",
+      "family": "environments",
+      "master": "src/assets/source/haven/masters/environments/nail-worktable.png",
+      "masterSha256": "3a7cc70cf18d3a9a8424e369f85e341e4f8f079691ceb02688000a5d71f0fe7e",
+      "lookupKey": "/media/haven/environments/nail-worktable.webp",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "tool": "built-in imagegen",
+      "prompt": "Use case: illustration-story. Asset type: Nari's Haven website environment. Match supplied room STYLE, materials and dusk lighting exactly: warm amber lamp from left, worn walnut, soft cream paper, muted lavender fabric, restrained emerald, cool lavender blue sky outdoors. Painterly high-detail storybook, cozy lived-in, tasteful personal clutter, clear focal shape. No people, no character portraits, no ghosties, no text, no logos. Wide 16:9 overhead view of Nari's wooden creative worktable at dusk, cream practice mat occupying center, tidy cluster of lavender/emerald glass polish at right, brushes, tiny glitter pots, color swatch sticks, lavender sprig, warm lamp top left. Loose playful working clutter but distinct readable groups. Obviously a painted illustration, never a photograph. No real hand, no nail portfolio, no services.",
+      "referenceRole": "environment style only; no Nari generation",
+      "reviewState": "owner review; no public adoption inferred",
+      "references": [
+        {
+          "path": "src/assets/source/haven/masters/environments/room-dusk.png",
+          "sha256": "fb2f718ac1ef829e1eaa3155b7455b1946521dd9fcd55cc519185a580e0d5dad",
+          "role": "environment style only; no Nari generation"
+        }
+      ]
+    },
+    {
+      "id": "scrapbook",
+      "family": "environments",
+      "master": "src/assets/source/haven/masters/environments/scrapbook.png",
+      "masterSha256": "6c669e2edee35b8231f254448ff2b3bc7dc267c42cfe4bf7376b516f307e917d",
+      "lookupKey": "/media/haven/environments/scrapbook.webp",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "tool": "built-in imagegen",
+      "prompt": "Use case: illustration-story. Asset type: wide 16:9 interior-page environment for Nari's Haven. Match supplied room illustration's painterly detail, warm amber lamps upper left, worn walnut, cream paper, lavender fabric, sparse emerald, dusk-blue window view, believable cozy home. Clear composition, calm left quarter for HTML copy, interesting focus right two thirds. NO humans, NO portraits, NO ghosties, NO text or logos. Close view of a large open lavender cloth-bound scrapbook on walnut desk at right, BLANK cream pages, empty cream portrait frame angled above it, pressed lavender, little crescent charm, soft ribbons and loose blank note papers. Bookshelf and dusk window behind. Never invent biographical writing or photos.",
+      "referenceRole": "environment style only; no Nari generation",
+      "reviewState": "owner review; no public adoption inferred",
+      "references": [
+        {
+          "path": "src/assets/source/haven/masters/environments/room-dusk.png",
+          "sha256": "fb2f718ac1ef829e1eaa3155b7455b1946521dd9fcd55cc519185a580e0d5dad",
+          "role": "environment style only; no Nari generation"
+        }
+      ]
+    },
+    {
+      "id": "common-room",
+      "family": "environments",
+      "master": "src/assets/source/haven/masters/environments/common-room.png",
+      "masterSha256": "7c912dcbe56d62757c6b006f072f64c9c26e4de8a8d4b70c76f6f0be2d0ee11c",
+      "lookupKey": "/media/haven/environments/common-room.webp",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "tool": "built-in imagegen",
+      "prompt": "Use case: illustration-story. Asset type: wide 16:9 interior-page environment for Nari's Haven. Match supplied room illustration's painterly detail, warm amber lamps upper left, worn walnut, cream paper, lavender fabric, sparse emerald, dusk-blue window view, believable cozy home. Clear composition, calm left quarter for HTML copy, interesting focus right two thirds. NO humans, NO portraits, NO ghosties, NO text or logos. View deeper into the comfortable common room of this home. Lavender sofa and two mismatched padded armchairs gathered around a low walnut table with mugs, blankets and books. Warm lamp, dusk-blue garden view, a clear welcoming doorway at far right, gentle personal clutter.",
+      "referenceRole": "environment style only; no Nari generation",
+      "reviewState": "owner review; no public adoption inferred",
+      "references": [
+        {
+          "path": "src/assets/source/haven/masters/environments/room-dusk.png",
+          "sha256": "fb2f718ac1ef829e1eaa3155b7455b1946521dd9fcd55cc519185a580e0d5dad",
+          "role": "environment style only; no Nari generation"
+        }
+      ]
+    },
+    {
+      "id": "correspondence",
+      "family": "environments",
+      "master": "src/assets/source/haven/masters/environments/correspondence.png",
+      "masterSha256": "a70a2a13531477cf8a7e1af8397e48adab4e2764002a421368619fb7f2e17a44",
+      "lookupKey": "/media/haven/environments/correspondence.webp",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "tool": "built-in imagegen",
+      "prompt": "Use case: illustration-story. Asset type: wide 16:9 interior-page environment for Nari's Haven. Match supplied room illustration's painterly detail, warm amber lamps upper left, worn walnut, cream paper, lavender fabric, sparse emerald, dusk-blue window view, believable cozy home. Clear composition, calm left quarter for HTML copy, interesting focus right two thirds. NO humans, NO portraits, NO ghosties, NO text or logos. A warm correspondence corner. Walnut secretary desk at right holding an open blank cream letter and lavender wax-sealed envelopes, fountain pen, little brass letter rack, lavender sprig. Quiet comfy chair and dusk window behind, amber desk lamp, compact beautiful still-life focus.",
+      "referenceRole": "environment style only; no Nari generation",
+      "reviewState": "owner review; no public adoption inferred",
+      "references": [
+        {
+          "path": "src/assets/source/haven/masters/environments/room-dusk.png",
+          "sha256": "fb2f718ac1ef829e1eaa3155b7455b1946521dd9fcd55cc519185a580e0d5dad",
+          "role": "environment style only; no Nari generation"
+        }
+      ]
+    },
+    {
+      "id": "bookshelf",
+      "family": "environments",
+      "master": "src/assets/source/haven/masters/environments/bookshelf.png",
+      "masterSha256": "39c42ca715ff83c0bb7bd242a4d9ea74ccb679a27bad52b8741b33cac4227d36",
+      "lookupKey": "/media/haven/environments/bookshelf.webp",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "tool": "built-in imagegen",
+      "prompt": "Use case: illustration-story. Asset type: interior-page environment for Nari's Haven. Match supplied room's high-detail painterly rendering, warm amber lamps left, worn walnut, cream paper, muted lavender, sparse emerald, dusk-blue window outside. Calm left quarter for HTML copy, focus to right. NO people/portraits, NO ghosties, NO writing/logos. Wide 16:9 full canvas. A curated walnut bookshelf within this home, books with BLANK spines, small empty cream library labels, lavender cloth bookmark, an open blank notebook on reading desk at right, brass reading lamp, tea mug and dusk window. Intimate readable book groupings rather than clutter.",
+      "referenceRole": "environment style only; no Nari generation",
+      "reviewState": "owner review; no public adoption inferred",
+      "references": [
+        {
+          "path": "src/assets/source/haven/masters/environments/room-dusk.png",
+          "sha256": "fb2f718ac1ef829e1eaa3155b7455b1946521dd9fcd55cc519185a580e0d5dad",
+          "role": "environment style only; no Nari generation"
+        }
+      ]
+    },
+    {
+      "id": "memory-corner",
+      "family": "environments",
+      "master": "src/assets/source/haven/masters/environments/memory-corner.png",
+      "masterSha256": "754579160c028985c9248c7c44247857abf72f67a007dd0bc96e4f178127d97d",
+      "lookupKey": "/media/haven/environments/memory-corner.webp",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "tool": "built-in imagegen",
+      "prompt": "Use case: illustration-story. Asset type: interior-page environment for Nari's Haven. Match supplied room's high-detail painterly rendering, warm amber lamps left, worn walnut, cream paper, muted lavender, sparse emerald, dusk-blue window outside. Calm left quarter for HTML copy, focus to right. NO people/portraits, NO ghosties, NO writing/logos. Wide 16:9 full canvas. An intimate lantern-lit memory corner in this home. A lavender blanket draped over armchair, open BLANK cream photo album on small walnut table at right, loose empty portrait frames, a glowing brass lantern and tea. Dusk window, quiet warm atmosphere. No invented photographs.",
+      "referenceRole": "environment style only; no Nari generation",
+      "reviewState": "owner review; no public adoption inferred",
+      "references": [
+        {
+          "path": "src/assets/source/haven/masters/environments/room-dusk.png",
+          "sha256": "fb2f718ac1ef829e1eaa3155b7455b1946521dd9fcd55cc519185a580e0d5dad",
+          "role": "environment style only; no Nari generation"
+        }
+      ]
+    },
+    {
+      "id": "monitor",
+      "family": "objects",
+      "master": "src/assets/source/haven/masters/objects/monitor.png",
+      "masterSha256": "e544fe533b2bb461bca8f3f30fb09dcc8661a09d8138762a7bdbd0f21f5a875a",
+      "lookupKey": "/media/haven/objects/monitor.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "tool": "built-in imagegen",
+      "prompt": "Use case: illustration-story. Asset type: isolated interactive website prop for Nari's Haven. Match warm painterly storybook rendering of the supplied environment as STYLE ONLY. Worn walnut wood, cream paper, muted lavender, amber light from upper left, restrained emerald. Front view slightly looking down, gentle three-quarter angle. Full silhouette centered with at least 10% empty transparent padding on every side, high clarity, no text/logos/watermarks, no humans, no ghosties. Real transparent background. One cozy modern desktop computer monitor with a softly glowing lavender screen, sturdy wooden-tone frame with a small gold crescent detail, stand, small keyboard in front. Entire object, isolated, screen blank for HTML label. No desk surface.",
+      "referenceRole": "environment style only; no Nari generation",
+      "reviewState": "owner review; no public adoption inferred",
+      "references": [
+        {
+          "path": "src/assets/source/haven/masters/environments/room-dusk.png",
+          "sha256": "fb2f718ac1ef829e1eaa3155b7455b1946521dd9fcd55cc519185a580e0d5dad",
+          "role": "environment style only; no Nari generation"
+        }
+      ]
+    },
+    {
+      "id": "polish",
+      "family": "objects",
+      "master": "src/assets/source/haven/masters/objects/polish.png",
+      "masterSha256": "e4b61d1abf10d3dbeee24f71070b5225729a1e1726bc6ef61314bf5afa7a6611",
+      "lookupKey": "/media/haven/objects/polish.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "tool": "built-in imagegen",
+      "prompt": "Use case: illustration-story. Asset type: isolated interactive website prop for Nari's Haven. Match warm painterly storybook rendering of the supplied environment as STYLE ONLY. Worn walnut wood, cream paper, muted lavender, amber light from upper left, restrained emerald. Front view slightly looking down, gentle three-quarter angle. Full silhouette centered with at least 10% empty transparent padding on every side, high clarity, no text/logos/watermarks, no humans, no ghosties. Real transparent background. A small wooden tray holding five beautiful glass nail polish bottles, lavender, plum, muted emerald and warm peach, with slim dark caps; one brush and a small closed pot of glitter next to them. Clear bottle silhouettes, arranged at varied heights, isolated as one collection. No desk surface.",
+      "referenceRole": "environment style only; no Nari generation",
+      "reviewState": "owner review; no public adoption inferred",
+      "references": [
+        {
+          "path": "src/assets/source/haven/masters/environments/room-dusk.png",
+          "sha256": "fb2f718ac1ef829e1eaa3155b7455b1946521dd9fcd55cc519185a580e0d5dad",
+          "role": "environment style only; no Nari generation"
+        }
+      ]
+    },
+    {
+      "id": "album",
+      "family": "objects",
+      "master": "src/assets/source/haven/masters/objects/album.png",
+      "masterSha256": "39317688d89be6214dd7ea18ce6dce5a8c41fb246f6cab1d11ef3bb7c0d3215b",
+      "lookupKey": "/media/haven/objects/album.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "tool": "built-in imagegen",
+      "prompt": "Use case: illustration-story. Asset type: isolated interactive website prop for Nari's Haven. Match supplied warm walnut and lavender storybook room style, amber light upper left. Entire silhouette with 12% clear padding all around, believable three-quarter front view, high-detail painterly texture, genuine transparent background outside the object; no broad glow background, no humans/characters, no lettering/logos. One closed lavender fabric scrapbook with worn cream page edges, simple embossed gold crescent on cover, narrow emerald ribbon bookmark, a cream small blank portrait frame tucked under one corner. Cover tilted only 8 degrees, clearly recognizable photo album, full object isolated.",
+      "referenceRole": "environment style only; no Nari generation",
+      "reviewState": "owner review; no public adoption inferred",
+      "references": [
+        {
+          "path": "src/assets/source/haven/masters/environments/room-dusk.png",
+          "sha256": "fb2f718ac1ef829e1eaa3155b7455b1946521dd9fcd55cc519185a580e0d5dad",
+          "role": "environment style only; no Nari generation"
+        }
+      ]
+    },
+    {
+      "id": "door",
+      "family": "objects",
+      "master": "src/assets/source/haven/masters/objects/door.png",
+      "masterSha256": "c2e7b7f400a3b4d8fe10c2570deb9f351851d2354b3f89176cf05968e23de2c6",
+      "lookupKey": "/media/haven/objects/door.webp",
+      "width": 1024,
+      "height": 1536,
+      "alpha": true,
+      "tool": "built-in imagegen",
+      "prompt": "Use case: illustration-story. Asset type: isolated interactive website prop for Nari's Haven. Match supplied warm walnut and lavender storybook room style, amber light upper left. Entire silhouette with 12% clear padding all around, believable three-quarter front view, high-detail painterly texture, genuine transparent background outside the object; no broad glow background, no humans/characters, no lettering/logos. One narrow tall cozy wooden door, full frame and door panels in walnut with a brass crescent knob, a small cream ghost-shaped plaque near eye level, muted lavender ribbon, just slightly ajar with warm amber glow in the thin opening. Straight front view, include the whole door from lintel to threshold with transparent space on all sides. Plaque must have no lettering. No surrounding wall/floor.",
+      "referenceRole": "environment style only; no Nari generation",
+      "reviewState": "owner review; no public adoption inferred",
+      "references": [
+        {
+          "path": "src/assets/source/haven/masters/environments/room-dusk.png",
+          "sha256": "fb2f718ac1ef829e1eaa3155b7455b1946521dd9fcd55cc519185a580e0d5dad",
+          "role": "environment style only; no Nari generation"
+        }
+      ]
+    },
+    {
+      "id": "foreground",
+      "family": "objects",
+      "master": "src/assets/source/haven/masters/objects/foreground.png",
+      "masterSha256": "2ae1ce41e244f611a6682ce6eaa4ab2eabf1672816ac7d2d65c2676be09563c8",
+      "lookupKey": "/media/haven/objects/foreground.webp",
+      "width": 1424,
+      "height": 1104,
+      "alpha": true,
+      "tool": "built-in imagegen",
+      "prompt": "Use case: illustration-story. Isolated foreground layer for this supplied Haven room: a single sparse cluster of lavender sprigs at lower left corner, warm lamp glow on edges, shallow-focus painterly blur, matching lavender and walnut storybook illustration. Entire sprigs visible with transparent padding, no other props, no humans, no text. Genuine transparent background, no backdrop, no broad rectangle.",
+      "referenceRole": "environment style only; no Nari generation",
+      "reviewState": "owner review; no public adoption inferred",
+      "references": [
+        {
+          "path": "src/assets/source/haven/masters/environments/room-dusk.png",
+          "sha256": "fb2f718ac1ef829e1eaa3155b7455b1946521dd9fcd55cc519185a580e0d5dad",
+          "role": "environment style only; no Nari generation"
+        }
+      ]
+    },
+    {
+      "id": "sleepy",
+      "family": "ghosties",
+      "master": "src/assets/source/haven/masters/ghosties/sleepy.png",
+      "masterSha256": "d306cfce53dc8f3eab1f860f02242c7240fa34911862fca0a97d907fda41948f",
+      "lookupKey": "/media/haven/ghosties/sleepy.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "tool": "built-in imagegen",
+      "prompt": "Use case: illustration-story. Asset type: individual Ghostie companion for Nari's Haven. Use the supplied Ghostie as the actual design reference. Preserve its cream rounded sheet body, purple scalloped hem, tiny round hands, plum eyes with heart highlights when open, pink cheeks, small mouth and lavender ribbon/skull hair ornament. Watercolor storybook rendering, gentle amber light upper left, warm cream and muted lavender. Single Ghostie, full silhouette entirely inside image with generous 15% transparent padding on ALL sides. Genuine alpha transparency; do not draw a checkerboard or background or white card. No text/logos, no human, no other characters. Sleepy Ghostie resting its head on a small lavender cushion, eyes gently closed, tucked into a modest knitted lavender blanket with crescent detail. Calm sweet inhabitant beside computer.",
+      "referenceRole": "Ghostie design",
+      "reviewState": "owner review; no public adoption inferred",
+      "references": [
+        {
+          "path": "src/assets/source/delivery/media/ghosties/community/ghostie-cozy.webp",
+          "sha256": "19c7cb43252cff1e633750000cea09e64dbc95ca2df056832e7edbdab060432e",
+          "role": "Ghostie design"
+        }
+      ]
+    },
+    {
+      "id": "mischief",
+      "family": "ghosties",
+      "master": "src/assets/source/haven/masters/ghosties/mischief.png",
+      "masterSha256": "558663463ba38cc9f3eb9ff03e301f47d5a56b8c8ed06e4a5ce62d6048954f92",
+      "lookupKey": "/media/haven/ghosties/mischief.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "tool": "built-in imagegen",
+      "prompt": "Use case: illustration-story. Asset type: individual Ghostie companion for Nari's Haven. Use the supplied Ghostie as the actual design reference. Preserve its cream rounded sheet body, purple scalloped hem, tiny round hands, plum eyes with heart highlights when open, pink cheeks, small mouth and lavender ribbon/skull hair ornament. Watercolor storybook rendering, gentle amber light upper left, warm cream and muted lavender. Single Ghostie, full silhouette entirely inside image with generous 15% transparent padding on ALL sides. Genuine alpha transparency; do not draw a checkerboard or background or white card. No text/logos, no human, no other characters. Mischievous Ghostie with smiling open plum heart-highlight eyes, holding one tiny closed lavender nail polish bottle in both little hands, a small dot of lavender polish on cheek. No nails or human hands.",
+      "referenceRole": "Ghostie design",
+      "reviewState": "owner review; no public adoption inferred",
+      "references": [
+        {
+          "path": "src/assets/source/delivery/media/ghosties/community/ghostie-cozy.webp",
+          "sha256": "19c7cb43252cff1e633750000cea09e64dbc95ca2df056832e7edbdab060432e",
+          "role": "Ghostie design"
+        }
+      ]
+    },
+    {
+      "id": "welcome",
+      "family": "ghosties",
+      "master": "src/assets/source/haven/masters/ghosties/welcome.png",
+      "masterSha256": "d19b6152623ddfb833a2614b81bd73ba373360f6c8c2f42e1322b26550a24c36",
+      "lookupKey": "/media/haven/ghosties/welcome.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "tool": "built-in imagegen",
+      "prompt": "Use case: illustration-story. Asset type: individual Ghostie companion for Nari's Haven. Use the supplied Ghostie as the actual design reference. Preserve its cream rounded sheet body, purple scalloped hem, tiny round hands, plum eyes with heart highlights when open, pink cheeks, small mouth and lavender ribbon/skull hair ornament. Watercolor storybook rendering, gentle amber light upper left, warm cream and muted lavender. Single Ghostie, full silhouette entirely inside image with generous 15% transparent padding on ALL sides. Genuine alpha transparency; do not draw a checkerboard or background or white card. No text/logos, no human, no other characters. Welcoming Ghostie waving one small hand at shoulder height with a warm little smile, a simple lavender neck ribbon. Upright softly floating, calm welcoming inhabitant.",
+      "referenceRole": "Ghostie design",
+      "reviewState": "owner review; no public adoption inferred",
+      "references": [
+        {
+          "path": "src/assets/source/delivery/media/ghosties/community/ghostie-cozy.webp",
+          "sha256": "19c7cb43252cff1e633750000cea09e64dbc95ca2df056832e7edbdab060432e",
+          "role": "Ghostie design"
+        }
+      ]
+    },
+    {
+      "id": "messenger",
+      "family": "ghosties",
+      "master": "src/assets/source/haven/masters/ghosties/messenger.png",
+      "masterSha256": "e2bee9dec597c1b52bd4ab987849fc493b5844483ece10d05f205c44890efc70",
+      "lookupKey": "/media/haven/ghosties/messenger.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "tool": "built-in imagegen",
+      "prompt": "Use case: illustration-story. Asset type: individual Ghostie companion for Nari's Haven. Use the supplied Ghostie as the actual design reference. Preserve its cream rounded sheet body, purple scalloped hem, tiny round hands, plum eyes with heart highlights when open, pink cheeks, small mouth and lavender ribbon/skull hair ornament. Watercolor storybook rendering, gentle amber light upper left, warm cream and muted lavender. Single Ghostie, full silhouette entirely inside image with generous 15% transparent padding on ALL sides. Genuine alpha transparency; do not draw a checkerboard or background or white card. No text/logos, no human, no other characters. Messenger Ghostie carrying one cream envelope sealed with a lavender heart in its tiny hands, small contented smile and bright plum eyes. Upright softly floating, no additional props.",
+      "referenceRole": "Ghostie design",
+      "reviewState": "owner review; no public adoption inferred",
+      "references": [
+        {
+          "path": "src/assets/source/delivery/media/ghosties/community/ghostie-cozy.webp",
+          "sha256": "19c7cb43252cff1e633750000cea09e64dbc95ca2df056832e7edbdab060432e",
+          "role": "Ghostie design"
+        }
+      ]
+    },
+    {
+      "id": "letter",
+      "family": "objects",
+      "master": "src/assets/source/haven/masters/objects/letter.png",
+      "masterSha256": "88c08494ce24dfb0249bce8ed0b7e6f3b8fd3b998b816db7bfea9f891d68fb81",
+      "lookupKey": "/media/haven/objects/letter.webp",
+      "width": 1367,
+      "height": 1150,
+      "alpha": true,
+      "tool": "built-in imagegen",
+      "prompt": "Use case: precise-object-edit. Edit target: the supplied open-envelope illustration. Preserve its warm painterly cream paper, lavender heart wax seal, lavender sprigs, brass pen and lighting. Recompose ONLY framing: make the entire envelope, every sprig and both ends of the pen smaller within a much larger TRANSPARENT canvas. The complete prop must occupy at most 70 percent of the canvas width and height. Leave at least 15 percent absolutely transparent margin on all four sides. No object may touch any canvas edge. Reconstruct the tiny cropped lower pen tip faithfully if required. No backdrop, no glow rectangle, no new props, no text. Full isolated silhouette with alpha transparency.",
+      "referenceRole": "environment style only; no Nari generation",
+      "reviewState": "owner review; no public adoption inferred",
+      "references": [
+        {
+          "path": "src/assets/source/haven/masters/environments/room-dusk.png",
+          "sha256": "fb2f718ac1ef829e1eaa3155b7455b1946521dd9fcd55cc519185a580e0d5dad",
+          "role": "environment style only; no Nari generation"
+        }
+      ]
+    }
+  ],
+  "identityReferences": [
+    {
+      "path": "public/media/nari/nari-model-fullbody.webp",
+      "sha256": "546ddee296cb95b36f16c89800f40af387bc33967d7f2d3a2eb32be642b2517c",
+      "role": "supplied authoritative design; unchanged; never used to generate Nari in this rebuild"
+    },
+    {
+      "path": "public/media/nari/nari-model-portrait.webp",
+      "sha256": "7adccd5482282c0227ef9a4fbe5bdd474025ad68caccee937785ad723d583f4d",
+      "role": "supplied authoritative design; unchanged; never used to generate Nari in this rebuild"
+    },
+    {
+      "path": "public/media/nari/nari-comfy-original.webp",
+      "sha256": "e953a222972b01dc405d5a15ad8a45d6e2d705a09fbeda8a0cd98814713ac359",
+      "role": "supplied authoritative design; unchanged; never used to generate Nari in this rebuild"
+    }
+  ],
+  "rejected": [
+    {
+      "master": "src/assets/source/haven/masters/retired/letter-v1.png",
+      "sha256": "e50d1d7b10f060903ccc9827e5ec30b67f4ce4b3b9ac18bb699a161b58b77164",
+      "reason": "Pen touched canvas edge; replaced with padded V2; not used in delivery."
+    },
+    {
+      "master": "src/assets/source/haven/masters/retired/previous-favicon.png",
+      "sha256": "ea395c17a9cb990a3a4ea3adc0faa19af1a35f8c73900bdf34a94e11159122aa",
+      "reason": "Previous generated Nari icon is not authoritative; replaced with Ghostie identity."
+    },
+    {
+      "master": "src/assets/source/haven/masters/retired/previous-apple-touch-icon.png",
+      "sha256": "a073743b54deb82a1133d8de2c357cda10f4cd04e01dc1d9ab5b5c579a11c204",
+      "reason": "Previous generated Nari icon is not authoritative; replaced with Ghostie identity."
+    },
+    {
+      "master": "src/assets/source/haven/masters/retired/previous-icon-192.png",
+      "sha256": "1e9148ae9288072a98eeaadd1d4102731a9472bb2409460c0adfa967fb7bc44e",
+      "reason": "Previous generated Nari icon is not authoritative; replaced with Ghostie identity."
+    },
+    {
+      "master": "src/assets/source/haven/masters/retired/previous-icon-512.png",
+      "sha256": "13d43be9aca79eeb7b94dcfc4498b4684253cd91f54a84b6431925304199c79f",
+      "reason": "Previous generated Nari icon is not authoritative; replaced with Ghostie identity."
+    }
+  ],
+  "socialExports": [
+    {
+      "path": "public/media/haven/share/haven.6869e24f1b14933a.jpg",
+      "sha256": "6869e24f1b14933a2d021926f21a0dac1c3326267d94fb00bdb9bdad6b07064f",
+      "width": 1200,
+      "height": 630,
+      "operation": "center fit from matching environment; quality 88 JPEG; metadata removed"
+    },
+    {
+      "path": "public/media/haven/share/home.15b52610b6322e23.jpg",
+      "sha256": "15b52610b6322e23ea704b133f8c2042ff1686787c36d18c0fa6bac88c33e53b",
+      "width": 1200,
+      "height": 630,
+      "operation": "center fit from matching environment; quality 88 JPEG; metadata removed"
+    },
+    {
+      "path": "public/media/haven/share/meetNari.984c7fb099e8d002.jpg",
+      "sha256": "984c7fb099e8d0024469edf21b0301ac0aa6afb5207ca2e7618bd84b1a58cd82",
+      "width": 1200,
+      "height": 630,
+      "operation": "center fit from matching environment; quality 88 JPEG; metadata removed"
+    },
+    {
+      "path": "public/media/haven/share/nailStudio.c904958b8c8b36e1.jpg",
+      "sha256": "c904958b8c8b36e1ce2808787332ee9f7e94997c41a68696501153981ac91de3",
+      "width": 1200,
+      "height": 630,
+      "operation": "center fit from matching environment; quality 88 JPEG; metadata removed"
+    },
+    {
+      "path": "public/media/haven/share/resources.1b7a12ddeef4b5dc.jpg",
+      "sha256": "1b7a12ddeef4b5dcfb3454a5d6649da394a7b2ade3f5a38deecd2840b287f7ca",
+      "width": 1200,
+      "height": 630,
+      "operation": "center fit from matching environment; quality 88 JPEG; metadata removed"
+    },
+    {
+      "path": "public/media/haven/share/stories.4bf6654cd2c08e3e.jpg",
+      "sha256": "4bf6654cd2c08e3edd57f270673eb24b1d4f77138a9d6d1c50e72f818156ac95",
+      "width": 1200,
+      "height": 630,
+      "operation": "center fit from matching environment; quality 88 JPEG; metadata removed"
+    },
+    {
+      "path": "public/media/haven/share/streams.c7aebc6f7c82efe7.jpg",
+      "sha256": "c7aebc6f7c82efe73ddbacbfeaec06c2f88b1784014b8f0a5ca4c3185a18c9fe",
+      "width": 1200,
+      "height": 630,
+      "operation": "center fit from matching environment; quality 88 JPEG; metadata removed"
+    },
+    {
+      "path": "public/media/haven/share/workWithNari.af48a9dc89692417.jpg",
+      "sha256": "af48a9dc89692417bb46e3817e12314aac07d2137f66624e9b29de6276cd7751",
+      "width": 1200,
+      "height": 630,
+      "operation": "center fit from matching environment; quality 88 JPEG; metadata removed"
+    }
+  ],
+  "iconExports": [
+    {
+      "path": "public/favicon.png",
+      "sha256": "ce6352cc135b3244c35580612c51ad519ef2e280d30a9b4c6e381027ce62b4c1",
+      "source": "src/assets/source/delivery/media/haven/ghosties/welcome.webp",
+      "width": 96,
+      "height": 96,
+      "operation": "Uncropped RGBA resize; metadata removed."
+    },
+    {
+      "path": "public/apple-touch-icon.png",
+      "sha256": "c96114b671934b65deeddf3ebb6138daf6d146174aab985ff48747d4468b098f",
+      "source": "src/assets/source/delivery/media/haven/ghosties/welcome.webp",
+      "width": 180,
+      "height": 180,
+      "operation": "Uncropped RGBA resize; metadata removed."
+    },
+    {
+      "path": "public/icon-192.png",
+      "sha256": "addf8c0a02b2f96329d8f30bee0cdb7a7b2c28a36d1fc161a6216e8076094890",
+      "source": "src/assets/source/delivery/media/haven/ghosties/welcome.webp",
+      "width": 192,
+      "height": 192,
+      "operation": "Uncropped RGBA resize; metadata removed."
+    },
+    {
+      "path": "public/icon-512.png",
+      "sha256": "ab3780ca17021845fafc937b3454a3f094eda20368098ea18630bcbcef3beb89",
+      "source": "src/assets/source/delivery/media/haven/ghosties/welcome.webp",
+      "width": 512,
+      "height": 512,
+      "operation": "Uncropped RGBA resize; metadata removed."
+    }
+  ]
+}

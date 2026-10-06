@@ -1,6 +1,6 @@
 # Nari Nuna's Haven
 
-A warm illustrated Astro website for Nari: streaming, self-taught nail art, community and creative collaboration. Twelve real static documents, focused Vue islands and ordinary links. Current vNext experience work builds on the Astro migration in PR #24.
+A warm illustrated Astro home for Nari: five labelled room objects lead to streaming, self-taught nail art, biography, community and collaboration. Twelve real static documents, focused Vue islands and ordinary links. The new room artwork preserves the supplied character model unchanged.
 
 ## Run
 
@@ -54,4 +54,4 @@ Preserve approved copy, original artwork, source masters, privacy, credit and pe
 
 `npm run verify:release` intentionally remains blocked until client/content/rights/production-host/manual-QA records are cleared. The former `http-cache-semantics` advisory is resolved by the targeted upstream 4.3.0 patch; Astro remains 7.3.5 and the current full audit reports zero vulnerabilities.
 
-Read [the vNext implementation and current evidence](docs/43_VNEXT_EXPERIENCE.md), [the documentation hub](docs/README.md), and `AGENTS.md` before making changes. Earlier documents are dated history where superseded by the current implementation records.
+Read [the home rebuild and current evidence](docs/44_NARIS_HOME_REBUILD.md), [the documentation hub](docs/README.md), and `AGENTS.md` before making changes. Earlier documents are dated history where superseded by the current implementation records.

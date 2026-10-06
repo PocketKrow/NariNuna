@@ -1,22 +1,62 @@
 {
   "schemaVersion": 1,
   "groups": [
-    { "id": "nari-character", "label": "Nari / Character", "description": "Character artwork, identity work, and the model Nari supplied for this site review." },
-    { "id": "model-rigging", "label": "Model / Rigging", "description": "The people behind Nari's model setup and movement." },
-    { "id": "emotes", "label": "Emotes", "description": "The expressions that follow Nari from stream to stream." },
-    { "id": "channel-artwork", "label": "Channel Artwork", "description": "Banners, panels, profile art, and other channel graphics." },
-    { "id": "ghosties", "label": "Ghosties", "description": "The little spirits keeping watch around the Haven." },
-    { "id": "prinnies", "label": "Prinnies", "description": "Supplied collection artwork tracked separately from Nari's original identity." },
-    { "id": "website-artwork", "label": "Website Artwork", "description": "The storybook rooms, supporting illustrations, and visual details built for this review site." },
-    { "id": "photography-nails", "label": "Photography / Nails", "description": "Future real nail photography, published only after its creator and permissions are confirmed." },
-    { "id": "website", "label": "Website", "description": "Design, development, engineering, and maintenance of Nari's Haven." }
+    {
+      "id": "nari-character",
+      "label": "Nari / Character",
+      "description": "Character artwork, identity work, and the model Nari supplied for this site review."
+    },
+    {
+      "id": "model-rigging",
+      "label": "Model / Rigging",
+      "description": "The people behind Nari's model setup and movement."
+    },
+    {
+      "id": "emotes",
+      "label": "Emotes",
+      "description": "The expressions that follow Nari from stream to stream."
+    },
+    {
+      "id": "channel-artwork",
+      "label": "Channel Artwork",
+      "description": "Banners, panels, profile art, and other channel graphics."
+    },
+    {
+      "id": "ghosties",
+      "label": "Ghosties",
+      "description": "The little spirits keeping watch around the Haven."
+    },
+    {
+      "id": "prinnies",
+      "label": "Prinnies",
+      "description": "Supplied collection artwork tracked separately from Nari's original identity."
+    },
+    {
+      "id": "website-artwork",
+      "label": "Website Artwork",
+      "description": "The storybook rooms, supporting illustrations, and visual details built for this review site."
+    },
+    {
+      "id": "photography-nails",
+      "label": "Photography / Nails",
+      "description": "Future real nail photography, published only after its creator and permissions are confirmed."
+    },
+    {
+      "id": "website",
+      "label": "Website",
+      "description": "Design, development, engineering, and maintenance of Nari's Haven."
+    }
   ],
   "assetFamilies": [
     {
       "id": "supplied-nari-character",
       "label": "Supplied Nari character artwork",
       "assetRecord": "docs/asset-records/ASSET-2026-015-nari-supplied-character-and-emotes.md",
-      "trackedAssets": ["/media/nari/nari-model-fullbody.webp", "/media/nari/nari-model-portrait.webp", "/media/nari/nari-comfy-original.webp"],
+      "trackedAssets": [
+        "/media/nari/nari-model-fullbody.webp",
+        "/media/nari/nari-model-portrait.webp",
+        "/media/nari/nari-comfy-original.webp"
+      ],
       "publicationStatus": "blocked",
       "websiteUseStatus": "blocked",
       "derivativeUseStatus": "pending",
@@ -38,7 +78,10 @@
       "id": "official-static-emotes",
       "label": "Official static Nari emotes",
       "assetRecord": "docs/asset-records/ASSET-2026-015-nari-supplied-character-and-emotes.md",
-      "trackedAssets": ["/media/emotes/nari-comfy.webp", "/media/emotes/nari-panic.webp"],
+      "trackedAssets": [
+        "/media/emotes/nari-comfy.webp",
+        "/media/emotes/nari-panic.webp"
+      ],
       "publicationStatus": "blocked",
       "websiteUseStatus": "blocked",
       "derivativeUseStatus": "pending",
@@ -60,7 +103,10 @@
       "id": "community-ghosties",
       "label": "Ghostie support artwork",
       "assetRecord": "docs/asset-records/ASSET-2026-019-storybook-environments-and-ghosties.md",
-      "trackedAssets": ["/media/ghosties/community/ghostie-heart.webp", "/media/ghosties/community/ghostie-protective.webp"],
+      "trackedAssets": [
+        "/media/ghosties/community/ghostie-heart.webp",
+        "/media/ghosties/community/ghostie-protective.webp"
+      ],
       "publicationStatus": "pending",
       "websiteUseStatus": "pending",
       "derivativeUseStatus": "pending",
@@ -71,7 +117,9 @@
       "id": "supplied-prinny-collection",
       "label": "Supplied Prinny collection",
       "assetRecord": "docs/asset-records/ASSET-2026-017-supplied-prinny-collection.md",
-      "trackedAssets": ["/media/prinny-cult/roster/original.webp"],
+      "trackedAssets": [
+        "/media/prinny-cult/roster/original.webp"
+      ],
       "publicationStatus": "blocked",
       "websiteUseStatus": "blocked",
       "derivativeUseStatus": "blocked",
@@ -82,7 +130,10 @@
       "id": "storybook-nari",
       "label": "Owner-directed storybook Nari derivatives",
       "assetRecord": "docs/asset-records/ASSET-2026-018-owner-authorized-storybook-nari.md",
-      "trackedAssets": ["/media/storybook/characters/nari-painted-welcome.webp", "/media/storybook/characters/nari-painted-portrait.webp"],
+      "trackedAssets": [
+        "/media/storybook/characters/nari-painted-welcome.webp",
+        "/media/storybook/characters/nari-painted-portrait.webp"
+      ],
       "publicationStatus": "blocked",
       "websiteUseStatus": "blocked",
       "derivativeUseStatus": "blocked",
@@ -93,7 +144,10 @@
       "id": "storybook-environments",
       "label": "Storybook rooms and supporting website artwork",
       "assetRecord": "docs/asset-records/ASSET-2026-019-storybook-environments-and-ghosties.md",
-      "trackedAssets": ["/media/storybook/scenes/haven-sunset.webp", "/media/storybook/scenes/resources-library.webp"],
+      "trackedAssets": [
+        "/media/storybook/scenes/haven-sunset.webp",
+        "/media/storybook/scenes/resources-library.webp"
+      ],
       "publicationStatus": "pending",
       "websiteUseStatus": "pending",
       "derivativeUseStatus": "pending",
@@ -121,6 +175,41 @@
       "derivativeUseStatus": "not-applicable",
       "thirdPartyStatus": "not-applicable",
       "approvalStatus": "approved"
+    },
+    {
+      "id": "haven-room-rebuild",
+      "label": "Nari\u2019s home: rooms, objects and Ghosties",
+      "assetRecord": "docs/asset-records/ASSET-2026-022-haven-room-rebuild.md",
+      "trackedAssets": [
+        "/media/haven/environments/room-dusk.webp",
+        "/media/haven/environments/room-mobile.webp",
+        "/media/haven/environments/broadcast-desk.webp",
+        "/media/haven/environments/nail-worktable.webp",
+        "/media/haven/environments/scrapbook.webp",
+        "/media/haven/environments/common-room.webp",
+        "/media/haven/environments/correspondence.webp",
+        "/media/haven/environments/bookshelf.webp",
+        "/media/haven/environments/memory-corner.webp",
+        "/media/haven/objects/monitor.webp",
+        "/media/haven/objects/polish.webp",
+        "/media/haven/objects/album.webp",
+        "/media/haven/objects/door.webp",
+        "/media/haven/objects/foreground.webp",
+        "/media/haven/ghosties/sleepy.webp",
+        "/media/haven/ghosties/mischief.webp",
+        "/media/haven/ghosties/welcome.webp",
+        "/media/haven/ghosties/messenger.webp",
+        "/media/haven/objects/letter.webp",
+        "/favicon.png",
+        "/apple-touch-icon.png",
+        "/icon-192.png",
+        "/icon-512.png"
+      ],
+      "publicationStatus": "pending",
+      "websiteUseStatus": "pending",
+      "derivativeUseStatus": "pending",
+      "thirdPartyStatus": "pending",
+      "approvalStatus": "pending"
     }
   ],
   "credits": [
@@ -128,11 +217,15 @@
       "id": "nari-character-attribution-pending",
       "groupId": "nari-character",
       "displayName": "Attribution being confirmed",
-      "roles": ["Character and model artwork"],
+      "roles": [
+        "Character and model artwork"
+      ],
       "contribution": "Nari's supplied character model, portrait, and cozy illustration.",
       "creditText": "The original artist and preferred public credit are still being confirmed.",
       "links": [],
-      "assetFamilyIds": ["supplied-nari-character"],
+      "assetFamilyIds": [
+        "supplied-nari-character"
+      ],
       "creditStatus": "pending",
       "artworkDisplayStatus": "not-approved",
       "artwork": [],
@@ -142,11 +235,15 @@
       "id": "nari-rigging-attribution-pending",
       "groupId": "model-rigging",
       "displayName": "Attribution being confirmed",
-      "roles": ["Model rigging"],
+      "roles": [
+        "Model rigging"
+      ],
       "contribution": "Nari's model setup and rigging credit is waiting for a verified public name and destination.",
       "creditText": "No rigger name is published here until Nari confirms it.",
       "links": [],
-      "assetFamilyIds": ["nari-model-rigging"],
+      "assetFamilyIds": [
+        "nari-model-rigging"
+      ],
       "creditStatus": "pending",
       "artworkDisplayStatus": "not-applicable",
       "artwork": [],
@@ -156,11 +253,15 @@
       "id": "nari-emote-attribution-pending",
       "groupId": "emotes",
       "displayName": "Attribution being confirmed",
-      "roles": ["Emote artwork"],
+      "roles": [
+        "Emote artwork"
+      ],
       "contribution": "Nari's supplied static emote collection.",
       "creditText": "The original emote artist and preferred public credit are still being confirmed.",
       "links": [],
-      "assetFamilyIds": ["official-static-emotes"],
+      "assetFamilyIds": [
+        "official-static-emotes"
+      ],
       "creditStatus": "pending",
       "artworkDisplayStatus": "not-approved",
       "artwork": [],
@@ -170,11 +271,15 @@
       "id": "channel-artwork-attribution-pending",
       "groupId": "channel-artwork",
       "displayName": "Details still needed",
-      "roles": ["Banners, panels, and channel graphics"],
+      "roles": [
+        "Banners, panels, and channel graphics"
+      ],
       "contribution": "Channel-art contributors will be added after Nari confirms the work, names, links, and wording.",
       "creditText": "This category is intentionally open rather than guessed.",
       "links": [],
-      "assetFamilyIds": ["channel-identity-artwork"],
+      "assetFamilyIds": [
+        "channel-identity-artwork"
+      ],
       "creditStatus": "pending",
       "artworkDisplayStatus": "not-applicable",
       "artwork": [],
@@ -183,12 +288,17 @@
     {
       "id": "ghostie-attribution-review",
       "groupId": "ghosties",
-      "displayName": "Project artwork — attribution review",
-      "roles": ["Ghostie support artwork"],
+      "displayName": "Project artwork \u2014 attribution review",
+      "roles": [
+        "Ghostie support artwork"
+      ],
       "contribution": "The current review build uses project-created Ghostie artwork while final adoption and credit wording remain open.",
       "creditText": "These Ghosties are review artwork, not a claim about an outside artist or official emote commission.",
       "links": [],
-      "assetFamilyIds": ["community-ghosties"],
+      "assetFamilyIds": [
+        "community-ghosties",
+        "haven-room-rebuild"
+      ],
       "creditStatus": "pending",
       "artworkDisplayStatus": "not-approved",
       "artwork": [],
@@ -198,11 +308,15 @@
       "id": "prinny-attribution-pending",
       "groupId": "prinnies",
       "displayName": "Attribution and rights review pending",
-      "roles": ["Supplied collection artwork"],
+      "roles": [
+        "Supplied collection artwork"
+      ],
       "contribution": "The hidden-room collection is tracked separately while artist, character, franchise, and website-use details are verified.",
       "creditText": "The collection is not presented as original Nari Nuna intellectual property.",
       "links": [],
-      "assetFamilyIds": ["supplied-prinny-collection"],
+      "assetFamilyIds": [
+        "supplied-prinny-collection"
+      ],
       "creditStatus": "pending",
       "artworkDisplayStatus": "not-approved",
       "artwork": [],
@@ -212,11 +326,17 @@
       "id": "website-storybook-artwork",
       "groupId": "website-artwork",
       "displayName": "Nari Nuna website project",
-      "roles": ["Storybook art direction and production"],
-      "contribution": "Owner-directed storybook scenes, Nari derivatives, room art, and supporting visual details made for this review build.",
+      "roles": [
+        "Storybook art direction and production"
+      ],
+      "contribution": "Owner-directed home environments, navigation objects, Ghosties and supporting visual details made for this review build. Earlier artwork remains archived.",
       "creditText": "Project-created review artwork; final adoption and underlying model-derivative rights remain unresolved.",
       "links": [],
-      "assetFamilyIds": ["storybook-nari", "storybook-environments"],
+      "assetFamilyIds": [
+        "storybook-nari",
+        "storybook-environments",
+        "haven-room-rebuild"
+      ],
       "creditStatus": "internal",
       "artworkDisplayStatus": "not-approved",
       "artwork": [],
@@ -226,11 +346,15 @@
       "id": "nail-photography-hold",
       "groupId": "photography-nails",
       "displayName": "Waiting for Nari's real work",
-      "roles": ["Nail photography"],
+      "roles": [
+        "Nail photography"
+      ],
       "contribution": "No nail photographs are credited or displayed until real work, creator details, and publication permission are supplied.",
       "creditText": "The illustrated Nail Studio is atmosphere, not a nail portfolio.",
       "links": [],
-      "assetFamilyIds": ["future-nail-photography"],
+      "assetFamilyIds": [
+        "future-nail-photography"
+      ],
       "creditStatus": "pending",
       "artworkDisplayStatus": "not-approved",
       "artwork": [],
@@ -240,11 +364,17 @@
       "id": "somber-crow-website",
       "groupId": "website",
       "displayName": "Somber Crow",
-      "roles": ["Design", "Development", "Engineering"],
+      "roles": [
+        "Design",
+        "Development",
+        "Engineering"
+      ],
       "contribution": "Website architecture, visual implementation, accessibility work, and ongoing maintenance.",
       "creditText": "Built for Nari Nuna and her Ghosties.",
       "links": [],
-      "assetFamilyIds": ["website-implementation"],
+      "assetFamilyIds": [
+        "website-implementation"
+      ],
       "creditStatus": "internal",
       "artworkDisplayStatus": "not-applicable",
       "artwork": [],

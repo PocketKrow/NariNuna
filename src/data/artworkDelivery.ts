@@ -44,12 +44,22 @@ export const heroBands = [
 
 /** One selection algorithm feeds picture sources, head preloads and CSS backgrounds. */
 export function heroSources(source: string) {
-  return heroBands.map(({ media, widths }) => ({
+  const home = source.endsWith('/room-dusk.webp');
+  const bands = home ? [
+    { media: '(width < 1024px)', widths: [768, 1280] },
+    { media: '(1024px <= width < 1280px)', widths: [1280, 1672] },
+    { media: '(width >= 1280px)', widths: [1672] }
+  ] : heroBands;
+  return bands.map(({ media, widths }, index) => {
+    const selected = home && index === 0 ? '/media/haven/environments/room-mobile.webp' : source;
+    return ({
     media,
-    src: artworkSrc(source, widths[0]),
-    srcset: widths.map((width, index) => `${artworkSrc(source, width)} ${index + 1}x`).join(", "),
-    background: `image-set(${widths.map((width, index) => `url("${artworkSrc(source, width)}") ${index + 1}x`).join(", ")})`
-  }));
+    src: artworkSrc(selected, widths[0]),
+    source: selected,
+    srcset: widths.map((width, index) => `${artworkSrc(selected, width)} ${index + 1}x`).join(", "),
+    background: `image-set(${widths.map((width, index) => `url("${artworkSrc(selected, width)}") ${index + 1}x`).join(", ")})`
+  });
+  });
 }
 
 /** Bridge the shared density bands into the existing room and Home CSS variable names. */

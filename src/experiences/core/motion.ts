@@ -12,6 +12,11 @@ export function choreograph(): () => void {
           y: 18, ease: "none",
           scrollTrigger: { trigger: arrival, start: "top top", end: "bottom top", scrub: 0.6 },
         });
+        const foreground = arrival.querySelector('.home-room__foreground');
+        if (foreground) gsap.to(foreground, {
+          y: -10, ease: 'none',
+          scrollTrigger: { trigger: arrival, start: 'top top', end: 'bottom top', scrub: 0.6 },
+        });
       }
       for (const material of document.querySelectorAll<HTMLElement>("[data-material-reveal]")) {
         // Never hide text or make it dependent on a reveal. Only the material shifts a few pixels.

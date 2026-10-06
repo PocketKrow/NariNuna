@@ -1,0 +1,8 @@
+---
+// Static raster delivery for room objects; no hydration or source master exposed.
+import { artworkMetadata, artworkSrc, artworkSrcset } from '@/data/artworkDelivery';
+interface Props { artwork: string; alt?: string; sizes: string; class?: string; eager?: boolean; maxWidth?: number; }
+const { artwork, alt = '', sizes, class: className, eager = false, maxWidth = Infinity } = Astro.props;
+const metadata = artworkMetadata(artwork);
+---
+<img class={className} src={artworkSrc(artwork, Math.min(480, maxWidth))} srcset={artworkSrcset(artwork, maxWidth)} sizes={sizes} width={metadata.width} height={metadata.height} alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" />

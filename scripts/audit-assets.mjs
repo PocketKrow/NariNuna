@@ -13,9 +13,9 @@ function files(directory) {
 
 // Literal references are evidence for review, not proof of reachability or safe deletion.
 // Templates, CSS and content registries can build URLs dynamically (notably the Prinny roster).
-const scan = (roots) => roots.flatMap(files).filter((path) => /\.(vue|ts|scss|html|json|mjs|sh|py|md)$/.test(path))
+const scan = (roots) => roots.flatMap(files).filter((path) => /\.(astro|vue|ts|scss|html|json|mjs|sh|py|md)$/.test(path))
   .map((path) => [path, readFileSync(path, "utf8")]);
-const runtime = scan(["src", "pages"]).filter(([path]) => !path.startsWith("src/assets/") && !path.endsWith("responsive-artwork.json"));
+const runtime = scan(["src"]).filter(([path]) => !path.startsWith("src/assets/") && !path.endsWith("responsive-artwork.json"));
 const contracts = scan(["scripts", "tests", "docs"]);
 const candidates = new Set(Object.values(generated.artworks).flatMap(({ candidates }) => candidates.map(({ src }) => src)));
 const assets = files("public").map((path) => {

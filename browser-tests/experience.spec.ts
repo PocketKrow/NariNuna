@@ -10,8 +10,37 @@ async function scan(page: Page): Promise<void> {
   const result = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();
   expect(result.violations.map(({ id, nodes }) => ({ id, targets: nodes.map(({ target }) => target) }))).toEqual([]);
 }
+
+for (const width of [320, 390, 768, 1440]) {
+  test(`room objects remain labelled native destinations without JavaScript at ${width}px`, async ({ browser }) => {
+    const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width, height: 900 } });
+    const page = await context.newPage();
+    await page.goto('http://127.0.0.1:4175/');
+    const destinations = ['/streams/', '/nail-studio/', '/meet-nari/', '/haven/', '/work-with-nari/'];
+    const links = page.locator('.home-room__objects > a');
+    await expect(links).toHaveCount(5);
+    for (let index = 0; index < destinations.length; index++) {
+      const link = links.nth(index);
+      await expect(link).toHaveAttribute('href', destinations[index]);
+      await expect(link.locator('strong')).toBeVisible();
+      await link.scrollIntoViewIfNeeded();
+      const label = link.locator('.room-object__label');
+      expect(await label.evaluate((el) => {
+        const r = el.getBoundingClientRect();
+        return document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2)?.closest('a') === el.closest('a');
+      })).toBe(true);
+      await link.focus();
+      await page.keyboard.press('Enter');
+      await expect(page).toHaveURL(`http://127.0.0.1:4175${destinations[index]}`);
+      await page.goBack();
+    }
+    await context.close();
+  });
+}
 for (const width of [390, 1440]) {
   test(`all routes pass axe at ${width}px`, async ({ page }) => {
+    // This one test scans twelve documents; allow slow CI hosts without relaxing axe assertions.
+    test.setTimeout(90_000);
     await page.setViewportSize({ width, height: 900 });
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.route("https://i.ytimg.com/**", (route) => route.abort());

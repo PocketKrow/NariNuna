@@ -46,6 +46,10 @@ def generate():
         ('postcard', sorted((SOURCES / 'media/storybook/postcards').glob('*.webp')), [128, 256, 480, 768], 70_000),
         ('ghostie', sorted((SOURCES / 'media/ghosties/community').glob('*.webp')), [64, 128, 256, 512, 768], 90_000),
         ('motif', [SOURCES / 'media/motifs/lavender-sprig.webp'], [128, 256], 30_000),
+        ('haven-scene', sorted((SOURCES / 'media/haven/environments').glob('*.webp')), [480, 768, 1280, 1672], 148_000),
+        ('haven-postcard', sorted((SOURCES / 'media/haven/postcards').glob('*.webp')), [128, 256, 480, 768], 70_000),
+        ('haven-object', sorted((SOURCES / 'media/haven/objects').glob('*.webp')), [128, 256, 480, 768], 70_000),
+        ('haven-ghostie', sorted((SOURCES / 'media/haven/ghosties').glob('*.webp')), [64, 128, 256, 512, 768], 70_000),
     ]
     jobs = [(role, source, widths, budget) for role, paths, widths, budget in families for source in paths]
     with ThreadPoolExecutor(max_workers=4) as pool:
@@ -63,6 +67,15 @@ def prepare_source(job):
         return None
     image = Image.open(source)
     sizes = [320, 640, 768] if source.stem == 'haven-doorway-interior' else widths
+    # Padded props are small physical objects. Only the broad monitor needs 768px;
+    # the remaining objects and inhabitants cap delivery without changing masters.
+    if role == 'haven-object' and source.stem != 'monitor':
+        sizes = [width for width in widths if width <= 480]
+    if role == 'haven-ghostie':
+        sizes = [width for width in widths if width <= 512]
+    # Retain a full-resolution delivery copy up to the scene ceiling, without upscaling.
+    if role == 'haven-scene':
+        sizes = sorted(set([width for width in widths if width <= image.width] + [min(image.width, 1672)]))
     candidates = []
     for width in sizes:
         if width > image.width:
@@ -70,14 +83,14 @@ def prepare_source(job):
         height = round(image.height * width / image.width)
         resized = image.resize((width, height), Image.Resampling.LANCZOS)
         # Try the highest allowed quality first. Content hashes name the exact final encoded bytes.
-        for quality in range(84, 49, -2):
+        for quality in range(84, 39 if role == 'haven-scene' else 49, -2):
             output = BytesIO()
             resized.save(output, format='WEBP', quality=quality, method=6, exact=True)
             data = output.getvalue()
             if len(data) <= budget:
                 break
         else:
-            raise RuntimeError(f'{source.name} at {width}px exceeds {budget} bytes at quality 50')
+            raise RuntimeError(f'{source.name} at {width}px exceeds {budget} bytes at minimum quality')
         digest = sha256(data).hexdigest()
         filename = f'{role}-{source.stem}-{width}.{digest[:16]}.webp'
         (OUTPUT / filename).write_bytes(data)

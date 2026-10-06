@@ -1268,6 +1268,1092 @@
           "quality": 84
         }
       ]
+    },
+    "/media/haven/environments/broadcast-desk.webp": {
+      "sourceFile": "src/assets/source/delivery/media/haven/environments/broadcast-desk.webp",
+      "role": "haven-scene",
+      "sourceSha256": "70615e64e6bbcb67cc43bcc15e31d2e01c461463cc3f99fce69561622fdfe315",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "candidates": [
+        {
+          "src": "/media/responsive/haven-scene-broadcast-desk-480.76f071e68a2252b7.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 34050,
+          "sha256": "76f071e68a2252b78a43eadef83e9c1c4bcd59dfda3ba8c45c383b8cc9151864",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-scene-broadcast-desk-768.28a022600647346a.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 73066,
+          "sha256": "28a022600647346a14146184774dae1fc7b3aed45871dc771d2ff5df229a1400",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-scene-broadcast-desk-1280.ffe36bb0aed3faed.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 143156,
+          "sha256": "ffe36bb0aed3faed9fa182786b9889e574cdd33e3897ba7efb915b69910e8096",
+          "quality": 82
+        },
+        {
+          "src": "/media/responsive/haven-scene-broadcast-desk-1672.0f2c385326f37172.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 145352,
+          "sha256": "0f2c385326f37172352e1aaff3cb37ed38f6709ffbf7d8bf63c75b2b0de952d7",
+          "quality": 72
+        }
+      ]
+    },
+    "/media/haven/environments/correspondence.webp": {
+      "sourceFile": "src/assets/source/delivery/media/haven/environments/correspondence.webp",
+      "role": "haven-scene",
+      "sourceSha256": "4fff09fc5d31c0ceaacd6684c72cd210d311756c3d45061ae66110e69623867c",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "candidates": [
+        {
+          "src": "/media/responsive/haven-scene-correspondence-480.03a003376dabeeed.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 36192,
+          "sha256": "03a003376dabeeed3b48c3f828cc34f1c5760e803d0007ac53f95df08b8d8b26",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-scene-correspondence-768.bfc2c326c098f176.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 77646,
+          "sha256": "bfc2c326c098f176bdddd0a0fca63a699d39f1cefc7dd3f6c5682635c425f777",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-scene-correspondence-1280.1f29ac741dd18b7f.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 143306,
+          "sha256": "1f29ac741dd18b7f3671cf54042e7556d5459fe39972c0f32e59743d728cd962",
+          "quality": 80
+        },
+        {
+          "src": "/media/responsive/haven-scene-correspondence-1672.a860dd1e3c47be09.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 146894,
+          "sha256": "a860dd1e3c47be0961a543d35165d9e807759b3a28a629e871b2fbd1ebc8fa21",
+          "quality": 66
+        }
+      ]
+    },
+    "/media/haven/environments/bookshelf.webp": {
+      "sourceFile": "src/assets/source/delivery/media/haven/environments/bookshelf.webp",
+      "role": "haven-scene",
+      "sourceSha256": "9db91ee7b30cc3088183a971b9e6e2684eaddc026276354cad0cc9aa692f3c47",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "candidates": [
+        {
+          "src": "/media/responsive/haven-scene-bookshelf-480.41ef99547ddf2aa8.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 35276,
+          "sha256": "41ef99547ddf2aa8cdc7b21035d253bd58d53325343c4017795bac385376f7ca",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-scene-bookshelf-768.6d97a554b615869b.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 79690,
+          "sha256": "6d97a554b615869b7f5f4ef38929867680d128bd55f14b38d9072890c184f5ef",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-scene-bookshelf-1280.66d9c4b58a7a78ba.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 146290,
+          "sha256": "66d9c4b58a7a78ba231253e97a0262d37228ae2e34c6cad6ab5d883cbfa1f68f",
+          "quality": 80
+        },
+        {
+          "src": "/media/responsive/haven-scene-bookshelf-1672.d6be10d54fab7154.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 146358,
+          "sha256": "d6be10d54fab7154c1f6a86cfe2d0e074204b0795422758704d3b01556a63f30",
+          "quality": 62
+        }
+      ]
+    },
+    "/media/haven/environments/common-room.webp": {
+      "sourceFile": "src/assets/source/delivery/media/haven/environments/common-room.webp",
+      "role": "haven-scene",
+      "sourceSha256": "da889b970443558b2e7f8f0cabccfe23cf116fae30753c35ab1c81ddbb740a39",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "candidates": [
+        {
+          "src": "/media/responsive/haven-scene-common-room-480.877c5b90e3fa2eed.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 39638,
+          "sha256": "877c5b90e3fa2eed5560350a81b8494230f88b77a4ccba29f331fa1c02b9d297",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-scene-common-room-768.b39fd409ef0a4e89.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 91076,
+          "sha256": "b39fd409ef0a4e8957d26b51b497e00b5e1b2436c64cc640b12aec7ad224edaf",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-scene-common-room-1280.109708fd054aaef5.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 143148,
+          "sha256": "109708fd054aaef5426f0f00b4abed506ef55765b1fc542aa09426dcd8545072",
+          "quality": 76
+        },
+        {
+          "src": "/media/responsive/haven-scene-common-room-1672.1ec7b4299676435b.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 147914,
+          "sha256": "1ec7b4299676435b6bf49c3f64d2ff747835ced9baf6f6dee4924efac958c3e6",
+          "quality": 52
+        }
+      ]
+    },
+    "/media/haven/environments/room-dusk.webp": {
+      "sourceFile": "src/assets/source/delivery/media/haven/environments/room-dusk.webp",
+      "role": "haven-scene",
+      "sourceSha256": "e43e1a0fd7dccb2da5be19e5e3964ae74c8c617760a978cbc9b896cdf36e1449",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "candidates": [
+        {
+          "src": "/media/responsive/haven-scene-room-dusk-480.6d1807352b9e195f.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 31344,
+          "sha256": "6d1807352b9e195f50e6e6067e96cbe86b9e5c3f75f4fc754896c9b0c7fb4bfe",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-scene-room-dusk-768.fda7df9c78ace9ec.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 68166,
+          "sha256": "fda7df9c78ace9ecceb951021dcac60f6f80e2851bdcf36db42a9cce108c2e01",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-scene-room-dusk-1280.693f1212f1b4250e.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 138810,
+          "sha256": "693f1212f1b4250e2e0d7170504f684b09ecc1cff06ffbf40b487d3d0b4c21fa",
+          "quality": 82
+        },
+        {
+          "src": "/media/responsive/haven-scene-room-dusk-1672.66ac07e160433301.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 144144,
+          "sha256": "66ac07e160433301a964d248fa1df2504c6fdcc303b7a9780eb4151f45aa507b",
+          "quality": 72
+        }
+      ]
+    },
+    "/media/haven/environments/memory-corner.webp": {
+      "sourceFile": "src/assets/source/delivery/media/haven/environments/memory-corner.webp",
+      "role": "haven-scene",
+      "sourceSha256": "1201e0ff0525436e5cfacd60d05dde5f22f0c5d13c8a1abb9c1c19e3f9ca9cf7",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "candidates": [
+        {
+          "src": "/media/responsive/haven-scene-memory-corner-480.eb769f257231ca14.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 37140,
+          "sha256": "eb769f257231ca14875bbd833a1545c3f807a654ea51f96a10f28bf79fd32261",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-scene-memory-corner-768.c761f504ca7049a9.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 81636,
+          "sha256": "c761f504ca7049a9cf2e189bc475140ba4860bb12e0e1100ffc0975726e12c60",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-scene-memory-corner-1280.6a6deb063393d0b4.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 136864,
+          "sha256": "6a6deb063393d0b40806e960e0375fe1a92a7a94b66d9e3b394911d4e5a49aa4",
+          "quality": 78
+        },
+        {
+          "src": "/media/responsive/haven-scene-memory-corner-1672.221201baadba9cdd.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 147436,
+          "sha256": "221201baadba9cddc7c90b0b5c0b46ceedc476ada6164888a94aea0f55a82a74",
+          "quality": 60
+        }
+      ]
+    },
+    "/media/haven/postcards/bookshelf.webp": {
+      "sourceFile": "src/assets/source/delivery/media/haven/postcards/bookshelf.webp",
+      "role": "haven-postcard",
+      "sourceSha256": "9db91ee7b30cc3088183a971b9e6e2684eaddc026276354cad0cc9aa692f3c47",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "candidates": [
+        {
+          "src": "/media/responsive/haven-postcard-bookshelf-128.f73dafff1ed0351e.webp",
+          "width": 128,
+          "height": 72,
+          "bytes": 3402,
+          "sha256": "f73dafff1ed0351ea4ae6bceaf0a7cd4b4bdf42c4c9a318e74bdc21f699963f3",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-postcard-bookshelf-256.a3d2de235bc8c386.webp",
+          "width": 256,
+          "height": 144,
+          "bytes": 11362,
+          "sha256": "a3d2de235bc8c3868475bfe39ddd10053527540e747fcc45c383872d587e0b43",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-postcard-bookshelf-480.41ef99547ddf2aa8.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 35276,
+          "sha256": "41ef99547ddf2aa8cdc7b21035d253bd58d53325343c4017795bac385376f7ca",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-postcard-bookshelf-768.c03ed4aa9ea1e20e.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 67350,
+          "sha256": "c03ed4aa9ea1e20ee325167fe8d7352bcfbbcb7650a8187f07c6346fc7ee6725",
+          "quality": 80
+        }
+      ]
+    },
+    "/media/haven/postcards/broadcast-desk.webp": {
+      "sourceFile": "src/assets/source/delivery/media/haven/postcards/broadcast-desk.webp",
+      "role": "haven-postcard",
+      "sourceSha256": "70615e64e6bbcb67cc43bcc15e31d2e01c461463cc3f99fce69561622fdfe315",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "candidates": [
+        {
+          "src": "/media/responsive/haven-postcard-broadcast-desk-128.1bbf678499208ab5.webp",
+          "width": 128,
+          "height": 72,
+          "bytes": 3510,
+          "sha256": "1bbf678499208ab5af291c6acd1d4f7377586c910468e93b20d1e66b7e89ed8d",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-postcard-broadcast-desk-256.0d9f615e6b13bea0.webp",
+          "width": 256,
+          "height": 144,
+          "bytes": 11362,
+          "sha256": "0d9f615e6b13bea022c38ebad07fbcccba440a5a07fa126ad71d019b0fe2985c",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-postcard-broadcast-desk-480.76f071e68a2252b7.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 34050,
+          "sha256": "76f071e68a2252b78a43eadef83e9c1c4bcd59dfda3ba8c45c383b8cc9151864",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-postcard-broadcast-desk-768.58a2648432b66ce9.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 66796,
+          "sha256": "58a2648432b66ce99ac9fe8b7f7e47debf55de42b4875e90aea2b3f10a0df88f",
+          "quality": 82
+        }
+      ]
+    },
+    "/media/haven/postcards/common-room.webp": {
+      "sourceFile": "src/assets/source/delivery/media/haven/postcards/common-room.webp",
+      "role": "haven-postcard",
+      "sourceSha256": "da889b970443558b2e7f8f0cabccfe23cf116fae30753c35ab1c81ddbb740a39",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "candidates": [
+        {
+          "src": "/media/responsive/haven-postcard-common-room-128.88504c92202c66b2.webp",
+          "width": 128,
+          "height": 72,
+          "bytes": 3746,
+          "sha256": "88504c92202c66b210d8d8fc646f911194af9090ed669f4fb717f73aae3155c2",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-postcard-common-room-256.d0298cd98b9a3a9f.webp",
+          "width": 256,
+          "height": 144,
+          "bytes": 12802,
+          "sha256": "d0298cd98b9a3a9fe2db8f3eeb70db297b46ef3604ba102f38d3841c2111d1c9",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-postcard-common-room-480.877c5b90e3fa2eed.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 39638,
+          "sha256": "877c5b90e3fa2eed5560350a81b8494230f88b77a4ccba29f331fa1c02b9d297",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-postcard-common-room-768.8106f02afb5d28cd.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 65664,
+          "sha256": "8106f02afb5d28cdaa546f4bc1899122031e66f0ee059ed3b55b73dd32bceba3",
+          "quality": 76
+        }
+      ]
+    },
+    "/media/haven/postcards/correspondence.webp": {
+      "sourceFile": "src/assets/source/delivery/media/haven/postcards/correspondence.webp",
+      "role": "haven-postcard",
+      "sourceSha256": "4fff09fc5d31c0ceaacd6684c72cd210d311756c3d45061ae66110e69623867c",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "candidates": [
+        {
+          "src": "/media/responsive/haven-postcard-correspondence-128.38731f47fe86146e.webp",
+          "width": 128,
+          "height": 72,
+          "bytes": 3606,
+          "sha256": "38731f47fe86146edeff406a09180fed68d84941f2edaaead7eed6f824fd7d51",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-postcard-correspondence-256.ff2a5340e158e557.webp",
+          "width": 256,
+          "height": 144,
+          "bytes": 11978,
+          "sha256": "ff2a5340e158e557cd0ee6c7cd892d15ff00c04587906cf801eede7a32eead02",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-postcard-correspondence-480.03a003376dabeeed.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 36192,
+          "sha256": "03a003376dabeeed3b48c3f828cc34f1c5760e803d0007ac53f95df08b8d8b26",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-postcard-correspondence-768.07b800638c741718.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 65838,
+          "sha256": "07b800638c7417180d774cf87ebd939c64f004faeddc3d7e9d3fdf8a8a85e0b2",
+          "quality": 80
+        }
+      ]
+    },
+    "/media/haven/postcards/memory-corner.webp": {
+      "sourceFile": "src/assets/source/delivery/media/haven/postcards/memory-corner.webp",
+      "role": "haven-postcard",
+      "sourceSha256": "1201e0ff0525436e5cfacd60d05dde5f22f0c5d13c8a1abb9c1c19e3f9ca9cf7",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "candidates": [
+        {
+          "src": "/media/responsive/haven-postcard-memory-corner-128.3768a753ad4d2f67.webp",
+          "width": 128,
+          "height": 72,
+          "bytes": 3566,
+          "sha256": "3768a753ad4d2f6730803478e94c06ade604ea6b951972f62ef5b9ab85ffcefb",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-postcard-memory-corner-256.17d75549f67f658d.webp",
+          "width": 256,
+          "height": 144,
+          "bytes": 12044,
+          "sha256": "17d75549f67f658d26af79b270468f387aaa54067c37103fb09545150843b7ba",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-postcard-memory-corner-480.eb769f257231ca14.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 37140,
+          "sha256": "eb769f257231ca14875bbd833a1545c3f807a654ea51f96a10f28bf79fd32261",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-postcard-memory-corner-768.67a7cce2973e76b3.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 69342,
+          "sha256": "67a7cce2973e76b3f869a9d5b0497ec0bb8ed1fc21c967e343ca0549108ff37c",
+          "quality": 80
+        }
+      ]
+    },
+    "/media/haven/environments/room-mobile.webp": {
+      "sourceFile": "src/assets/source/delivery/media/haven/environments/room-mobile.webp",
+      "role": "haven-scene",
+      "sourceSha256": "c0f608befea9e6a923f729462da88957cd37b93c2fdf78819b1266ed05e37ae2",
+      "width": 971,
+      "height": 1619,
+      "alpha": false,
+      "candidates": [
+        {
+          "src": "/media/responsive/haven-scene-room-mobile-480.222f5f314971c1a2.webp",
+          "width": 480,
+          "height": 800,
+          "bytes": 84804,
+          "sha256": "222f5f314971c1a26545b7687978b6d8e5d16840d0800d468a805cc28411d976",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-scene-room-mobile-768.c4c2e4446914e005.webp",
+          "width": 768,
+          "height": 1281,
+          "bytes": 143224,
+          "sha256": "c4c2e4446914e00529277617b0b3c246625db07d981d5d14e453bed10cbe6b76",
+          "quality": 80
+        },
+        {
+          "src": "/media/responsive/haven-scene-room-mobile-971.0f8f57686858903d.webp",
+          "width": 971,
+          "height": 1619,
+          "bytes": 144856,
+          "sha256": "0f8f57686858903ddb24fae7db058f4c33f48669c647ff7c203d508f5dfd3e5b",
+          "quality": 66
+        }
+      ]
+    },
+    "/media/haven/postcards/room-dusk.webp": {
+      "sourceFile": "src/assets/source/delivery/media/haven/postcards/room-dusk.webp",
+      "role": "haven-postcard",
+      "sourceSha256": "e43e1a0fd7dccb2da5be19e5e3964ae74c8c617760a978cbc9b896cdf36e1449",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "candidates": [
+        {
+          "src": "/media/responsive/haven-postcard-room-dusk-128.87e925ce7e74f548.webp",
+          "width": 128,
+          "height": 72,
+          "bytes": 3278,
+          "sha256": "87e925ce7e74f548a85086bbe4de0f5dcf1047e2f304f1b63a0f8728c3544e4b",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-postcard-room-dusk-256.2e4e90ceb392eef1.webp",
+          "width": 256,
+          "height": 144,
+          "bytes": 10706,
+          "sha256": "2e4e90ceb392eef12c0e9eaf0b047860936a85e13c2ffccc510cb8800130828f",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-postcard-room-dusk-480.6d1807352b9e195f.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 31344,
+          "sha256": "6d1807352b9e195f50e6e6067e96cbe86b9e5c3f75f4fc754896c9b0c7fb4bfe",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-postcard-room-dusk-768.fda7df9c78ace9ec.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 68166,
+          "sha256": "fda7df9c78ace9ecceb951021dcac60f6f80e2851bdcf36db42a9cce108c2e01",
+          "quality": 84
+        }
+      ]
+    },
+    "/media/haven/postcards/nail-worktable.webp": {
+      "sourceFile": "src/assets/source/delivery/media/haven/postcards/nail-worktable.webp",
+      "role": "haven-postcard",
+      "sourceSha256": "6ca6d9c8afc78e4313adbc850fc7dfb0d9fce64b91ac297d562c14698da76498",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "candidates": [
+        {
+          "src": "/media/responsive/haven-postcard-nail-worktable-128.2995a16cd2f36276.webp",
+          "width": 128,
+          "height": 72,
+          "bytes": 4090,
+          "sha256": "2995a16cd2f36276caccd24157d1fee5ab49e863b33a49a0739543b5f200b5cd",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-postcard-nail-worktable-256.9e7f6e147447bcc0.webp",
+          "width": 256,
+          "height": 144,
+          "bytes": 14188,
+          "sha256": "9e7f6e147447bcc0c088f58f93447ef21e661c48accd3289876c454841960b47",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-postcard-nail-worktable-480.96bbdf612962a58e.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 44754,
+          "sha256": "96bbdf612962a58e5031b57bc27829ed2c0d28726eeaddef6d0d6be857f755e6",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-postcard-nail-worktable-768.cef99f461243e555.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 68048,
+          "sha256": "cef99f461243e55555868a4974a8c1c29646c138eb3f44eb32142f26c179af3a",
+          "quality": 72
+        }
+      ]
+    },
+    "/media/haven/postcards/scrapbook.webp": {
+      "sourceFile": "src/assets/source/delivery/media/haven/postcards/scrapbook.webp",
+      "role": "haven-postcard",
+      "sourceSha256": "c0b8b2da594c876450f0837c7a0bd46982f4f26633659dc40349512a1ad30ba5",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "candidates": [
+        {
+          "src": "/media/responsive/haven-postcard-scrapbook-128.292d2792895a3001.webp",
+          "width": 128,
+          "height": 72,
+          "bytes": 3980,
+          "sha256": "292d2792895a3001069306c6eb476e154bce9195c36a20ced2658b5d6ab5068a",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-postcard-scrapbook-256.19518b8aee6f0ded.webp",
+          "width": 256,
+          "height": 144,
+          "bytes": 13082,
+          "sha256": "19518b8aee6f0ded24c8b2ec49646f8bde3480df259c289b8c199a60c7b6c908",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-postcard-scrapbook-480.b022f43280d633fc.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 39142,
+          "sha256": "b022f43280d633fc76fa1e93f0cec6b65c718c36495b092f96ddce6d6eea5a42",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-postcard-scrapbook-768.efdd1a0755f1cc1b.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 66118,
+          "sha256": "efdd1a0755f1cc1b0c568cbc3feeed4d7e37d1af01f3acaf7e5c923eb4ee9227",
+          "quality": 78
+        }
+      ]
+    },
+    "/media/haven/environments/scrapbook.webp": {
+      "sourceFile": "src/assets/source/delivery/media/haven/environments/scrapbook.webp",
+      "role": "haven-scene",
+      "sourceSha256": "c0b8b2da594c876450f0837c7a0bd46982f4f26633659dc40349512a1ad30ba5",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "candidates": [
+        {
+          "src": "/media/responsive/haven-scene-scrapbook-480.b022f43280d633fc.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 39142,
+          "sha256": "b022f43280d633fc76fa1e93f0cec6b65c718c36495b092f96ddce6d6eea5a42",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-scene-scrapbook-768.e5c9d354eb8c25f9.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 82668,
+          "sha256": "e5c9d354eb8c25f9606c41ed981acf6cfc921c090e1fdef5b77f5a4dc532ccb1",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-scene-scrapbook-1280.95757a451913f970.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 137588,
+          "sha256": "95757a451913f970246713bf3b547b111466e4e946d049eefc41e5c524993657",
+          "quality": 78
+        },
+        {
+          "src": "/media/responsive/haven-scene-scrapbook-1672.dc69bc0a559aa03b.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 147528,
+          "sha256": "dc69bc0a559aa03b07ae81c0ae10b3362c363e54ade6d3524220b4f047ce249c",
+          "quality": 62
+        }
+      ]
+    },
+    "/media/haven/environments/nail-worktable.webp": {
+      "sourceFile": "src/assets/source/delivery/media/haven/environments/nail-worktable.webp",
+      "role": "haven-scene",
+      "sourceSha256": "6ca6d9c8afc78e4313adbc850fc7dfb0d9fce64b91ac297d562c14698da76498",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "candidates": [
+        {
+          "src": "/media/responsive/haven-scene-nail-worktable-480.96bbdf612962a58e.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 44754,
+          "sha256": "96bbdf612962a58e5031b57bc27829ed2c0d28726eeaddef6d0d6be857f755e6",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-scene-nail-worktable-768.1b1dc7022cf43228.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 100522,
+          "sha256": "1b1dc7022cf43228bb94824635b2542e4b8dff08e85bf854538a9becff62b705",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-scene-nail-worktable-1280.71fc3ff2ce7c9fee.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 144754,
+          "sha256": "71fc3ff2ce7c9feeb53a04ca3196d71322bccc5dc9aac3834d20bb0b4ccd9a88",
+          "quality": 70
+        },
+        {
+          "src": "/media/responsive/haven-scene-nail-worktable-1672.c460452fbf45557b.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 147898,
+          "sha256": "c460452fbf45557bbd0f42d03f186ce364f4115b265e8670a121ae3e2e8c83f7",
+          "quality": 44
+        }
+      ]
+    },
+    "/media/haven/objects/album.webp": {
+      "sourceFile": "src/assets/source/delivery/media/haven/objects/album.webp",
+      "role": "haven-object",
+      "sourceSha256": "95873e05d4d831dae2f2e6f887262f5ee60608ad39960ac963a183993d5dd43b",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "candidates": [
+        {
+          "src": "/media/responsive/haven-object-album-128.0dd775b867a49db7.webp",
+          "width": 128,
+          "height": 85,
+          "bytes": 5192,
+          "sha256": "0dd775b867a49db79fa5bed606e9bdbb8b0a7b5e7df51f1df190c4df71ccbec3",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-object-album-256.73158a4470fa3dfe.webp",
+          "width": 256,
+          "height": 171,
+          "bytes": 14364,
+          "sha256": "73158a4470fa3dfef9086e07f738e54b562eb85e0ff9ad118296e5e959a0498a",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-object-album-480.7aa22131fcebf1ca.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 40394,
+          "sha256": "7aa22131fcebf1ca4cb5bc9a780a83304188581ef2ba1d78945c4b1e887d9097",
+          "quality": 84
+        }
+      ]
+    },
+    "/media/haven/objects/letter.webp": {
+      "sourceFile": "src/assets/source/delivery/media/haven/objects/letter.webp",
+      "role": "haven-object",
+      "sourceSha256": "4bd46bf033612dcb2567704eecb66deb0aa2bba0d24f71d29c1d6506375413ad",
+      "width": 1367,
+      "height": 1150,
+      "alpha": true,
+      "candidates": [
+        {
+          "src": "/media/responsive/haven-object-letter-128.c1cfedbaa9ab1edf.webp",
+          "width": 128,
+          "height": 108,
+          "bytes": 4480,
+          "sha256": "c1cfedbaa9ab1edf964408510db88fc830c26630b544c6bfb72a1da753ab9c57",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-object-letter-256.474e572f22f22a2d.webp",
+          "width": 256,
+          "height": 215,
+          "bytes": 10762,
+          "sha256": "474e572f22f22a2d2bfa24ef6d24e8521002ced6c147dc8e3d0291bab17543b5",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-object-letter-480.77484a580dad229c.webp",
+          "width": 480,
+          "height": 404,
+          "bytes": 24702,
+          "sha256": "77484a580dad229c37ac7a0b3a602c2a2438ae4d21f0694867b568476873b82c",
+          "quality": 84
+        }
+      ]
+    },
+    "/media/haven/objects/door.webp": {
+      "sourceFile": "src/assets/source/delivery/media/haven/objects/door.webp",
+      "role": "haven-object",
+      "sourceSha256": "9e6269d5d614111c9783666970db63ab930b335a218603cb46dda7041772fb2f",
+      "width": 1024,
+      "height": 1536,
+      "alpha": true,
+      "candidates": [
+        {
+          "src": "/media/responsive/haven-object-door-128.ba56d396fa42154d.webp",
+          "width": 128,
+          "height": 192,
+          "bytes": 5686,
+          "sha256": "ba56d396fa42154d2bd025110c9573ee2e69548da48fcd9dd9b8cc3eb27863ee",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-object-door-256.73347de276d2b677.webp",
+          "width": 256,
+          "height": 384,
+          "bytes": 15400,
+          "sha256": "73347de276d2b677a7e171477179858b27624012fdfbcb01955e2b7c76505725",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-object-door-480.fa564d8f545000b7.webp",
+          "width": 480,
+          "height": 720,
+          "bytes": 43688,
+          "sha256": "fa564d8f545000b7a0e396bb192cdb3ae0bc2e07dff51cdb61b68074465d93b1",
+          "quality": 84
+        }
+      ]
+    },
+    "/media/haven/objects/foreground.webp": {
+      "sourceFile": "src/assets/source/delivery/media/haven/objects/foreground.webp",
+      "role": "haven-object",
+      "sourceSha256": "bc7a16ef058adb27b27429ffbeee6989fcd32482086f1182aca5e6600d52a61a",
+      "width": 1424,
+      "height": 1104,
+      "alpha": true,
+      "candidates": [
+        {
+          "src": "/media/responsive/haven-object-foreground-128.e7e5c673e67b8ecf.webp",
+          "width": 128,
+          "height": 99,
+          "bytes": 9184,
+          "sha256": "e7e5c673e67b8ecf6790bfb0752b7b438d313082e89dfa058efe4a59226dd353",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-object-foreground-256.9917df93b823a5eb.webp",
+          "width": 256,
+          "height": 198,
+          "bytes": 24770,
+          "sha256": "9917df93b823a5eb5ad96aea84c0b3604e7f66dbb80355cd4004a1eb0e681145",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-object-foreground-480.0f11803cf81a9ba3.webp",
+          "width": 480,
+          "height": 372,
+          "bytes": 61626,
+          "sha256": "0f11803cf81a9ba381c06e58884550b4185b7092a4b6fd2b06e5d803adf9a867",
+          "quality": 84
+        }
+      ]
+    },
+    "/media/haven/objects/polish.webp": {
+      "sourceFile": "src/assets/source/delivery/media/haven/objects/polish.webp",
+      "role": "haven-object",
+      "sourceSha256": "3b8e21c265f0d7b3d84388e1348a4b4eb3b1a7c665bc79879b46a8d1e66d0d19",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "candidates": [
+        {
+          "src": "/media/responsive/haven-object-polish-128.eb02eea83a891e26.webp",
+          "width": 128,
+          "height": 85,
+          "bytes": 5814,
+          "sha256": "eb02eea83a891e26395f340e38d273dc6cee2aaf78e166b6fb05ff187e0bad20",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-object-polish-256.181395f66df33852.webp",
+          "width": 256,
+          "height": 171,
+          "bytes": 16118,
+          "sha256": "181395f66df33852cf9f7e1fa3f889bce147a299c430172521931452d9e53a2c",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-object-polish-480.d32e5002d07e2d03.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 43402,
+          "sha256": "d32e5002d07e2d03a7603ae8c4a10b74dc3b75da3a6c31182f2938664c5f789a",
+          "quality": 84
+        }
+      ]
+    },
+    "/media/haven/ghosties/messenger.webp": {
+      "sourceFile": "src/assets/source/delivery/media/haven/ghosties/messenger.webp",
+      "role": "haven-ghostie",
+      "sourceSha256": "953383de115c1189bcbd2c97e2ff31107b9140f5988859780abc85b23b203457",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "candidates": [
+        {
+          "src": "/media/responsive/haven-ghostie-messenger-64.2a9f94a8ee5767a2.webp",
+          "width": 64,
+          "height": 64,
+          "bytes": 2858,
+          "sha256": "2a9f94a8ee5767a29571b1185fc00948a4d8d2c25796d1484907b2629b45fcea",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-ghostie-messenger-128.4bdd4b4f3704f9b3.webp",
+          "width": 128,
+          "height": 128,
+          "bytes": 7050,
+          "sha256": "4bdd4b4f3704f9b3c072d37c988957a72aead11e5396e76a686ac42d487455bc",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-ghostie-messenger-256.dbd65f1cdbc607da.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 18628,
+          "sha256": "dbd65f1cdbc607daa3d24f7988d8944bd3e07e50574fa8b5db1a13be8a593900",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-ghostie-messenger-512.7c48a60e8fa1e383.webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 52640,
+          "sha256": "7c48a60e8fa1e3834401228a0638e0f441375a7f58f47ed6e2432bbd790b3854",
+          "quality": 84
+        }
+      ]
+    },
+    "/media/haven/ghosties/mischief.webp": {
+      "sourceFile": "src/assets/source/delivery/media/haven/ghosties/mischief.webp",
+      "role": "haven-ghostie",
+      "sourceSha256": "aa142c10ce7b7f4d9a7f655c58eb3dd21796220e34e2bf55d94d784feedc3d20",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "candidates": [
+        {
+          "src": "/media/responsive/haven-ghostie-mischief-64.61f7332189f8f0a2.webp",
+          "width": 64,
+          "height": 64,
+          "bytes": 3110,
+          "sha256": "61f7332189f8f0a2f3840e02598cda40ac51a6b071db7bb91d1f812cea69601f",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-ghostie-mischief-128.3f043e1a1e0a3eb4.webp",
+          "width": 128,
+          "height": 128,
+          "bytes": 7746,
+          "sha256": "3f043e1a1e0a3eb45d0767eb5d16470cc01b187713dab357ebc9f7ef80b667d8",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-ghostie-mischief-256.d771195923b632f8.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 20682,
+          "sha256": "d771195923b632f8690010a4f5cc79fb349f3bc058c0c615f62cb6400ed382d1",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-ghostie-mischief-512.0e3a6cf5e5205391.webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 58544,
+          "sha256": "0e3a6cf5e52053914ff160320b390bb2aacc39d93499db00a004d807629cf6a8",
+          "quality": 84
+        }
+      ]
+    },
+    "/media/haven/ghosties/welcome.webp": {
+      "sourceFile": "src/assets/source/delivery/media/haven/ghosties/welcome.webp",
+      "role": "haven-ghostie",
+      "sourceSha256": "a8224d6f155108a0d508f3ee8fb683342e2a5b0db74464ad56da9d402f0d2691",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "candidates": [
+        {
+          "src": "/media/responsive/haven-ghostie-welcome-64.46456c5d15ea5b01.webp",
+          "width": 64,
+          "height": 64,
+          "bytes": 2706,
+          "sha256": "46456c5d15ea5b01a38ef82d2e1390a1611d8fba0beef8fe3beb25c486bfa082",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-ghostie-welcome-128.4dbc4ca5b9c175bf.webp",
+          "width": 128,
+          "height": 128,
+          "bytes": 6218,
+          "sha256": "4dbc4ca5b9c175bffbc3d115af7e51393602603066d48cef025229e12ef96591",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-ghostie-welcome-256.79b24c81205076d6.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 15058,
+          "sha256": "79b24c81205076d6529c452af6346b4fe76797036ca37b16a67ca483fcb48ddc",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-ghostie-welcome-512.9b658bc1e4cb0d7d.webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 39736,
+          "sha256": "9b658bc1e4cb0d7d2f55438ce70eced1151af4a7e4b6a2d3910278147f177eb6",
+          "quality": 84
+        }
+      ]
+    },
+    "/media/haven/ghosties/sleepy.webp": {
+      "sourceFile": "src/assets/source/delivery/media/haven/ghosties/sleepy.webp",
+      "role": "haven-ghostie",
+      "sourceSha256": "282e033361f5a0044f5c70a036a1c77dcf6ff42c54d0faf8a29ee47b3d0f9aae",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "candidates": [
+        {
+          "src": "/media/responsive/haven-ghostie-sleepy-64.a23a0412ae973199.webp",
+          "width": 64,
+          "height": 64,
+          "bytes": 3000,
+          "sha256": "a23a0412ae973199b19fe8aa743fff8327c8ffa15be47ecc0533a9823ce0789d",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-ghostie-sleepy-128.98b1976f47540cea.webp",
+          "width": 128,
+          "height": 128,
+          "bytes": 7474,
+          "sha256": "98b1976f47540cea39f54378a427ea2d76fc47c34ff2f7b96c862c6dcc8e4041",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-ghostie-sleepy-256.0fae6f87df819da2.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 19840,
+          "sha256": "0fae6f87df819da2384ccb30315fcc9dfa7ebfdecd398e1f1bf6e549205c03a3",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-ghostie-sleepy-512.9e77eba69cc68c56.webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 57612,
+          "sha256": "9e77eba69cc68c56acd9856440d74fc22989fbf41c8eb2496d37affcf2247408",
+          "quality": 84
+        }
+      ]
+    },
+    "/media/haven/objects/monitor.webp": {
+      "sourceFile": "src/assets/source/delivery/media/haven/objects/monitor.webp",
+      "role": "haven-object",
+      "sourceSha256": "12e469f97f4fee02aac8abd27fb96e3a305e640ac5cbc9dbf49862191f1fcce8",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "candidates": [
+        {
+          "src": "/media/responsive/haven-object-monitor-128.a615eb95ebc29ff0.webp",
+          "width": 128,
+          "height": 85,
+          "bytes": 5766,
+          "sha256": "a615eb95ebc29ff0722c3ee02ffc8fe84e9d36d0b841691214f6c12e818b8edb",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-object-monitor-256.787bb50e1f4df714.webp",
+          "width": 256,
+          "height": 171,
+          "bytes": 15900,
+          "sha256": "787bb50e1f4df714a3b6781b263a5bdefc6d750502f6394f9c81c6df8092714f",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-object-monitor-480.a47a180a10c5ec5c.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 39856,
+          "sha256": "a47a180a10c5ec5cc2ef158e71ef2dc11537f885691005faaa81f58e86b79a8b",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/haven-object-monitor-768.6fdab1049c1e73a7.webp",
+          "width": 768,
+          "height": 512,
+          "bytes": 68748,
+          "sha256": "6fdab1049c1e73a7f679ad8de16f77b1008e33b5ecc3b3ffdf5312f9db74c3cb",
+          "quality": 76
+        }
+      ]
     }
   }
 }

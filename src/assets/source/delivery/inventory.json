@@ -441,6 +441,195 @@
       "bytes": 27998,
       "sha256": "b9f9c7b5abb32fc662c411f46f8d8352b5afd43f0c85495a87acd6b0d913f273",
       "role": "retired-placeholder-derivative"
+    },
+    {
+      "previousUrl": "/media/haven/environments/room-dusk.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/environments/room-dusk.webp",
+      "bytes": 508040,
+      "sha256": "e43e1a0fd7dccb2da5be19e5e3964ae74c8c617760a978cbc9b896cdf36e1449",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/haven/environments/room-mobile.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/environments/room-mobile.webp",
+      "bytes": 496184,
+      "sha256": "c0f608befea9e6a923f729462da88957cd37b93c2fdf78819b1266ed05e37ae2",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/haven/environments/broadcast-desk.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/environments/broadcast-desk.webp",
+      "bytes": 495764,
+      "sha256": "70615e64e6bbcb67cc43bcc15e31d2e01c461463cc3f99fce69561622fdfe315",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/haven/environments/nail-worktable.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/environments/nail-worktable.webp",
+      "bytes": 658346,
+      "sha256": "6ca6d9c8afc78e4313adbc850fc7dfb0d9fce64b91ac297d562c14698da76498",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/haven/environments/scrapbook.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/environments/scrapbook.webp",
+      "bytes": 516814,
+      "sha256": "c0b8b2da594c876450f0837c7a0bd46982f4f26633659dc40349512a1ad30ba5",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/haven/environments/common-room.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/environments/common-room.webp",
+      "bytes": 601806,
+      "sha256": "da889b970443558b2e7f8f0cabccfe23cf116fae30753c35ab1c81ddbb740a39",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/haven/environments/correspondence.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/environments/correspondence.webp",
+      "bytes": 521938,
+      "sha256": "4fff09fc5d31c0ceaacd6684c72cd210d311756c3d45061ae66110e69623867c",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/haven/environments/bookshelf.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/environments/bookshelf.webp",
+      "bytes": 540338,
+      "sha256": "9db91ee7b30cc3088183a971b9e6e2684eaddc026276354cad0cc9aa692f3c47",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/haven/environments/memory-corner.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/environments/memory-corner.webp",
+      "bytes": 534100,
+      "sha256": "1201e0ff0525436e5cfacd60d05dde5f22f0c5d13c8a1abb9c1c19e3f9ca9cf7",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/haven/objects/monitor.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/objects/monitor.webp",
+      "bytes": 398104,
+      "sha256": "12e469f97f4fee02aac8abd27fb96e3a305e640ac5cbc9dbf49862191f1fcce8",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/haven/objects/polish.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/objects/polish.webp",
+      "bytes": 544860,
+      "sha256": "3b8e21c265f0d7b3d84388e1348a4b4eb3b1a7c665bc79879b46a8d1e66d0d19",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/haven/objects/album.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/objects/album.webp",
+      "bytes": 599538,
+      "sha256": "95873e05d4d831dae2f2e6f887262f5ee60608ad39960ac963a183993d5dd43b",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/haven/objects/door.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/objects/door.webp",
+      "bytes": 411872,
+      "sha256": "9e6269d5d614111c9783666970db63ab930b335a218603cb46dda7041772fb2f",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/haven/objects/foreground.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/objects/foreground.webp",
+      "bytes": 452692,
+      "sha256": "bc7a16ef058adb27b27429ffbeee6989fcd32482086f1182aca5e6600d52a61a",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/haven/ghosties/sleepy.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/ghosties/sleepy.webp",
+      "bytes": 436026,
+      "sha256": "282e033361f5a0044f5c70a036a1c77dcf6ff42c54d0faf8a29ee47b3d0f9aae",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/haven/ghosties/mischief.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/ghosties/mischief.webp",
+      "bytes": 428958,
+      "sha256": "aa142c10ce7b7f4d9a7f655c58eb3dd21796220e34e2bf55d94d784feedc3d20",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/haven/ghosties/welcome.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/ghosties/welcome.webp",
+      "bytes": 313670,
+      "sha256": "a8224d6f155108a0d508f3ee8fb683342e2a5b0db74464ad56da9d402f0d2691",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/haven/ghosties/messenger.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/ghosties/messenger.webp",
+      "bytes": 394236,
+      "sha256": "953383de115c1189bcbd2c97e2ff31107b9140f5988859780abc85b23b203457",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/haven/postcards/nail-worktable.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/postcards/nail-worktable.webp",
+      "bytes": 658346,
+      "sha256": "6ca6d9c8afc78e4313adbc850fc7dfb0d9fce64b91ac297d562c14698da76498",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/haven/postcards/bookshelf.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/postcards/bookshelf.webp",
+      "bytes": 540338,
+      "sha256": "9db91ee7b30cc3088183a971b9e6e2684eaddc026276354cad0cc9aa692f3c47",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/haven/postcards/correspondence.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/postcards/correspondence.webp",
+      "bytes": 521938,
+      "sha256": "4fff09fc5d31c0ceaacd6684c72cd210d311756c3d45061ae66110e69623867c",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/haven/postcards/room-dusk.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/postcards/room-dusk.webp",
+      "bytes": 508040,
+      "sha256": "e43e1a0fd7dccb2da5be19e5e3964ae74c8c617760a978cbc9b896cdf36e1449",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/haven/postcards/common-room.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/postcards/common-room.webp",
+      "bytes": 601806,
+      "sha256": "da889b970443558b2e7f8f0cabccfe23cf116fae30753c35ab1c81ddbb740a39",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/haven/postcards/scrapbook.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/postcards/scrapbook.webp",
+      "bytes": 516814,
+      "sha256": "c0b8b2da594c876450f0837c7a0bd46982f4f26633659dc40349512a1ad30ba5",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/haven/postcards/broadcast-desk.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/postcards/broadcast-desk.webp",
+      "bytes": 495764,
+      "sha256": "70615e64e6bbcb67cc43bcc15e31d2e01c461463cc3f99fce69561622fdfe315",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/haven/postcards/memory-corner.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/postcards/memory-corner.webp",
+      "bytes": 534100,
+      "sha256": "1201e0ff0525436e5cfacd60d05dde5f22f0c5d13c8a1abb9c1c19e3f9ca9cf7",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/haven/objects/letter.webp",
+      "sourceFile": "src/assets/source/delivery/media/haven/objects/letter.webp",
+      "bytes": 234932,
+      "sha256": "4bd46bf033612dcb2567704eecb66deb0aa2bba0d24f71d29c1d6506375413ad",
+      "role": "responsive-source"
     }
   ]
 }
