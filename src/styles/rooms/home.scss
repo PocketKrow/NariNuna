@@ -3,7 +3,7 @@
 .haven-corners__shelf { display: grid; gap: 2rem; }
 .haven-corner { min-width: 0; color: var(--text); text-decoration: none; }
 .haven-corner__frame { padding: 0.45rem; margin-bottom: 1.4rem; background: var(--storybook-paper); box-shadow: 0 0.75rem 1.75rem #10080c40; transition: transform 180ms ease; }
-.haven-corner__frame img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.haven-corner__frame img { width: 100%; height: auto; object-fit: contain; }
 .haven-corner > .room-kicker { margin-bottom: 0.5rem; }
 .haven-corner h3 { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; font-size: 1.65rem; }
 .haven-corner > p:last-child { color: var(--text-muted); font-size: 0.9rem; margin: 0; }

@@ -70,8 +70,8 @@
 }
 .resource-shelf__heading img {
   width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   border: 1px solid var(--story-line);
   padding: 0.25rem;
 }

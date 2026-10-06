@@ -90,3 +90,18 @@ Observed on this fix's final built artifact with Node 24.19.0 / npm 11.9.0 / Chr
 - Home/Haven initial JS/CSS are 56.97/67.49 KB gzip; the conservative optional graph is 174.85 KB, within the unchanged 120/180 KB gates.
 
 The official browser download again returned a truncated archive. A temporary external Chromium binary selected with `NARI_BROWSER_PATH` supplied local validation without altering project dependencies. The new graphics-injection tests skip only when an engine lacks usable WebGL2; unavailable/throwing context cases still run. Firefox/WebKit and Jake's specific browser/driver environment were not tested locally. The existing full axe/screenshot suite was not rerun locally for this nonvisual fix; the PR quality gate runs it. No merge or deployment is authorized by this report. Rollback is a normal revert of this focused fix.
+
+## 6 October 2026 — complete Ghostie silhouettes in cards
+
+Jake reported cropped Ghosties throughout the card sections. The shared wrapper hid overflow while its square image was sized only by width; a desktop journal image measured 88px tall inside an 80px slot. The inline home/resource paintings were forced from their native 16:9 into 16:10, and the studio painting into 4:3 with `object-fit: cover`, cutting off the Ghostie at the right edge.
+
+The focused `kiva/ghostie-card-fit` branch stacks on PR #27 (`f34d6a0`). `GhostieArt.vue` now contains the image within both slot dimensions, adds a small inset and leaves the silhouette/drop shadow unclipped. Desktop journal slots are square so their original display size is retained. Home, studio and resource postcard images use their intrinsic proportions and `contain`. Source masters, responsive candidates, dependencies, content and hero crops are unchanged.
+
+Observed on the final built artifact with Node 24.19.0 / npm 11.9.0 / temporary Chromium 153.0.8010.0 selected through `NARI_BROWSER_PATH`:
+
+- Fresh `npm ci` and `npm run check` passed: lint/types, 12-document build, artwork/CSP/payload/HTTP validators and 98 unit tests in 20 files. Final browser-test lint passed.
+- `npm run verify:browser` passed all twelve routes at 320/390/768/1440 and the existing menu, door/reset, secret room, failed-image, 404 and no-JavaScript contracts.
+- Five new geometry regressions passed with zero skips: all twelve documents at those four widths, complete Ghostie slots and native postcard proportions, plus 200% root text and the second-knock visitor at 390px. All-route axe scans passed at 390/1440 with zero reported violations.
+- Eight intentional Chromium composition baselines were regenerated and visually inspected at 390/1440. The regression also checks loading and horizontal overflow; no asset bytes in `public/` or `src/assets/` changed.
+
+Firefox/WebKit and physical devices were not tested locally. The existing CI gate repeats the full Chromium experience suite. This card-layout fix does not change release approvals; rollback is a normal revert of its focused commit.
