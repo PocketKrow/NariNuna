@@ -1,7 +1,6 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
-import ArtImage from "@/components/art/ArtImage.astro";
-import { communityGhostieArtwork } from "@/data/artwork";
+import CreatorArt from "@/components/art/CreatorArt.astro";
 import { nariLinks } from "@/data/socials";
 import { ArrowUpRight } from "@lucide/vue";
 const youtube = nariLinks.find(({ platform }) => platform === "youtube")!;
@@ -9,7 +8,7 @@ const youtube = nariLinks.find(({ platform }) => platform === "youtube")!;
 <SiteLayout pageId="nailStudio">
   <section class="nails-opening page-width">
     <div><p class="eyebrow">Polish · practice · a little patience</p><h1>Tiny canvases.<br /><em>Big Nari energy.</em></h1><p class="intro-line">A little color. A lot of curiosity.</p><p>Nari is self-taught, still practicing, and learning one tiny detail at a time. Color, process, and a frankly unreasonable affection for nail polish all belong here.</p><a class="text-link" href={youtube.url} target="_blank" rel="noopener noreferrer">Find her creative videos <ArrowUpRight size={16} aria-hidden="true" /><span class="sr-only"> (opens in a new tab)</span></a></div>
-    <figure class="nail-muse"><ArtImage artwork={communityGhostieArtwork.nailTech} sizes="(min-width: 48rem) 340px, 240px" maxWidth={512} eager /><figcaption>A little studio companion.<br />Illustration, not Nari's nail work.</figcaption><a class="art-credit" href="/credits/#website-storybook-artwork">Illustration credits</a></figure>
+    <figure class="nail-muse"><CreatorArt asset="nails" sizes="(min-width: 48rem) 360px, 270px" eager priority /><figcaption>A little polish, a little patience.<br />Illustration, not Nari's nail work.</figcaption><a class="art-credit" href="/credits/#website-storybook-artwork">Illustration credits</a></figure>
   </section>
   <span id="creator-shelf"></span><span id="game-pile"></span>
   <section id="nail-desk" class="studio-notes page-width" aria-labelledby="practice-title">

@@ -1,0 +1,11 @@
+# Custom anime creator art direction
+
+Owner direction, 2026-10-06 America/New_York: the first minimal site is rejected as generic. Use light lavender and warm cream, clean anime rendering matching Nari's supplied model, and new identity-preserving poses. This supersedes document 44's original-pose-only and serif/paper editorial visual treatment; its minimal route architecture, content truth, accessibility, performance and release boundaries remain.
+
+Build a coordinated small art family before composing pages: a welcoming Nari pose for Home, a personal expressive character treatment for Meet, a creative-practice illustration for Nails, custom Ghostie companions for Links/community/recovery, lavender and polish motifs, and correspondence art for Work/Credits. Use assets as focal compositions and quiet details rather than covering a generic card system. Every primary route has a deliberate visual job. Retain original model/source masters and previous review artwork as history.
+
+Palette: warm cream foundation, pale lavender planes, deep plum readable ink, emerald tied to Nari's eyes, sparse soft gold. Refined readable sans typography, modest scale, compact navigation, custom illustrated ribbon/floral flourishes. Hero text remains real HTML. No huge serif headings, generic oval mats, dark cinematic backgrounds or entire room illustration.
+
+Desktop Home: concise greeting and immediate actions balanced against a dominant new Nari pose, with airy lavender shading and a small integrated Ghostie. Mobile: character and introduction form a compact deliberate composition with immediate labeled actions. Other pages use the same materials, scale and shading with their own relevant artwork. No art obscures a face, character accessory, essential text or link.
+
+Keep seven Astro documents and all six migrations. No SPA, WebGL, hydrated islands or new dependency. CSS motion remains finite and optional, with full reduced-motion and no-JavaScript support. New artwork contracts live in `ASSET-2026-022-anime-creator-family.md` and the tooling manifest. Update governance, layout owners, snapshots and observed evidence together. Continue on `kiva/nari-minimal-reconstitution` / review PR #31; do not merge or modify production or PR #30.

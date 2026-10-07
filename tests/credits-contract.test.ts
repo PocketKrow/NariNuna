@@ -96,7 +96,11 @@ describe("creative credit registry", () => {
     expect(html).toContain("The people behind");
     expect(html).toContain("Somber Crow");
     expect(html).toContain("Awaiting confirmation");
-    expect(html).not.toMatch(/<img|<picture/);
+    // Owner-directed site decoration is separate from the permission-gated contributor archive.
+    expect(html).not.toContain('aria-label="Approved artwork archive"');
+    for (const image of html.match(/<img\b[^>]*>/g) ?? []) {
+      expect(image).toContain('data-creator-art="correspondence"');
+    }
     expect(html).not.toContain("Do not publish");
   });
 

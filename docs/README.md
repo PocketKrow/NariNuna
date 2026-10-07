@@ -1,3 +1,5 @@
+> Current artwork and layout: [46](46_ANIME_CREATOR_ART_DIRECTION.md), ADR-014 and [ASSET-2026-022](asset-records/ASSET-2026-022-anime-creator-family.md). Current observed validation: [47](47_ANIME_CREATOR_VALIDATION.md). These supersede document 44’s first visual iteration while preserving its routes and release boundaries.
+
 > **Current direction, 2026-10-06:** [44 — Minimal Creator Reconstitution](44_MINIMAL_CREATOR_RECONSTITUTION.md) supersedes the environment-first layout, twelve-route contract, room navigation, doorway/secret interaction and WebGL requirements below. Earlier implementation descriptions are historical. Canon, truthful content, source preservation, rights and production approval boundaries remain.
 
 # Nari Nuna's Haven — Documentation Hub

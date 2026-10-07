@@ -2,6 +2,7 @@
 import SiteHeader from "@/components/layout/SiteHeader.astro";
 import SiteFooter from "@/components/layout/SiteFooter.astro";
 import pages from "@/data/projectPages.json";
+import identity from "@/data/creator-identity.json";
 import "@/styles/main.scss";
 interface Props { pageId: string }
 const page = pages.find(({ id }) => id === Astro.props.pageId);
@@ -12,7 +13,7 @@ if (!page) throw new Error(`Unregistered Nari page: ${Astro.props.pageId}`);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f7f1e8" />
+    <meta name="theme-color" content="#fffaf4" />
     <meta name="description" content={page.description} />
     <title>{page.title}</title>
     {page.socialImage ? <Fragment>
@@ -23,7 +24,7 @@ if (!page) throw new Error(`Unregistered Nari page: ${Astro.props.pageId}`);
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:image" content={page.socialImage} />
     </Fragment> : <meta name="robots" content="noindex, nofollow" />}
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href={identity.faviconSrc} />
   </head>
   <body data-route={page.routeName}>
     <a class="skip-link" href="#main-content">Skip to content</a>

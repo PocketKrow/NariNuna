@@ -1,8 +1,7 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
 import NariModel from "@/components/art/NariModel.astro";
-import ArtImage from "@/components/art/ArtImage.astro";
-import { communityGhostieArtwork } from "@/data/artwork";
+import CreatorArt from "@/components/art/CreatorArt.astro";
 import { identityPillars, communityValues } from "@/data/content";
 import { ArrowRight } from "@lucide/vue";
 ---
@@ -15,7 +14,7 @@ import { ArrowRight } from "@lucide/vue";
     {identityPillars.map(({ eyebrow, title, text }) => <article><p class="eyebrow">{eyebrow}</p><h2>{title}</h2><p>{text}</p></article>)}
   </section>
   <section id="community" class="values-note page-width" aria-labelledby="values-title">
-    <div class="values-intro"><ArtImage artwork={communityGhostieArtwork.heart} sizes="160px" maxWidth={256} /><p class="eyebrow">The Haven, in a few words</p><h2 id="values-title">Kindness<br /><em>has a backbone.</em></h2><p>Loud laughs. Quiet corners.<br />Room to be yourself.</p></div>
+    <div class="values-intro"><CreatorArt asset="ghostie-bloom" sizes="160px" /><p class="eyebrow">The Haven, in a few words</p><h2 id="values-title">Kindness<br /><em>has a backbone.</em></h2><p>Loud laughs. Quiet corners.<br />Room to be yourself.</p></div>
     <ol class="values-list">{communityValues.map(({ title, description }) => <li><h3>{title}</h3><p>{description}</p></li>)}</ol>
   </section>
 </SiteLayout>

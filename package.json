@@ -26,7 +26,8 @@
     "verify:release-browsers": "playwright test",
     "verify:visual-update": "playwright test --project=chromium --grep composition --update-snapshots",
     "artwork:model": "python3 scripts/prepare-model-artwork.py",
-    "artwork:identity": "python3 scripts/prepare-creator-identity.py"
+    "artwork:identity": "python3 scripts/prepare-creator-identity.py",
+    "artwork:anime": "python3 scripts/prepare-anime-artwork.py"
   },
   "dependencies": {
     "@astrojs/vue": "7.0.3",

@@ -1,3 +1,5 @@
+> **2026-10-06 owner revision:** [46 — Custom Anime Creator Art](46_ANIME_CREATOR_ART_DIRECTION.md) and ADR-014 supersede the first minimal visual iteration: light lavender/warm cream, model-faithful new poses and a custom clean-anime asset family. The seven-document architecture, truthful content, original-source preservation and production approval boundaries remain.
+
 # Minimal Creator Reconstitution
 
 Authority: Jake's 2026-10-06 attached execution handoff. Accepted for implementation and review, not production release. Branch starts from main `9ac7be3e7b27eb76973debf54b3724087ad69b22`; PR #30 is not its base.

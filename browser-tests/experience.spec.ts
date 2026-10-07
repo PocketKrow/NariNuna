@@ -18,7 +18,7 @@ for (const width of [390, 1440]) {
       await page.setViewportSize({ width, height: 900 });
       await page.emulateMedia({ reducedMotion: "reduce" });
       await page.goto(path);
-      await page.addStyleTag({ content: ':root { --font-display: "DejaVu Serif"; --font-body: "DejaVu Sans"; }' });
+      await page.addStyleTag({ content: ':root { --font-display: "DejaVu Sans"; --font-body: "DejaVu Sans"; }' });
       for (const image of await page.locator("img").all()) {
         await image.scrollIntoViewIfNeeded();
         await image.evaluate((el: HTMLImageElement) => el.decode().catch(() => undefined));

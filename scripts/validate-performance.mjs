@@ -65,7 +65,14 @@ for (const { document } of projectPages) {
   const html = readFileSync(`dist/${document}`, "utf8");
   if (/astro-island|<canvas|rel="preload"/.test(html)) throw new Error(`${document}: unnecessary hydration, canvas or preload`);
 }
-console.log("Validated retained artwork and original-model budgets; no hydrated islands, effects graphs or environment preloads.");
+const anime = JSON.parse(readFileSync("src/data/anime-artwork.json", "utf8")).artworks;
+for (const art of Object.values(anime)) {
+  for (const candidate of art.candidates) {
+    const bytes = readFileSync(`dist${candidate.src}`).length;
+    if (bytes !== candidate.bytes || bytes > 150_000) throw new Error(`Anime artwork budget mismatch: ${candidate.src}`);
+  }
+}
+console.log("Validated retained/source-model and custom-anime budgets; no hydrated islands, effect graphs or environment preloads.");
 
 const identity = JSON.parse(readFileSync("src/data/creator-identity.json", "utf8"));
 if (readFileSync(`dist${identity.src}`).length !== identity.bytes || identity.bytes > 100_000) throw new Error("Social preview budget mismatch");

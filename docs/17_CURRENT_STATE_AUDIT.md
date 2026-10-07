@@ -1,3 +1,5 @@
+> **2026-10-06 owner revision:** [46 — Custom Anime Creator Art](46_ANIME_CREATOR_ART_DIRECTION.md) and ADR-014 supersede the first minimal visual iteration: light lavender/warm cream, model-faithful new poses and a custom clean-anime asset family. The seven-document architecture, truthful content, original-source preservation and production approval boundaries remain.
+
 > **Current direction, 2026-10-06:** [44 — Minimal Creator Reconstitution](44_MINIMAL_CREATOR_RECONSTITUTION.md) supersedes the environment-first layout, twelve-route contract, room navigation, doorway/secret interaction and WebGL requirements below. Earlier implementation descriptions are historical. Canon, truthful content, source preservation, rights and production approval boundaries remain.
 
 # Current State Audit

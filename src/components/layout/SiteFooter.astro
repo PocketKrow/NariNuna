@@ -1,7 +1,8 @@
 ---
+import CreatorArt from "@/components/art/CreatorArt.astro";
 import { footerNavigation } from "@/data/navigation";
 ---
 <footer class="site-footer page-width">
-  <p><span class="footer-mark" aria-hidden="true">✳</span> A little warmth. A little chaos. Nari Nuna.</p>
+  <p><CreatorArt asset="lavender" class="footer-floral" sizes="70px" /> A little warmth. A little chaos. Nari Nuna.</p>
   <nav aria-label="Footer">{footerNavigation.map(({ label, href }) => <a href={href}>{label}</a>)}</nav>
 </footer>

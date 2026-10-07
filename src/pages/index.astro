@@ -2,8 +2,7 @@
 import PlatformIcon from "@/components/ui/PlatformIcon.astro";
 import SiteLayout from "@/layouts/SiteLayout.astro";
 import NariModel from "@/components/art/NariModel.astro";
-import ArtImage from "@/components/art/ArtImage.astro";
-import { communityGhostieArtwork, detailArtwork } from "@/data/artwork";
+import CreatorArt from "@/components/art/CreatorArt.astro";
 import { twitchUrl, nariLinks } from "@/data/socials";
 import { ArrowUpRight, ArrowRight } from "@lucide/vue";
 const youtube = nariLinks.find(({ platform }) => platform === "youtube")!;
@@ -11,8 +10,8 @@ const youtube = nariLinks.find(({ platform }) => platform === "youtube")!;
 <SiteLayout pageId="home">
   <section class="home-intro page-width" aria-labelledby="home-title">
     <div class="home-copy">
-      <p class="eyebrow">VTuber · gamer · nail-polish menace</p>
-      <h1 id="home-title">Hi, I'm<br /> <em>Nari Nuna.</em></h1>
+      <p class="eyebrow">Hi, I'm</p>
+      <h1 id="home-title">Nari <em>Nuna.</em></h1>
       <p class="intro-line">Your chaotic big sister.</p>
       <p class="home-description">Streams get loud, polish gets everywhere, and somebody is always yapping. Pull up a seat.</p>
       <div class="hero-actions">
@@ -23,16 +22,16 @@ const youtube = nariLinks.find(({ platform }) => platform === "youtube")!;
       <a class="text-link more-links" href="/links/">Find me elsewhere <ArrowRight size={16} aria-hidden="true" /></a>
     </div>
     <figure class="nari-stage">
-      <div class="stage-halo" aria-hidden="true"></div>
-      <ArtImage artwork={detailArtwork.lavender} class="stage-lavender" sizes="(min-width: 48rem) 170px, 100px" maxWidth={256} eager />
+      <div class="stage-wash" aria-hidden="true"></div>
+      <CreatorArt asset="lavender" class="stage-lavender" sizes="(min-width: 48rem) 270px, 140px" eager />
       <NariModel portrait class="stage-model" />
-      <ArtImage artwork={communityGhostieArtwork.cozy} class="stage-ghostie" sizes="(min-width: 48rem) 144px, 92px" maxWidth={256} eager />
+      <CreatorArt asset="ghostie-bloom" class="stage-ghostie" sizes="(min-width: 48rem) 125px, 72px" eager />
       <figcaption>Big-sister energy, a little chaos included.</figcaption>
       <a class="art-credit" href="/credits/#nari-character-attribution-pending">Artwork credits</a>
     </figure>
   </section>
   <section class="personal-note page-width" aria-labelledby="note-title">
-    <div><p class="eyebrow">A little more than the stream</p><h2 id="note-title">Cozy company.<br /><em>Questionable decisions.</em></h2></div>
+    <div><p class="eyebrow">A little more than the stream</p><h2 id="note-title">A little warmth.<br /><em>A little chaos.</em></h2></div>
     <div class="personal-note__body"><p>Nari is a warm, protective, curious VTuber, gamer, self-taught nail artist, and prolific yapper. Come for a game, a laugh, or a little company.</p>
       <div class="note-links"><a href="/meet-nari/">Meet Nari <ArrowRight size={16} aria-hidden="true" /></a><a href="/nail-studio/">A little color & craft <ArrowRight size={16} aria-hidden="true" /></a><a href="/links/#community">The community <ArrowRight size={16} aria-hidden="true" /></a></div>
     </div>

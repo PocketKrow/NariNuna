@@ -1,3 +1,5 @@
+> Current visual direction: [46 — Custom Anime Creator Art](docs/46_ANIME_CREATOR_ART_DIRECTION.md). Owner-selected light lavender/warm cream, faithful new model-anchored poses and seven custom master illustrations. [47 — observed revision validation](docs/47_ANIME_CREATOR_VALIDATION.md) owns current evidence; earlier results describe the first review iteration.
+
 # Nari Nuna
 
 A minimal, personal creator website. Nari's original model leads; Twitch and YouTube are immediately reachable, with nail-art practice, community values and clear public links close by.

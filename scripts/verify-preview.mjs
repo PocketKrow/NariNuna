@@ -85,6 +85,12 @@ for (const artwork of Object.values(generated.artworks)) {
   assert.ok(existsSync(artwork.sourceFile), `Missing retained source: ${artwork.sourceFile}`);
   requiredAssets.push(...artwork.candidates.map(({ src }) => src));
 }
+const anime = JSON.parse(await readFile("src/data/anime-artwork.json", "utf8"));
+for (const artwork of Object.values(anime.artworks)) {
+  assert.ok(existsSync(artwork.source), `Missing anime master: ${artwork.source}`);
+  requiredAssets.push(...artwork.candidates.map(({ src }) => src));
+}
+requiredAssets.push(JSON.parse(await readFile("src/data/creator-identity.json", "utf8")).faviconSrc);
 
 for (const asset of requiredAssets) {
   const response = await fetch(new URL(asset, origin));

@@ -4,7 +4,7 @@ These instructions apply to the entire repository.
 
 ## Mission
 
-Build and maintain Nari Nuna's personal creator website as a distinctive, factual, rights-cleared, privacy-safe static Astro multi-page website with focused Vue islands. Put the supplied original Nari model first. Preserve Nari's warmth, big-sister voice, nail-art learning, community boundaries, and project-specific visual identity. Do not turn it into a generic VTuber template, link wall, corporate creator site, or unmaintainable effects demo.
+Build and maintain Nari Nuna's personal creator website as a distinctive, factual, rights-cleared, privacy-safe static Astro multi-page website with focused Vue islands. Keep Nari first, using faithful poses anchored only to the supplied original model. Preserve Nari's warmth, big-sister voice, nail-art learning, community boundaries, and project-specific visual identity. Do not turn it into a generic VTuber template, link wall, corporate creator site, or unmaintainable effects demo.
 
 ## Read before editing
 
@@ -36,12 +36,12 @@ Never claim a test, build, branch, commit, PR, deployment, link, right, or appro
 - Seven prerendered documents: five primary pages, Credits and 404. Native Netlify 301 redirects retire six old routes; `routeRedirects.json` owns migration.
 - Ordinary anchors for top-level document navigation.
 - Shared `SiteLayout.astro`; static page bodies/footer; explicit Vue client directives only for behavior.
-- Metadata derives from `projectPages.json`; no scene preloads. Models use sized, original-source responsive images; never restore the removed root `pages/` scaffold.
+- Metadata derives from `projectPages.json`; no scene preloads. Models use sized responsive images with preserved originals and explicitly authorized model-anchored poses; never restore the removed root `pages/` scaffold.
 - Phase A review branch: one Nari atmosphere with semantic tokens; Dark/Light removal remains a reversible client-review proposal, not an approved product-foundation change.
 - Local typed content; no backend, CMS, analytics, form, account, or embeds in the foundation.
 - No Tailwind, general UI kit, second scaffold, SPA rewrite, or client secrets.
 
-ADR-011 records Jake’s explicit 2026-10-03 Astro migration instruction. `docs/42_ASTRO_REBUILD.md` supersedes the dated Vite path/route/tooling instructions in older documents. ADR-012 and `docs/43_VNEXT_EXPERIENCE.md` authorize the vNext redesign, tour/Passport retirement and optional effects. ADR-013 and document 44 supersede the room-led product and effect requirements. Further departures require an accepted decision record.
+ADR-011 records Jake’s explicit 2026-10-03 Astro migration instruction. `docs/42_ASTRO_REBUILD.md` supersedes the dated Vite path/route/tooling instructions in older documents. ADR-012 and `docs/43_VNEXT_EXPERIENCE.md` authorize the vNext redesign, tour/Passport retirement and optional effects. ADR-013 and document 44 supersede the room-led product and effect requirements. ADR-014 and document 46 authorize new model-faithful poses and custom anime supporting assets. Further departures require an accepted decision record.
 
 ## Product and content boundaries
 
@@ -85,7 +85,7 @@ npm run check
 
 For shell, page, navigation or island changes also run `npx playwright install chromium` once, then `npm run verify:browser` on the current built artifact. `NARI_BROWSER_PATH` can select an existing Chromium binary.
 
-Then perform relevant manual checks from `docs/12_QA_ACCEPTANCE_CRITERIA.md`: direct routes, the active Nari atmosphere, 320/390/768/wide, keyboard/focus, reduced motion, zoom/reflow, screen reader, contrast, network/performance, error states, links, rights, and privacy. The warm-paper Nari atmosphere is the current owner-requested review direction. Historic room/theme review criteria are superseded by document 44.
+Then perform relevant manual checks from `docs/12_QA_ACCEPTANCE_CRITERIA.md`: direct routes, the active Nari atmosphere, 320/390/768/wide, keyboard/focus, reduced motion, zoom/reflow, screen reader, contrast, network/performance, error states, links, rights, and privacy. The light-lavender/warm-cream clean-anime direction in document 46 is the current owner-requested review direction. Historic room/theme review criteria are superseded by document 44.
 
 Report only observed results.
 

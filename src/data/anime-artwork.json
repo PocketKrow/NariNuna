@@ -1,0 +1,523 @@
+{
+  "schemaVersion": 1,
+  "record": "docs/asset-records/ASSET-2026-022-anime-creator-family.md",
+  "artworks": {
+    "welcome": {
+      "source": "src/assets/source/anime-creator/nari-welcome.png",
+      "sourceSha256": "b09aaca674e3ec9e3b071a300471abd83bb5f0c845eea900e00772abe265fc37",
+      "sourceBytes": 1476030,
+      "sourceWidth": 763,
+      "sourceHeight": 2060,
+      "alpha": true,
+      "slotCrop": null,
+      "alphaBounds": [
+        2,
+        0,
+        763,
+        2060
+      ],
+      "padding": 24,
+      "width": 809,
+      "height": 2108,
+      "alt": "Nari Nuna welcomes you with an open hand, wearing her lavender-and-black outfit.",
+      "candidates": [
+        {
+          "src": "/media/anime/welcome-160.2677ad46460d906a.webp",
+          "width": 160,
+          "height": 417,
+          "bytes": 20680,
+          "sha256": "2677ad46460d906adeaa1a40ba0af8ae72b2361ead00175462498081034267b5",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/welcome-240.57f8efdc33dc796d.webp",
+          "width": 240,
+          "height": 625,
+          "bytes": 36178,
+          "sha256": "57f8efdc33dc796d954e26141bcf3dee5b4580391075af21472fe46e1bc6c4f3",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/welcome-320.b38af91cde958418.webp",
+          "width": 320,
+          "height": 834,
+          "bytes": 54492,
+          "sha256": "b38af91cde958418bf371a9737664a70d3afed26a06c71b11e494d20fcb7af5c",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/welcome-480.e27759adc250dedb.webp",
+          "width": 480,
+          "height": 1251,
+          "bytes": 98286,
+          "sha256": "e27759adc250dedb22c0320cce0b362ac18683c533081dafd844cc5904785689",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/welcome-640.b81e0511a5dab39b.webp",
+          "width": 640,
+          "height": 1668,
+          "bytes": 141714,
+          "sha256": "b81e0511a5dab39b77dbd94899af2b61a1770955fa53959c38b98e181aa587eb",
+          "quality": 81
+        },
+        {
+          "src": "/media/anime/welcome-720.29b204901a5da4fb.webp",
+          "width": 720,
+          "height": 1876,
+          "bytes": 148084,
+          "sha256": "29b204901a5da4fb453adec89fb4ad7d8657c5ff1091206b63e8fe490439d35c",
+          "quality": 72
+        }
+      ]
+    },
+    "welcome-portrait": {
+      "source": "src/assets/source/anime-creator/nari-welcome.png",
+      "sourceSha256": "b09aaca674e3ec9e3b071a300471abd83bb5f0c845eea900e00772abe265fc37",
+      "sourceBytes": 1476030,
+      "sourceWidth": 763,
+      "sourceHeight": 2060,
+      "alpha": true,
+      "slotCrop": [
+        0,
+        0,
+        763,
+        1100
+      ],
+      "alphaBounds": [
+        2,
+        0,
+        763,
+        1100
+      ],
+      "padding": 24,
+      "width": 809,
+      "height": 1148,
+      "alt": "Nari Nuna welcomes you with an open hand, wearing her lavender-and-black outfit.",
+      "candidates": [
+        {
+          "src": "/media/anime/welcome-portrait-160.efc6996f4616d42d.webp",
+          "width": 160,
+          "height": 227,
+          "bytes": 13758,
+          "sha256": "efc6996f4616d42d1ba232b848d3933a8b93bcafa89743825779c3527b4fd064",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/welcome-portrait-240.abdaccb29257d14c.webp",
+          "width": 240,
+          "height": 341,
+          "bytes": 24058,
+          "sha256": "abdaccb29257d14cc1d42e326d6b4479e4d72ca7b2f67415393af9797fcd1d5a",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/welcome-portrait-320.305c7c5ee85cb199.webp",
+          "width": 320,
+          "height": 454,
+          "bytes": 36842,
+          "sha256": "305c7c5ee85cb199f14cef6cef04eae6da1409f47a4acb9e4c15ac75754116ca",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/welcome-portrait-480.32e47c1825d2ef08.webp",
+          "width": 480,
+          "height": 681,
+          "bytes": 68060,
+          "sha256": "32e47c1825d2ef082681aabfd9094725c33e1141715b28d365491c2a12781458",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/welcome-portrait-640.7e544e93d6cb660a.webp",
+          "width": 640,
+          "height": 908,
+          "bytes": 103612,
+          "sha256": "7e544e93d6cb660a2b14a0eb8f4cfa5467c5ec400ebacd8231477ce7d0e5021e",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/welcome-portrait-720.6b4fa04f6f51985b.webp",
+          "width": 720,
+          "height": 1022,
+          "bytes": 123020,
+          "sha256": "6b4fa04f6f51985bc0176a1e44c27c2fcccb6ffe972827beeb5aae35bbe1b45f",
+          "quality": 84
+        }
+      ]
+    },
+    "nails": {
+      "source": "src/assets/source/anime-creator/nari-nails.png",
+      "sourceSha256": "68f06accc2c7314f91fcba648927c1ccf4831648880e381118500565e010d649",
+      "sourceBytes": 2003873,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "alpha": true,
+      "slotCrop": null,
+      "alphaBounds": [
+        19,
+        0,
+        1023,
+        1530
+      ],
+      "padding": 24,
+      "width": 1052,
+      "height": 1578,
+      "alt": "Nari Nuna holding a polish brush and bottle, seated on a small cream stool.",
+      "candidates": [
+        {
+          "src": "/media/anime/nails-160.d797a9aaf94772f1.webp",
+          "width": 160,
+          "height": 240,
+          "bytes": 14256,
+          "sha256": "d797a9aaf94772f1a817eabc60d2737269363dd2dd58983abf28de3c6c5fedb9",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/nails-240.ec1a4e0d6b48f07e.webp",
+          "width": 240,
+          "height": 360,
+          "bytes": 24608,
+          "sha256": "ec1a4e0d6b48f07e7b2d313e35613f06abe79cbb472a02c9322c7208533cc325",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/nails-320.df2fc78297af2b54.webp",
+          "width": 320,
+          "height": 480,
+          "bytes": 36168,
+          "sha256": "df2fc78297af2b54a6572691f687590faef6866e8c178ffeda1a1c2dc12e9217",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/nails-480.e2712a973001b2d5.webp",
+          "width": 480,
+          "height": 720,
+          "bytes": 63550,
+          "sha256": "e2712a973001b2d599f8503ce57aa4cbd2d9f546156539ac54b7d531fc52ec2f",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/nails-640.1008fa9ac2b27d19.webp",
+          "width": 640,
+          "height": 960,
+          "bytes": 96470,
+          "sha256": "1008fa9ac2b27d19b31fb1d15e9dc2f78bceafa476b9b2ee14a6973ccd0e9647",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/nails-720.62c21fc10b2b4dd4.webp",
+          "width": 720,
+          "height": 1080,
+          "bytes": 114536,
+          "sha256": "62c21fc10b2b4dd4bc2b20c52aa00ad6b4a639a93e9e4d5dd51615f75c657a87",
+          "quality": 84
+        }
+      ]
+    },
+    "ghostie-play": {
+      "source": "src/assets/source/anime-creator/ghostie-play.png",
+      "sourceSha256": "cbbcde7cfae73a594030a7ae9fb21ac4b6ec458372a56022acad0cee0cde969a",
+      "sourceBytes": 759116,
+      "sourceWidth": 1374,
+      "sourceHeight": 1145,
+      "alpha": true,
+      "slotCrop": null,
+      "alphaBounds": [
+        353,
+        93,
+        1066,
+        1061
+      ],
+      "padding": 24,
+      "width": 761,
+      "height": 1016,
+      "alt": "",
+      "candidates": [
+        {
+          "src": "/media/anime/ghostie-play-96.e43354ba16b07531.webp",
+          "width": 96,
+          "height": 128,
+          "bytes": 6160,
+          "sha256": "e43354ba16b07531f3d1b5c4ba6cf656a974b35f69ab789ce07888520a202e37",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/ghostie-play-160.dba1bec951821b5d.webp",
+          "width": 160,
+          "height": 214,
+          "bytes": 11656,
+          "sha256": "dba1bec951821b5d53f3fdf95f8e9183319896cbd764c4e26ab703e96de185c5",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/ghostie-play-240.0c5a224d8fbd3d97.webp",
+          "width": 240,
+          "height": 320,
+          "bytes": 19412,
+          "sha256": "0c5a224d8fbd3d97ea7e22ede8c49e64964c5952aa5a5e905dadd91ec4608223",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/ghostie-play-320.fd931a8c4082c079.webp",
+          "width": 320,
+          "height": 427,
+          "bytes": 28318,
+          "sha256": "fd931a8c4082c079af4bdcec215bf29234c08066889d533ecba13882328c0ca1",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/ghostie-play-480.e3a5ce170fc4d394.webp",
+          "width": 480,
+          "height": 641,
+          "bytes": 49584,
+          "sha256": "e3a5ce170fc4d394a9d29ac35d7c4720fc319304092930cb4fb23c46dc3795af",
+          "quality": 84
+        }
+      ]
+    },
+    "ghostie-bloom": {
+      "source": "src/assets/source/anime-creator/ghostie-bloom.png",
+      "sourceSha256": "55b7c03b5028775efa12243e922ba18fc29217d29fee9e558259e5ffe55b47b2",
+      "sourceBytes": 849126,
+      "sourceWidth": 1374,
+      "sourceHeight": 1145,
+      "alpha": true,
+      "slotCrop": null,
+      "alphaBounds": [
+        303,
+        59,
+        1116,
+        1104
+      ],
+      "padding": 24,
+      "width": 861,
+      "height": 1093,
+      "alt": "",
+      "candidates": [
+        {
+          "src": "/media/anime/ghostie-bloom-96.ab66e921edaae970.webp",
+          "width": 96,
+          "height": 122,
+          "bytes": 6208,
+          "sha256": "ab66e921edaae970ee5d688f06aa8d3914fdc5804435e10abc3d41ea568e9958",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/ghostie-bloom-160.1082b9f2675811cf.webp",
+          "width": 160,
+          "height": 203,
+          "bytes": 11284,
+          "sha256": "1082b9f2675811cffcd46ddf1aec7058e6df553b92f1f6671306947496cbdab3",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/ghostie-bloom-240.98e18a486d9b5d80.webp",
+          "width": 240,
+          "height": 305,
+          "bytes": 19126,
+          "sha256": "98e18a486d9b5d803bd36bcacc87017250309c5762ccc1ceec24d2ef4582efe1",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/ghostie-bloom-320.6b5dcfa7b69bb4da.webp",
+          "width": 320,
+          "height": 406,
+          "bytes": 27270,
+          "sha256": "6b5dcfa7b69bb4da1439de91939442741e9785f179f293de12a2c5ca1dc7f887",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/ghostie-bloom-480.36b95f762d371d9d.webp",
+          "width": 480,
+          "height": 609,
+          "bytes": 46602,
+          "sha256": "36b95f762d371d9df7c78fafb128f683e1f79ce883cb089283bd986c6f3c2dcf",
+          "quality": 84
+        }
+      ]
+    },
+    "lavender": {
+      "source": "src/assets/source/anime-creator/lavender-flourish.png",
+      "sourceSha256": "7ec6977acdcc8c0b790a47e99b875be5ba72d74ee1b786635d082ac19db5c3cb",
+      "sourceBytes": 1523362,
+      "sourceWidth": 2172,
+      "sourceHeight": 724,
+      "alpha": true,
+      "slotCrop": null,
+      "alphaBounds": [
+        11,
+        22,
+        2161,
+        702
+      ],
+      "padding": 24,
+      "width": 2198,
+      "height": 728,
+      "alt": "",
+      "candidates": [
+        {
+          "src": "/media/anime/lavender-96.223b18705d8c083a.webp",
+          "width": 96,
+          "height": 32,
+          "bytes": 3474,
+          "sha256": "223b18705d8c083afe1e0d7a8ddcfa7c34dfc1804f291a68a917ad254a764989",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/lavender-160.23916ba9e84821f6.webp",
+          "width": 160,
+          "height": 53,
+          "bytes": 7400,
+          "sha256": "23916ba9e84821f63e67b86a7076c94f21477fe816c3abd8e556ac1dd724ecef",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/lavender-240.b8d05f58b9e706c0.webp",
+          "width": 240,
+          "height": 79,
+          "bytes": 13760,
+          "sha256": "b8d05f58b9e706c025c1528a5a11cadb5f19ca752f0d930045a0cecf10ee2fb5",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/lavender-320.6e45371053350466.webp",
+          "width": 320,
+          "height": 106,
+          "bytes": 20988,
+          "sha256": "6e45371053350466b2dc9b08a2f384c1147f60950326079a61fa56294c16b35d",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/lavender-480.c1ef51dc4f144046.webp",
+          "width": 480,
+          "height": 159,
+          "bytes": 38498,
+          "sha256": "c1ef51dc4f1440468dfff7d1017ba23cb07651390097392850bfc6b3cece6ea0",
+          "quality": 84
+        }
+      ]
+    },
+    "correspondence": {
+      "source": "src/assets/source/anime-creator/correspondence.png",
+      "sourceSha256": "d8b04337fb3ea06953207dddebcdcc7ccdf65134020374287b20c358ce17cc2b",
+      "sourceBytes": 2009853,
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "alpha": true,
+      "slotCrop": null,
+      "alphaBounds": [
+        149,
+        15,
+        1408,
+        1006
+      ],
+      "padding": 24,
+      "width": 1307,
+      "height": 1039,
+      "alt": "",
+      "candidates": [
+        {
+          "src": "/media/anime/correspondence-96.1251266fd31e34a1.webp",
+          "width": 96,
+          "height": 76,
+          "bytes": 4760,
+          "sha256": "1251266fd31e34a1bfa2bb793377cc79be47280e3b9cdcd8fc6d204b56dd6164",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/correspondence-160.b5697dbb4250cd5c.webp",
+          "width": 160,
+          "height": 127,
+          "bytes": 9518,
+          "sha256": "b5697dbb4250cd5c61ec37dd9c346979627cd64d30f8976b003e7de35a0e62e1",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/correspondence-240.1d6209acf1f0493d.webp",
+          "width": 240,
+          "height": 191,
+          "bytes": 16246,
+          "sha256": "1d6209acf1f0493db286fca6e1e0410cc870b5643bb5bbfd4eedd2f929f64472",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/correspondence-320.01fb460b1da9184b.webp",
+          "width": 320,
+          "height": 254,
+          "bytes": 24086,
+          "sha256": "01fb460b1da9184bbb3093a46f93a81476c47cfe5f88ead5b5f12f165fbf4e7a",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/correspondence-480.246ffa5feb271a5d.webp",
+          "width": 480,
+          "height": 382,
+          "bytes": 42494,
+          "sha256": "246ffa5feb271a5d6f7012780e1a4fa663dbc55e5b878d372fd45ebbb0cf8612",
+          "quality": 84
+        }
+      ]
+    },
+    "ghostie-recovery": {
+      "source": "src/assets/source/anime-creator/ghostie-recovery.png",
+      "sourceSha256": "922dd73457b30cbc2d34c9e74c4c6a06624a507ca053e341fe92fe19f044b99e",
+      "sourceBytes": 766302,
+      "sourceWidth": 1374,
+      "sourceHeight": 1145,
+      "alpha": true,
+      "slotCrop": null,
+      "alphaBounds": [
+        290,
+        88,
+        1097,
+        1101
+      ],
+      "padding": 24,
+      "width": 855,
+      "height": 1061,
+      "alt": "",
+      "candidates": [
+        {
+          "src": "/media/anime/ghostie-recovery-96.5e3c4ab308b347d8.webp",
+          "width": 96,
+          "height": 119,
+          "bytes": 6284,
+          "sha256": "5e3c4ab308b347d81b2f10f734c340d5d6b6a852457f2b3a43cdd4cf57cd50c0",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/ghostie-recovery-160.1ac08bf493ce1d68.webp",
+          "width": 160,
+          "height": 199,
+          "bytes": 11282,
+          "sha256": "1ac08bf493ce1d68d046017da8b704cc5d3660e225b103f2e2bcef01459972d1",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/ghostie-recovery-240.cdf30b5a4e7c8f58.webp",
+          "width": 240,
+          "height": 298,
+          "bytes": 18834,
+          "sha256": "cdf30b5a4e7c8f585108afc654a457ec633258022ce4e5f6d68a101addc47f2d",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/ghostie-recovery-320.28a333ea1c33cc51.webp",
+          "width": 320,
+          "height": 397,
+          "bytes": 26534,
+          "sha256": "28a333ea1c33cc5154572426890f818378b95d7af79ae35403f0287587064f3a",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/ghostie-recovery-480.1f4066ef8e217ac3.webp",
+          "width": 480,
+          "height": 596,
+          "bytes": 44482,
+          "sha256": "1f4066ef8e217ac3918a84b0d470de16ca802cbe2cae2eae46542c58340b2c22",
+          "quality": 84
+        }
+      ]
+    }
+  }
+}

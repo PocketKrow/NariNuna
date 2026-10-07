@@ -17,7 +17,7 @@ describe("minimal creator document contracts", () => {
       expect(html.match(/<h1\b/g)).toHaveLength(1);
       expect(html.match(/<main\b/g)).toHaveLength(1);
       expect(html).toContain('data-theme="nari"');
-      expect(html).toContain('name="theme-color" content="#f7f1e8"');
+      expect(html).toContain('name="theme-color" content="#fffaf4"');
       expect(html).toContain(`data-route="${page.routeName}"`);
       expect(html).not.toMatch(/astro-island|<canvas|room-arrival|haven-passport|room-passage/);
     }

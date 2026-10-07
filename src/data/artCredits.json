@@ -189,6 +189,28 @@
         "/favicon.svg",
         "/media/minimal/nari-share.dfebd8ced76434bb.jpg"
       ]
+    },
+    {
+      "id": "anime-creator-review",
+      "label": "Model-anchored anime creator poses and custom supporting artwork",
+      "assetRecord": "docs/asset-records/ASSET-2026-022-anime-creator-family.md",
+      "trackedAssets": [
+        "/media/anime/welcome-320.b38af91cde958418.webp",
+        "/media/anime/welcome-portrait-320.305c7c5ee85cb199.webp",
+        "/media/anime/nails-320.df2fc78297af2b54.webp",
+        "/media/anime/ghostie-play-240.0c5a224d8fbd3d97.webp",
+        "/media/anime/ghostie-bloom-240.98e18a486d9b5d80.webp",
+        "/media/anime/lavender-240.b8d05f58b9e706c0.webp",
+        "/media/anime/correspondence-240.1d6209acf1f0493d.webp",
+        "/media/anime/ghostie-recovery-240.cdf30b5a4e7c8f58.webp",
+        "/media/anime/nari-share.bee77487f52c4111.jpg",
+        "/media/anime/ghostie-favicon.42d5a3c83ea200e5.png"
+      ],
+      "publicationStatus": "blocked",
+      "websiteUseStatus": "blocked",
+      "derivativeUseStatus": "pending",
+      "thirdPartyStatus": "concern",
+      "approvalStatus": "pending"
     }
   ],
   "credits": [
@@ -305,14 +327,15 @@
       "groupId": "website-artwork",
       "displayName": "Nari Nuna website project",
       "roles": [
-        "Storybook art direction and production"
+        "Website art direction and production"
       ],
-      "contribution": "Owner-directed storybook scenes, Nari derivatives, room art, and supporting visual details made for this review build.",
+      "contribution": "Model-anchored Nari poses, custom Ghosties, lavender flourishes and supporting website illustrations made for this review build.",
       "creditText": "Project-created review artwork; final adoption and underlying model-derivative rights remain unresolved.",
       "links": [],
       "assetFamilyIds": [
         "storybook-nari",
-        "storybook-environments"
+        "storybook-environments",
+        "anime-creator-review"
       ],
       "creditStatus": "internal",
       "artworkDisplayStatus": "not-approved",

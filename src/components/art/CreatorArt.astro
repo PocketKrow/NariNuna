@@ -1,0 +1,9 @@
+---
+import manifest from "@/data/anime-artwork.json";
+type Asset = keyof typeof manifest.artworks;
+interface Props { asset: Asset; class?: string; sizes?: string; alt?: string; eager?: boolean; priority?: boolean }
+const { asset: id, class: className, sizes = "240px", alt, eager = false, priority = false } = Astro.props;
+const art = manifest.artworks[id];
+const fallback = art.candidates.find(({ width }) => width >= 320) ?? art.candidates.at(-1)!;
+---
+<img class={className} src={fallback.src} srcset={art.candidates.map(({ src, width }) => `${src} ${width}w`).join(", ")} sizes={sizes} width={art.width} height={art.height} alt={alt ?? art.alt} loading={eager ? "eager" : "lazy"} fetchpriority={priority ? "high" : "auto"} decoding="async" data-creator-art={id} />

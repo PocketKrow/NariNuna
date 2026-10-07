@@ -1,11 +1,13 @@
 {
-  "source": "public/media/nari/nari-model-portrait.webp",
-  "sourceSha256": "7adccd5482282c0227ef9a4fbe5bdd474025ad68caccee937785ad723d583f4d",
-  "master": "src/assets/source/minimal/nari-creator-share.png",
-  "masterSha256": "96e9e2aec65ef8763979917fe4c56554de42771d8fd02c301a67211791409cec",
-  "src": "/media/minimal/nari-share.dfebd8ced76434bb.jpg",
-  "sha256": "dfebd8ced76434bbc20f563aa2899c1ecce2c5d82837bced17f2565f6c95860a",
-  "bytes": 74959,
+  "source": "src/assets/source/anime-creator/nari-welcome.png",
+  "sourceSha256": "b09aaca674e3ec9e3b071a300471abd83bb5f0c845eea900e00772abe265fc37",
+  "master": "src/assets/source/anime-creator/nari-anime-share.png",
+  "masterSha256": "037858a41d97f41325957c2da2124bd58830c7f20170c243fc1ca0c8ac2fbfb8",
+  "src": "/media/anime/nari-share.bee77487f52c4111.jpg",
+  "sha256": "bee77487f52c4111dd8cd8d6b9aefe54f3d9deeac26573f4f0141b473c4388ca",
+  "bytes": 66811,
   "width": 1200,
-  "height": 630
+  "height": 630,
+  "faviconSrc": "/media/anime/ghostie-favicon.42d5a3c83ea200e5.png",
+  "faviconSha256": "42d5a3c83ea200e5c2730f8a23d8fcf0978c4995635da9b9e76692ccb2993b14"
 }
