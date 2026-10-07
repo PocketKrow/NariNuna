@@ -1,23 +1,29 @@
 ---
 import { primaryNavigation } from "@/data/navigation";
+import { havenRoomNotes } from "@/data/rooms";
+import CreatorArt from "@/components/art/CreatorArt.astro";
+import { House, Smile, Palette, MessagesSquare, Mail } from "@lucide/vue";
 interface Props { currentPath: string }
 const { currentPath } = Astro.props;
+const icons = [House, Smile, Palette, MessagesSquare, Mail];
 ---
 <header class="site-header page-width">
-  <a class="brand" href="/" aria-label="Nari Nuna home">nari<span>nuna</span><i aria-hidden="true">✳</i></a>
+  <a class="brand" href="/" aria-label="Nari Nuna home">
+    <CreatorArt asset="haven-mark" class="brand-mark" sizes="44px" eager />
+    <span class="brand-copy"><span class="brand-name">Nari Nuna</span><small>A little warmth. A little chaos.</small></span>
+  </a>
   <nav class="desktop-nav" aria-label="Main navigation">
-    {primaryNavigation.map(({ href, label }) => <a href={href} aria-current={href === currentPath ? "page" : undefined}>{label}</a>)}
+    {primaryNavigation.map(({ href, label }, index) => { const Icon = icons[index]; return <a href={href} aria-current={href === currentPath ? "page" : undefined}><Icon size={16} aria-hidden="true" /><span>{label}</span></a>; })}
   </nav>
   <details class="mobile-menu">
-    <summary>Menu <span aria-hidden="true">+</span></summary>
+    <summary>Explore <span aria-hidden="true">+</span></summary>
     <nav aria-label="Mobile navigation">
-      {primaryNavigation.map(({ href, label }) => <a href={href} aria-current={href === currentPath ? "page" : undefined}>{label}</a>)}
+      {primaryNavigation.map(({ href, label }, index) => { const Icon = icons[index]; return <a href={href} aria-current={href === currentPath ? "page" : undefined}><Icon size={18} aria-hidden="true" /><span class="nav-copy"><strong>{label}</strong><small>{havenRoomNotes[href]}</small></span></a>; })}
     </nav>
   </details>
 </header>
 <script>
-  // Native disclosure works without JavaScript. It expands in document flow, so
-  // keyboard users can leave freely without a modal focus trap or scroll lock.
+  // Native in-flow disclosure supports no-JS navigation without trapping focus.
   const menu = document.querySelector<HTMLDetailsElement>(".mobile-menu");
   menu?.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && menu.open) {
@@ -26,7 +32,7 @@ const { currentPath } = Astro.props;
     }
   });
   menu?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => { menu.open = false; }));
-  matchMedia("(min-width: 48rem)").addEventListener("change", ({ matches }) => {
+  matchMedia("(min-width: 64rem)").addEventListener("change", ({ matches }) => {
     if (matches && menu) menu.open = false;
   });
 </script>

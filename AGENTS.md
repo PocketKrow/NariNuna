@@ -41,7 +41,7 @@ Never claim a test, build, branch, commit, PR, deployment, link, right, or appro
 - Local typed content; no backend, CMS, analytics, form, account, or embeds in the foundation.
 - No Tailwind, general UI kit, second scaffold, SPA rewrite, or client secrets.
 
-ADR-011 records Jake’s explicit 2026-10-03 Astro migration instruction. `docs/42_ASTRO_REBUILD.md` supersedes the dated Vite path/route/tooling instructions in older documents. ADR-012 and `docs/43_VNEXT_EXPERIENCE.md` authorize the vNext redesign, tour/Passport retirement and optional effects. ADR-013 and document 44 supersede the room-led product and effect requirements. ADR-014 and document 46 authorize new model-faithful poses and custom anime supporting assets. Further departures require an accepted decision record.
+ADR-011 records Jake’s explicit 2026-10-03 Astro migration instruction. `docs/42_ASTRO_REBUILD.md` supersedes the dated Vite path/route/tooling instructions in older documents. ADR-012 and `docs/43_VNEXT_EXPERIENCE.md` authorize the vNext redesign, tour/Passport retirement and optional effects. ADR-013 and document 44 supersede the room-led product and effect requirements. ADR-014 and document 46 authorize new model-faithful poses and custom anime supporting assets. ADR-015 and document 48 refine the connected Haven shell, provisional mark, Creativity/Connections labels and optional thumbnails/disclosure. Further departures require an accepted decision record.
 
 ## Product and content boundaries
 
@@ -85,7 +85,7 @@ npm run check
 
 For shell, page, navigation or island changes also run `npx playwright install chromium` once, then `npm run verify:browser` on the current built artifact. `NARI_BROWSER_PATH` can select an existing Chromium binary.
 
-Then perform relevant manual checks from `docs/12_QA_ACCEPTANCE_CRITERIA.md`: direct routes, the active Nari atmosphere, 320/390/768/wide, keyboard/focus, reduced motion, zoom/reflow, screen reader, contrast, network/performance, error states, links, rights, and privacy. The light-lavender/warm-cream clean-anime direction in document 46 is the current owner-requested review direction. Historic room/theme review criteria are superseded by document 44.
+Then perform relevant manual checks from `docs/12_QA_ACCEPTANCE_CRITERIA.md`: direct routes, the active Nari atmosphere, 320/390/768/wide, keyboard/focus, reduced motion, zoom/reflow, screen reader, contrast, network/performance, error states, links, rights, and privacy. The light-lavender/warm-cream clean-anime direction in document 46 is the current owner-requested review direction. The current connected refinement is document 48. Historic room/theme review criteria are superseded by document 44.
 
 Report only observed results.
 

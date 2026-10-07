@@ -2,6 +2,9 @@ import { expect, test } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import pages from "../src/data/projectPages.json" with { type: "json" };
 
+// Optional remote preview failure is deterministic; source art and links stay real.
+test.beforeEach(async ({ page }) => { await page.route("https://i.ytimg.com/**", (route) => route.abort()); });
+
 for (const width of [390, 1440]) {
   test(`all documents pass axe at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
@@ -20,7 +23,7 @@ for (const width of [390, 1440]) {
       await page.goto(path);
       await page.addStyleTag({ content: ':root { --font-display: "DejaVu Sans"; --font-body: "DejaVu Sans"; }' });
       for (const image of await page.locator("img").all()) {
-        await image.scrollIntoViewIfNeeded();
+        if (await image.isVisible()) await image.scrollIntoViewIfNeeded();
         await image.evaluate((el: HTMLImageElement) => el.decode().catch(() => undefined));
       }
       await page.evaluate(() => scrollTo(0, 0));
@@ -42,6 +45,7 @@ test("native menu passes axe and releases focus on Escape", async ({ page }) => 
 
 test("all static documents work without JavaScript", async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 320, height: 568 } });
+  await context.route("https://i.ytimg.com/**", (route) => route.abort());
   const page = await context.newPage();
   for (const route of pages) {
     await page.goto(`http://127.0.0.1:4175${route.path}`);
@@ -62,7 +66,7 @@ test("image failure and blocked WebGL leave content and platforms usable", async
   await expect(page.locator("h1")).toContainText("Nari Nuna");
   await expect(page.getByRole("link", { name: /Watch on Twitch/ })).toBeVisible();
   await expect(page.locator("canvas, astro-island")).toHaveCount(0);
-  expect(errors).toEqual([]); expect(remote).toEqual([]);
+  expect(errors).toEqual([]); expect(remote.every((url) => new URL(url).hostname === "i.ytimg.com")).toBe(true);
 });
 
 test("document navigation retains back and forward behavior", async ({ page }) => {
@@ -85,3 +89,44 @@ for (const viewport of [{ width: 320, height: 568 }, { width: 390, height: 568 }
     }
   });
 }
+
+test("Haven disclosure is optional, keyboard-operated and works without JavaScript", async ({ browser }) => {
+  for (const javaScriptEnabled of [true, false]) {
+    const context = await browser.newContext({ javaScriptEnabled, viewport: { width: 390, height: 844 } });
+    await context.route("https://i.ytimg.com/**", (route) => route.abort());
+    const page = await context.newPage();
+    await page.goto("http://127.0.0.1:4175/links/#community");
+    const disclosure = page.locator(".haven-peek");
+    await expect(disclosure).not.toHaveAttribute("open");
+    await expect(page.getByRole("link", { name: /Come hang out on Discord/ })).toBeVisible();
+    await disclosure.locator("summary").focus(); await page.keyboard.press("Enter");
+    await expect(disclosure).toHaveAttribute("open");
+    await expect(disclosure.getByRole("link", { name: /community values/ })).toBeVisible();
+    await page.keyboard.press("Enter"); await expect(disclosure).not.toHaveAttribute("open");
+    await context.close();
+  }
+});
+
+test("all Home profiles and failed clip previews remain usable", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator(".home-socials .social-dock a")).toHaveCount(6);
+  for (const link of await page.locator(".home-socials .social-dock a").all()) await expect(link).toHaveAccessibleName(/opens in a new tab/);
+  await page.locator(".home-moments").scrollIntoViewIfNeeded();
+  for (const image of await page.locator("main [data-optional-preview]").all()) await expect(image).toBeHidden();
+  await expect(page.locator(".moment-preview")).toHaveCount(3);
+  await expect(page.locator("iframe, video")).toHaveCount(0);
+  const result = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();
+  expect(result.violations).toEqual([]);
+});
+
+test("optional clip images load lazily when their image source is available", async ({ page }) => {
+  await page.unroute("https://i.ytimg.com/**");
+  // A tiny valid raster fixture isolates image loading from remote availability.
+  await page.route("https://i.ytimg.com/**", (route) => route.fulfill({ contentType: "image/png", body: Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aDAAAAABJRU5ErkJggg==", "base64") }));
+  await page.goto("/"); await page.locator(".home-moments").scrollIntoViewIfNeeded();
+  for (const image of await page.locator("main [data-optional-preview]").all()) {
+    await expect(image).toBeVisible();
+    expect(await image.evaluate(async (el: HTMLImageElement) => { await el.decode(); return el.naturalWidth; })).toBe(1);
+  }
+  await expect(page.locator("iframe, video")).toHaveCount(0);
+});

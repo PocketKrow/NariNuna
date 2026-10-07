@@ -3,7 +3,7 @@ export interface HavenRoom { label: string; href: string; note: string }
 const notes: Record<string, string> = {
   "/": "Your chaotic big sister.",
   "/meet-nari/": "The warmth, the chaos, and the craft.",
-  "/nail-studio/": "Polish, practice, and a little patience.",
+  "/nail-studio/": "Color, games, and creative curiosity.",
   "/links/": "Streams, updates, and good company.",
   "/work-with-nari/": "Good ideas start with a conversation.",
   "/credits/": "The names behind the work."

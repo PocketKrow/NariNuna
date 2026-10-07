@@ -1,0 +1,21 @@
+---
+// Curated existing Shorts. Only optional image previews load; the video opens on YouTube.
+import { featuredMoments } from "@/data/media";
+import { Play, ArrowUpRight } from "@lucide/vue";
+---
+<ol class="moment-previews">
+  {featuredMoments.map(({ title, description, url, thumbnailUrl }) => <li>
+    <a class="moment-preview" href={url} target="_blank" rel="noopener noreferrer">
+      <span class="moment-capture"><span class="preview-fallback">A very Nari moment<br /><small>Watch the Short on YouTube</small></span><img src={thumbnailUrl} width="480" height="360" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-optional-preview /><span class="preview-play" aria-hidden="true"><Play size={20} /></span><span class="preview-source">YouTube Short <ArrowUpRight size={12} aria-hidden="true" /></span></span>
+      <strong>{title}</strong><span class="moment-description">{description}</span><span class="sr-only"> (opens in a new tab)</span>
+    </a>
+  </li>)}
+</ol>
+<script>
+  // Optional previews fail independently. Keep the titled outbound link and fallback.
+  document.querySelectorAll<HTMLImageElement>("[data-optional-preview]").forEach((image) => {
+    const fail = () => { image.hidden = true; };
+    image.addEventListener("error", fail, { once: true });
+    if (image.complete && !image.naturalWidth) fail();
+  });
+</script>

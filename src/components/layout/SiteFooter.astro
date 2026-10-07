@@ -1,8 +1,17 @@
 ---
 import CreatorArt from "@/components/art/CreatorArt.astro";
-import { footerNavigation } from "@/data/navigation";
+import SocialDock from "@/components/ui/SocialDock.vue";
+import { primaryNavigation, footerNavigation } from "@/data/navigation";
+import { ArrowRight } from "@lucide/vue";
 ---
 <footer class="site-footer page-width">
-  <p><CreatorArt asset="lavender" class="footer-floral" sizes="70px" /> A little warmth. A little chaos. Nari Nuna.</p>
-  <nav aria-label="Footer">{footerNavigation.map(({ label, href }) => <a href={href}>{label}</a>)}</nav>
+  <div class="footer-welcome">
+    <a class="brand" href="/" aria-label="Nari Nuna home"><CreatorArt asset="haven-mark" class="brand-mark" sizes="44px" /><span class="brand-name">Nari Nuna</span></a>
+    <p>A little warmth. A little chaos.<br />A place for you and the Ghosties.</p>
+    <SocialDock compact ariaLabel="Nari Nuna’s footer profiles" />
+    <span class="small-note">Throne support is always optional.</span>
+  </div>
+  <nav class="footer-explore" aria-label="Explore the Haven"><p class="eyebrow">Make yourself at home</p>{primaryNavigation.map(({ label, href }) => <a href={href}>{label}<ArrowRight size={14} aria-hidden="true" /></a>)}</nav>
+  <div class="footer-note"><p class="eyebrow">Good company. Good boundaries.</p><p>Bring your whole weird self.<br />Kindness has a backbone.</p><a class="text-link" href="/links/#community">Find the Haven <ArrowRight size={15} aria-hidden="true" /></a></div>
+  <div class="footer-bottom"><p>Made for Nari Nuna & the Ghosties.</p><nav aria-label="Footer">{footerNavigation.map(({ label, href }) => <a href={href}>{label}</a>)}</nav></div>
 </footer>

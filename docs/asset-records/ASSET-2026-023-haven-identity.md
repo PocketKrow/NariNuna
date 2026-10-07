@@ -1,0 +1,11 @@
+# ASSET-2026-023 — Provisional Haven identity and welcome banner
+
+Intake: 2026-10-06 America/New_York / 2026-10-07 UTC. Jake explicitly requests a temporary tattoo-inspired Ghostie logo, a new warm Meet Nari banner pose, intact natural character presentation, and closer Haven continuity on existing review PR #31. This authorizes implementation/review only. Nari owns final adoption; existing model artist, public derivative rights and attribution remain unresolved. No cultural/heritage/canon meaning is assigned to the mark.
+
+Source of character identity and visible tattoo geometry: only supplied `public/media/nari/nari-model-fullbody.webp` and `nari-model-portrait.webp`. Existing `ghostie-bloom.png` is a supporting style reference for the provisional mark. All source masters are preserved. New images use the built-in image-generation tool, retain exact prompts and accepted PNG masters under `src/assets/source/haven-identity/`, and receive hashed, non-upscaled, metadata-clean WebP derivatives with intrinsic sizes and responsive candidates. Temporary branding is labeled in Credits until Nari chooses a final mark.
+
+Banner invariants: adult tan complexion/proportions, emerald eyes, blunt bangs, brown/violet hair, floppy dog ear at viewer left/upright white-tuft cat ear at viewer right, ghost ear charm, gold bells/red ribbons, moon choker, shoulder sun tattoo, lavender off-shoulder blouse, sheer dotted balloon sleeves, black laced corset, gold celestial chains, original skirt/stockings/boots wherever visible. Only pose, expression and framing change. Warm eye contact and a relaxed wave express welcome; no invented biography or room/canon.
+
+Provisional mark: simple plum line emblem combining a small friendly Ghostie with the visible tattoo's sun/crescent geometry. It is a temporary project design, not a replica/claim of a canonical tattoo, official logo or cultural symbol. Real HTML spells “Nari Nuna” beside it; no raster lettering or invented initials.
+
+Privacy: fictional illustration only; no private person, address, messages, screens, member likeness, watermark or platform logo. Preserve transparent alpha; decorative mark/banner support does not replace text/navigation. No source PNG or prompt is served. Delivery details and hashes are recorded in the new machine-readable manifest after acceptance.

@@ -518,6 +518,112 @@
           "quality": 84
         }
       ]
+    },
+    "haven-banner": {
+      "source": "src/assets/source/haven-identity/nari-haven-banner.png",
+      "sourceSha256": "77e3b9e671f646f70dd37c8f2ac28709c49a39787788f01a172f9353467d637e",
+      "sourceBytes": 1987261,
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "alpha": true,
+      "slotCrop": null,
+      "alphaBounds": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "padding": 24,
+      "width": 1584,
+      "height": 1072,
+      "alt": "Nari Nuna smiles and waves beside a friendly Ghostie, leaning on a cream ledge.",
+      "candidates": [
+        {
+          "src": "/media/anime/haven-banner-320.48f9409f44d996e4.webp",
+          "width": 320,
+          "height": 217,
+          "bytes": 20046,
+          "sha256": "48f9409f44d996e4f913a703df3e4dd930373281e05631b5313b1dd2140d57a6",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/haven-banner-480.e4988c5f630541ac.webp",
+          "width": 480,
+          "height": 325,
+          "bytes": 35838,
+          "sha256": "e4988c5f630541ac5b5b58993282a4f8f69c52a088361fe21080276cb581a45b",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/haven-banner-640.0bd88a4485c7d572.webp",
+          "width": 640,
+          "height": 433,
+          "bytes": 53778,
+          "sha256": "0bd88a4485c7d57227aa3f2473e2ca7b4b931c166993e52b4ca490972847495d",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/haven-banner-960.f552021f74c55fa4.webp",
+          "width": 960,
+          "height": 650,
+          "bytes": 100554,
+          "sha256": "f552021f74c55fa4e385a3d155b54c34033c75caf9f727f936b7a55d48fb6f80",
+          "quality": 84
+        }
+      ]
+    },
+    "haven-mark": {
+      "source": "src/assets/source/haven-identity/haven-mark.png",
+      "sourceSha256": "1c5d324ebc9bab7243183fa290ef128c92ab053ddef1d932ce75523200d32bed",
+      "sourceBytes": 509856,
+      "sourceWidth": 1254,
+      "sourceHeight": 1254,
+      "alpha": true,
+      "slotCrop": null,
+      "alphaBounds": [
+        132,
+        130,
+        1123,
+        1038
+      ],
+      "padding": 24,
+      "width": 1039,
+      "height": 956,
+      "alt": "",
+      "candidates": [
+        {
+          "src": "/media/anime/haven-mark-48.4a1ab01397c73732.webp",
+          "width": 48,
+          "height": 44,
+          "bytes": 2004,
+          "sha256": "4a1ab01397c737326537d651a3d263a90526775ecb0bcf0e006e3ff029946eb9",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/haven-mark-96.be5a807e31a98aba.webp",
+          "width": 96,
+          "height": 88,
+          "bytes": 4580,
+          "sha256": "be5a807e31a98aba7ab26620683ce9ab3902634f1d737458fadc6b5378081ca4",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/haven-mark-160.1d6233b3f1d4b5ee.webp",
+          "width": 160,
+          "height": 147,
+          "bytes": 8208,
+          "sha256": "1d6233b3f1d4b5ee3925884b52cf40fdc23b9c12c6cd789013c62dfbcd6de034",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/haven-mark-240.d55a8b0c4d035fb4.webp",
+          "width": 240,
+          "height": 221,
+          "bytes": 13126,
+          "sha256": "d55a8b0c4d035fb44d4f56371c059ec6c6e9c3c5e30d074435a24d3705daf04d",
+          "quality": 84
+        }
+      ]
     }
   }
 }

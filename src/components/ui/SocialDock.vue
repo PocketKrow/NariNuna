@@ -1,17 +1,18 @@
 <script setup lang="ts">
 // Render the shared public-profile directory in its reviewed order. Inline platform glyphs are decorative; visible labels carry meaning.
 import { nariLinks } from "@/data/socials";
+withDefaults(defineProps<{ compact?: boolean; ariaLabel?: string }>(), { compact: false, ariaLabel: "Nari’s public profiles" });
 </script>
 
 <template>
   <!-- Glyph coordinates use the 24-unit viewBox; names come from the links, not the SVG paths. -->
-  <nav class="social-dock" aria-label="Nari's public profiles">
+  <nav :class="['social-dock', { 'social-dock--compact': compact }]" :aria-label="ariaLabel">
     <a
       v-for="link in nariLinks"
       :key="link.platform"
       :href="link.url"
-      :aria-label="`${link.label} (opens in a new tab)`"
-      :title="link.label"
+      :aria-label="`${link.label}${link.category === 'support' ? ' · optional support' : ''} (opens in a new tab)`"
+      :title="`${link.label}${link.category === 'support' ? ' · optional support' : ''}`"
       target="_blank"
       rel="noreferrer noopener"
     >

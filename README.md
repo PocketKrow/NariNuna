@@ -1,3 +1,5 @@
+> **2026-10-06 connected Haven revision:** [docs/48_CONNECTED_MINIMAL_HAVEN.md](docs/48_CONNECTED_MINIMAL_HAVEN.md) / ADR-015 adds provisional full-name branding, coherent shared navigation/footer, natural Home presentation, a new Meet welcome banner, Creativity/Connections and optional clip/Haven context. Existing URLs, source preservation and release boundaries remain.
+
 > Current visual direction: [46 — Custom Anime Creator Art](docs/46_ANIME_CREATOR_ART_DIRECTION.md). Owner-selected light lavender/warm cream, faithful new model-anchored poses and seven custom master illustrations. [47 — observed revision validation](docs/47_ANIME_CREATOR_VALIDATION.md) owns current evidence; earlier results describe the first review iteration.
 
 # Nari Nuna

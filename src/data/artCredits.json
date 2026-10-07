@@ -211,6 +211,21 @@
       "derivativeUseStatus": "pending",
       "thirdPartyStatus": "concern",
       "approvalStatus": "pending"
+    },
+    {
+      "id": "haven-provisional-identity",
+      "label": "Provisional Ghostie identity and welcoming Nari banner",
+      "assetRecord": "docs/asset-records/ASSET-2026-023-haven-identity.md",
+      "trackedAssets": [
+        "/media/anime/haven-mark-96.be5a807e31a98aba.webp",
+        "/media/anime/haven-banner-480.e4988c5f630541ac.webp",
+        "/media/anime/haven-favicon.a84a774c994dc8e0.png"
+      ],
+      "publicationStatus": "blocked",
+      "websiteUseStatus": "blocked",
+      "derivativeUseStatus": "pending",
+      "thirdPartyStatus": "concern",
+      "approvalStatus": "pending"
     }
   ],
   "credits": [
@@ -329,13 +344,14 @@
       "roles": [
         "Website art direction and production"
       ],
-      "contribution": "Model-anchored Nari poses, custom Ghosties, lavender flourishes and supporting website illustrations made for this review build.",
-      "creditText": "Project-created review artwork; final adoption and underlying model-derivative rights remain unresolved.",
+      "contribution": "Model-anchored Nari poses, custom Ghosties, a provisional tattoo-inspired emblem, and supporting website illustrations made for this review build.",
+      "creditText": "The Ghostie emblem is temporary until Nari chooses her branding. Project-created review artwork; final adoption and underlying model-derivative rights remain unresolved.",
       "links": [],
       "assetFamilyIds": [
         "storybook-nari",
         "storybook-environments",
-        "anime-creator-review"
+        "anime-creator-review",
+        "haven-provisional-identity"
       ],
       "creditStatus": "internal",
       "artworkDisplayStatus": "not-approved",

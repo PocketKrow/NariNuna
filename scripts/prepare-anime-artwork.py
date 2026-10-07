@@ -10,6 +10,8 @@ SOURCE = ROOT / 'src/assets/source/anime-creator'
 OUT = ROOT / 'public/media/anime'
 OUT.mkdir(parents=True, exist_ok=True)
 SPECS = {
+    'haven-banner': ('../haven-identity/nari-haven-banner.png', None, 'Nari Nuna smiles and waves beside a friendly Ghostie, leaning on a cream ledge.'),
+    'haven-mark': ('../haven-identity/haven-mark.png', None, ''),
     'welcome': ('nari-welcome.png', None, 'Nari Nuna welcomes you with an open hand, wearing her lavender-and-black outfit.'),
     'welcome-portrait': ('nari-welcome.png', (0, 0, 763, 1100), 'Nari Nuna welcomes you with an open hand, wearing her lavender-and-black outfit.'),
     'nails': ('nari-nails.png', None, 'Nari Nuna holding a polish brush and bottle, seated on a small cream stool.'),
@@ -34,21 +36,28 @@ def framed(image, crop=None):
     padded.alpha_composite(area, (24, 24))
     return padded, list(bbox)
 
-manifest = {'schemaVersion': 1, 'record': 'docs/asset-records/ASSET-2026-022-anime-creator-family.md', 'artworks': {}}
-for key, (filename, crop, alt) in ({} if '--identity-only' in sys.argv else SPECS).items():
-    source = SOURCE / filename
+haven_only = '--haven-only' in sys.argv
+manifest = json.loads((ROOT / 'src/data/anime-artwork.json').read_text()) if haven_only else {'schemaVersion': 1, 'record': 'docs/asset-records/ASSET-2026-022-anime-creator-family.md', 'artworks': {}}
+selected = {k: v for k, v in SPECS.items() if k.startswith('haven-')} if haven_only else SPECS
+for key, (filename, crop, alt) in ({} if '--identity-only' in sys.argv else selected).items():
+    source = (SOURCE / filename).resolve()
     data = source.read_bytes()
     original = Image.open(source).convert('RGBA')
     image, bbox = framed(original, crop)
     character = key in ('welcome', 'welcome-portrait', 'nails')
     widths = [160, 240, 320, 480, 640, 720] if character else [96, 160, 240, 320, 480]
+    if key == 'haven-mark':
+        widths = [48, 96, 160, 240]
+    elif key == 'haven-banner':
+        widths = [320, 480, 640, 960]
     widths = [w for w in widths if w <= original.width and w <= image.width]
     candidates = []
     for width in widths:
         size = (width, round(image.height * width / image.width))
         resized = image.resize(size, Image.Resampling.LANCZOS)
         quality = 84
-        temporary = OUT / f'{key}-{width}.webp'
+        # Interrupted encodes stay outside the served directory.
+        temporary = SOURCE / f'{key}-{width}.working.webp'
         while True:
             resized.save(temporary, 'WEBP', quality=quality, method=6)
             encoded = temporary.read_bytes()
@@ -59,6 +68,7 @@ for key, (filename, crop, alt) in ({} if '--identity-only' in sys.argv else SPEC
             raise ValueError(f'{key} exceeds its image budget')
         hashed = OUT / f'{key}-{width}.{digest(encoded)[:16]}.webp'
         temporary.rename(hashed)
+        temporary.unlink(missing_ok=True)
         candidates.append({'src': '/' + str(hashed.relative_to(ROOT / 'public')), 'width': width, 'height': size[1], 'bytes': len(encoded), 'sha256': digest(encoded), 'quality': quality})
     manifest['artworks'][key] = {'source': str(source.relative_to(ROOT)), 'sourceSha256': digest(data), 'sourceBytes': len(data), 'sourceWidth': original.width, 'sourceHeight': original.height, 'alpha': True, 'slotCrop': list(crop) if crop else None, 'alphaBounds': bbox, 'padding': 24, 'width': image.width, 'height': image.height, 'alt': alt, 'candidates': candidates}
 
@@ -66,6 +76,24 @@ if '--identity-only' not in sys.argv:
     (ROOT / 'src/data/anime-artwork.json').write_text(json.dumps(manifest, indent=2) + '\n')
 else:
     manifest = json.loads((ROOT / 'src/data/anime-artwork.json').read_text())
+
+if haven_only:
+    identity_file = ROOT / 'src/data/creator-identity.json'
+    identity = json.loads(identity_file.read_text())
+    icon, _ = framed(Image.open(SOURCE / '../haven-identity/haven-mark.png').convert('RGBA'))
+    icon.thumbnail((64, 64), Image.Resampling.LANCZOS)
+    favicon = Image.new('RGBA', (64, 64))
+    favicon.alpha_composite(icon, ((64 - icon.width) // 2, (64 - icon.height) // 2))
+    temporary = SOURCE / 'haven-favicon.working.png'
+    favicon.save(temporary, optimize=True)
+    data = temporary.read_bytes()
+    path = OUT / f'haven-favicon.{digest(data)[:16]}.png'
+    temporary.rename(path)
+    identity['faviconSrc'] = '/' + str(path.relative_to(ROOT / 'public'))
+    identity['faviconSha256'] = digest(data)
+    identity_file.write_text(json.dumps(identity, indent=2) + '\n')
+    print('Prepared 8 Haven candidates and the provisional mark favicon.')
+    sys.exit(0)
 
 # Exact HTML text is retained in the page. This separate metadata composition is a share graphic.
 share = Image.new('RGB', (1200, 630), '#fffaf4')
@@ -89,14 +117,14 @@ share_path = OUT / f'nari-share.{digest(share_data)[:16]}.jpg'
 share_temp.rename(share_path)
 identity = {'source': 'src/assets/source/anime-creator/nari-welcome.png', 'sourceSha256': digest((SOURCE / 'nari-welcome.png').read_bytes()), 'master': str(share_master.relative_to(ROOT)), 'masterSha256': digest(share_master.read_bytes()), 'src': '/' + str(share_path.relative_to(ROOT / 'public')), 'sha256': digest(share_data), 'bytes': len(share_data), 'width': 1200, 'height': 630}
 (ROOT / 'src/data/creator-identity.json').write_text(json.dumps(identity, indent=2) + '\n')
-icon, _ = framed(Image.open(SOURCE / 'ghostie-bloom.png').convert('RGBA'))
-icon.thumbnail((56, 56), Image.Resampling.LANCZOS)
-favicon = Image.new('RGBA', (64, 64), '#eadcf1')
+icon, _ = framed(Image.open(SOURCE / '../haven-identity/haven-mark.png').convert('RGBA'))
+icon.thumbnail((64, 64), Image.Resampling.LANCZOS)
+favicon = Image.new('RGBA', (64, 64))
 favicon.alpha_composite(icon, ((64 - icon.width) // 2, (64 - icon.height) // 2))
-favicon_temp = OUT / 'ghostie-favicon.png'
+favicon_temp = SOURCE / 'haven-favicon.working.png'
 favicon.save(favicon_temp, optimize=True)
 favicon_data = favicon_temp.read_bytes()
-favicon_path = OUT / f'ghostie-favicon.{digest(favicon_data)[:16]}.png'
+favicon_path = OUT / f'haven-favicon.{digest(favicon_data)[:16]}.png'
 favicon_temp.rename(favicon_path)
 identity['faviconSrc'] = '/' + str(favicon_path.relative_to(ROOT / 'public'))
 identity['faviconSha256'] = digest(favicon_data)

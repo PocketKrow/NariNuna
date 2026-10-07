@@ -10,6 +10,7 @@ const log = [];
 try {
   for (const width of [320, 390, 768, 1024, 1440, 1920]) {
     const context = await browser.newContext({ viewport: { width, height: 900 } });
+    await context.route("https://i.ytimg.com/**", (route) => route.abort());
     for (const { path } of pages) {
       const page = await context.newPage();
       const errors = [];
@@ -21,6 +22,11 @@ try {
       assert.equal(await page.locator("main").count(), 1, `${width}px ${path}: main`);
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, `${width}px ${path}: overflow`);
       for (const image of await page.locator("img").all()) {
+        if (await image.getAttribute("data-optional-preview") !== null) {
+          // Explicitly optional thumbnails have separately tested failure-safe outbound links.
+          if (await image.isVisible()) await image.scrollIntoViewIfNeeded();
+          continue;
+        }
         await image.scrollIntoViewIfNeeded();
         assert.equal(await image.evaluate(async (image) => { await image.decode().catch(() => {}); return image.naturalWidth > 0; }), true, `${width}px ${path}: image loads`);
       }
@@ -30,7 +36,7 @@ try {
     }
     await context.close();
   }
-  log.push("Seven documents at 320/390/768/1024/1440/1920px: sized images load, one h1/main, no overflow or runtime/CSP errors; no hydrated islands or canvas.");
+  log.push("Seven documents at 320/390/768/1024/1440/1920px: local sized images load (optional thumbnails blocked), one h1/main, no overflow or runtime/CSP errors; no hydrated islands or canvas.");
   const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const page = await context.newPage();
   await page.goto(preview.origin);

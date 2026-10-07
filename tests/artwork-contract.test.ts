@@ -63,10 +63,10 @@ describe("approved-source artwork contracts", () => {
   });
 
   it("uses the owner-authorized model-anchored pose family on Home and Meet Nari", () => {
-    for (const document of ["index.html", "meet-nari/index.html"]) {
+    for (const [document, asset] of [["index.html", "welcome"], ["meet-nari/index.html", "haven-banner"]]) {
       const html = readFileSync(`dist/${document}`, "utf8");
-      expect(html).toContain("data-nari-model");
-      expect(html).toMatch(/data-creator-art="welcome(?:-portrait)?"/);
+      if (document === "index.html") expect(html).toContain("data-nari-model");
+      expect(html).toContain(`data-creator-art="${asset}"`);
       expect(html).not.toContain("nari-painted");
       expect(html).not.toMatch(/room-arrival|<canvas|astro-island/);
     }

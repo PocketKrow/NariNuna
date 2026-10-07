@@ -1,3 +1,5 @@
+> **2026-10-06 connected Haven revision:** [48_CONNECTED_MINIMAL_HAVEN.md](48_CONNECTED_MINIMAL_HAVEN.md) / ADR-015 adds provisional full-name branding, coherent shared navigation/footer, natural Home presentation, a new Meet welcome banner, Creativity/Connections and optional clip/Haven context. Existing URLs, source preservation and release boundaries remain.
+
 # Custom anime creator art direction
 
 Owner direction, 2026-10-06 America/New_York: the first minimal site is rejected as generic. Use light lavender and warm cream, clean anime rendering matching Nari's supplied model, and new identity-preserving poses. This supersedes document 44's original-pose-only and serif/paper editorial visual treatment; its minimal route architecture, content truth, accessibility, performance and release boundaries remain.
