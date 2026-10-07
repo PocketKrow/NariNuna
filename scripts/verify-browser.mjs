@@ -1,149 +1,71 @@
-// Exercise the production static artifact. Install Chromium once with npx playwright install chromium; optionally set NARI_BROWSER_PATH.
+// Verify the exact built artifact under its emitted CSP. No public deployment.
 import assert from "node:assert/strict";
 import { chromium } from "playwright";
 import pages from "../src/data/projectPages.json" with { type: "json" };
+import redirects from "../src/data/routeRedirects.json" with { type: "json" };
 import { startBrowserPreview } from "./browser-preview.mjs";
 const preview = await startBrowserPreview();
-const browser = await chromium
-  .launch({
-    executablePath: process.env.NARI_BROWSER_PATH,
-    headless: true,
-    args: ["--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu"],
-  })
-  .catch(async (error) => {
-    await preview.close();
-    throw error;
-  });
+const browser = await chromium.launch({ executablePath: process.env.NARI_BROWSER_PATH, headless: true, args: ["--no-sandbox", "--disable-dev-shm-usage"] }).catch(async (error) => { await preview.close(); throw error; });
 const log = [];
-// Every route is checked with the actual CSP, failed remote thumbnails, and hydrated Vue islands.
-async function verifyDocuments() {
-  for (const width of [320, 390, 768, 1440]) {
+try {
+  for (const width of [320, 390, 768, 1024, 1440, 1920]) {
     const context = await browser.newContext({ viewport: { width, height: 900 } });
-    await context.route("https://i.ytimg.com/**", (route) => route.abort());
     for (const { path } of pages) {
       const page = await context.newPage();
       const errors = [];
       page.on("pageerror", (error) => errors.push(error.message));
-      page.on("console", (event) => {
-        if (event.type() === "error" && /Content Security Policy|Hydration/.test(event.text()))
-          errors.push(event.text());
-      });
+      page.on("console", (event) => { if (event.type() === "error" && /Content Security Policy|Hydration/.test(event.text())) errors.push(event.text()); });
       await page.goto(preview.origin + path);
-      await page.waitForFunction(() =>
-        [...document.querySelectorAll('astro-island[client="load"]')].every((el) => !el.hasAttribute("ssr")),
-      );
-      assert.equal(await page.locator("h1").count(), 1, `${width}px ${path}: one heading`);
-      assert.equal(await page.locator("main").count(), 1, `${width}px ${path}: one main`);
-      assert.equal(
-        await page.evaluate(() => document.documentElement.scrollWidth > innerWidth),
-        false,
-        `${width}px ${path}: overflow`,
-      );
+      await page.evaluate(() => document.fonts.ready);
+      assert.equal(await page.locator("h1").count(), 1, `${width}px ${path}: h1`);
+      assert.equal(await page.locator("main").count(), 1, `${width}px ${path}: main`);
+      assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, `${width}px ${path}: overflow`);
+      for (const image of await page.locator("img").all()) {
+        await image.scrollIntoViewIfNeeded();
+        assert.equal(await image.evaluate(async (image) => { await image.decode().catch(() => {}); return image.naturalWidth > 0; }), true, `${width}px ${path}: image loads`);
+      }
       assert.equal(errors.length, 0, `${width}px ${path}: ${errors.join("; ")}`);
-      assert.equal(
-        await page.locator('.media-card__image img[src^="https://i.ytimg.com"]').count(),
-        0,
-        `${width}px ${path}: failed image recovered`,
-      );
+      assert.equal(await page.locator("astro-island, canvas").count(), 0);
       await page.close();
     }
     await context.close();
   }
-  log.push(
-    "All twelve routes at 320/390/768/1440px: one main/heading, no overflow, no runtime/CSP/hydration errors; failed thumbnails recover.",
-  );
-}
-
-try {
-  await verifyDocuments();
+  log.push("Seven documents at 320/390/768/1024/1440/1920px: sized images load, one h1/main, no overflow or runtime/CSP errors; no hydrated islands or canvas.");
   const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const page = await context.newPage();
-  const errors = [];
-  page.on("pageerror", (e) => errors.push(e.message));
-  page.on("console", (e) => {
-    if (e.type() === "error" && /Content Security Policy|Hydration/.test(e.text())) errors.push(e.text());
-  });
-  await page.goto(`${preview.origin}/`);
-  await page.locator('astro-island[client="load"]').waitFor({ state: "attached" });
-  await page.waitForFunction(() => !document.querySelector('astro-island[client="load"]')?.hasAttribute("ssr"));
-  await page.getByRole("button", { name: "Open navigation" }).click();
-  assert.equal(await page.locator("body").evaluate((el) => el.classList.contains("nav-is-open")), true);
+  await page.goto(preview.origin);
+  const summary = page.locator(".mobile-menu summary");
+  await summary.focus(); await page.keyboard.press("Enter");
+  assert.equal(await page.locator(".mobile-menu").getAttribute("open"), "");
   await page.keyboard.press("Tab");
-  await page.keyboard.press("Shift+Tab");
-  assert.equal(await page.locator(".nav-toggle").evaluate((el) => el === document.activeElement), true);
+  assert.equal(await page.evaluate(() => document.activeElement?.getAttribute("href")), "/");
   await page.keyboard.press("Escape");
-  assert.equal(await page.getByRole("button", { name: "Open navigation" }).getAttribute("aria-expanded"), "false");
-  log.push("Mobile menu opens, locks scrolling, traps Tab and restores focus on Escape.");
-  await page.getByRole("button", { name: "Open navigation" }).click();
-  await page.setViewportSize({ width: 1440, height: 900 });
-  await page.waitForTimeout(100);
-  assert.equal(await page.locator("body").evaluate((el) => el.classList.contains("nav-is-open")), false);
-  await page.locator(".site-header__more > summary").click();
-  await page.keyboard.press("Escape");
-  assert.equal(await page.locator(".site-header__more").getAttribute("open"), null);
-  log.push("Resize closes mobile menu; desktop More closes on Escape.");
-  await page.goto(`${preview.origin}/haven/#haven-door`);
-  await page.waitForFunction(() =>
-    [...document.querySelectorAll('astro-island[client="load"]')].every((el) => !el.hasAttribute("ssr")),
-  );
-  assert.equal(await page.getByRole("link", { name: /Enter Nari's Haven on Discord/ }).count(), 0);
-  for (const name of ["Give the first knock", "Give the second knock", "Promise kindness · third knock"]) {
-    const button = page.getByRole("button", { name, exact: true }).last();
-    await button.focus();
-    await page.keyboard.press("Enter");
+  assert.equal(await page.locator(".mobile-menu").getAttribute("open"), null);
+  assert.equal(await summary.evaluate((el) => el === document.activeElement), true);
+  await summary.click(); await page.setViewportSize({ width: 1440, height: 900 });
+  await page.waitForFunction(() => !document.querySelector(".mobile-menu").open);
+  log.push("Native mobile menu opens by keyboard; links are in normal tab order; Escape closes and returns focus; desktop resize closes it.");
+  for (const { fromPath, to } of redirects) {
+    const response = await context.request.get(preview.origin + fromPath, { maxRedirects: 0 });
+    assert.equal(response.status(), 301); assert.equal(response.headers().location, to);
+    await page.goto(preview.origin + fromPath);
+    assert.equal(new URL(page.url()).pathname + new URL(page.url()).hash, to);
   }
-  const discord = page.getByRole("link", { name: /Enter Nari's Haven on Discord/ });
-  await discord.waitFor({ state: "visible" });
-  assert.equal(await discord.evaluate((el) => el === document.activeElement), true);
-  await page.getByRole("button", { name: "Close the door behind me" }).click();
-  assert.equal(await discord.count(), 0);
-  assert.equal(
-    await page
-      .getByRole("button", { name: "Give the first knock", exact: true })
-      .last()
-      .evaluate((el) => el === document.activeElement),
-    true,
-  );
-  log.push("Exactly three keyboard knocks reveal Discord, focus transfers, reset hides it and restores focus.");
-  await page.getByRole("button", { name: "One floorboard looks a little loose" }).click();
-  await page.getByRole("link", { name: "Follow the little light" }).click();
-  await page.waitForURL("**/the-prinny-cult/");
-  assert.equal(await page.locator(".site-header").count(), 0);
-  assert.equal(await page.locator("meta[name=robots]").getAttribute("content"), "noindex, nofollow");
-  await page.getByRole("link", { name: "Return upstairs" }).click();
-  await page.waitForURL("**/haven/#haven-door");
-  log.push("Floorboard reveal reaches the noindex standalone secret room and returns upstairs.");
-  assert.equal(await page.locator(".room-passage, .haven-passport").count(), 0);
-  log.push("Guided-tour and Passport UI are absent.");
-  await page.emulateMedia({ reducedMotion: "reduce" });
-  assert.equal(await page.evaluate(() => getComputedStyle(document.documentElement).scrollBehavior), "auto");
-  log.push("Changing reduced motion disables smooth scrolling.");
-  await context.route("https://i.ytimg.com/**", (r) => r.abort());
-  for (const route of ["/streams/", "/stories/"]) {
-    await page.goto(preview.origin + route);
-    await page.waitForFunction(() =>
-      [...document.querySelectorAll('astro-island[client="load"]')].every((el) => !el.hasAttribute("ssr")),
-    );
-    assert.equal(await page.locator('.media-card__image img[src^="https://i.ytimg.com"]').count(), 0);
-    assert.equal(await page.locator('.media-card__image img[src^="/media/responsive/"]').count(), 3);
-  }
-  log.push("Early blocked thumbnails recover to three local illustrations on Streams and Stories.");
-  assert.equal((await page.goto(`${preview.origin}/missing-room/`)).status(), 404);
+  log.push("All six retired URLs return 301 and land on their intended document/fragment.");
+  assert.equal((await page.goto(preview.origin + "/missing-page/")).status(), 404);
   assert.match(await page.locator("h1").innerText(), /Ghostie moved/);
-  log.push("Unknown URLs render the branded 404 with status 404.");
-  assert.equal(errors.length, 0, JSON.stringify(errors));
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto(preview.origin);
+  assert.equal(await page.locator("[data-nari-model]").evaluate((el) => getComputedStyle(el).animationName), "none");
+  log.push("Unknown URL returns branded 404; reduced motion removes the model entrance.");
   await context.close();
   const nojs = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 320, height: 900 } });
-  const nojsPage = await nojs.newPage();
-  await nojsPage.goto(`${preview.origin}/`);
-  assert.match(await nojsPage.locator("h1").innerText(), /Nari/);
-  await nojsPage.locator('.no-script-navigation a[href="/meet-nari/"]').click();
-  await nojsPage.waitForURL("**/meet-nari/");
-  assert.match(await nojsPage.locator("h1").innerText(), /Hi, I'm Nari/);
-  log.push("At 320px with JavaScript disabled, content and ordinary-room navigation remain usable.");
+  const staticPage = await nojs.newPage();
+  await staticPage.goto(preview.origin);
+  await staticPage.locator(".mobile-menu summary").click();
+  await staticPage.locator('.mobile-menu a[href="/meet-nari/"]').click();
+  assert.equal(new URL(staticPage.url()).pathname, "/meet-nari/");
+  log.push("At 320px with JavaScript disabled, native menu and ordinary document navigation work.");
   await nojs.close();
   console.log(JSON.stringify({ passed: log }, null, 2));
-} finally {
-  await browser.close();
-  await preview.close();
-}
+} finally { await browser.close(); await preview.close(); }

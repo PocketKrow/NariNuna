@@ -1,0 +1,26 @@
+[
+  {
+    "fromPath": "/streams/",
+    "to": "/links/"
+  },
+  {
+    "fromPath": "/stories/",
+    "to": "/links/#moments"
+  },
+  {
+    "fromPath": "/haven/",
+    "to": "/links/#community"
+  },
+  {
+    "fromPath": "/resources/",
+    "to": "/nail-studio/#nail-desk"
+  },
+  {
+    "fromPath": "/support/",
+    "to": "/links/#support"
+  },
+  {
+    "fromPath": "/the-prinny-cult/",
+    "to": "/meet-nari/#community"
+  }
+]

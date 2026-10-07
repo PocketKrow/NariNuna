@@ -31,21 +31,9 @@ describe("approved-source artwork contracts", () => {
   });
 
   it("uses individually authored transparent Ghosties without sprite cropping or canvas processing", () => {
-    const ghostieComponent = readFileSync(resolve(process.cwd(), "src/components/art/GhostieArt.vue"), "utf8");
     const uniqueGhosties = [...new Set(Object.values(communityGhostieArtwork))];
 
     expect(uniqueGhosties).toHaveLength(12);
-    expect(ghostieComponent).toContain("communityGhostieArtwork[variant]");
-    expect(ghostieComponent).toContain("<ResponsiveArtwork");
-    expect(ghostieComponent).toContain('width="1254"');
-    expect(ghostieComponent).toContain("background: transparent");
-    expect(ghostieComponent).toContain("drop-shadow");
-    expect(ghostieComponent).not.toContain("<canvas");
-    expect(ghostieComponent).not.toContain("drawImage");
-    expect(ghostieComponent).not.toContain("removeConnectedPaper");
-    expect(ghostieComponent).not.toContain("ghostie-strip");
-    expect(ghostieComponent).not.toContain("#fffaf3");
-
     for (const asset of uniqueGhosties) {
       const bytes = readFileSync(resolve(process.cwd(), "src/assets/source/delivery", asset.replace(/^\//, "")));
       expect(bytes.toString("ascii", 8, 12)).toBe("WEBP");
@@ -55,20 +43,6 @@ describe("approved-source artwork contracts", () => {
       expect(bytes.readUIntLE(27, 3) + 1).toBe(1254);
     }
 
-    const consumers = [
-      "src/pages/meet-nari/index.astro",
-      "src/pages/nail-studio/index.astro",
-      "src/pages/haven/index.astro",
-      "src/pages/support/index.astro",
-      "src/pages/404.astro",
-      "src/components/layout/SiteHeader.vue"
-    ];
-
-    for (const path of consumers) {
-      const source = readFileSync(resolve(process.cwd(), path), "utf8");
-      expect(source).toContain("GhostieArt");
-      expect(source).not.toContain("GhostieIllustration");
-    }
   });
 
   it("retains all 27 supplied Prinny designs without fabricating roster lore", () => {
@@ -88,35 +62,12 @@ describe("approved-source artwork contracts", () => {
     }
   });
 
-  it("keeps the Nari atmosphere active while preserving the existing room artwork family", () => {
-    const worldStyles = readFileSync(resolve(process.cwd(), "src/styles/_world.scss"), "utf8");
-
-    expect(worldStyles).not.toContain(environmentArtwork.homeSunset);
-    const homePage = readFileSync(resolve(process.cwd(), "src/pages/index.astro"), "utf8");
-    expect(homePage).toContain("artwork={environmentArtwork.homeSunset}");
-    expect(worldStyles).not.toContain(environmentArtwork.homeNight);
-    expect(worldStyles).not.toContain(environmentArtwork.homeDaylight);
-    expect(retainedAssetExists(environmentArtwork.homeSunset)).toBe(true);
-    expect(retainedAssetExists(environmentArtwork.homeNight)).toBe(true);
-    expect(retainedAssetExists(environmentArtwork.homeDaylight)).toBe(true);
-  });
-
-  it("integrates Nari into distinct Home and Meet Nari hero paintings without separate model overlays", () => {
-    const homePage = readFileSync(resolve(process.cwd(), "src/pages/index.astro"), "utf8");
-    const meetPage = readFileSync(resolve(process.cwd(), "src/pages/meet-nari/index.astro"), "utf8");
-    const meetHero = meetPage.slice(0, meetPage.indexOf("</section>") + "</section>".length);
-
-    expect(environmentArtwork.meetNari).not.toBe(environmentArtwork.homeSunset);
-    expect(meetHero).toContain("environmentArtwork.meetNari");
-    expect(meetHero).toContain('room="meet"');
-    expect(homePage).not.toContain("nariArtwork.fullbody");
-    expect(meetHero).not.toContain("nariArtwork.portrait");
-  });
-
-  it("keeps secret Prinny artwork out of indexing and ordinary primary navigation", () => {
-    const secretDocument = readFileSync(resolve(process.cwd(), "dist/the-prinny-cult/index.html"), "utf8");
-    const primaryNavigation = readFileSync(resolve(process.cwd(), "src/data/navigation.ts"), "utf8");
-    expect(secretDocument).toContain('content="noindex, nofollow"');
-    expect(primaryNavigation).not.toContain("/the-prinny-cult/");
+  it("uses only the supplied model on Home and Meet Nari", () => {
+    for (const document of ["index.html", "meet-nari/index.html"]) {
+      const html = readFileSync(`dist/${document}`, "utf8");
+      expect(html).toContain("data-nari-model");
+      expect(html).not.toContain("nari-painted");
+      expect(html).not.toMatch(/room-arrival|<canvas|astro-island/);
+    }
   });
 });

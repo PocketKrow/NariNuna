@@ -4,13 +4,13 @@ import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { publicCreditById } from "@/data/artCredits";
 
-const attributedPages = ["index.astro", "meet-nari/index.astro", "nail-studio/index.astro", "haven/index.astro", "stories/index.astro"];
+const attributedPages = ["index.astro", "meet-nari/index.astro", "nail-studio/index.astro"];
 
 describe("contextual artwork attribution", () => {
   it("uses only real public credit IDs on significant illustrated pages", () => {
     for (const page of attributedPages) {
       const source = readFileSync(resolve("src/pages", page), "utf8");
-      const ids = [...source.matchAll(/creditId="([^"]+)"/g)].map((match) => match[1]);
+      const ids = [...source.matchAll(/href="\/credits\/#([^"]+)"/g)].map((match) => match[1]);
       expect(ids.length, page).toBeGreaterThan(0);
       expect(ids.every((id) => publicCreditById(id)), page).toBe(true);
     }

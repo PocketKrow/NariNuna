@@ -1,0 +1,22 @@
+---
+import PlatformIcon from "@/components/ui/PlatformIcon.astro";
+import SiteLayout from "@/layouts/SiteLayout.astro";
+import ArtImage from "@/components/art/ArtImage.astro";
+import SocialDock from "@/components/ui/SocialDock.vue";
+import { nariLinks, twitchUrl, discordUrl, throneUrl } from "@/data/socials";
+import { featuredMoments } from "@/data/media";
+import { communityGhostieArtwork } from "@/data/artwork";
+import { ArrowRight, ArrowUpRight } from "@lucide/vue";
+const youtube = nariLinks.find(({ platform }) => platform === "youtube")!;
+---
+<SiteLayout pageId="links">
+  <section class="page-opening page-width"><p class="eyebrow">Streams, updates & good company</p><h1>Find your way<br /><em>to Nari.</em></h1><p>Come for the game. Stay for the yap, the Ghosties, and the glorious panic.</p></section>
+  <section class="platform-spread page-width" aria-labelledby="watch-title">
+    <div class="live-platform"><p class="eyebrow">The streams</p><h2 id="watch-title">Pull up a seat.</h2><p>Games, tangents, and plans that lasted about three seconds.</p><a class="button" href={twitchUrl} target="_blank" rel="noopener noreferrer"><PlatformIcon platform="twitch" /> Watch on Twitch <ArrowUpRight size={17} aria-hidden="true" /><span class="sr-only"> (opens in a new tab)</span></a></div>
+    <div class="video-platform"><p class="eyebrow">Between streams</p><h2>The good bits stay.</h2><p>Videos, Shorts, nail content, and highlights.</p><a class="text-link" href={youtube.url} target="_blank" rel="noopener noreferrer"><PlatformIcon platform="youtube" /> Nari on YouTube <ArrowUpRight size={16} aria-hidden="true" /><span class="sr-only"> (opens in a new tab)</span></a></div>
+  </section>
+  <section class="elsewhere page-width" aria-labelledby="elsewhere-title"><h2 id="elsewhere-title">A little Nari, elsewhere.</h2><SocialDock /><p class="small-note">Support is optional. Your presence already counts.</p></section>
+  <section id="moments" class="moments page-width" aria-labelledby="moments-title"><div><p class="eyebrow">A few favorite moments</p><h2 id="moments-title">Very <em>Nari.</em></h2></div><ol class="moment-list">{featuredMoments.map(({ title, description, url }) => <li><a href={url} target="_blank" rel="noopener noreferrer"><span><strong>{title}</strong><small>{description}</small></span><ArrowUpRight size={18} aria-hidden="true" /><span class="sr-only"> (YouTube Short, opens in a new tab)</span></a></li>)}</ol></section>
+  <section id="community" class="community-note page-width" aria-labelledby="community-title"><ArtImage artwork={communityGhostieArtwork.heart} sizes="(min-width: 48rem) 180px, 120px" maxWidth={256} /><div><p class="eyebrow">The Haven</p><h2 id="community-title">Kindness has <em>a backbone.</em></h2><p>Respect, care, and room to be yourself. Support and boundaries belong together. <a href="/meet-nari/#community">Meet the community values</a>.</p><a class="text-link" href={discordUrl} target="_blank" rel="noopener noreferrer">Join the community on Discord <ArrowUpRight size={16} aria-hidden="true" /><span class="sr-only"> (opens in a new tab)</span></a><p class="small-note">If the invite stops working, check Nari's public profiles for an updated link.</p></div></section>
+  <section id="support" class="support-note page-width" aria-labelledby="support-title"><p class="eyebrow">Always optional</p><h2 id="support-title">Just being here <em>counts.</em></h2><p>Watch, share a good moment, or bring a little kindness to chat. There's a wishlist, too, if you'd like to give something.</p><a class="text-link" href={throneUrl} target="_blank" rel="noopener noreferrer">Nari's Throne wishlist <ArrowRight size={16} aria-hidden="true" /><span class="sr-only"> (opens in a new tab)</span></a><p class="small-note">Financial support never buys access, ownership, or a claim on Nari's time.</p></section>
+</SiteLayout>

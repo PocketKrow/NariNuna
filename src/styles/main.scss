@@ -1,15 +1,2 @@
-// Retained interior foundations, then shared materials. RoomArrival owns all painted hero geometry independently.
-@use "tokens";
-@use "base";
-@use "components";
-@use "pages";
-@use "responsive";
-@use "world";
-@use "storybook";
-@use "polish";
-// Chapter materials, content rhythm, directory, and signature devices.
-@use "chapters";
-@use "artwork-delivery";
-@use "room-language";
-
-@use "materials";
+// The minimal creator system has one cascade owner.
+@use "creator";

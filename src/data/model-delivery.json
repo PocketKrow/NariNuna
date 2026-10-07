@@ -1,0 +1,102 @@
+{
+  "fullbody": {
+    "source": "public/media/nari/nari-model-fullbody.webp",
+    "sourceSha256": "546ddee296cb95b36f16c89800f40af387bc33967d7f2d3a2eb32be642b2517c",
+    "width": 888,
+    "height": 2400,
+    "candidates": [
+      {
+        "src": "/media/responsive/nari-fullbody-160.66345ed990af4fa5.webp",
+        "width": 160,
+        "height": 432,
+        "bytes": 18358,
+        "sha256": "66345ed990af4fa59eba970e8015688514c6164880e222c6b15653b6cbca5519"
+      },
+      {
+        "src": "/media/responsive/nari-fullbody-240.d639a5ff6387805e.webp",
+        "width": 240,
+        "height": 649,
+        "bytes": 31650,
+        "sha256": "d639a5ff6387805ee8c8587e998bf90fe0542c36c287d576cf2b29b9fca6ca1c"
+      },
+      {
+        "src": "/media/responsive/nari-fullbody-320.4977c8b5973056b6.webp",
+        "width": 320,
+        "height": 865,
+        "bytes": 46498,
+        "sha256": "4977c8b5973056b6aa68b9f6bad541a6281845905e5fbddbd93edefa4101b683"
+      },
+      {
+        "src": "/media/responsive/nari-fullbody-480.a5969e77510cc2ef.webp",
+        "width": 480,
+        "height": 1297,
+        "bytes": 77258,
+        "sha256": "a5969e77510cc2ef24c8bd0d386e95c24cdbb0ce3d3e363f9e68c5301b13800b"
+      },
+      {
+        "src": "/media/responsive/nari-fullbody-640.04e041bc81890974.webp",
+        "width": 640,
+        "height": 1730,
+        "bytes": 110696,
+        "sha256": "04e041bc8189097414df9ec9a08a063a3e17900eff74f09a053490a35c8f7dee"
+      },
+      {
+        "src": "/media/responsive/nari-fullbody-888.acc083084cd03c0d.webp",
+        "width": 888,
+        "height": 2400,
+        "bytes": 129758,
+        "sha256": "acc083084cd03c0d58971e7f17a82c40988cb6f77ce7464826697e3be0d9c79a"
+      }
+    ]
+  },
+  "portrait": {
+    "source": "public/media/nari/nari-model-portrait.webp",
+    "sourceSha256": "7adccd5482282c0227ef9a4fbe5bdd474025ad68caccee937785ad723d583f4d",
+    "width": 883,
+    "height": 1360,
+    "candidates": [
+      {
+        "src": "/media/responsive/nari-portrait-160.21c89a771612513e.webp",
+        "width": 160,
+        "height": 246,
+        "bytes": 12080,
+        "sha256": "21c89a771612513ea8bdf501ae00926c6242f763cc6ab90c32c65a6c23f45eb9"
+      },
+      {
+        "src": "/media/responsive/nari-portrait-240.0146405e92ff4660.webp",
+        "width": 240,
+        "height": 370,
+        "bytes": 21364,
+        "sha256": "0146405e92ff466049e6e2216901b602a1ac96292f66dcdedf172e2a916ff24c"
+      },
+      {
+        "src": "/media/responsive/nari-portrait-320.794a1a8400a0737a.webp",
+        "width": 320,
+        "height": 493,
+        "bytes": 31210,
+        "sha256": "794a1a8400a0737ad8834416b6b92f9d1825f1e7b5454c3d8280294c2e2f072e"
+      },
+      {
+        "src": "/media/responsive/nari-portrait-480.1f554880cbe5e922.webp",
+        "width": 480,
+        "height": 739,
+        "bytes": 52412,
+        "sha256": "1f554880cbe5e9225060a787514ff4edbcf878aa411a17fb635df4d42a3eab87"
+      },
+      {
+        "src": "/media/responsive/nari-portrait-640.620905eb16bff6b8.webp",
+        "width": 640,
+        "height": 986,
+        "bytes": 73982,
+        "sha256": "620905eb16bff6b8d70948c05982d6cd7ce105d41a594fb1bf91809126d8db1d"
+      },
+      {
+        "src": "/media/responsive/nari-portrait-883.37def86b86adf3a4.webp",
+        "width": 883,
+        "height": 1360,
+        "bytes": 90636,
+        "sha256": "37def86b86adf3a402f38d0b85caf7f6ff0646afbd3d02261759b42f08300136"
+      }
+    ]
+  }
+}

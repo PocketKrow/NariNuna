@@ -5,7 +5,7 @@ import { nariLinks } from "@/data/socials";
 
 <template>
   <!-- Glyph coordinates use the 24-unit viewBox; names come from the links, not the SVG paths. -->
-  <nav class="social-dock" aria-label="Nari's verified public profiles">
+  <nav class="social-dock" aria-label="Nari's public profiles">
     <a
       v-for="link in nariLinks"
       :key="link.platform"

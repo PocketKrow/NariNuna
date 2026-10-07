@@ -2,13 +2,13 @@
   "name": "nari-nuna-haven",
   "version": "0.3.0",
   "private": true,
-  "description": "Nari Nuna's static Astro Haven with focused Vue islands.",
+  "description": "Nari Nuna: a minimal, personal Astro creator website.",
   "engines": {
     "node": ">=22.13.0"
   },
   "scripts": {
     "dev": "astro dev --host 0.0.0.0",
-    "build": "npm run typecheck && npm run validate:credits && astro build && node scripts/secure-build.mjs && node scripts/validate-build.mjs && node scripts/validate-performance.mjs",
+    "build": "node scripts/prepare-redirects.mjs && npm run typecheck && npm run validate:credits && astro build && node scripts/secure-build.mjs && node scripts/validate-build.mjs && node scripts/validate-performance.mjs",
     "preview": "astro preview",
     "verify:preview": "node scripts/verify-preview.mjs",
     "verify:release": "npm run build && node scripts/verify-release.mjs",
@@ -24,15 +24,15 @@
     "verify:experience": "playwright test --project=chromium",
     "verify:browsers": "playwright test --project=chromium --project=firefox",
     "verify:release-browsers": "playwright test",
-    "verify:visual-update": "playwright test --project=chromium --grep composition --update-snapshots"
+    "verify:visual-update": "playwright test --project=chromium --grep composition --update-snapshots",
+    "artwork:model": "python3 scripts/prepare-model-artwork.py",
+    "artwork:identity": "python3 scripts/prepare-creator-identity.py"
   },
   "dependencies": {
     "@astrojs/vue": "7.0.3",
     "@lucide/vue": "^1.31.0",
     "astro": "7.3.5",
-    "gsap": "^3.15.0",
-    "three": "^0.186.1",
-    "vue": "^3.5.41"
+    "vue": "^3.5.42"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
@@ -40,7 +40,6 @@
     "@eslint/js": "10.0.1",
     "@playwright/test": "1.62.1",
     "@types/node": "22.19.19",
-    "@types/three": "^0.186.0",
     "@vitejs/plugin-vue": "^6.0.1",
     "eslint": "10.12.0",
     "eslint-plugin-astro": "3.2.1",

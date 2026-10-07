@@ -13,18 +13,7 @@ describe("content contracts", () => {
     expect(new Set(paths).size).toBe(paths.length);
     expect(paths).toContain("/");
     expect(paths.filter((path) => path !== "/").every((path) => path.endsWith("/"))).toBe(true);
-    expect(paths).toEqual([
-      "/",
-      "/meet-nari/",
-      "/streams/",
-      "/haven/",
-      "/work-with-nari/",
-      "/resources/",
-      "/nail-studio/",
-      "/stories/",
-      "/support/",
-      "/credits/"
-    ]);
+    expect(paths).toEqual(["/", "/meet-nari/", "/nail-studio/", "/links/", "/work-with-nari/", "/credits/"]);
   });
 
   it("provides a description for each ordinary navigation destination", () => {

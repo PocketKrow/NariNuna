@@ -1,0 +1,32 @@
+---
+import { primaryNavigation } from "@/data/navigation";
+interface Props { currentPath: string }
+const { currentPath } = Astro.props;
+---
+<header class="site-header page-width">
+  <a class="brand" href="/" aria-label="Nari Nuna home">nari<span>nuna</span><i aria-hidden="true">✳</i></a>
+  <nav class="desktop-nav" aria-label="Main navigation">
+    {primaryNavigation.map(({ href, label }) => <a href={href} aria-current={href === currentPath ? "page" : undefined}>{label}</a>)}
+  </nav>
+  <details class="mobile-menu">
+    <summary>Menu <span aria-hidden="true">+</span></summary>
+    <nav aria-label="Mobile navigation">
+      {primaryNavigation.map(({ href, label }) => <a href={href} aria-current={href === currentPath ? "page" : undefined}>{label}</a>)}
+    </nav>
+  </details>
+</header>
+<script>
+  // Native disclosure works without JavaScript. It expands in document flow, so
+  // keyboard users can leave freely without a modal focus trap or scroll lock.
+  const menu = document.querySelector<HTMLDetailsElement>(".mobile-menu");
+  menu?.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && menu.open) {
+      menu.open = false;
+      menu.querySelector("summary")?.focus();
+    }
+  });
+  menu?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => { menu.open = false; }));
+  matchMedia("(min-width: 48rem)").addEventListener("change", ({ matches }) => {
+    if (matches && menu) menu.open = false;
+  });
+</script>

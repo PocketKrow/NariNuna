@@ -1,0 +1,11 @@
+{
+  "source": "public/media/nari/nari-model-portrait.webp",
+  "sourceSha256": "7adccd5482282c0227ef9a4fbe5bdd474025ad68caccee937785ad723d583f4d",
+  "master": "src/assets/source/minimal/nari-creator-share.png",
+  "masterSha256": "96e9e2aec65ef8763979917fe4c56554de42771d8fd02c301a67211791409cec",
+  "src": "/media/minimal/nari-share.dfebd8ced76434bb.jpg",
+  "sha256": "dfebd8ced76434bbc20f563aa2899c1ecce2c5d82837bced17f2565f6c95860a",
+  "bytes": 74959,
+  "width": 1200,
+  "height": 630
+}

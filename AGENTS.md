@@ -4,7 +4,7 @@ These instructions apply to the entire repository.
 
 ## Mission
 
-Build and maintain Nari Nuna's Haven as a distinctive, factual, rights-cleared, privacy-safe static Astro multi-page website with focused Vue islands. Preserve Nari's warm late-fall Haven, big-sister voice, nail-art learning, community boundaries, and project-specific visual identity. Do not turn it into a generic VTuber template, link wall, corporate creator site, or unmaintainable effects demo.
+Build and maintain Nari Nuna's personal creator website as a distinctive, factual, rights-cleared, privacy-safe static Astro multi-page website with focused Vue islands. Put the supplied original Nari model first. Preserve Nari's warmth, big-sister voice, nail-art learning, community boundaries, and project-specific visual identity. Do not turn it into a generic VTuber template, link wall, corporate creator site, or unmaintainable effects demo.
 
 ## Read before editing
 
@@ -31,17 +31,17 @@ Never claim a test, build, branch, commit, PR, deployment, link, right, or appro
 
 ## Locked architecture
 
-- Astro 7 static output + Vue 3 islands + strict TypeScript + SCSS + Lucide. Vite/Vitest own compilation/tests; there is no client router. CSS micro-motion plus deferred GSAP/ScrollTrigger; selective Three.js on Home/Haven.
+- Astro 7 static output + strict TypeScript + SCSS; Vue/Lucide may render static primitives on the server. There are currently no hydrated islands, GSAP, Three.js, canvas, client router or environment-first layouts. CSS micro-motion only.
 - npm with committed lockfile and Node.js 22.13+.
-- Twelve prerendered documents owned by `src/pages/*.astro` and nested `index.astro` routes.
+- Seven prerendered documents: five primary pages, Credits and 404. Native Netlify 301 redirects retire six old routes; `routeRedirects.json` owns migration.
 - Ordinary anchors for top-level document navigation.
 - Shared `SiteLayout.astro`; static page bodies/footer; explicit Vue client directives only for behavior.
-- Metadata and preload coverage derive from `projectPages.json`; never restore the removed root `pages/` scaffold.
+- Metadata derives from `projectPages.json`; no scene preloads. Models use sized, original-source responsive images; never restore the removed root `pages/` scaffold.
 - Phase A review branch: one Nari atmosphere with semantic tokens; Dark/Light removal remains a reversible client-review proposal, not an approved product-foundation change.
 - Local typed content; no backend, CMS, analytics, form, account, or embeds in the foundation.
 - No Tailwind, general UI kit, second scaffold, SPA rewrite, or client secrets.
 
-ADR-011 records Jake’s explicit 2026-10-03 Astro migration instruction. `docs/42_ASTRO_REBUILD.md` supersedes the dated Vite path/route/tooling instructions in older documents. ADR-012 and `docs/43_VNEXT_EXPERIENCE.md` authorize the vNext redesign, tour/Passport retirement and optional effects. Further architecture departures require an accepted decision record.
+ADR-011 records Jake’s explicit 2026-10-03 Astro migration instruction. `docs/42_ASTRO_REBUILD.md` supersedes the dated Vite path/route/tooling instructions in older documents. ADR-012 and `docs/43_VNEXT_EXPERIENCE.md` authorize the vNext redesign, tour/Passport retirement and optional effects. ADR-013 and document 44 supersede the room-led product and effect requirements. Further departures require an accepted decision record.
 
 ## Product and content boundaries
 
@@ -49,7 +49,7 @@ ADR-011 records Jake’s explicit 2026-10-03 Astro migration instruction. `docs/
 - Do not merge CatDog and Grim Reaper canon without Nari approval.
 - Never generate/redraw Nari from public references. Owner-authorized private-review reillustration may use only the supplied real model and must preserve every identifying character trait; public use remains separately blocked until rights and Nari's approval are recorded.
 - Nail Studio is self-taught practice/education, not services, clients, licensure, or medical authority.
-- Discord appears after values; support never buys access, ownership, obligation, or time.
+- Discord follows values in Links; there is no three-knock or discovery gate. Support never buys access, ownership, obligation, or time.
 - Do not invent lore, metrics, schedule, testimonials, partnerships, resources, affiliate status, contact details, credentials, or private biography.
 - Adult content is opt-in and labelled.
 
@@ -85,7 +85,7 @@ npm run check
 
 For shell, page, navigation or island changes also run `npx playwright install chromium` once, then `npm run verify:browser` on the current built artifact. `NARI_BROWSER_PATH` can select an existing Chromium binary.
 
-Then perform relevant manual checks from `docs/12_QA_ACCEPTANCE_CRITERIA.md`: direct routes, the active Nari atmosphere, 320/390/768/wide, keyboard/focus, reduced motion, zoom/reflow, screen reader, contrast, network/performance, error states, links, rights, and privacy. Historical three-theme release requirements remain pending client review.
+Then perform relevant manual checks from `docs/12_QA_ACCEPTANCE_CRITERIA.md`: direct routes, the active Nari atmosphere, 320/390/768/wide, keyboard/focus, reduced motion, zoom/reflow, screen reader, contrast, network/performance, error states, links, rights, and privacy. The warm-paper Nari atmosphere is the current owner-requested review direction. Historic room/theme review criteria are superseded by document 44.
 
 Report only observed results.
 

@@ -1,3 +1,5 @@
+> **Current direction, 2026-10-06:** [44 — Minimal Creator Reconstitution](44_MINIMAL_CREATOR_RECONSTITUTION.md) supersedes the environment-first layout, twelve-route contract, room navigation, doorway/secret interaction and WebGL requirements below. Earlier implementation descriptions are historical. Canon, truthful content, source preservation, rights and production approval boundaries remain.
+
 # Asset Manifest and Art Pipeline
 
 **Status:** Owner-supplied authentic-artwork private review `IMPLEMENTED`; public-production artwork permissions `BLOCKED`

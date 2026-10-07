@@ -1,57 +1,20 @@
-# Nari Nuna's Haven
+# Nari Nuna
 
-A warm illustrated Astro website for Nari: streaming, self-taught nail art, community and creative collaboration. Twelve real static documents, focused Vue islands and ordinary links. Current vNext experience work builds on the Astro migration in PR #24.
+A minimal, personal creator website. Nari's original model leads; Twitch and YouTube are immediately reachable, with nail-art practice, community values and clear public links close by.
 
-## Run
-
-Node.js 22.13+ and npm:
+Astro 7 builds a true static MPA with TypeScript and SCSS. Five primary pages: Home, Nari, Nails, Links and Work. Credits and a custom 404 remain quiet utilities. Vue/Lucide render selected primitives at build time; the current website has no hydrated islands, SPA router, GSAP, Three.js, backend, tracking or embeds.
 
 ```bash
 npm ci
-npm run dev
-```
-
-Production artifact and checks:
-
-```bash
 npm run check
-npm run preview
-```
-
-Browser checks:
-
-```bash
 npx playwright install chromium
 npm run verify:browser
 npm run verify:experience
+npm run dev
 ```
 
-`NARI_BROWSER_PATH` can select an existing Chromium executable. `npm run verify:browsers` covers Chromium + Firefox after both are installed; `npm run verify:release-browsers` adds WebKit. Eight visual baselines cover Home, Meet Nari, Haven and Nails at 390/1440px. Inspect deliberate changes before running `npm run verify:visual-update`.
+Node 22.13+; npm with committed lockfile. `NARI_BROWSER_PATH` optionally selects an installed Chromium binary. `npm run artwork:model` prepares original-model delivery copies; it requires Pillow, like the existing art pipeline. `npm run artwork:identity` prepares the original-model social preview and retains its composition master. `npm run artwork:prepare` continues to own the retained general artwork family.
 
-## Architecture and source owners
+See [current product, routes, assets and architecture](docs/44_MINIMAL_CREATOR_RECONSTITUTION.md), [validation evidence](docs/45_MINIMAL_RECONSTITUTION_VALIDATION.md), [repository instructions](AGENTS.md), and [documentation index](docs/README.md). Six retired routes receive native 301 redirects; their useful source content remains archived. Netlify deploy previews use `npm run check` and append noindex headers. There is no universal SPA rewrite.
 
-| Concern | Owner |
-|---|---|
-| Static routes, shared metadata and preloads | `src/pages/`, `src/layouts/SiteLayout.astro`, `src/data/projectPages.json` |
-| Illustrated arrivals | `src/components/astro/RoomArrival.astro`, `src/styles/objects/arrival.scss` |
-| Room compositions and shared materials | `src/styles/rooms/`, `src/styles/_materials.scss` |
-| Menu, three-knock door, floorboard, thumbnail fallback | Focused Vue components; no SPA/client router |
-| Deferred choreography/atmosphere | `src/experiences/`, `src/shaders/` |
-| Content, destinations and descriptions | Typed `src/data/` records; `rooms.ts` is a description registry, not a tour |
-| Responsive artwork | Full provenance + compact runtime manifest, unchanged hashed WebP candidates |
-| Credits and approval boundaries | `src/data/artCredits.json`, offline validator and independent release gate |
-| Tests | Vitest, built-artifact validators, Playwright + axe and eight composition snapshots |
-
-Astro 7, Vue 3, strict TypeScript, SCSS, Lucide, GSAP/ScrollTrigger and selective Three.js. No backend, CMS, database, account, analytics, form, iframe, heavy media player, Tailwind or UI kit. Native View Transitions were evaluated and disabled after rapid history navigation exposed browser abort errors. All navigation is immediate ordinary document navigation.
-
-The static website is complete without decorative JavaScript. Required islands hydrate explicitly. Optional motion/graphics wait until load/idle, are skipped for reduced motion/save-data/mobile/coarse input and dispose on navigation/preferences. Home and Haven alone have a canvas. Pause/resume, visibility suspension and context-loss fallback keep atmosphere optional.
-
-Initial JS/CSS stays below 120 KB gzip per route. Optional enhancement graph has an independent 180 KB ceiling; a capable Home/Haven session may transfer that additional code. Artwork budgets and exact CSP loader hashes remain enforced. Motion-V, the guided bottom room passage and Passport have been removed.
-
-## Product and release boundaries
-
-Preserve approved copy, original artwork, source masters, privacy, credit and permission records. Nail Studio is personal learning/practice; illustrated workspaces do not impersonate real nail work. Support never buys attention or access. The Prinny joke room remains separate and noindex. Resources, private biography, metrics, schedules, partnerships, contact and lore are never invented.
-
-`npm run verify:release` intentionally remains blocked until client/content/rights/production-host/manual-QA records are cleared. The former `http-cache-semantics` advisory is resolved by the targeted upstream 4.3.0 patch; Astro remains 7.3.5 and the current full audit reports zero vulnerabilities.
-
-Read [the vNext implementation and current evidence](docs/43_VNEXT_EXPERIENCE.md), [the documentation hub](docs/README.md), and `AGENTS.md` before making changes. Earlier documents are dated history where superseded by the current implementation records.
+This is an owner-requested review build. Existing final identity/artwork/rights/contact/invite and production-release decisions remain unresolved in their existing registries. `npm run verify:release` remains the separate failing-until-cleared production gate. Do not merge or promote without owner authorization.

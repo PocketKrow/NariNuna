@@ -60,10 +60,11 @@ const requiredAssets = [
   "/media/storybook/ghosties/ghostie-heart.webp",
   "/media/storybook/share/nari-home-social.jpg",
   "/media/storybook/share/nari-meet-social.jpg",
-  "/favicon.png"
+  "/favicon.svg"
 ];
 
 for (const [route, expectedTitle, expectedPreview] of routes) {
+  if (expectedPreview) requiredAssets.push(expectedPreview);
   const response = await fetch(new URL(route, origin));
   assert.equal(response.status, 200, `${route} should direct-load with its expected status`);
   assert.match(response.headers.get("content-type") ?? "", /text\/html/, `${route} should be HTML`);

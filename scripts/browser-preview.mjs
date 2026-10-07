@@ -1,5 +1,6 @@
 // Local browser QA simulates the emitted static-host security policy; it never publishes the build.
 import http from "node:http";
+import redirects from "../src/data/routeRedirects.json" with { type: "json" };
 import { readFile, stat } from "node:fs/promises";
 import { extname, resolve, sep } from "node:path";
 
@@ -26,6 +27,12 @@ export async function startBrowserPreview() {
   const server = http.createServer(async (request, response) => {
     try {
       const pathname = decodeURIComponent(new URL(request.url ?? "/", "http://localhost").pathname);
+      const redirected = redirects.find(({ fromPath }) => [fromPath, fromPath.slice(0, -1), `${fromPath}index.html`].includes(pathname));
+      if (redirected) {
+        response.writeHead(301, { ...headers, Location: redirected.to });
+        response.end();
+        return;
+      }
       let path = resolve(root, `.${pathname}`);
       let status = 200;
       // Keep this development server confined to its public build directory, including encoded URLs.

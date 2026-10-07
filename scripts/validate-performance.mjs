@@ -39,13 +39,13 @@ for (const { document, title } of projectPages) {
   const fullGraph = graph(entries, true);
   const deferred = [...fullGraph].filter((file) => !files.has(file));
   const deferredBytes = deferred.reduce((sum, file) => sum + gzipSync(readFileSync(`dist${file}`)).length, 0);
-  if (deferredBytes > 180_000) throw new Error(`${document}: optional enhancement graph exceeds 180 KB gzip: ${deferredBytes}`);
+  if (deferredBytes > 0) throw new Error(`${document}: optional enhancement graph must not include deferred effects: ${deferredBytes}`);
   const inlineBytes = [...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)]
     .filter(([, attributes, source]) => !/\bsrc=/.test(attributes) && source.trim())
     .reduce((sum, [, , source]) => sum + gzipSync(source).length, 0);
   const bytes = inlineBytes + [...files].reduce((sum, file) => sum + gzipSync(readFileSync(`dist${file}`)).length, 0);
-  if (bytes > 120_000) throw new Error(`${document}: browser JS + CSS exceeds 120 KB gzip: ${bytes}`);
-  console.log(`${title}: initial JS + CSS ${Number(bytes / 1000).toFixed(2)} KB gzip / 120 KB; optional graph ${(deferredBytes / 1000).toFixed(2)} KB / 180 KB`);
+  if (bytes > 25_000) throw new Error(`${document}: browser JS + CSS exceeds 25 KB gzip: ${bytes}`);
+  console.log(`${title}: initial JS + CSS ${Number(bytes / 1000).toFixed(2)} KB gzip / 25 KB; optional graph ${(deferredBytes / 1000).toFixed(2)} KB / 0 KB`);
 }
 for (const [source, asset] of Object.entries(assets)) {
   for (const candidate of asset.candidates) {
@@ -54,16 +54,18 @@ for (const [source, asset] of Object.entries(assets)) {
     if (bytes !== candidate.bytes || bytes > maximum) throw new Error(`Artwork budget mismatch: ${candidate.src}`);
   }
 }
-const heroDocuments = projectPages.filter(({ hero }) => hero !== null).map(({ document }) => document);
-for (const document of heroDocuments) {
-  const html = readFileSync(`dist/${document}`, "utf8");
-  const preloads = [...html.matchAll(/<link\b(?:[^">]|"[^"]*")*>/g)].map(([tag]) => tag).filter((tag) => tag.includes('rel="preload"'));
-  if (preloads.length !== 3) throw new Error(`${document} requires three mutually exclusive hero bands`);
-  for (const tag of preloads) {
-    for (const attribute of ['as="image"', 'imagesrcset=', 'media=', 'fetchpriority="high"']) {
-      if (!tag.includes(attribute)) throw new Error(`${document} missing ${attribute}`);
-    }
-    for (const [, url] of tag.matchAll(/(\/media\/responsive\/[^\s",]+\.webp)/g)) readFileSync(`dist${url}`);
+const models = JSON.parse(readFileSync("src/data/model-delivery.json", "utf8"));
+for (const asset of Object.values(models)) {
+  for (const candidate of asset.candidates) {
+    const bytes = readFileSync(`dist${candidate.src}`).length;
+    if (bytes !== candidate.bytes || bytes > 150_000) throw new Error(`Model budget mismatch: ${candidate.src}`);
   }
 }
-console.log("Validated served artwork budgets and nine route-specific hero preloads.");
+for (const { document } of projectPages) {
+  const html = readFileSync(`dist/${document}`, "utf8");
+  if (/astro-island|<canvas|rel="preload"/.test(html)) throw new Error(`${document}: unnecessary hydration, canvas or preload`);
+}
+console.log("Validated retained artwork and original-model budgets; no hydrated islands, effects graphs or environment preloads.");
+
+const identity = JSON.parse(readFileSync("src/data/creator-identity.json", "utf8"));
+if (readFileSync(`dist${identity.src}`).length !== identity.bytes || identity.bytes > 100_000) throw new Error("Social preview budget mismatch");

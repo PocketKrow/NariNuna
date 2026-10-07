@@ -1,0 +1,8 @@
+---
+import models from "@/data/model-delivery.json";
+interface Props { portrait?: boolean; eager?: boolean; class?: string }
+const { portrait = false, eager = true, class: className } = Astro.props;
+const asset = portrait ? models.portrait : models.fullbody;
+const sizes = portrait ? "(min-width: 48rem) 364px, 234px" : "(min-width: 48rem) 193px, 148px";
+---
+<img class={className} src={asset.candidates[2].src} srcset={asset.candidates.map(({ src, width }) => `${src} ${width}w`).join(", ")} sizes={sizes} width={asset.width} height={asset.height} alt="Nari Nuna's original model: emerald eyes, asymmetric cat-and-dog ears, brown hair with purple tips, and her lavender-and-black outfit." loading={eager ? "eager" : "lazy"} fetchpriority={eager ? "high" : "auto"} decoding="async" data-nari-model />

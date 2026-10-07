@@ -11,3 +11,6 @@
 # Only content-addressed artwork receives immutable caching.
 /media/responsive/*
   Cache-Control: public, max-age=31536000, immutable
+
+/media/minimal/*
+  Cache-Control: public, max-age=31536000, immutable

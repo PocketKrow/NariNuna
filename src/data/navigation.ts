@@ -1,18 +1,10 @@
-// Canonical document destinations and visibility groups. Header composes principal/More links; the secret room is intentionally absent.
 import type { NavigationItem } from "@/types/content";
-
+// Five ordinary documents. Credits remains a quiet utility.
 export const primaryNavigation: NavigationItem[] = [
   { label: "Home", href: "/" },
-  { label: "Meet Nari", href: "/meet-nari/" },
-  { label: "Streams", href: "/streams/" },
-  { label: "The Haven", shortLabel: "Haven", href: "/haven/" },
-  { label: "Work With Nari", shortLabel: "Work", href: "/work-with-nari/" },
-  { label: "Resources", href: "/resources/" },
-  { label: "Nail Studio", shortLabel: "Nails", href: "/nail-studio/" }
+  { label: "Nari", href: "/meet-nari/" },
+  { label: "Nails", href: "/nail-studio/" },
+  { label: "Links", href: "/links/" },
+  { label: "Work", href: "/work-with-nari/" }
 ];
-
-export const footerNavigation: NavigationItem[] = [
-  { label: "Story Time", href: "/stories/" },
-  { label: "Support", href: "/support/" },
-  { label: "Credits", href: "/credits/" }
-];
+export const footerNavigation: NavigationItem[] = [{ label: "Credits", href: "/credits/" }];

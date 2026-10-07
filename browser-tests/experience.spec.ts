@@ -1,63 +1,46 @@
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import pages from "../src/data/projectPages.json" with { type: "json" };
 
-async function settle(page: Page): Promise<void> {
-  await page.waitForFunction(() => [...document.querySelectorAll('astro-island[client="load"]')].every((el) => !el.hasAttribute("ssr")));
-  await page.evaluate(() => document.fonts.ready);
-}
-async function scan(page: Page): Promise<void> {
-  const result = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();
-  expect(result.violations.map(({ id, nodes }) => ({ id, targets: nodes.map(({ target }) => target) }))).toEqual([]);
-}
 for (const width of [390, 1440]) {
-  test(`all routes pass axe at ${width}px`, async ({ page }) => {
+  test(`all documents pass axe at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
     await page.emulateMedia({ reducedMotion: "reduce" });
-    await page.route("https://i.ytimg.com/**", (route) => route.abort());
     for (const route of pages) {
       await page.goto(route.path);
-      await settle(page);
-      await scan(page);
-      await expect(page.locator(".room-passage, .haven-passport")).toHaveCount(0);
+      const result = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();
+      expect(result.violations.map(({ id, nodes }) => ({ id, targets: nodes.map(({ target }) => target) }))).toEqual([]);
     }
   });
-  for (const [name, path] of [["home", "/"], ["meet", "/meet-nari/"], ["haven", "/haven/"], ["nails", "/nail-studio/"]] as const) {
+  for (const [name, path] of [["home", "/"], ["meet", "/meet-nari/"], ["links", "/links/"], ["nails", "/nail-studio/"]] as const) {
     test(`${name} composition at ${width}px`, async ({ page, browserName }) => {
-      // Eight Linux Chromium baselines; other engines run interaction/accessibility checks without sharing raster expectations.
-      test.skip(browserName !== "chromium", "Visual baselines belong to the Chromium PR job.");
+      test.skip(browserName !== "chromium", "Raster baselines belong to Chromium.");
       await page.setViewportSize({ width, height: 900 });
       await page.emulateMedia({ reducedMotion: "reduce" });
       await page.goto(path);
-      await settle(page);
-      // Normalize Linux test fonts so CI checks composition rather than the host's optional serif aliases.
-      await page.addStyleTag({ content: ':root { --font-display: "DejaVu Serif"; --font-body: "DejaVu Sans"; --font-detail: "DejaVu Sans Mono"; }' });
+      await page.addStyleTag({ content: ':root { --font-display: "DejaVu Serif"; --font-body: "DejaVu Sans"; }' });
       for (const image of await page.locator("img").all()) {
         await image.scrollIntoViewIfNeeded();
-        await image.evaluate((element: HTMLImageElement) => element.decode().catch(() => undefined));
+        await image.evaluate((el: HTMLImageElement) => el.decode().catch(() => undefined));
       }
-      await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
+      await page.evaluate(() => scrollTo(0, 0));
       await expect(page).toHaveScreenshot(`${name}-${width}.png`, { fullPage: true });
     });
   }
 }
 
-test("navigation and every doorway state pass axe", async ({ page }) => {
+test("native menu passes axe and releases focus on Escape", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 667 });
-  await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("/haven/"); await settle(page);
-  await page.getByRole("button", { name: "Open navigation" }).click(); await scan(page);
-  await page.keyboard.press("Escape");
-  for (const label of ["Give the first knock", "Give the second knock", "Promise kindness · third knock"]) {
-    await page.getByRole("button", { name: label, exact: true }).last().click();
-    await scan(page);
-  }
-  await expect(page.getByRole("link", { name: /Enter Nari's Haven on Discord/ })).toBeVisible();
-  await page.getByRole("button", { name: "Close the door behind me" }).click();
-  await scan(page);
+  await page.goto("/");
+  await page.locator(".mobile-menu summary").click();
+  const result = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();
+  expect(result.violations).toEqual([]);
+  await page.keyboard.press("Tab"); await page.keyboard.press("Escape");
+  await expect(page.locator(".mobile-menu summary")).toBeFocused();
+  await expect(page.locator(".mobile-menu")).not.toHaveAttribute("open");
 });
 
-test("static documents survive JavaScript and enhancement failure", async ({ browser }) => {
+test("all static documents work without JavaScript", async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 320, height: 568 } });
   const page = await context.newPage();
   for (const route of pages) {
@@ -68,78 +51,36 @@ test("static documents survive JavaScript and enhancement failure", async ({ bro
   await context.close();
 });
 
-test("reduced motion, save-data and mobile never fetch decorative runtimes", async ({ browser }) => {
-  for (const mode of ["reduced", "save-data", "mobile"] as const) {
-    const context = await browser.newContext({ reducedMotion: mode === "reduced" ? "reduce" : "no-preference", viewport: { width: mode === "mobile" ? 390 : 1440, height: 900 } });
-    if (mode === "save-data") await context.addInitScript(() => Object.defineProperty(navigator, "connection", { value: { saveData: true } }));
-    const page = await context.newPage();
-    const enhancements: string[] = [];
-    page.on("request", (request) => { if (/\/assets\/(motion|atmosphere)\./.test(request.url())) enhancements.push(request.url()); });
-    await page.goto("http://127.0.0.1:4175/"); await settle(page);
-    await page.waitForTimeout(1800);
-    expect(enhancements).toEqual([]);
-    await expect(page.getByRole("button", { name: "Pause atmosphere" })).toBeHidden();
-    await context.close();
-  }
+test("image failure and blocked WebGL leave content and platforms usable", async ({ page }) => {
+  await page.route(/\/media\//, (route) => route.abort());
+  await page.addInitScript(() => { HTMLCanvasElement.prototype.getContext = () => null; });
+  const errors: string[] = [];
+  const remote: string[] = [];
+  page.on("pageerror", (error) => errors.push(error.message));
+  page.on("request", (request) => { if (!new URL(request.url()).hostname.includes("127.0.0.1")) remote.push(request.url()); });
+  await page.goto("/");
+  await expect(page.locator("h1")).toContainText("Nari Nuna");
+  await expect(page.getByRole("link", { name: /Watch on Twitch/ })).toBeVisible();
+  await expect(page.locator("canvas, astro-island")).toHaveCount(0);
+  expect(errors).toEqual([]); expect(remote).toEqual([]);
 });
 
-test("optional chunk failure leaves the page and navigation usable", async ({ page }) => {
-  await page.setViewportSize({ width: 1440, height: 900 });
-  await page.route(/\/assets\/(motion|atmosphere)\./, (route) => route.abort());
-  const errors: string[] = []; page.on("pageerror", (error) => errors.push(error.message));
-  await page.goto("/"); await settle(page); await page.waitForTimeout(1800);
-  await expect(page.locator("h1")).toContainText("Nari");
-  await page.getByRole("link", { name: "Meet Nari", exact: true }).first().click();
-  await expect(page).toHaveURL(/\/meet-nari\//);
-  expect(errors).toEqual([]);
-});
-
-test("capable desktop can pause atmosphere and switch to static mode", async ({ page }) => {
-  await page.setViewportSize({ width: 1440, height: 900 });
-  await page.emulateMedia({ reducedMotion: "no-preference" });
-  await page.addInitScript(() => Object.defineProperty(navigator, "hardwareConcurrency", { value: 8 }));
-  await page.goto("/"); await settle(page);
-  const supported = await page.evaluate(() => !!document.createElement("canvas").getContext("webgl2"));
-  test.skip(!supported, "Browser lacks WebGL2; static fallback is covered separately.");
-  const field = page.locator("[data-atmosphere]");
-  await expect(field).toHaveAttribute("data-atmosphere-state", "active");
-  await page.getByRole("button", { name: "Pause atmosphere" }).click();
-  await expect(field).toHaveAttribute("data-atmosphere-state", "paused");
-  await page.getByRole("button", { name: "Resume atmosphere" }).click();
-  await expect(field).toHaveAttribute("data-atmosphere-state", "active");
-  await page.emulateMedia({ reducedMotion: "reduce" });
-  await expect(field).toHaveAttribute("data-atmosphere-state", "static");
-  await expect(page.getByRole("button", { name: "Pause atmosphere" })).toBeHidden();
-  await page.emulateMedia({ reducedMotion: "no-preference" });
-  await expect(field).toHaveAttribute("data-atmosphere-state", "active");
-  await page.getByRole("button", { name: "Pause atmosphere" }).click();
-  await expect(field).toHaveAttribute("data-atmosphere-state", "paused");
-});
-
-
-test("native navigation retains back and forward behavior", async ({ page }) => {
-  const errors: string[] = []; page.on("pageerror", (error) => errors.push(error.message));
+test("document navigation retains back and forward behavior", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/");
-  for (let attempt = 0; attempt < 3; attempt++) {
-    await page.getByRole("link", { name: "Meet Nari", exact: true }).first().click();
-    await expect(page).toHaveURL(/\/meet-nari\//);
-    await page.goBack({ waitUntil: "domcontentloaded" }); await expect(page).toHaveURL("http://127.0.0.1:4175/");
-    await page.goForward({ waitUntil: "domcontentloaded" }); await expect(page).toHaveURL(/\/meet-nari\//);
-    await page.goBack({ waitUntil: "domcontentloaded" });
-  }
-  expect(errors).toEqual([]);
+  await page.locator('.desktop-nav a[href="/meet-nari/"]').click();
+  await expect(page).toHaveURL(/\/meet-nari\//);
+  await page.goBack(); await expect(page).toHaveURL("http://127.0.0.1:4175/");
+  await page.goForward(); await expect(page).toHaveURL(/\/meet-nari\//);
 });
 
-
-for (const viewport of [{ width: 390, height: 568 }, { width: 768, height: 900 }, { width: 1920, height: 1080 }, { width: 3840, height: 2160 }]) {
-  test(`short phone, text enlargement or wide layout at ${viewport.width}px`, async ({ page }) => {
-    await page.emulateMedia({ reducedMotion: "reduce" });
-    await page.setViewportSize(viewport);
-    for (const path of ["/", "/meet-nari/", "/haven/", "/nail-studio/", "/work-with-nari/"]) {
-      await page.goto(path); await settle(page);
+for (const viewport of [{ width: 320, height: 568 }, { width: 390, height: 568 }, { width: 768, height: 900 }, { width: 1920, height: 1080 }, { width: 3840, height: 2160 }]) {
+  test(`reflow and enlargement at ${viewport.width}px`, async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" }); await page.setViewportSize(viewport);
+    for (const { path } of pages) {
+      await page.goto(path);
       if (viewport.width <= 768) await page.evaluate(() => { document.documentElement.style.fontSize = "200%"; });
-      expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), `${path} at ${viewport.width}px`).toBe(false);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), path).toBe(false);
       await expect(page.locator("h1")).toBeVisible();
     }
   });

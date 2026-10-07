@@ -4,9 +4,10 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import generated from "@/data/responsive-artwork.json";
 import runtime from "@/data/responsive-artwork.runtime.json";
-import { artworkCandidates, artworkSrc, artworkSrcset, heroSources } from "@/data/artworkDelivery";
+import { artworkCandidates, artworkSrc, artworkSrcset } from "@/data/artworkDelivery";
 import { communityGhostieArtwork, environmentArtwork, storybookPostcards } from "@/data/artwork";
-import { routeHeroArtwork } from "../scripts/hero-preloads";
+import models from "@/data/model-delivery.json";
+import identity from "@/data/creator-identity.json";
 
 const manifest = generated.artworks;
 
@@ -57,31 +58,33 @@ describe("responsive artwork delivery", () => {
     expect(() => artworkCandidates("/missing.webp")).toThrow("Missing responsive artwork");
   });
 
-  it("keeps the initial Home artwork below 200 KB with lazy room postcards", () => {
-    // Byte budgets belong to build evidence, never the browser's selection API.
-    const maximum = (source: keyof typeof manifest, maxWidth = Infinity) => Math.max(...manifest[source].candidates.filter((candidate) => candidate.width <= maxWidth).map((candidate) => candidate.bytes));
-    const total = maximum(environmentArtwork.homeSunset) + maximum(communityGhostieArtwork.wave, 256);
-    expect(total).toBeLessThanOrEqual(200_000);
-    const home = readFileSync("src/pages/index.astro", "utf8");
-    expect(home).toContain("storybookPostcards");
-    const component = readFileSync("src/components/art/ResponsiveArtwork.vue", "utf8");
-    expect(component).toContain('loading: "lazy"');
-  });
-
-  it("gives all nine ordinary documents matching CSS/picture/preload candidates", () => {
-    expect(Object.keys(routeHeroArtwork)).toHaveLength(9);
-    expect(routeHeroArtwork["404.html"]).toBeUndefined();
-    expect(routeHeroArtwork["the-prinny-cult/index.html"]).toBeUndefined();
-    for (const source of Object.values(routeHeroArtwork)) {
-      const sources = heroSources(source);
-      expect(sources).toHaveLength(3);
-      for (const band of sources) {
-        for (const entry of band.srcset.split(", ")) {
-          const [url, density] = entry.split(" ");
-          expect(band.background).toContain(`url("${url}") ${density}`);
-          expect(artworkCandidates(source).some((candidate) => candidate.src === url)).toBe(true);
-        }
+  it("preserves original-model sources and emits clean, non-upscaled transparent derivatives", () => {
+    for (const asset of Object.values(models)) {
+      expect(hash(readFileSync(asset.source))).toBe(asset.sourceSha256);
+      for (const candidate of asset.candidates) {
+        const bytes = readFileSync(`public${candidate.src}`);
+        expect(hash(bytes)).toBe(candidate.sha256);
+        expect(bytes.length).toBe(candidate.bytes);
+        expect(candidate.width).toBeLessThanOrEqual(asset.width);
+        expect(candidate.height).toBe(Math.round(asset.height * candidate.width / asset.width));
+        expect(bytes.includes(Buffer.from("EXIF"))).toBe(false);
+        expect(bytes.includes(Buffer.from("XMP "))).toBe(false);
+        expect(bytes[20] & 0b00010000).toBeTruthy();
       }
     }
+    const largest = Math.max(...models.portrait.candidates.map(({ bytes }) => bytes));
+    const ghost = Math.max(...manifest[communityGhostieArtwork.cozy].candidates.filter(({ width }) => width <= 256).map(({ bytes }) => bytes));
+    expect(largest + ghost).toBeLessThan(150_000);
   });
+  it("keeps the identity master, model provenance and clean share delivery synchronized", () => {
+    expect(hash(readFileSync(identity.source))).toBe(identity.sourceSha256);
+    expect(hash(readFileSync(identity.master))).toBe(identity.masterSha256);
+    const delivery = readFileSync(`public${identity.src}`);
+    expect(hash(delivery)).toBe(identity.sha256);
+    expect(delivery.length).toBe(identity.bytes);
+    expect(identity.bytes).toBeLessThan(100_000);
+    expect(delivery.includes(Buffer.from("Exif"))).toBe(false);
+    expect(readFileSync("public/favicon.svg", "utf8")).toBe(readFileSync("src/assets/source/minimal/nari-monogram.svg", "utf8"));
+  });
+
 });

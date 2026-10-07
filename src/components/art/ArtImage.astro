@@ -1,0 +1,7 @@
+---
+import { artworkMetadata, artworkSrc, artworkSrcset } from "@/data/artworkDelivery";
+interface Props { artwork: string; alt?: string; sizes: string; class?: string; eager?: boolean; maxWidth?: number }
+const { artwork, alt = "", sizes, class: className, eager = false, maxWidth = 768 } = Astro.props;
+const metadata = artworkMetadata(artwork);
+---
+<img class={className} src={artworkSrc(artwork, Math.min(256, maxWidth))} srcset={artworkSrcset(artwork, maxWidth)} sizes={sizes} width={metadata.width} height={metadata.height} alt={alt} loading={eager ? "eager" : "lazy"} decoding="async" />

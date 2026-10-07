@@ -96,7 +96,6 @@ describe("creative credit registry", () => {
     expect(html).toContain("The people behind");
     expect(html).toContain("Somber Crow");
     expect(html).toContain("Awaiting confirmation");
-    expect(html).toContain("The archive opens when individual pieces have confirmed display permission");
     expect(html).not.toMatch(/<img|<picture/);
     expect(html).not.toContain("Do not publish");
   });

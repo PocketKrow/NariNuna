@@ -1,0 +1,12 @@
+[build]
+  command = "npm run check"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[context.deploy-preview]
+  command = "npm run check && node scripts/noindex-preview.mjs"
+
+[context.branch-deploy]
+  command = "npm run check && node scripts/noindex-preview.mjs"
