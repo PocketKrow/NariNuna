@@ -4,6 +4,8 @@ import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { communityGhostieArtwork, environmentArtwork, ghostieArtwork, nariArtwork, officialEmotes, storybookPostcards } from "@/data/artwork";
 import { prinnyCultAssets, prinnyRosterCapacity, suppliedPrinnyArtwork } from "@/data/prinnyCult";
+import { pageScenes } from "@/data/pageScenes";
+import projectPages from "@/data/projectPages.json";
 
 function retainedAssetExists(assetPath: string): boolean {
   return existsSync(resolve(process.cwd(), "public", assetPath.replace(/^\//, "")))
@@ -62,10 +64,12 @@ describe("approved-source artwork contracts", () => {
     }
   });
 
-  it("uses the owner-authorized model-anchored pose family on Home and Meet Nari", () => {
-    for (const [document, asset] of [["index.html", "welcome"], ["meet-nari/index.html", "haven-banner"]]) {
+  it("gives every document a distinct model-anchored moment without restoring the retired room runtime", () => {
+    expect(new Set(Object.values(pageScenes).map(({ asset }) => asset)).size).toBe(projectPages.length);
+    for (const { id, document } of projectPages) {
+      const { asset } = pageScenes[id as keyof typeof pageScenes];
       const html = readFileSync(`dist/${document}`, "utf8");
-      if (document === "index.html") expect(html).toContain("data-nari-model");
+      expect(html).toContain(`data-page-scene="${id}"`);
       expect(html).toContain(`data-creator-art="${asset}"`);
       expect(html).not.toContain("nari-painted");
       expect(html).not.toMatch(/room-arrival|<canvas|astro-island/);

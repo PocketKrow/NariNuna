@@ -4,12 +4,12 @@ import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { publicCreditById } from "@/data/artCredits";
 
-const attributedPages = ["index.astro", "meet-nari/index.astro", "nail-studio/index.astro"];
+const attributedPages = ["index.html", "meet-nari/index.html", "nail-studio/index.html", "links/index.html", "work-with-nari/index.html", "credits/index.html", "404.html"];
 
 describe("contextual artwork attribution", () => {
   it("uses only real public credit IDs on significant illustrated pages", () => {
     for (const page of attributedPages) {
-      const source = readFileSync(resolve("src/pages", page), "utf8");
+      const source = readFileSync(resolve("dist", page), "utf8");
       const ids = [...source.matchAll(/href="\/credits\/#([^"]+)"/g)].map((match) => match[1]);
       expect(ids.length, page).toBeGreaterThan(0);
       expect(ids.every((id) => publicCreditById(id)), page).toBe(true);
@@ -17,8 +17,13 @@ describe("contextual artwork attribution", () => {
   });
 
   it("renders matching fragment targets in the Credits ledger", () => {
-    const creditsSource = readFileSync(resolve("src/pages/credits/index.astro"), "utf8");
-    expect(creditsSource).toContain('id={credit.id}');
+    const creditsSource = readFileSync(resolve("dist/credits/index.html"), "utf8");
+    for (const page of attributedPages) {
+      const html = readFileSync(resolve("dist", page), "utf8");
+      for (const match of html.matchAll(/href="\/credits\/#([^"]+)"/g)) {
+        expect(creditsSource).toContain(`id="${match[1]}"`);
+      }
+    }
     expect(publicCreditById("website-storybook-artwork")?.pageVisible).toBe(true);
   });
 });

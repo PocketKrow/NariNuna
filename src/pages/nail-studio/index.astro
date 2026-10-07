@@ -1,6 +1,6 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
-import CreatorArt from "@/components/art/CreatorArt.astro";
+import SceneFigure from "@/components/art/SceneFigure.astro";
 import { nariLinks } from "@/data/socials";
 import { ArrowUpRight } from "@lucide/vue";
 const youtube = nariLinks.find(({ platform }) => platform === "youtube")!;
@@ -8,7 +8,7 @@ const youtube = nariLinks.find(({ platform }) => platform === "youtube")!;
 <SiteLayout pageId="nailStudio">
   <section class="nails-opening page-width">
     <div><p class="eyebrow">Creativity, the Nari way</p><h1>A little color.<br /><em>A lot of curiosity.</em></h1><p class="intro-line">Polish, games, and making things her own.</p><p>Nari is self-taught, still practicing, and learning one tiny detail at a time. Color, process, and a frankly unreasonable affection for nail polish all belong here. So do the games and videos that bring out her creative side.</p><a class="text-link" href={youtube.url} target="_blank" rel="noopener noreferrer">Find her creative videos <ArrowUpRight size={16} aria-hidden="true" /><span class="sr-only"> (opens in a new tab)</span></a></div>
-    <figure class="nail-muse"><CreatorArt asset="nails" sizes="(min-width: 48rem) 360px, 270px" eager priority /><figcaption>A little polish, a little patience.<br />Illustration, not Nari's nail work.</figcaption><a class="art-credit" href="/credits/#website-storybook-artwork">Illustration credits</a></figure>
+    <SceneFigure scene="nailStudio" class="creative-scene" eager priority />
   </section>
   <nav class="creative-paths page-width" aria-label="Explore Nari’s creativity"><a href="#nail-desk">At the nail desk</a><a href="#game-pile">Games & curiosity</a><a href="#creator-shelf">On camera</a></nav>
   <section id="nail-desk" class="studio-notes page-width" aria-labelledby="practice-title">

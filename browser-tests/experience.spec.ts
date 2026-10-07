@@ -15,7 +15,7 @@ for (const width of [390, 1440]) {
       expect(result.violations.map(({ id, nodes }) => ({ id, targets: nodes.map(({ target }) => target) }))).toEqual([]);
     }
   });
-  for (const [name, path] of [["home", "/"], ["meet", "/meet-nari/"], ["links", "/links/"], ["nails", "/nail-studio/"]] as const) {
+  for (const [name, path] of [["home", "/"], ["meet", "/meet-nari/"], ["links", "/links/"], ["nails", "/nail-studio/"], ["work", "/work-with-nari/"], ["credits", "/credits/"], ["not-found", "/404.html"]] as const) {
     test(`${name} composition at ${width}px`, async ({ page, browserName }) => {
       test.skip(browserName !== "chromium", "Raster baselines belong to Chromium.");
       await page.setViewportSize({ width, height: 900 });

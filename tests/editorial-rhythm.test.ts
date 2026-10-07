@@ -20,7 +20,7 @@ describe("creator content and boundaries", () => {
     const html = readFileSync("dist/nail-studio/index.html", "utf8");
     expect(html).toContain("Nari's own approved photographs");
     expect(html).toContain("No salon services or bookings");
-    expect(html).toContain("Illustration, not Nari's nail work.");
+    expect(html.replace(/&#39;|&#x27;/g, "'")).toContain("Illustration, not Nari's nail work.");
     expect(html).not.toContain('href="/resources/');
   });
 });

@@ -1,6 +1,6 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
-import CreatorArt from "@/components/art/CreatorArt.astro";
+import SceneFigure from "@/components/art/SceneFigure.astro";
 import { ArrowLeft } from "@lucide/vue";
 ---
-<SiteLayout pageId="notFound"><section class="not-found page-width"><CreatorArt asset="ghostie-recovery" sizes="240px" eager /><div><p class="eyebrow">404 · A small wrong turn</p><h1>A Ghostie moved<br /><em>the page again.</em></h1><p>Let's get you back to Nari.</p><a class="button" href="/"><ArrowLeft size={18} aria-hidden="true" /> Back to Nari</a></div></section></SiteLayout>
+<SiteLayout pageId="notFound"><section class="not-found page-width"><SceneFigure scene="notFound" class="recovery-scene" eager /><div><p class="eyebrow">404 · A small wrong turn</p><h1>A Ghostie moved<br /><em>the page again.</em></h1><p>Let's get you back to Nari.</p><a class="button" href="/"><ArrowLeft size={18} aria-hidden="true" /> Back to Nari</a></div></section></SiteLayout>

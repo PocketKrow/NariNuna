@@ -10,6 +10,13 @@ SOURCE = ROOT / 'src/assets/source/anime-creator'
 OUT = ROOT / 'public/media/anime'
 OUT.mkdir(parents=True, exist_ok=True)
 SPECS = {
+    'home-seat': ('../haven-scenes/home-seat.png', None, 'Nari Nuna invites you onto a lavender sofa beside two friendly Ghosties, a cozy throw and a small lamp.'),
+    'meet-nook': ('../haven-scenes/meet-nook.png', None, 'Nari smiles and waves from a cushioned Haven nook, with two Ghosties settled beside her.'),
+    'creativity-desk': ('../haven-scenes/creativity-desk.png', None, 'Nari concentrates on polish practice at her desk while Ghosties help with bottles and color swatches.'),
+    'connections-game': ('../haven-scenes/connections-game.png', None, 'Nari laughs with a game controller as two Ghosties celebrate around a cozy gaming desk.'),
+    'work-table': ('../haven-scenes/work-table.png', None, 'Nari plans at a cream desk with an open notebook and a Ghostie carrying an envelope.'),
+    'credits-makers': ('../haven-scenes/credits-makers.png', None, 'Nari keeps two Ghosties company at a small drawing table with pencils and an abstract color study.'),
+    '404-wayfinding': ('../haven-scenes/404-wayfinding.png', None, 'Nari and two Ghosties find their way with a folded map beside a small lavender doorway and lantern.'),
     'haven-banner': ('../haven-identity/nari-haven-banner.png', None, 'Nari Nuna smiles and waves beside a friendly Ghostie, leaning on a cream ledge.'),
     'haven-mark': ('../haven-identity/haven-mark.png', None, ''),
     'welcome': ('nari-welcome.png', None, 'Nari Nuna welcomes you with an open hand, wearing her lavender-and-black outfit.'),
@@ -37,8 +44,10 @@ def framed(image, crop=None):
     return padded, list(bbox)
 
 haven_only = '--haven-only' in sys.argv
-manifest = json.loads((ROOT / 'src/data/anime-artwork.json').read_text()) if haven_only else {'schemaVersion': 1, 'record': 'docs/asset-records/ASSET-2026-022-anime-creator-family.md', 'artworks': {}}
-selected = {k: v for k, v in SPECS.items() if k.startswith('haven-')} if haven_only else SPECS
+scenes_only = '--scenes-only' in sys.argv
+scene_keys = {k for k, (filename, _, _) in SPECS.items() if filename.startswith('../haven-scenes/')}
+manifest = json.loads((ROOT / 'src/data/anime-artwork.json').read_text()) if haven_only or scenes_only else {'schemaVersion': 1, 'record': 'docs/asset-records/ASSET-2026-022-anime-creator-family.md', 'artworks': {}}
+selected = {k: v for k, v in SPECS.items() if k in scene_keys} if scenes_only else {k: v for k, v in SPECS.items() if k.startswith('haven-')} if haven_only else SPECS
 for key, (filename, crop, alt) in ({} if '--identity-only' in sys.argv else selected).items():
     source = (SOURCE / filename).resolve()
     data = source.read_bytes()
@@ -46,7 +55,9 @@ for key, (filename, crop, alt) in ({} if '--identity-only' in sys.argv else sele
     image, bbox = framed(original, crop)
     character = key in ('welcome', 'welcome-portrait', 'nails')
     widths = [160, 240, 320, 480, 640, 720] if character else [96, 160, 240, 320, 480]
-    if key == 'haven-mark':
+    if key in scene_keys:
+        widths = [160, 240, 320, 480, 640] if key in ('credits-makers', '404-wayfinding') else [240, 320, 480, 640, 960]
+    elif key == 'haven-mark':
         widths = [48, 96, 160, 240]
     elif key == 'haven-banner':
         widths = [320, 480, 640, 960]
@@ -71,11 +82,17 @@ for key, (filename, crop, alt) in ({} if '--identity-only' in sys.argv else sele
         temporary.unlink(missing_ok=True)
         candidates.append({'src': '/' + str(hashed.relative_to(ROOT / 'public')), 'width': width, 'height': size[1], 'bytes': len(encoded), 'sha256': digest(encoded), 'quality': quality})
     manifest['artworks'][key] = {'source': str(source.relative_to(ROOT)), 'sourceSha256': digest(data), 'sourceBytes': len(data), 'sourceWidth': original.width, 'sourceHeight': original.height, 'alpha': True, 'slotCrop': list(crop) if crop else None, 'alphaBounds': bbox, 'padding': 24, 'width': image.width, 'height': image.height, 'alt': alt, 'candidates': candidates}
+    if key in scene_keys:
+        manifest['artworks'][key]['record'] = 'docs/asset-records/ASSET-2026-024-inhabited-haven-scenes.md'
 
 if '--identity-only' not in sys.argv:
     (ROOT / 'src/data/anime-artwork.json').write_text(json.dumps(manifest, indent=2) + '\n')
 else:
     manifest = json.loads((ROOT / 'src/data/anime-artwork.json').read_text())
+
+if scenes_only:
+    print(f'Prepared {len(scene_keys)} inhabited scenes / {sum(len(manifest["artworks"][key]["candidates"]) for key in scene_keys)} responsive candidates. Existing identity and delivery bytes retained.')
+    sys.exit(0)
 
 if haven_only:
     identity_file = ROOT / 'src/data/creator-identity.json'

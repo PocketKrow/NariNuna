@@ -62,8 +62,8 @@ try {
   assert.match(await page.locator("h1").innerText(), /Ghostie moved/);
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto(preview.origin);
-  assert.equal(await page.locator("[data-nari-model]").evaluate((el) => getComputedStyle(el).animationName), "none");
-  log.push("Unknown URL returns branded 404; reduced motion removes the model entrance.");
+  assert.equal(await page.locator(".home-scene > img").evaluate((el) => getComputedStyle(el).animationName), "none");
+  log.push("Unknown URL returns branded 404; reduced motion removes the scene entrance.");
   await context.close();
   const nojs = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 320, height: 900 } });
   const staticPage = await nojs.newPage();

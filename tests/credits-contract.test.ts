@@ -5,6 +5,7 @@ import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { artCreditRegistry } from "@/data/artCredits";
+import { pageScenes } from "@/data/pageScenes";
 const CreditsPage = "credits/index.html";
 
 function validateFixture(mutator: (registry: typeof artCreditRegistry) => void) {
@@ -99,7 +100,7 @@ describe("creative credit registry", () => {
     // Owner-directed site decoration is separate from the permission-gated contributor archive.
     expect(html).not.toContain('aria-label="Approved artwork archive"');
     for (const image of html.match(/<img\b[^>]*>/g) ?? []) {
-      expect(image).toContain('data-creator-art="correspondence"');
+      expect(image).toContain(`data-creator-art="${pageScenes.credits.asset}"`);
     }
     expect(html).not.toContain("Do not publish");
   });

@@ -624,6 +624,440 @@
           "quality": 84
         }
       ]
+    },
+    "home-seat": {
+      "source": "src/assets/source/haven-scenes/home-seat.png",
+      "sourceSha256": "a8c89407cc4cbd6f405c9e6afeab7338e0069367797dc343c0b0e9773e9f275a",
+      "sourceBytes": 2309062,
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "alpha": true,
+      "slotCrop": null,
+      "alphaBounds": [
+        23,
+        1,
+        1536,
+        1024
+      ],
+      "padding": 24,
+      "width": 1561,
+      "height": 1071,
+      "alt": "Nari Nuna invites you onto a lavender sofa beside two friendly Ghosties, a cozy throw and a small lamp.",
+      "candidates": [
+        {
+          "src": "/media/anime/home-seat-240.72168d76fd9df9ed.webp",
+          "width": 240,
+          "height": 165,
+          "bytes": 17442,
+          "sha256": "72168d76fd9df9ed97d5efa9c8faa5fb72e8ca82b51fbbdd2ff6238309f872d6",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/home-seat-320.db7845f9bc31eb3d.webp",
+          "width": 320,
+          "height": 220,
+          "bytes": 26560,
+          "sha256": "db7845f9bc31eb3d2896bd906134d8121474981d840a2c49108ab58b9323592f",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/home-seat-480.6452a85bc312892b.webp",
+          "width": 480,
+          "height": 329,
+          "bytes": 47748,
+          "sha256": "6452a85bc312892bb1bcf8f2cbaade6d2600fd043c801f0b69bfd9fb17b39398",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/home-seat-640.05784748796b2d30.webp",
+          "width": 640,
+          "height": 439,
+          "bytes": 72374,
+          "sha256": "05784748796b2d306a1728fe2407c5c4413bfaaf4cdf845f6655926e8e3cd4fa",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/home-seat-960.3c5bf00eef5d878d.webp",
+          "width": 960,
+          "height": 659,
+          "bytes": 137602,
+          "sha256": "3c5bf00eef5d878d9cab09c43026aeea0493209d6fa0b557bfcf5b15c340b0fd",
+          "quality": 84
+        }
+      ],
+      "record": "docs/asset-records/ASSET-2026-024-inhabited-haven-scenes.md"
+    },
+    "meet-nook": {
+      "source": "src/assets/source/haven-scenes/meet-nook.png",
+      "sourceSha256": "5412fd16004448771e09cea5d0c5e845208cf174cdf17405e8a3795c7fbf8b0e",
+      "sourceBytes": 2464109,
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "alpha": true,
+      "slotCrop": null,
+      "alphaBounds": [
+        7,
+        1,
+        1531,
+        1009
+      ],
+      "padding": 24,
+      "width": 1572,
+      "height": 1056,
+      "alt": "Nari smiles and waves from a cushioned Haven nook, with two Ghosties settled beside her.",
+      "candidates": [
+        {
+          "src": "/media/anime/meet-nook-240.57b53ccc606187a1.webp",
+          "width": 240,
+          "height": 161,
+          "bytes": 17154,
+          "sha256": "57b53ccc606187a1a1e55f3556594f7d8928aa801c36b499a1a35602acea512a",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/meet-nook-320.813d2e7395a8e925.webp",
+          "width": 320,
+          "height": 215,
+          "bytes": 26220,
+          "sha256": "813d2e7395a8e92576c33981f0ba5d10cdbf8f610f8b4f888967ba3b073a64c8",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/meet-nook-480.1ace6d6ee3e48598.webp",
+          "width": 480,
+          "height": 322,
+          "bytes": 47274,
+          "sha256": "1ace6d6ee3e485984bb226612957ffb7170ecdf01e163105bbbad6df8f12c49e",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/meet-nook-640.c0435f082963872c.webp",
+          "width": 640,
+          "height": 430,
+          "bytes": 72268,
+          "sha256": "c0435f082963872cb8673a9996753dccab2967389dada1f7dac281b88dde289e",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/meet-nook-960.a45b7b6d8e4315f1.webp",
+          "width": 960,
+          "height": 645,
+          "bytes": 139038,
+          "sha256": "a45b7b6d8e4315f14246ee12c31da1e415e1043191244f96c8669bb33e0f90e4",
+          "quality": 84
+        }
+      ],
+      "record": "docs/asset-records/ASSET-2026-024-inhabited-haven-scenes.md"
+    },
+    "creativity-desk": {
+      "source": "src/assets/source/haven-scenes/creativity-desk.png",
+      "sourceSha256": "83a8c4715f82f16dca5ad18fe83da4525f2fef9f80121f9e815f670e59fe692b",
+      "sourceBytes": 2291376,
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "alpha": true,
+      "slotCrop": null,
+      "alphaBounds": [
+        66,
+        1,
+        1474,
+        1011
+      ],
+      "padding": 24,
+      "width": 1456,
+      "height": 1058,
+      "alt": "Nari concentrates on polish practice at her desk while Ghosties help with bottles and color swatches.",
+      "candidates": [
+        {
+          "src": "/media/anime/creativity-desk-240.8e71d2a1917dd9f0.webp",
+          "width": 240,
+          "height": 174,
+          "bytes": 18138,
+          "sha256": "8e71d2a1917dd9f058d9d86c34be2d9ade6d5eef2c8733634ce818051b793098",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/creativity-desk-320.558435c565229ba9.webp",
+          "width": 320,
+          "height": 233,
+          "bytes": 27188,
+          "sha256": "558435c565229ba9220acef0a834874ecd01b85ebfcfb6130ff794802b45b4d4",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/creativity-desk-480.06a4e5a803fa5307.webp",
+          "width": 480,
+          "height": 349,
+          "bytes": 48608,
+          "sha256": "06a4e5a803fa53077e7af897390336b58e39ef1015b3132cb8a222cd438d0f7c",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/creativity-desk-640.a9c9f19311f95d92.webp",
+          "width": 640,
+          "height": 465,
+          "bytes": 74272,
+          "sha256": "a9c9f19311f95d92faba1f367a214c045f7b7178bfeb0e29d496383f2c378679",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/creativity-desk-960.6eea2a1d68c5f61d.webp",
+          "width": 960,
+          "height": 698,
+          "bytes": 135780,
+          "sha256": "6eea2a1d68c5f61d3d21284375020a4fed81d3ef25c4e7f865b316f080575673",
+          "quality": 84
+        }
+      ],
+      "record": "docs/asset-records/ASSET-2026-024-inhabited-haven-scenes.md"
+    },
+    "connections-game": {
+      "source": "src/assets/source/haven-scenes/connections-game.png",
+      "sourceSha256": "08ecdbe15ab2534e778b033cedf1ddfc7d39a21bec0e9fbc7754e11cbe044d78",
+      "sourceBytes": 2332670,
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "alpha": true,
+      "slotCrop": null,
+      "alphaBounds": [
+        1,
+        6,
+        1534,
+        1010
+      ],
+      "padding": 24,
+      "width": 1581,
+      "height": 1052,
+      "alt": "Nari laughs with a game controller as two Ghosties celebrate around a cozy gaming desk.",
+      "candidates": [
+        {
+          "src": "/media/anime/connections-game-240.7ea6061b838ebc7c.webp",
+          "width": 240,
+          "height": 160,
+          "bytes": 18992,
+          "sha256": "7ea6061b838ebc7c42abc17b8cbb29221a16badb6ff17310ab28153eb25f7ff7",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/connections-game-320.c4269cbe8a183a72.webp",
+          "width": 320,
+          "height": 213,
+          "bytes": 28674,
+          "sha256": "c4269cbe8a183a72977c7ed042736669e3f4cda25b4eefa069d5169c8cc298b4",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/connections-game-480.2a275f50f3ae1f8f.webp",
+          "width": 480,
+          "height": 319,
+          "bytes": 51654,
+          "sha256": "2a275f50f3ae1f8fd7688ab106b90970d98b82fa6cd064ab20a07d940992990a",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/connections-game-640.f103d71ac1d81215.webp",
+          "width": 640,
+          "height": 426,
+          "bytes": 77390,
+          "sha256": "f103d71ac1d81215d6728394d301542f1754bc17839a3ad4cc96700a731ce5c5",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/connections-game-960.fb0ac214112ad674.webp",
+          "width": 960,
+          "height": 639,
+          "bytes": 144890,
+          "sha256": "fb0ac214112ad674dae65c369b366b1e8a854537e42d064fb9029eaeb2a9cd05",
+          "quality": 84
+        }
+      ],
+      "record": "docs/asset-records/ASSET-2026-024-inhabited-haven-scenes.md"
+    },
+    "work-table": {
+      "source": "src/assets/source/haven-scenes/work-table.png",
+      "sourceSha256": "803625bb1bfa42c2df3815b5e387b2085f048092307fc19cfc4accb6db560100",
+      "sourceBytes": 1731265,
+      "sourceWidth": 1254,
+      "sourceHeight": 1254,
+      "alpha": true,
+      "slotCrop": null,
+      "alphaBounds": [
+        56,
+        27,
+        1225,
+        1213
+      ],
+      "padding": 24,
+      "width": 1217,
+      "height": 1234,
+      "alt": "Nari plans at a cream desk with an open notebook and a Ghostie carrying an envelope.",
+      "candidates": [
+        {
+          "src": "/media/anime/work-table-240.9f0272ec83c4b4ed.webp",
+          "width": 240,
+          "height": 243,
+          "bytes": 21664,
+          "sha256": "9f0272ec83c4b4edf479a18e3f3f0158e84a037ba7f0dc252a680008c3f50341",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/work-table-320.3dbb7a545c48f103.webp",
+          "width": 320,
+          "height": 324,
+          "bytes": 32542,
+          "sha256": "3dbb7a545c48f10327b50f0046fbcd479f802c8535b2edc328d3d5782e3c22e6",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/work-table-480.75f1cd5d000b1538.webp",
+          "width": 480,
+          "height": 487,
+          "bytes": 59480,
+          "sha256": "75f1cd5d000b1538a1e2749db4f8b7de616497eb4a23a46a65fb646889cdf260",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/work-table-640.5b094a89bc554a97.webp",
+          "width": 640,
+          "height": 649,
+          "bytes": 91070,
+          "sha256": "5b094a89bc554a971b610a2e385709d1eb410ba1467004c2e3a12600aa820d94",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/work-table-960.6497a2ff64944cae.webp",
+          "width": 960,
+          "height": 973,
+          "bytes": 146670,
+          "sha256": "6497a2ff64944cae9be338d0ab201c3bb2f71d7b49e2bf1e49f52459fd897f94",
+          "quality": 78
+        }
+      ],
+      "record": "docs/asset-records/ASSET-2026-024-inhabited-haven-scenes.md"
+    },
+    "credits-makers": {
+      "source": "src/assets/source/haven-scenes/credits-makers.png",
+      "sourceSha256": "e2c5f9d1ed9943ff7580f881f926c9c739ce6968c5c0d0606e36e09de5791f7f",
+      "sourceBytes": 2137872,
+      "sourceWidth": 1254,
+      "sourceHeight": 1254,
+      "alpha": true,
+      "slotCrop": null,
+      "alphaBounds": [
+        39,
+        5,
+        1254,
+        1224
+      ],
+      "padding": 24,
+      "width": 1263,
+      "height": 1267,
+      "alt": "Nari keeps two Ghosties company at a small drawing table with pencils and an abstract color study.",
+      "candidates": [
+        {
+          "src": "/media/anime/credits-makers-160.7e4c4febf42fa1f3.webp",
+          "width": 160,
+          "height": 161,
+          "bytes": 13274,
+          "sha256": "7e4c4febf42fa1f3208d729c6da01d6fe93d01ec8fbc45c33d91853b78fa2518",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/credits-makers-240.0b7efc8021c7f0c3.webp",
+          "width": 240,
+          "height": 241,
+          "bytes": 23670,
+          "sha256": "0b7efc8021c7f0c34a37a3efda35a5b408e93c6d5844ac4ca436262bc032456e",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/credits-makers-320.d08b21ada4f70ad6.webp",
+          "width": 320,
+          "height": 321,
+          "bytes": 36108,
+          "sha256": "d08b21ada4f70ad6d3cfbe0c134739bad29dffefa43f1f1e8d37cd44e14f8ab0",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/credits-makers-480.a27f9789ce4c1f4a.webp",
+          "width": 480,
+          "height": 482,
+          "bytes": 65310,
+          "sha256": "a27f9789ce4c1f4ae6936ae46b2ce919a12ccef928d18ee07d3fb82554c0b9a9",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/credits-makers-640.c9308aa20b3ade7a.webp",
+          "width": 640,
+          "height": 642,
+          "bytes": 101418,
+          "sha256": "c9308aa20b3ade7ae04c57e3bd9d36d1f6373a0ae678bd0f20809389dc280bdf",
+          "quality": 84
+        }
+      ],
+      "record": "docs/asset-records/ASSET-2026-024-inhabited-haven-scenes.md"
+    },
+    "404-wayfinding": {
+      "source": "src/assets/source/haven-scenes/404-wayfinding.png",
+      "sourceSha256": "7bfd150b90489dcff966621248fc10b7d175238ea7c0ea58d100f2b57ac77196",
+      "sourceBytes": 2069421,
+      "sourceWidth": 1254,
+      "sourceHeight": 1254,
+      "alpha": true,
+      "slotCrop": null,
+      "alphaBounds": [
+        11,
+        5,
+        1249,
+        1237
+      ],
+      "padding": 24,
+      "width": 1286,
+      "height": 1280,
+      "alt": "Nari and two Ghosties find their way with a folded map beside a small lavender doorway and lantern.",
+      "candidates": [
+        {
+          "src": "/media/anime/404-wayfinding-160.0c9307009c720814.webp",
+          "width": 160,
+          "height": 159,
+          "bytes": 12762,
+          "sha256": "0c9307009c7208140d21cfb5ba922d24f2c2f95cbc280a369000b32203fa6f76",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/404-wayfinding-240.89f53493c245e81a.webp",
+          "width": 240,
+          "height": 239,
+          "bytes": 22858,
+          "sha256": "89f53493c245e81a0b4a18414a81c5a8a1cf7821679afa939ef47fba7f779dbf",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/404-wayfinding-320.35b8c879b19a12d4.webp",
+          "width": 320,
+          "height": 319,
+          "bytes": 35056,
+          "sha256": "35b8c879b19a12d485b860ca53df7d2bd2788df25c9d519916acfdb73ee63d4b",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/404-wayfinding-480.b097ec439b9bec59.webp",
+          "width": 480,
+          "height": 478,
+          "bytes": 64076,
+          "sha256": "b097ec439b9bec59dedbd2e83ce3180b1d0621ac083a3715e95d9433ac44988f",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/404-wayfinding-640.ef9423f9d15e865a.webp",
+          "width": 640,
+          "height": 637,
+          "bytes": 98532,
+          "sha256": "ef9423f9d15e865a1cbe588e8aa9092e8c919b3b0a2dac7a3c58173c8714988b",
+          "quality": 84
+        }
+      ],
+      "record": "docs/asset-records/ASSET-2026-024-inhabited-haven-scenes.md"
     }
   }
 }

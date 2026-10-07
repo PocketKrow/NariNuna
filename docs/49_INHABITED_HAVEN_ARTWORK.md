@@ -1,0 +1,43 @@
+# Inhabited Haven artwork pass
+
+Owner direction: 2026-10-07 America/New_York. Jake asks for custom artwork for every page and a stronger sense of belonging, rather than an isolated model against an empty minimalist background. ADR-016 refines the preceding clean-anime and connected-Haven directions. Continue the existing `kiva/nari-minimal-reconstitution` branch and PR #31; no merge, main/PR #30 change or production release.
+
+## Page moments
+
+| Page / stable URL | Unique scene | Visual purpose |
+|---|---|---|
+| Home `/` | `home-seat` | Nari invites the visitor onto the open sofa cushion; Ghosties, a throw, mugs and a lamp make the welcome tangible. |
+| Meet `/meet-nari/` | `meet-nook` | Nari and Ghosties comfortably share a cushioned Haven alcove, with an expressive greeting and a naturally drawn ledge. |
+| Creativity `/nail-studio/` | `creativity-desk` | Nari looks down and practices with a polish brush; the Ghosties help with bottles/swatches. Controller and notebook connect existing interests. |
+| Connections `/links/` | `connections-game` | Nari shares a laughing game moment with Ghosties, a microphone and a monitor showing abstract colors only. |
+| Work `/work-with-nari/` | `work-table` | An attentive Nari, open notebook and envelope-carrying Ghostie bring personality to the clear collaboration brief. |
+| Credits `/credits/` | `credits-makers` | Nari keeps the Ghostie makers company at a drawing table; no actual artist likeness or artwork is reproduced. |
+| Recovery `/404.html` | `404-wayfinding` | Nari helps two Ghosties with a folded map and small doorway; the Home action is direct and ungated. |
+
+These are bounded fictional illustrations, not actual home photographs, projects, private community captures or portfolio evidence. Nari's supplied design is the only identity authority. Do not infer new biography, canon, cultural meaning, services or rights from props. Nail-practice art remains explicitly labelled illustration; the real-work gallery still awaits approved photographs.
+
+## Source and implementation owners
+
+Built-in image generation created seven accepted transparent PNG masters in `src/assets/source/haven-scenes/`, with a distinct exact `.prompt.txt` beside each. Original models and all earlier masters/delivery files remain unchanged. ASSET-2026-024 records references, identity invariants, privacy and unresolved rights. Creativity's first draft put the tattoo on the wrong shoulder and cropped feet: its retained revision prompt restores the original viewer-left tattoo, active practice and complete boots/table base. Work's retained revision prompt completes the desk/body boundary. Those two rejected drafts are not delivered. Utility drafts included Nari as well as Ghosties; the coherent cameos were accepted without representing actual contributors or claiming authorship of their work.
+
+`pageScenes.ts` owns one unique scene and its caption/note/sizes for each document. `SceneFigure.astro` emits a static, sized responsive image, real caption and contextual illustration-credit link. `CreatorArt.astro` and the anime manifest keep the established image delivery contract. Seven page templates now consume their own moment; Home retires the separate model/wash/floor/mascot assembly. Meet/Creativity/Connections get wider scene areas; Work keeps its brief, fit list, boundaries and contact wording intact. Credits/404 remain utilities. Header/footer branding, six profile icons, optional Haven disclosure, outbound Shorts, URLs and redirects remain.
+
+`_creator.scss` is the sole composition owner. The illustration itself supplies furniture, contact shadows and companions, with no CSS mask, silhouette clipping, generic floral overlay or object-navigation system. Mobile stacks whole scenes at readable widths; desktop balances them with text. A finite half-second entrance applies only when reduced motion is not requested. No new dependency, island, canvas, backend, remote origin, video player, storage or tracking.
+
+`prepare-anime-artwork.py --scenes-only` adds five non-upscaled hashed WebP candidates per new scene: 240/320/480/640/960px for primary pages, and 160/240/320/480/640px for the smaller utility slots. Complete alpha bounds and transparent framing are recorded, with a per-scene reference to ASSET-2026-024. Existing candidates and metadata identity bytes stay unchanged. Source masters/prompts remain outside public delivery. Existing 150 KB image, 25 KB initial JS/CSS and zero optional-graph ceilings remain. The first preparation rejected the oversized 960px Credits variant; its utility slot now stops at 640px, sufficient for the 300px display at double density, rather than increasing the byte ceiling.
+
+## Validation and review state
+
+Observed evidence is appended after the current checks. Prior-pass results are historical. This pass does not clear final Nari identity/adoption, model-artist/public derivative rights, attribution, host, contact/invite or remaining production/manual-QA decisions. Production-readiness remains independently blocked. Roll back the latest follow-up commit to restore the connected minimal build at `8585622c110a65f593c3945192587842c6d323e8`; preserve the preceding review commits.
+
+Observed on the current 2026-10-07 build:
+
+- Fresh `npm ci` and `npm run check` pass: lint, strict Astro/Vue checks (44 files, zero errors/warnings/hints), nine credit records / 14 classified families, seven static documents, 51 unit tests, and HTTP retrieval of 230 essential assets plus all 27 supplied Prinny derivatives.
+- `verify:browser` passes all seven documents at 320/390/768/1024/1440/1920px: required local images decode, one main/h1, no overflow/runtime/CSP errors, keyboard menu/Escape/desktop reset, six native 301 redirects, branded unknown-path 404, reduced motion, and 320px no-JS navigation.
+- `verify:visual-update` refreshes 14 Chromium baselines after rendered review; `verify:experience` passes all 28 tests, including axe on every document at 390/1440px, menu focus, no-JS documents/disclosure, image failure, ordinary history, optional thumbnail success/failure, and reflow/200% text enlargement at 320/390/768 plus 1920/3840px reflow.
+- Local `npx playwright install chromium` was attempted once and exhausted its download retries with truncated/non-ZIP archives. Browser checks use the available Chromium 153.0.8010.0 via `NARI_BROWSER_PATH`; this is not evidence of a successful managed local installation or Firefox/WebKit review. CI's managed Chromium run is verified separately on the final commit.
+- Manual rendered inspection covers the seven distinct page scenes on phone and desktop, with 28 captures at 320/390/768/1440px confirming complete proportional image delivery and no horizontal overflow. Home's open cushion reads as an invitation; the other moments match their page purpose. Optional remote clip images were blocked for deterministic fallback review. No named screen-reader, final production-host or full production acceptance sign-off is claimed.
+- All seven PNG source hashes and 35 new candidate hashes verify; maximum new candidate is 146,670 bytes against the unchanged 150,000-byte ceiling. All 51 preceding candidate entries, original sources, share graphic and favicon are retained unchanged. There are 86 responsive anime candidates in the current manifest. Initial JS + CSS is 5.12 KB gzip on Home/Connections and 4.96 KB elsewhere, against 25 KB; optional graphs remain zero.
+- `node scripts/verify-release.mjs` returns the expected `NOT READY FOR PUBLIC RELEASE`; unresolved approvals and production acceptance records remain unchanged. This is a review-preview update only.
+
+Remote exact-commit CI and host evidence belong in PR #31 after the review branch update. Review next at `https://deploy-preview-31--narinunademo.netlify.app`, with document 49 and ASSET-2026-024 as the current handoff.

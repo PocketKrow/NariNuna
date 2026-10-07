@@ -1,8 +1,7 @@
 ---
 import PlatformIcon from "@/components/ui/PlatformIcon.astro";
 import SiteLayout from "@/layouts/SiteLayout.astro";
-import NariModel from "@/components/art/NariModel.astro";
-import CreatorArt from "@/components/art/CreatorArt.astro";
+import SceneFigure from "@/components/art/SceneFigure.astro";
 import SocialDock from "@/components/ui/SocialDock.vue";
 import MomentPreviews from "@/components/ui/MomentPreviews.astro";
 import { twitchUrl } from "@/data/socials";
@@ -18,12 +17,7 @@ import { ArrowUpRight, ArrowRight, Smile, Palette, MessagesSquare } from "@lucid
       <div class="home-socials"><p class="eyebrow">A little Nari, wherever you are</p><SocialDock compact ariaLabel="All of Nari Nuna’s public profiles" /><p class="small-note">Throne is optional support. Your presence already counts.</p></div>
       <div class="home-aside"><p>Warm welcome. Sharp boundaries.<br />Glitter somewhere it should not be.</p></div>
     </div>
-    <figure class="nari-stage">
-      <div class="stage-wash" aria-hidden="true"></div><span class="stage-floor" aria-hidden="true"></span>
-      <NariModel class="stage-model" />
-      <CreatorArt asset="ghostie-play" class="stage-ghostie" sizes="(min-width: 48rem) 112px, 80px" eager />
-      <figcaption>Welcome to the <strong>Haven.</strong></figcaption><a class="art-credit" href="/credits/#nari-character-attribution-pending">Artwork credits</a>
-    </figure>
+    <SceneFigure scene="home" class="home-scene" eager priority />
   </section>
   <section class="personal-note page-width" aria-labelledby="note-title">
     <div><p class="eyebrow">A little more than the stream</p><h2 id="note-title">A little warmth.<br /><em>A little chaos.</em></h2></div>

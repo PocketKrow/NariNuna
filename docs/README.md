@@ -1,3 +1,5 @@
+> **2026-10-07 inhabited-artwork pass:** [49_INHABITED_HAVEN_ARTWORK.md](49_INHABITED_HAVEN_ARTWORK.md) / ADR-016 adds a distinct complete Nari/Ghostie moment for each of the seven pages. The clean-anime palette, connected shell, stable URLs, truthful content, source preservation and release boundaries remain.
+
 > **2026-10-06 connected Haven revision:** [48_CONNECTED_MINIMAL_HAVEN.md](48_CONNECTED_MINIMAL_HAVEN.md) / ADR-015 adds provisional full-name branding, coherent shared navigation/footer, natural Home presentation, a new Meet welcome banner, Creativity/Connections and optional clip/Haven context. Existing URLs, source preservation and release boundaries remain.
 
 > Current artwork and layout: [46](46_ANIME_CREATOR_ART_DIRECTION.md), ADR-014 and [ASSET-2026-022](asset-records/ASSET-2026-022-anime-creator-family.md). Current observed validation: [47](47_ANIME_CREATOR_VALIDATION.md). These supersede document 44’s first visual iteration while preserving its routes and release boundaries.

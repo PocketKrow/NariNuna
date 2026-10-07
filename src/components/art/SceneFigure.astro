@@ -1,0 +1,12 @@
+---
+import CreatorArt from "@/components/art/CreatorArt.astro";
+import { pageScenes } from "@/data/pageScenes";
+interface Props { scene: keyof typeof pageScenes; class?: string; eager?: boolean; priority?: boolean }
+const { scene: id, class: className, eager = false, priority = false } = Astro.props;
+const scene = pageScenes[id];
+---
+<figure class:list={["scene-figure", className]} data-page-scene={id}>
+  <CreatorArt asset={scene.asset} sizes={scene.sizes} eager={eager} priority={priority} />
+  <figcaption>{scene.caption}{scene.note && <small>{scene.note}</small>}</figcaption>
+  <a class="art-credit" href="/credits/#website-storybook-artwork">Illustration credits</a>
+</figure>
