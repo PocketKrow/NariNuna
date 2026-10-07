@@ -1,3 +1,5 @@
+> **2026-10-07 warm minimalist hybrid:** [50 — Warm Minimal Hybrid](50_WARM_MINIMAL_HYBRID.md) / ADR-017 restores the original autumn Haven warmth with six primary pages, a compact optional three-knock door, custom model-anchored scene revisions, and eight static documents. Earlier conflicting composition/route descriptions are historical; rights and production approvals remain unresolved.
+
 > **2026-10-07 inhabited-artwork pass:** [49_INHABITED_HAVEN_ARTWORK.md](49_INHABITED_HAVEN_ARTWORK.md) / ADR-016 adds a distinct complete Nari/Ghostie moment for each of the seven pages. The clean-anime palette, connected shell, stable URLs, truthful content, source preservation and release boundaries remain.
 
 > **2026-10-06 connected Haven revision:** [48_CONNECTED_MINIMAL_HAVEN.md](48_CONNECTED_MINIMAL_HAVEN.md) / ADR-015 adds provisional full-name branding, coherent shared navigation/footer, natural Home presentation, a new Meet welcome banner, Creativity/Connections and optional clip/Haven context. Existing URLs, source preservation and release boundaries remain.

@@ -1,0 +1,62 @@
+---
+import { discordUrl } from "@/data/socials";
+import { ArrowUpRight } from "@lucide/vue";
+// Native disclosure is the no-JS entry path. JS adds deliberate knocks without timers or persistence.
+---
+<details class="haven-door" data-haven-door>
+  <summary><span class="door-symbol" aria-hidden="true">☾</span><span><strong>Come on in.</strong><small>Open the Haven</small></span><span aria-hidden="true">+</span></summary>
+  <div class="door-welcome" id="door-welcome">
+    <p class="handwritten">A Ghostie got the door.</p>
+    <h2>You're <em>welcome here.</em></h2>
+    <p>Join in, or take your time. There's room for both.</p>
+    <a class="button" href={discordUrl} target="_blank" rel="noopener noreferrer">Come hang out on Discord <ArrowUpRight size={16} aria-hidden="true" /><span class="sr-only"> (opens in a new tab)</span></a>
+    <p class="small-note">If the invite stops working, check Nari's public profiles for an updated link.</p>
+  </div>
+</details>
+<script>
+  const door = document.querySelector<HTMLDetailsElement>("[data-haven-door]");
+  const summary = door?.querySelector("summary");
+  if (door && summary) {
+    // Only enhance the trigger; focus stays in place and the existing disclosure owns the content.
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "door-knock";
+    button.setAttribute("aria-controls", "door-welcome");
+    button.setAttribute("aria-expanded", "false");
+    const label = document.createElement("span");
+    label.textContent = "Knock on the Haven door";
+    button.append(label);
+    const progress = document.createElement("span");
+    progress.className = "knock-progress";
+    progress.setAttribute("aria-hidden", "true");
+    progress.textContent = "○ ○ ○";
+    button.append(progress);
+    const status = document.createElement("p");
+    status.className = "door-status";
+    status.setAttribute("role", "status");
+    status.textContent = "Three little knocks. Or come straight in.";
+    const skip = document.createElement("button");
+    skip.type = "button";
+    skip.className = "door-skip";
+    skip.textContent = "Come straight in";
+    summary.hidden = true;
+    door.before(button, status, skip);
+    let knocks = 0;
+    const open = () => {
+      door.open = true;
+      button.setAttribute("aria-expanded", "true");
+      label.textContent = "The door is open";
+      progress.textContent = "● ● ●";
+      status.textContent = "A Ghostie got the door. You're welcome here.";
+      skip.hidden = true;
+    };
+    button.addEventListener("click", () => {
+      if (door.open) return;
+      knocks += 1;
+      progress.textContent = Array.from({ length: 3 }, (_, i) => i < knocks ? "●" : "○").join(" ");
+      if (knocks === 3) open();
+      else status.textContent = knocks === 1 ? "One knock. Someone's coming." : "Two knocks. A little rustle behind the door.";
+    });
+    skip.addEventListener("click", () => { open(); button.focus(); });
+  }
+</script>

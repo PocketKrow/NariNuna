@@ -74,5 +74,18 @@ for (const art of Object.values(anime)) {
 }
 console.log("Validated retained/source-model and custom-anime budgets; no hydrated islands, effect graphs or environment preloads.");
 
+// Bound the entire Home image collection even when a high-density browser chooses
+// every largest candidate and loads the three lazy destination previews.
+const homeHtml = readFileSync("dist/index.html", "utf8");
+const homeImageSets = new Set([...homeHtml.matchAll(/<img\b[^>]*>/g)].map(([tag]) =>
+  tag.match(/srcset="([^"]+)"/)?.[1] ?? tag.match(/src="([^"]+)"/)?.[1] ?? ""));
+const homeImageBytes = [...homeImageSets].reduce((total, candidates) => total + Math.max(...candidates.split(",").map((candidate) => {
+  const src = candidate.trim().split(/\s/)[0];
+  if (!src.startsWith("/media/")) throw new Error(`Unexpected Home image source: ${src}`);
+  return readFileSync(`dist${src}`).length;
+})), 0);
+if (homeImageBytes > 250_000) throw new Error(`Home image collection exceeds 250 KB: ${homeImageBytes}`);
+console.log(`Home complete image collection: ${(homeImageBytes / 1000).toFixed(2)} KB / 250 KB at maximum candidate sizes.`);
+
 const identity = JSON.parse(readFileSync("src/data/creator-identity.json", "utf8"));
 if (readFileSync(`dist${identity.src}`).length !== identity.bytes || identity.bytes > 100_000) throw new Error("Social preview budget mismatch");

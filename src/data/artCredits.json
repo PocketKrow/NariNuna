@@ -245,6 +245,24 @@
       "derivativeUseStatus": "pending",
       "thirdPartyStatus": "concern",
       "approvalStatus": "pending"
+    },
+    {
+      "id": "warm-hybrid-scenes",
+      "label": "Warm autumn Haven scenes for six focused pages",
+      "assetRecord": "docs/asset-records/ASSET-2026-025-warm-hybrid-scenes.md",
+      "trackedAssets": [
+        "/media/anime/home-seat-480.63df56b483afa2d9.webp",
+        "/media/anime/meet-nook-480.ddaf91b29bf30cce.webp",
+        "/media/anime/connections-game-480.84bf3f7ef3f747dc.webp",
+        "/media/anime/creativity-desk-480.76bc74fdf348be49.webp",
+        "/media/anime/haven-door-480.6b6e28b8c34b3a6a.webp",
+        "/media/anime/work-table-480.b9c69f39bd97c0e9.webp"
+      ],
+      "publicationStatus": "blocked",
+      "websiteUseStatus": "blocked",
+      "derivativeUseStatus": "pending",
+      "thirdPartyStatus": "concern",
+      "approvalStatus": "pending"
     }
   ],
   "credits": [
@@ -363,7 +381,7 @@
       "roles": [
         "Website art direction and production"
       ],
-      "contribution": "Model-anchored Nari moments, seven custom page scenes, friendly Ghosties, a provisional tattoo-inspired emblem, and supporting website illustrations made for this review build.",
+      "contribution": "Model-anchored Nari moments, warm autumn page scenes, friendly Ghosties, a provisional tattoo-inspired emblem, and supporting website illustrations made for this review build.",
       "creditText": "The Ghostie emblem is temporary until Nari chooses her branding. Project-created review artwork; final adoption and underlying model-derivative rights remain unresolved.",
       "links": [],
       "assetFamilyIds": [
@@ -371,7 +389,8 @@
         "storybook-environments",
         "anime-creator-review",
         "haven-provisional-identity",
-        "inhabited-haven-scenes"
+        "inhabited-haven-scenes",
+        "warm-hybrid-scenes"
       ],
       "creditStatus": "internal",
       "artworkDisplayStatus": "not-approved",

@@ -1,29 +1,35 @@
 ---
-import PlatformIcon from "@/components/ui/PlatformIcon.astro";
 import SiteLayout from "@/layouts/SiteLayout.astro";
 import SceneFigure from "@/components/art/SceneFigure.astro";
-import SocialDock from "@/components/ui/SocialDock.vue";
-import MomentPreviews from "@/components/ui/MomentPreviews.astro";
+import CreatorArt from "@/components/art/CreatorArt.astro";
+import PlatformIcon from "@/components/ui/PlatformIcon.astro";
 import { twitchUrl } from "@/data/socials";
-import { ArrowUpRight, ArrowRight, Smile, Palette, MessagesSquare } from "@lucide/vue";
+import { ArrowRight, ArrowUpRight } from "@lucide/vue";
+// Home introduces Nari, then offers exactly three illustrated onward paths.
+const destinations = [
+  { href: "/streams/", title: "Streams", note: "Games, glorious panic, and a good long yap.", art: "connections-game" },
+  { href: "/nail-studio/", title: "Creativity", note: "Tiny canvases. An unreasonable amount of polish.", art: "creativity-desk" },
+  { href: "/haven/", title: "Haven", note: "Loud laughs, quiet corners. Room for you.", art: "haven-door" },
+] as const;
 ---
 <SiteLayout pageId="home">
   <section class="home-intro page-width" aria-labelledby="home-title">
     <div class="home-copy">
-      <p class="eyebrow">Hi, I'm</p><h1 id="home-title">Nari <em>Nuna.</em></h1>
-      <p class="intro-line">Your chaotic big sister.</p>
-      <p class="home-description">Streams get loud, polish gets everywhere, and somebody is always yapping. Pull up a seat.</p>
-      <div class="hero-actions"><a class="button" href={twitchUrl} target="_blank" rel="noopener noreferrer"><PlatformIcon platform="twitch" /> Watch on Twitch <ArrowUpRight size={17} aria-hidden="true" /><span class="sr-only"> (opens in a new tab)</span></a><a class="text-link" href="/links/#community">Find the Haven <ArrowRight size={16} aria-hidden="true" /></a></div>
-      <div class="home-socials"><p class="eyebrow">A little Nari, wherever you are</p><SocialDock compact ariaLabel="All of Nari Nuna’s public profiles" /><p class="small-note">Throne is optional support. Your presence already counts.</p></div>
-      <div class="home-aside"><p>Warm welcome. Sharp boundaries.<br />Glitter somewhere it should not be.</p></div>
+      <p class="eyebrow handwritten">Hi. Come inside.</p>
+      <h1 id="home-title">Nari <em>Nuna.</em></h1>
+      <p class="intro-line">Your favorite chaotic big sister.</p>
+      <p class="home-description">A cozy stream, a little nail polish, and somebody always yapping. Pull up a seat.</p>
+      <div class="hero-actions">
+        <a class="button" href={twitchUrl} target="_blank" rel="noopener noreferrer"><PlatformIcon platform="twitch" /> Watch on Twitch <ArrowUpRight size={17} aria-hidden="true" /><span class="sr-only"> (opens in a new tab)</span></a>
+        <a class="text-link" href="/meet-nari/">Meet Nari <ArrowRight size={16} aria-hidden="true" /></a>
+      </div>
     </div>
     <SceneFigure scene="home" class="home-scene" eager priority />
   </section>
-  <section class="personal-note page-width" aria-labelledby="note-title">
-    <div><p class="eyebrow">A little more than the stream</p><h2 id="note-title">A little warmth.<br /><em>A little chaos.</em></h2></div>
-    <div class="personal-note__body"><p>Nari is a warm, protective, curious VTuber, gamer, self-taught nail artist, and prolific yapper. Come for a game, a laugh, or a little company.</p>
-      <div class="note-links"><a href="/meet-nari/"><Smile size={16} aria-hidden="true" />Meet Nari <ArrowRight size={14} aria-hidden="true" /></a><a href="/nail-studio/"><Palette size={16} aria-hidden="true" />A little color & craft <ArrowRight size={14} aria-hidden="true" /></a><a href="/links/#community"><MessagesSquare size={16} aria-hidden="true" />The community <ArrowRight size={14} aria-hidden="true" /></a></div>
-    </div>
-  </section>
-  <section class="home-moments page-width" aria-labelledby="home-moments-title"><div class="section-heading"><div><p class="eyebrow">A few favorite moments</p><h2 id="home-moments-title">Oh, that's <em>Nari.</em></h2></div><a class="text-link" href="/links/#moments">More ways to connect <ArrowRight size={16} aria-hidden="true" /></a></div><MomentPreviews /></section>
+  <nav class="destination-strip page-width" aria-label="A little more of Nari">
+    {destinations.map(({ href, title, note, art }) => <a class="destination" href={href}>
+      <CreatorArt asset={art} alt="" sizes="(min-width: 48rem) 280px, 36vw" maxWidth={320} />
+      <span><strong>{title}<ArrowRight size={16} aria-hidden="true" /></strong><small>{note}</small></span>
+    </a>)}
+  </nav>
 </SiteLayout>

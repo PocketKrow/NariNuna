@@ -36,7 +36,7 @@ try {
     }
     await context.close();
   }
-  log.push("Seven documents at 320/390/768/1024/1440/1920px: local sized images load (optional thumbnails blocked), one h1/main, no overflow or runtime/CSP errors; no hydrated islands or canvas.");
+  log.push("Eight documents at 320/390/768/1024/1440/1920px: local sized images load (optional thumbnails blocked), one h1/main, no overflow or runtime/CSP errors; no hydrated islands or canvas.");
   const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const page = await context.newPage();
   await page.goto(preview.origin);
@@ -57,7 +57,7 @@ try {
     await page.goto(preview.origin + fromPath);
     assert.equal(new URL(page.url()).pathname + new URL(page.url()).hash, to);
   }
-  log.push("All six retired URLs return 301 and land on their intended document/fragment.");
+  log.push("All five retired URLs return 301 and land on their intended document/fragment.");
   assert.equal((await page.goto(preview.origin + "/missing-page/")).status(), 404);
   assert.match(await page.locator("h1").innerText(), /Ghostie moved/);
   await page.emulateMedia({ reducedMotion: "reduce" });

@@ -1,26 +1,22 @@
 [
   {
-    "fromPath": "/streams/",
-    "to": "/links/"
+    "fromPath": "/links/",
+    "to": "/streams/"
   },
   {
     "fromPath": "/stories/",
-    "to": "/links/#moments"
-  },
-  {
-    "fromPath": "/haven/",
-    "to": "/links/#community"
+    "to": "/streams/#moments"
   },
   {
     "fromPath": "/resources/",
-    "to": "/nail-studio/#nail-desk"
+    "to": "/nail-studio/#resources"
   },
   {
     "fromPath": "/support/",
-    "to": "/links/#support"
+    "to": "/haven/#support"
   },
   {
     "fromPath": "/the-prinny-cult/",
-    "to": "/meet-nari/#community"
+    "to": "/haven/#values"
   }
 ]

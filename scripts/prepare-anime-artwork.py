@@ -32,6 +32,16 @@ SPECS = {
 def digest(data):
     return sha256(data).hexdigest()
 
+# Only the accepted warm revisions change delivery; all older scene/identity bytes survive.
+HYBRID_SPECS = {
+    'home-seat': ('../warm-hybrid/home.png', None, 'Nari invites you onto a lavender sofa beside two Ghosties, with warm oak, autumn window light and a cream throw.'),
+    'meet-nook': ('../warm-hybrid/meet.png', None, 'Nari smiles and waves from a warm oak window nook, with two Ghosties settled beside her.'),
+    'creativity-desk': ('../warm-hybrid/creativity.png', None, 'Nari practices nail polish at her autumn-lit workbench while Ghosties help with bottles and color swatches.'),
+    'connections-game': ('../warm-hybrid/streams.png', None, 'Nari laughs with a controller beside her microphone, monitor and two Ghosties in a warm broadcast corner.'),
+    'work-table': ('../warm-hybrid/work.png', None, 'Nari writes at a warm correspondence desk with an open notebook and an envelope-carrying Ghostie.'),
+    'haven-door': ('../warm-hybrid/haven.png', None, 'Nari opens an oak Haven door in welcome, with one greeting Ghostie and a second sleeping beside a warm lantern.'),
+}
+
 def framed(image, crop=None):
     area = image.crop(crop) if crop else image.copy()
     bbox = area.getchannel('A').point(lambda a: 255 if a > 8 else 0).getbbox()
@@ -45,9 +55,12 @@ def framed(image, crop=None):
 
 haven_only = '--haven-only' in sys.argv
 scenes_only = '--scenes-only' in sys.argv
+hybrid_only = '--hybrid-only' in sys.argv
+if hybrid_only:
+    SPECS.update(HYBRID_SPECS)
 scene_keys = {k for k, (filename, _, _) in SPECS.items() if filename.startswith('../haven-scenes/')}
-manifest = json.loads((ROOT / 'src/data/anime-artwork.json').read_text()) if haven_only or scenes_only else {'schemaVersion': 1, 'record': 'docs/asset-records/ASSET-2026-022-anime-creator-family.md', 'artworks': {}}
-selected = {k: v for k, v in SPECS.items() if k in scene_keys} if scenes_only else {k: v for k, v in SPECS.items() if k.startswith('haven-')} if haven_only else SPECS
+manifest = json.loads((ROOT / 'src/data/anime-artwork.json').read_text()) if haven_only or scenes_only or hybrid_only else {'schemaVersion': 1, 'record': 'docs/asset-records/ASSET-2026-022-anime-creator-family.md', 'artworks': {}}
+selected = HYBRID_SPECS if hybrid_only else {k: v for k, v in SPECS.items() if k in scene_keys} if scenes_only else {k: v for k, v in SPECS.items() if k.startswith('haven-')} if haven_only else SPECS
 for key, (filename, crop, alt) in ({} if '--identity-only' in sys.argv else selected).items():
     source = (SOURCE / filename).resolve()
     data = source.read_bytes()
@@ -55,7 +68,10 @@ for key, (filename, crop, alt) in ({} if '--identity-only' in sys.argv else sele
     image, bbox = framed(original, crop)
     character = key in ('welcome', 'welcome-portrait', 'nails')
     widths = [160, 240, 320, 480, 640, 720] if character else [96, 160, 240, 320, 480]
-    if key in scene_keys:
+    if hybrid_only:
+        # These bounded scenes display at <=650px; 720px preserves detail without expanding the byte ceiling.
+        widths = [240, 320, 480, 640, 720]
+    elif key in scene_keys:
         widths = [160, 240, 320, 480, 640] if key in ('credits-makers', '404-wayfinding') else [240, 320, 480, 640, 960]
     elif key == 'haven-mark':
         widths = [48, 96, 160, 240]
@@ -82,13 +98,19 @@ for key, (filename, crop, alt) in ({} if '--identity-only' in sys.argv else sele
         temporary.unlink(missing_ok=True)
         candidates.append({'src': '/' + str(hashed.relative_to(ROOT / 'public')), 'width': width, 'height': size[1], 'bytes': len(encoded), 'sha256': digest(encoded), 'quality': quality})
     manifest['artworks'][key] = {'source': str(source.relative_to(ROOT)), 'sourceSha256': digest(data), 'sourceBytes': len(data), 'sourceWidth': original.width, 'sourceHeight': original.height, 'alpha': True, 'slotCrop': list(crop) if crop else None, 'alphaBounds': bbox, 'padding': 24, 'width': image.width, 'height': image.height, 'alt': alt, 'candidates': candidates}
-    if key in scene_keys:
+    if hybrid_only:
+        manifest['artworks'][key]['record'] = 'docs/asset-records/ASSET-2026-025-warm-hybrid-scenes.md'
+    elif key in scene_keys:
         manifest['artworks'][key]['record'] = 'docs/asset-records/ASSET-2026-024-inhabited-haven-scenes.md'
 
 if '--identity-only' not in sys.argv:
     (ROOT / 'src/data/anime-artwork.json').write_text(json.dumps(manifest, indent=2) + '\n')
 else:
     manifest = json.loads((ROOT / 'src/data/anime-artwork.json').read_text())
+
+if hybrid_only:
+    print(f'Prepared {len(HYBRID_SPECS)} warm hybrid scenes. Prior masters, delivery files and identity retained.')
+    sys.exit(0)
 
 if scenes_only:
     print(f'Prepared {len(scene_keys)} inhabited scenes / {sum(len(manifest["artworks"][key]["candidates"]) for key in scene_keys)} responsive candidates. Existing identity and delivery bytes retained.')

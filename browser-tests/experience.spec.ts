@@ -15,7 +15,7 @@ for (const width of [390, 1440]) {
       expect(result.violations.map(({ id, nodes }) => ({ id, targets: nodes.map(({ target }) => target) }))).toEqual([]);
     }
   });
-  for (const [name, path] of [["home", "/"], ["meet", "/meet-nari/"], ["links", "/links/"], ["nails", "/nail-studio/"], ["work", "/work-with-nari/"], ["credits", "/credits/"], ["not-found", "/404.html"]] as const) {
+  for (const [name, path] of [["home", "/"], ["meet", "/meet-nari/"], ["streams", "/streams/"], ["haven", "/haven/"], ["nails", "/nail-studio/"], ["work", "/work-with-nari/"], ["credits", "/credits/"], ["not-found", "/404.html"]] as const) {
     test(`${name} composition at ${width}px`, async ({ page, browserName }) => {
       test.skip(browserName !== "chromium", "Raster baselines belong to Chromium.");
       await page.setViewportSize({ width, height: 900 });
@@ -90,28 +90,55 @@ for (const viewport of [{ width: 320, height: 568 }, { width: 390, height: 568 }
   });
 }
 
-test("Haven disclosure is optional, keyboard-operated and works without JavaScript", async ({ browser }) => {
-  for (const javaScriptEnabled of [true, false]) {
-    const context = await browser.newContext({ javaScriptEnabled, viewport: { width: 390, height: 844 } });
-    await context.route("https://i.ytimg.com/**", (route) => route.abort());
-    const page = await context.newPage();
-    await page.goto("http://127.0.0.1:4175/links/#community");
-    const disclosure = page.locator(".haven-peek");
-    await expect(disclosure).not.toHaveAttribute("open");
-    await expect(page.getByRole("link", { name: /Come hang out on Discord/ })).toBeVisible();
-    await disclosure.locator("summary").focus(); await page.keyboard.press("Enter");
-    await expect(disclosure).toHaveAttribute("open");
-    await expect(disclosure.getByRole("link", { name: /community values/ })).toBeVisible();
-    await page.keyboard.press("Enter"); await expect(disclosure).not.toHaveAttribute("open");
-    await context.close();
+test("Haven opens after three keyboard knocks without moving focus; reduced motion preserves entry", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/haven/");
+  const button = page.locator(".door-knock");
+  await expect(button).toHaveAccessibleName("Knock on the Haven door");
+  await button.focus();
+  for (const count of [1, 2]) {
+    await page.keyboard.press("Enter");
+    await expect(page.locator(".door-status")).toContainText(count === 1 ? "One knock" : "Two knocks");
+    await expect(page.locator(".haven-door")).not.toHaveAttribute("open");
+    await expect(button).toBeFocused();
   }
+  await page.keyboard.press("Space");
+  await expect(button).toHaveAttribute("aria-expanded", "true");
+  await expect(button).toHaveAccessibleName("The door is open");
+  await expect(button).toBeFocused();
+  await expect(page.getByRole("link", { name: /Come hang out on Discord/ })).toBeVisible();
+  const result = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();
+  expect(result.violations).toEqual([]);
+  await page.reload();
+  await expect(page.locator(".haven-door")).not.toHaveAttribute("open");
 });
 
-test("all Home profiles and failed clip previews remain usable", async ({ page }) => {
+test("Haven supports touch entry, a direct entry option and native no-JS disclosure", async ({ browser, page }) => {
+  await page.goto("/haven/");
+  await page.getByRole("button", { name: "Come straight in" }).click();
+  await expect(page.getByRole("link", { name: /Come hang out on Discord/ })).toBeVisible();
+  await expect(page.locator(".door-knock")).toBeFocused();
+  const touch = await browser.newContext({ hasTouch: true, viewport: { width: 320, height: 568 } });
+  const touchPage = await touch.newPage();
+  await touchPage.goto("http://127.0.0.1:4175/haven/");
+  for (let i = 0; i < 3; i++) await touchPage.locator(".door-knock").tap();
+  await expect(touchPage.getByRole("link", { name: /Come hang out on Discord/ })).toBeVisible();
+  await touch.close();
+  const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 320, height: 568 } });
+  const staticPage = await context.newPage();
+  await staticPage.goto("http://127.0.0.1:4175/haven/");
+  const disclosure = staticPage.locator(".haven-door");
+  await disclosure.locator("summary").focus(); await staticPage.keyboard.press("Enter");
+  await expect(disclosure).toHaveAttribute("open");
+  await expect(staticPage.getByRole("link", { name: /Come hang out on Discord/ })).toBeVisible();
+  await context.close();
+});
+
+test("all footer profiles and failed Streams clip previews remain usable", async ({ page }) => {
   await page.goto("/");
-  await expect(page.locator(".home-socials .social-dock a")).toHaveCount(6);
-  for (const link of await page.locator(".home-socials .social-dock a").all()) await expect(link).toHaveAccessibleName(/opens in a new tab/);
-  await page.locator(".home-moments").scrollIntoViewIfNeeded();
+  await expect(page.locator(".footer-profiles .social-dock a")).toHaveCount(6);
+  for (const link of await page.locator(".footer-profiles .social-dock a").all()) await expect(link).toHaveAccessibleName(/opens in a new tab/);
+  await page.goto("/streams/"); await page.locator(".moments").scrollIntoViewIfNeeded();
   for (const image of await page.locator("main [data-optional-preview]").all()) await expect(image).toBeHidden();
   await expect(page.locator(".moment-preview")).toHaveCount(3);
   await expect(page.locator("iframe, video")).toHaveCount(0);
@@ -123,7 +150,7 @@ test("optional clip images load lazily when their image source is available", as
   await page.unroute("https://i.ytimg.com/**");
   // A tiny valid raster fixture isolates image loading from remote availability.
   await page.route("https://i.ytimg.com/**", (route) => route.fulfill({ contentType: "image/png", body: Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aDAAAAABJRU5ErkJggg==", "base64") }));
-  await page.goto("/"); await page.locator(".home-moments").scrollIntoViewIfNeeded();
+  await page.goto("/"); await page.goto("/streams/"); await page.locator(".moments").scrollIntoViewIfNeeded();
   for (const image of await page.locator("main [data-optional-preview]").all()) {
     await expect(image).toBeVisible();
     expect(await image.evaluate(async (el: HTMLImageElement) => { await el.decode(); return el.naturalWidth; })).toBe(1);

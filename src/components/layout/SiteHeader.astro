@@ -2,28 +2,32 @@
 import { primaryNavigation } from "@/data/navigation";
 import { havenRoomNotes } from "@/data/rooms";
 import CreatorArt from "@/components/art/CreatorArt.astro";
-import { House, Smile, Palette, MessagesSquare, Mail } from "@lucide/vue";
+import PlatformIcon from "@/components/ui/PlatformIcon.astro";
+import { nariLinks } from "@/data/socials";
 interface Props { currentPath: string }
 const { currentPath } = Astro.props;
-const icons = [House, Smile, Palette, MessagesSquare, Mail];
+const quickProfiles = nariLinks.filter(({ platform }) => platform === "twitch" || platform === "youtube");
 ---
 <header class="site-header page-width">
-  <a class="brand" href="/" aria-label="Nari Nuna home">
+  <a class="brand" href="/" aria-label="Nari Nuna home" aria-current={currentPath === "/" ? "page" : undefined}>
     <CreatorArt asset="haven-mark" class="brand-mark" sizes="44px" eager />
-    <span class="brand-copy"><span class="brand-name">Nari Nuna</span><small>A little warmth. A little chaos.</small></span>
+    <span class="brand-name">Nari Nuna</span>
   </a>
   <nav class="desktop-nav" aria-label="Main navigation">
-    {primaryNavigation.map(({ href, label }, index) => { const Icon = icons[index]; return <a href={href} aria-current={href === currentPath ? "page" : undefined}><Icon size={16} aria-hidden="true" /><span>{label}</span></a>; })}
+    {primaryNavigation.filter(({ href }) => href !== "/").map(({ href, label }) => <a href={href} aria-current={href === currentPath ? "page" : undefined}>{label}</a>)}
+  </nav>
+  <nav class="header-socials" aria-label="Watch Nari">
+    {quickProfiles.map(({ platform, label, url }) => <a href={url} target="_blank" rel="noopener noreferrer" aria-label={`Nari Nuna on ${label} (opens in a new tab)`}><PlatformIcon platform={platform === "twitch" ? "twitch" : "youtube"} /></a>)}
   </nav>
   <details class="mobile-menu">
     <summary>Explore <span aria-hidden="true">+</span></summary>
     <nav aria-label="Mobile navigation">
-      {primaryNavigation.map(({ href, label }, index) => { const Icon = icons[index]; return <a href={href} aria-current={href === currentPath ? "page" : undefined}><Icon size={18} aria-hidden="true" /><span class="nav-copy"><strong>{label}</strong><small>{havenRoomNotes[href]}</small></span></a>; })}
+      {primaryNavigation.map(({ href, label }) => <a href={href} aria-current={href === currentPath ? "page" : undefined}><span class="nav-copy"><strong>{label}</strong><small>{havenRoomNotes[href]}</small></span></a>)}
     </nav>
   </details>
 </header>
 <script>
-  // Native in-flow disclosure supports no-JS navigation without trapping focus.
+  // Native in-flow disclosure keeps no-JS navigation and ordinary keyboard focus order.
   const menu = document.querySelector<HTMLDetailsElement>(".mobile-menu");
   menu?.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && menu.open) {

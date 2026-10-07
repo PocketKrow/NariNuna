@@ -1,3 +1,5 @@
+> **2026-10-07 warm minimalist hybrid:** [50 — Warm Minimal Hybrid](50_WARM_MINIMAL_HYBRID.md) / ADR-017 restores the original autumn Haven warmth with six primary pages, a compact optional three-knock door, custom model-anchored scene revisions, and eight static documents. Earlier conflicting composition/route descriptions are historical; rights and production approvals remain unresolved.
+
 > **Current direction, 2026-10-06:** [44 — Minimal Creator Reconstitution](44_MINIMAL_CREATOR_RECONSTITUTION.md) supersedes the environment-first layout, twelve-route contract, room navigation, doorway/secret interaction and WebGL requirements below. Earlier implementation descriptions are historical. Canon, truthful content, source preservation, rights and production approval boundaries remain.
 
 # Deployment and Release Runbook

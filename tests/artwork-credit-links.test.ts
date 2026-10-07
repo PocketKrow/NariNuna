@@ -4,7 +4,7 @@ import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { publicCreditById } from "@/data/artCredits";
 
-const attributedPages = ["index.html", "meet-nari/index.html", "nail-studio/index.html", "links/index.html", "work-with-nari/index.html", "credits/index.html", "404.html"];
+const attributedPages = ["index.html", "meet-nari/index.html", "nail-studio/index.html", "streams/index.html", "haven/index.html", "work-with-nari/index.html", "credits/index.html", "404.html"];
 
 describe("contextual artwork attribution", () => {
   it("uses only real public credit IDs on significant illustrated pages", () => {

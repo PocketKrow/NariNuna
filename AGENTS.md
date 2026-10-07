@@ -33,7 +33,7 @@ Never claim a test, build, branch, commit, PR, deployment, link, right, or appro
 
 - Astro 7 static output + strict TypeScript + SCSS; Vue/Lucide may render static primitives on the server. There are currently no hydrated islands, GSAP, Three.js, canvas, client router or environment-first layouts. CSS micro-motion only.
 - npm with committed lockfile and Node.js 22.13+.
-- Seven prerendered documents: five primary pages, Credits and 404. Native Netlify 301 redirects retire six old routes; `routeRedirects.json` owns migration.
+- Eight prerendered documents: six primary pages, Credits and 404. Native Netlify 301 redirects retire five old routes; `routeRedirects.json` owns migration.
 - Ordinary anchors for top-level document navigation.
 - Shared `SiteLayout.astro`; static page bodies/footer; explicit Vue client directives only for behavior.
 - Metadata derives from `projectPages.json`; no scene preloads. Models use sized responsive images with preserved originals and explicitly authorized model-anchored poses; never restore the removed root `pages/` scaffold.
@@ -41,7 +41,7 @@ Never claim a test, build, branch, commit, PR, deployment, link, right, or appro
 - Local typed content; no backend, CMS, analytics, form, account, or embeds in the foundation.
 - No Tailwind, general UI kit, second scaffold, SPA rewrite, or client secrets.
 
-ADR-011 records Jake’s explicit 2026-10-03 Astro migration instruction. `docs/42_ASTRO_REBUILD.md` supersedes the dated Vite path/route/tooling instructions in older documents. ADR-012 and `docs/43_VNEXT_EXPERIENCE.md` authorize the vNext redesign, tour/Passport retirement and optional effects. ADR-013 and document 44 supersede the room-led product and effect requirements. ADR-014 and document 46 authorize new model-faithful poses and custom anime supporting assets. ADR-015 and document 48 refine the connected Haven shell, provisional mark, Creativity/Connections labels and optional thumbnails/disclosure. ADR-016 and document 49 refine seven distinct inhabited character scenes. Further departures require an accepted decision record.
+ADR-011 records Jake’s explicit 2026-10-03 Astro migration instruction. `docs/42_ASTRO_REBUILD.md` supersedes the dated Vite path/route/tooling instructions in older documents. ADR-012 and `docs/43_VNEXT_EXPERIENCE.md` authorize the vNext redesign, tour/Passport retirement and optional effects. ADR-013 and document 44 supersede the room-led product and effect requirements. ADR-014 and document 46 authorize new model-faithful poses and custom anime supporting assets. ADR-015 and document 48 refine the connected Haven shell, provisional mark, Creativity/Connections labels and optional thumbnails/disclosure. ADR-016 and document 49 refine seven distinct inhabited character scenes. ADR-017 and document 50 restore the original autumn Haven warmth within the minimal structure. Further departures require an accepted decision record.
 
 ## Product and content boundaries
 
@@ -49,7 +49,7 @@ ADR-011 records Jake’s explicit 2026-10-03 Astro migration instruction. `docs/
 - Do not merge CatDog and Grim Reaper canon without Nari approval.
 - Never generate/redraw Nari from public references. Owner-authorized private-review reillustration may use only the supplied real model and must preserve every identifying character trait; public use remains separately blocked until rights and Nari's approval are recorded.
 - Nail Studio is self-taught practice/education, not services, clients, licensure, or medical authority.
-- Discord follows values in Links; there is no three-knock or discovery gate. Support never buys access, ownership, obligation, or time.
+- Discord follows values in Haven; an optional three-knock door has direct-entry and native no-JS disclosure paths. Support never buys access, ownership, obligation, or time.
 - Do not invent lore, metrics, schedule, testimonials, partnerships, resources, affiliate status, contact details, credentials, or private biography.
 - Adult content is opt-in and labelled.
 
@@ -85,7 +85,7 @@ npm run check
 
 For shell, page, navigation or island changes also run `npx playwright install chromium` once, then `npm run verify:browser` on the current built artifact. `NARI_BROWSER_PATH` can select an existing Chromium binary.
 
-Then perform relevant manual checks from `docs/12_QA_ACCEPTANCE_CRITERIA.md`: direct routes, the active Nari atmosphere, 320/390/768/wide, keyboard/focus, reduced motion, zoom/reflow, screen reader, contrast, network/performance, error states, links, rights, and privacy. The light-lavender/warm-cream clean-anime direction in document 46 is the current owner-requested review direction. The connected refinement is document 48; the current inhabited-artwork pass is document 49. Historic room/theme review criteria are superseded by document 44.
+Then perform relevant manual checks from `docs/12_QA_ACCEPTANCE_CRITERIA.md`: direct routes, the active Nari atmosphere, 320/390/768/wide, keyboard/focus, reduced motion, zoom/reflow, screen reader, contrast, network/performance, error states, links, rights, and privacy. The warm paper/autumn Haven hybrid in document 50 is the current owner-requested review direction. The connected refinement is document 48; the preceding inhabited-artwork pass is document 49; the current hybrid is document 50. Historic room/theme review criteria are superseded by document 44.
 
 Report only observed results.
 

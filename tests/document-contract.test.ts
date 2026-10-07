@@ -4,11 +4,11 @@ import pages from "@/data/projectPages.json";
 import redirects from "@/data/routeRedirects.json";
 import { primaryNavigation, footerNavigation } from "@/data/navigation";
 
-describe("minimal creator document contracts", () => {
-  it("keeps seven independent documents, five primary destinations and matching metadata", () => {
-    expect(pages).toHaveLength(7);
-    expect(new Set(pages.map(({ id }) => id)).size).toBe(7);
-    expect(primaryNavigation).toHaveLength(5);
+describe("warm hybrid document contracts", () => {
+  it("keeps eight independent documents, six primary destinations and matching metadata", () => {
+    expect(pages).toHaveLength(8);
+    expect(new Set(pages.map(({ id }) => id)).size).toBe(8);
+    expect(primaryNavigation).toHaveLength(6);
     for (const { href } of [...primaryNavigation, ...footerNavigation]) expect(pages.some(({ path }) => path === href)).toBe(true);
     for (const page of pages) {
       expect(existsSync(`src/pages/${page.source}`)).toBe(true);
@@ -17,7 +17,7 @@ describe("minimal creator document contracts", () => {
       expect(html.match(/<h1\b/g)).toHaveLength(1);
       expect(html.match(/<main\b/g)).toHaveLength(1);
       expect(html).toContain('data-theme="nari"');
-      expect(html).toContain('name="theme-color" content="#fffaf4"');
+      expect(html).toContain('name="theme-color" content="#fbf3e5"');
       expect(html).toContain(`data-route="${page.routeName}"`);
       expect(html).not.toMatch(/astro-island|<canvas|room-arrival|haven-passport|room-passage/);
     }
@@ -41,7 +41,7 @@ describe("minimal creator document contracts", () => {
     expect(html).toContain('fetchpriority="high"');
     for (const page of pages.filter(({ id }) => id !== "notFound" && id !== "credits")) {
       const html = readFileSync(`dist/${page.document}`, "utf8");
-      expect(html).toContain(`href="${page.path}" aria-current="page"`);
+      expect(html).toMatch(new RegExp(`href="${page.path}"[^>]*aria-current="page"`));
     }
   });
 });

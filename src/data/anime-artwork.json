@@ -626,314 +626,314 @@
       ]
     },
     "home-seat": {
-      "source": "src/assets/source/haven-scenes/home-seat.png",
-      "sourceSha256": "a8c89407cc4cbd6f405c9e6afeab7338e0069367797dc343c0b0e9773e9f275a",
-      "sourceBytes": 2309062,
+      "source": "src/assets/source/warm-hybrid/home.png",
+      "sourceSha256": "3feb4f4ad1070f3b3e8d81268c143e32bd10499f9fab8027d40c77c6dbcef0e5",
+      "sourceBytes": 2935317,
       "sourceWidth": 1536,
       "sourceHeight": 1024,
       "alpha": true,
       "slotCrop": null,
       "alphaBounds": [
-        23,
         1,
+        0,
+        1536,
+        1021
+      ],
+      "padding": 24,
+      "width": 1583,
+      "height": 1069,
+      "alt": "Nari invites you onto a lavender sofa beside two Ghosties, with warm oak, autumn window light and a cream throw.",
+      "candidates": [
+        {
+          "src": "/media/anime/home-seat-240.c31610d41dd81733.webp",
+          "width": 240,
+          "height": 162,
+          "bytes": 19566,
+          "sha256": "c31610d41dd81733a025e24ce486d4fa91c2b79b96faf189a5af70bc5939aed0",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/home-seat-320.69e9181879cf1e55.webp",
+          "width": 320,
+          "height": 216,
+          "bytes": 30892,
+          "sha256": "69e9181879cf1e554db03ed4950784838152d43188cc22bb849e8b1274cf432c",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/home-seat-480.63df56b483afa2d9.webp",
+          "width": 480,
+          "height": 324,
+          "bytes": 58526,
+          "sha256": "63df56b483afa2d97bf67273827ce0807e6e137b0a627c4ea9502e9b19bd23dd",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/home-seat-640.fa64308d06e9c20c.webp",
+          "width": 640,
+          "height": 432,
+          "bytes": 92142,
+          "sha256": "fa64308d06e9c20cb58a3783ce5a9bb134842cce2181bc8bbf352f8aa68b0c69",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/home-seat-720.5e0f9e31168ecfe8.webp",
+          "width": 720,
+          "height": 486,
+          "bytes": 111922,
+          "sha256": "5e0f9e31168ecfe8d205032e76e71da92a89b3678b599a0fcba0ea81f68bbbb7",
+          "quality": 84
+        }
+      ],
+      "record": "docs/asset-records/ASSET-2026-025-warm-hybrid-scenes.md"
+    },
+    "meet-nook": {
+      "source": "src/assets/source/warm-hybrid/meet.png",
+      "sourceSha256": "4524ea9a1ea444308fa20a0c3a60eff59c8e5ba8d783d1b2ddbd9820a5cda5c4",
+      "sourceBytes": 3093212,
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "alpha": true,
+      "slotCrop": null,
+      "alphaBounds": [
+        0,
+        0,
         1536,
         1024
       ],
       "padding": 24,
-      "width": 1561,
-      "height": 1071,
-      "alt": "Nari Nuna invites you onto a lavender sofa beside two friendly Ghosties, a cozy throw and a small lamp.",
+      "width": 1584,
+      "height": 1072,
+      "alt": "Nari smiles and waves from a warm oak window nook, with two Ghosties settled beside her.",
       "candidates": [
         {
-          "src": "/media/anime/home-seat-240.72168d76fd9df9ed.webp",
+          "src": "/media/anime/meet-nook-240.d0ba464b4607641e.webp",
           "width": 240,
-          "height": 165,
-          "bytes": 17442,
-          "sha256": "72168d76fd9df9ed97d5efa9c8faa5fb72e8ca82b51fbbdd2ff6238309f872d6",
+          "height": 162,
+          "bytes": 22946,
+          "sha256": "d0ba464b4607641e5ebb606d1e7e69187d77c4488b7d418f9fce05413a4eafc0",
           "quality": 84
         },
         {
-          "src": "/media/anime/home-seat-320.db7845f9bc31eb3d.webp",
+          "src": "/media/anime/meet-nook-320.3b2aa2b1871f5d0f.webp",
           "width": 320,
-          "height": 220,
-          "bytes": 26560,
-          "sha256": "db7845f9bc31eb3d2896bd906134d8121474981d840a2c49108ab58b9323592f",
+          "height": 217,
+          "bytes": 37938,
+          "sha256": "3b2aa2b1871f5d0fa4eb1cac274737a7ea37d136d0447ebdf667a6168b6c8e0a",
           "quality": 84
         },
         {
-          "src": "/media/anime/home-seat-480.6452a85bc312892b.webp",
+          "src": "/media/anime/meet-nook-480.ddaf91b29bf30cce.webp",
           "width": 480,
-          "height": 329,
-          "bytes": 47748,
-          "sha256": "6452a85bc312892bb1bcf8f2cbaade6d2600fd043c801f0b69bfd9fb17b39398",
+          "height": 325,
+          "bytes": 73868,
+          "sha256": "ddaf91b29bf30cce2d459dc7ebc0ee57bf65e4b1ae427ac9c7e6702f5f6c1364",
           "quality": 84
         },
         {
-          "src": "/media/anime/home-seat-640.05784748796b2d30.webp",
+          "src": "/media/anime/meet-nook-640.45f8032a1fca4b75.webp",
           "width": 640,
-          "height": 439,
-          "bytes": 72374,
-          "sha256": "05784748796b2d306a1728fe2407c5c4413bfaaf4cdf845f6655926e8e3cd4fa",
+          "height": 433,
+          "bytes": 117752,
+          "sha256": "45f8032a1fca4b7518c4bd0998be1f32f140f29e8340960eed4ff0f09fce6f18",
           "quality": 84
         },
         {
-          "src": "/media/anime/home-seat-960.3c5bf00eef5d878d.webp",
-          "width": 960,
-          "height": 659,
-          "bytes": 137602,
-          "sha256": "3c5bf00eef5d878d9cab09c43026aeea0493209d6fa0b557bfcf5b15c340b0fd",
+          "src": "/media/anime/meet-nook-720.f91ea849b2447fb8.webp",
+          "width": 720,
+          "height": 487,
+          "bytes": 141604,
+          "sha256": "f91ea849b2447fb8ee01878bd2a73fe82f78356ab86d0e5fd635dc51fd7b1ab8",
           "quality": 84
         }
       ],
-      "record": "docs/asset-records/ASSET-2026-024-inhabited-haven-scenes.md"
-    },
-    "meet-nook": {
-      "source": "src/assets/source/haven-scenes/meet-nook-hands-fixed.png",
-      "sourceSha256": "a596221469c478c7a860a7e6e3f936fdcdcf45a0dd3634de11713735658fd066",
-      "sourceBytes": 2383713,
-      "sourceWidth": 1536,
-      "sourceHeight": 1024,
-      "alpha": true,
-      "slotCrop": null,
-      "alphaBounds": [
-        8,
-        1,
-        1531,
-        1008
-      ],
-      "padding": 24,
-      "width": 1571,
-      "height": 1055,
-      "alt": "Nari smiles and waves from a cushioned Haven nook, with two Ghosties settled beside her.",
-      "candidates": [
-        {
-          "src": "/media/anime/meet-nook-240.1d992267aea0731a.webp",
-          "width": 240,
-          "height": 161,
-          "bytes": 16858,
-          "sha256": "1d992267aea0731a17edf7d95a68145f102535601241a96184eb7606e6cc1fb7",
-          "quality": 84
-        },
-        {
-          "src": "/media/anime/meet-nook-320.f3c7736a1f7df53f.webp",
-          "width": 320,
-          "height": 215,
-          "bytes": 25822,
-          "sha256": "f3c7736a1f7df53f2d3d3f3988e8c48c02586677ae46458e55469c8a88e8324c",
-          "quality": 84
-        },
-        {
-          "src": "/media/anime/meet-nook-480.3dad9bcd2580f76d.webp",
-          "width": 480,
-          "height": 322,
-          "bytes": 44956,
-          "sha256": "3dad9bcd2580f76db0f90d06e4a581144eb3c2eb264573b26507d94b21aa9ac1",
-          "quality": 84
-        },
-        {
-          "src": "/media/anime/meet-nook-640.ae4689b6481d5cbd.webp",
-          "width": 640,
-          "height": 430,
-          "bytes": 69452,
-          "sha256": "ae4689b6481d5cbd1ba5ff173bcd9a3f50dc4e491d2232ba1ce1a74ef6e7639a",
-          "quality": 84
-        },
-        {
-          "src": "/media/anime/meet-nook-960.08b918cb1788fb73.webp",
-          "width": 960,
-          "height": 645,
-          "bytes": 125018,
-          "sha256": "08b918cb1788fb73265c5925da5d3c18851cac5610830c4d2f478027e8f5a7f1",
-          "quality": 84
-        }
-      ],
-      "record": "docs/asset-records/ASSET-2026-024-inhabited-haven-scenes.md"
+      "record": "docs/asset-records/ASSET-2026-025-warm-hybrid-scenes.md"
     },
     "creativity-desk": {
-      "source": "src/assets/source/haven-scenes/creativity-desk.png",
-      "sourceSha256": "83a8c4715f82f16dca5ad18fe83da4525f2fef9f80121f9e815f670e59fe692b",
-      "sourceBytes": 2291376,
+      "source": "src/assets/source/warm-hybrid/creativity.png",
+      "sourceSha256": "c4b9b5192f2b12e015ccadcfe883e749e2560cf51123099cb641495683d09c66",
+      "sourceBytes": 3002885,
       "sourceWidth": 1536,
       "sourceHeight": 1024,
       "alpha": true,
       "slotCrop": null,
       "alphaBounds": [
-        66,
-        1,
-        1474,
-        1011
+        0,
+        0,
+        1536,
+        1024
       ],
       "padding": 24,
-      "width": 1456,
-      "height": 1058,
-      "alt": "Nari concentrates on polish practice at her desk while Ghosties help with bottles and color swatches.",
+      "width": 1584,
+      "height": 1072,
+      "alt": "Nari practices nail polish at her autumn-lit workbench while Ghosties help with bottles and color swatches.",
       "candidates": [
         {
-          "src": "/media/anime/creativity-desk-240.8e71d2a1917dd9f0.webp",
+          "src": "/media/anime/creativity-desk-240.7039365d00ec188d.webp",
           "width": 240,
-          "height": 174,
-          "bytes": 18138,
-          "sha256": "8e71d2a1917dd9f058d9d86c34be2d9ade6d5eef2c8733634ce818051b793098",
+          "height": 162,
+          "bytes": 24816,
+          "sha256": "7039365d00ec188de91628138d16928ba32c25461974bef361024af9de46df5a",
           "quality": 84
         },
         {
-          "src": "/media/anime/creativity-desk-320.558435c565229ba9.webp",
+          "src": "/media/anime/creativity-desk-320.b71128cb45e1115a.webp",
           "width": 320,
-          "height": 233,
-          "bytes": 27188,
-          "sha256": "558435c565229ba9220acef0a834874ecd01b85ebfcfb6130ff794802b45b4d4",
+          "height": 217,
+          "bytes": 39560,
+          "sha256": "b71128cb45e1115a4ad6b038916990f40bae52bd39fb361975e75a816bce4d6d",
           "quality": 84
         },
         {
-          "src": "/media/anime/creativity-desk-480.06a4e5a803fa5307.webp",
+          "src": "/media/anime/creativity-desk-480.76bc74fdf348be49.webp",
           "width": 480,
-          "height": 349,
-          "bytes": 48608,
-          "sha256": "06a4e5a803fa53077e7af897390336b58e39ef1015b3132cb8a222cd438d0f7c",
+          "height": 325,
+          "bytes": 73514,
+          "sha256": "76bc74fdf348be49ab68f84a31f7164d6d8006d0b5e03bbfa8e68a0cff49d83a",
           "quality": 84
         },
         {
-          "src": "/media/anime/creativity-desk-640.a9c9f19311f95d92.webp",
+          "src": "/media/anime/creativity-desk-640.7895867b0b5ba9be.webp",
           "width": 640,
-          "height": 465,
-          "bytes": 74272,
-          "sha256": "a9c9f19311f95d92faba1f367a214c045f7b7178bfeb0e29d496383f2c378679",
+          "height": 433,
+          "bytes": 116826,
+          "sha256": "7895867b0b5ba9be674e71a6d332d7622c983fb0bb000d1c7377e97d39a1800a",
           "quality": 84
         },
         {
-          "src": "/media/anime/creativity-desk-960.6eea2a1d68c5f61d.webp",
-          "width": 960,
-          "height": 698,
-          "bytes": 135780,
-          "sha256": "6eea2a1d68c5f61d3d21284375020a4fed81d3ef25c4e7f865b316f080575673",
+          "src": "/media/anime/creativity-desk-720.5eb8fe39afe9b0c3.webp",
+          "width": 720,
+          "height": 487,
+          "bytes": 142088,
+          "sha256": "5eb8fe39afe9b0c380ca32aaef071086319771f5f98b7786dfebdfffd4669af7",
           "quality": 84
         }
       ],
-      "record": "docs/asset-records/ASSET-2026-024-inhabited-haven-scenes.md"
+      "record": "docs/asset-records/ASSET-2026-025-warm-hybrid-scenes.md"
     },
     "connections-game": {
-      "source": "src/assets/source/haven-scenes/connections-game.png",
-      "sourceSha256": "08ecdbe15ab2534e778b033cedf1ddfc7d39a21bec0e9fbc7754e11cbe044d78",
-      "sourceBytes": 2332670,
+      "source": "src/assets/source/warm-hybrid/streams.png",
+      "sourceSha256": "8555e4bf90c810f836bfa39e6a221837da7429ffa0129c2c737e8044b54f3ca9",
+      "sourceBytes": 2878592,
       "sourceWidth": 1536,
       "sourceHeight": 1024,
       "alpha": true,
       "slotCrop": null,
       "alphaBounds": [
-        1,
-        6,
-        1534,
-        1010
+        0,
+        0,
+        1536,
+        1024
       ],
       "padding": 24,
-      "width": 1581,
-      "height": 1052,
-      "alt": "Nari laughs with a game controller as two Ghosties celebrate around a cozy gaming desk.",
+      "width": 1584,
+      "height": 1072,
+      "alt": "Nari laughs with a controller beside her microphone, monitor and two Ghosties in a warm broadcast corner.",
       "candidates": [
         {
-          "src": "/media/anime/connections-game-240.7ea6061b838ebc7c.webp",
+          "src": "/media/anime/connections-game-240.60d4cac571ee10ae.webp",
           "width": 240,
-          "height": 160,
-          "bytes": 18992,
-          "sha256": "7ea6061b838ebc7c42abc17b8cbb29221a16badb6ff17310ab28153eb25f7ff7",
+          "height": 162,
+          "bytes": 21966,
+          "sha256": "60d4cac571ee10aeb9258842e1fa895be691875b6b553d6ba874fbf52bfd36c1",
           "quality": 84
         },
         {
-          "src": "/media/anime/connections-game-320.c4269cbe8a183a72.webp",
+          "src": "/media/anime/connections-game-320.a2c8c7d41d67b67b.webp",
           "width": 320,
-          "height": 213,
-          "bytes": 28674,
-          "sha256": "c4269cbe8a183a72977c7ed042736669e3f4cda25b4eefa069d5169c8cc298b4",
+          "height": 217,
+          "bytes": 35792,
+          "sha256": "a2c8c7d41d67b67b4e5f766493fd26b2c9b1470023cb0c88249411530eb7f801",
           "quality": 84
         },
         {
-          "src": "/media/anime/connections-game-480.2a275f50f3ae1f8f.webp",
+          "src": "/media/anime/connections-game-480.84bf3f7ef3f747dc.webp",
           "width": 480,
-          "height": 319,
-          "bytes": 51654,
-          "sha256": "2a275f50f3ae1f8fd7688ab106b90970d98b82fa6cd064ab20a07d940992990a",
+          "height": 325,
+          "bytes": 68170,
+          "sha256": "84bf3f7ef3f747dc8a1c60796c689249276b02bda7886723fc53f4efcfa45f05",
           "quality": 84
         },
         {
-          "src": "/media/anime/connections-game-640.f103d71ac1d81215.webp",
+          "src": "/media/anime/connections-game-640.8400bb96c509ecbe.webp",
           "width": 640,
-          "height": 426,
-          "bytes": 77390,
-          "sha256": "f103d71ac1d81215d6728394d301542f1754bc17839a3ad4cc96700a731ce5c5",
+          "height": 433,
+          "bytes": 110286,
+          "sha256": "8400bb96c509ecbecd437ff72c89b6499010c4a7d47f1b835207b0b6ff5be467",
           "quality": 84
         },
         {
-          "src": "/media/anime/connections-game-960.fb0ac214112ad674.webp",
-          "width": 960,
-          "height": 639,
-          "bytes": 144890,
-          "sha256": "fb0ac214112ad674dae65c369b366b1e8a854537e42d064fb9029eaeb2a9cd05",
+          "src": "/media/anime/connections-game-720.820c5fe9e272f5d0.webp",
+          "width": 720,
+          "height": 487,
+          "bytes": 130232,
+          "sha256": "820c5fe9e272f5d09d3551fcdd2f3c550042999b963c882b746a557021048793",
           "quality": 84
         }
       ],
-      "record": "docs/asset-records/ASSET-2026-024-inhabited-haven-scenes.md"
+      "record": "docs/asset-records/ASSET-2026-025-warm-hybrid-scenes.md"
     },
     "work-table": {
-      "source": "src/assets/source/haven-scenes/work-table.png",
-      "sourceSha256": "803625bb1bfa42c2df3815b5e387b2085f048092307fc19cfc4accb6db560100",
-      "sourceBytes": 1731265,
-      "sourceWidth": 1254,
-      "sourceHeight": 1254,
+      "source": "src/assets/source/warm-hybrid/work.png",
+      "sourceSha256": "eeb7c19ddd371903d731108fe201af4bb4614678897228ad243a0be1d82f71c7",
+      "sourceBytes": 2865389,
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
       "alpha": true,
       "slotCrop": null,
       "alphaBounds": [
-        56,
-        27,
-        1225,
-        1213
+        0,
+        0,
+        1536,
+        1014
       ],
       "padding": 24,
-      "width": 1217,
-      "height": 1234,
-      "alt": "Nari plans at a cream desk with an open notebook and a Ghostie carrying an envelope.",
+      "width": 1584,
+      "height": 1062,
+      "alt": "Nari writes at a warm correspondence desk with an open notebook and an envelope-carrying Ghostie.",
       "candidates": [
         {
-          "src": "/media/anime/work-table-240.9f0272ec83c4b4ed.webp",
+          "src": "/media/anime/work-table-240.b00bb99ee6735f49.webp",
           "width": 240,
-          "height": 243,
-          "bytes": 21664,
-          "sha256": "9f0272ec83c4b4edf479a18e3f3f0158e84a037ba7f0dc252a680008c3f50341",
+          "height": 161,
+          "bytes": 23408,
+          "sha256": "b00bb99ee6735f49c228dc0987e80b251e4462a4530bda18b41820af118a5d20",
           "quality": 84
         },
         {
-          "src": "/media/anime/work-table-320.3dbb7a545c48f103.webp",
+          "src": "/media/anime/work-table-320.22525e5ce1d7fe68.webp",
           "width": 320,
-          "height": 324,
-          "bytes": 32542,
-          "sha256": "3dbb7a545c48f10327b50f0046fbcd479f802c8535b2edc328d3d5782e3c22e6",
+          "height": 215,
+          "bytes": 37300,
+          "sha256": "22525e5ce1d7fe68e1aba7423c42873c1e051cfa54d49d513c757c1d94801b97",
           "quality": 84
         },
         {
-          "src": "/media/anime/work-table-480.75f1cd5d000b1538.webp",
+          "src": "/media/anime/work-table-480.b9c69f39bd97c0e9.webp",
           "width": 480,
-          "height": 487,
-          "bytes": 59480,
-          "sha256": "75f1cd5d000b1538a1e2749db4f8b7de616497eb4a23a46a65fb646889cdf260",
+          "height": 322,
+          "bytes": 69736,
+          "sha256": "b9c69f39bd97c0e9bd68d5e27ef8d6ab3310ca74dcc40481ae002244ca01298d",
           "quality": 84
         },
         {
-          "src": "/media/anime/work-table-640.5b094a89bc554a97.webp",
+          "src": "/media/anime/work-table-640.5465f6d7cfeb6192.webp",
           "width": 640,
-          "height": 649,
-          "bytes": 91070,
-          "sha256": "5b094a89bc554a971b610a2e385709d1eb410ba1467004c2e3a12600aa820d94",
+          "height": 429,
+          "bytes": 111002,
+          "sha256": "5465f6d7cfeb61928319f9b0eb68b4c7034dd0f77115cd532c68eee734e24889",
           "quality": 84
         },
         {
-          "src": "/media/anime/work-table-960.6497a2ff64944cae.webp",
-          "width": 960,
-          "height": 973,
-          "bytes": 146670,
-          "sha256": "6497a2ff64944cae9be338d0ab201c3bb2f71d7b49e2bf1e49f52459fd897f94",
-          "quality": 78
+          "src": "/media/anime/work-table-720.4b72810be7f796f6.webp",
+          "width": 720,
+          "height": 483,
+          "bytes": 133328,
+          "sha256": "4b72810be7f796f6a1daaa033de1adb094aac65b0fa8bbdba12e5e145340017d",
+          "quality": 84
         }
       ],
-      "record": "docs/asset-records/ASSET-2026-024-inhabited-haven-scenes.md"
+      "record": "docs/asset-records/ASSET-2026-025-warm-hybrid-scenes.md"
     },
     "credits-makers": {
       "source": "src/assets/source/haven-scenes/credits-makers.png",
@@ -1058,6 +1058,68 @@
         }
       ],
       "record": "docs/asset-records/ASSET-2026-024-inhabited-haven-scenes.md"
+    },
+    "haven-door": {
+      "source": "src/assets/source/warm-hybrid/haven.png",
+      "sourceSha256": "a7d99f85db6d1bb4d2766db7db738736f00fe002d11da74dc678cbdca627290a",
+      "sourceBytes": 2943443,
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "alpha": true,
+      "slotCrop": null,
+      "alphaBounds": [
+        48,
+        0,
+        1522,
+        1024
+      ],
+      "padding": 24,
+      "width": 1522,
+      "height": 1072,
+      "alt": "Nari opens an oak Haven door in welcome, with one greeting Ghostie and a second sleeping beside a warm lantern.",
+      "candidates": [
+        {
+          "src": "/media/anime/haven-door-240.de5f093a5f984c5e.webp",
+          "width": 240,
+          "height": 169,
+          "bytes": 20832,
+          "sha256": "de5f093a5f984c5e3013020f20128a9694905706f3e987d2272a413436d2dc10",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/haven-door-320.4242d24095f36dc9.webp",
+          "width": 320,
+          "height": 225,
+          "bytes": 32970,
+          "sha256": "4242d24095f36dc911e74cb390e9d8a7b018631d5d0f01752b3f74b2ff28156f",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/haven-door-480.6b6e28b8c34b3a6a.webp",
+          "width": 480,
+          "height": 338,
+          "bytes": 63424,
+          "sha256": "6b6e28b8c34b3a6a879b0ddd35b535d9784f5fe94cc0868b104fbf18ee13e2da",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/haven-door-640.cc79e38d596893ae.webp",
+          "width": 640,
+          "height": 451,
+          "bytes": 102874,
+          "sha256": "cc79e38d596893ae8e868a8a5f6d62adae5157ede3196a2d82ef41ae4b8e68e8",
+          "quality": 84
+        },
+        {
+          "src": "/media/anime/haven-door-720.a317a642ca3463b6.webp",
+          "width": 720,
+          "height": 507,
+          "bytes": 124286,
+          "sha256": "a317a642ca3463b6778ceb2135f21747d2648920ada931be6aeaa8b8fd6d3acd",
+          "quality": 84
+        }
+      ],
+      "record": "docs/asset-records/ASSET-2026-025-warm-hybrid-scenes.md"
     }
   }
 }

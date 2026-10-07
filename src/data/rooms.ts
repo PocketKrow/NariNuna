@@ -4,7 +4,8 @@ const notes: Record<string, string> = {
   "/": "Your chaotic big sister.",
   "/meet-nari/": "The warmth, the chaos, and the craft.",
   "/nail-studio/": "Color, games, and creative curiosity.",
-  "/links/": "Streams, updates, and good company.",
+  "/streams/": "Come for the game. Stay for the yap.",
+  "/haven/": "Good company, with a backbone.",
   "/work-with-nari/": "Good ideas start with a conversation.",
   "/credits/": "The names behind the work."
 };
