@@ -11,7 +11,7 @@ OUT = ROOT / 'public/media/anime'
 OUT.mkdir(parents=True, exist_ok=True)
 SPECS = {
     'home-seat': ('../haven-scenes/home-seat.png', None, 'Nari Nuna invites you onto a lavender sofa beside two friendly Ghosties, a cozy throw and a small lamp.'),
-    'meet-nook': ('../haven-scenes/meet-nook.png', None, 'Nari smiles and waves from a cushioned Haven nook, with two Ghosties settled beside her.'),
+    'meet-nook': ('../haven-scenes/meet-nook-hands-fixed.png', None, 'Nari smiles and waves from a cushioned Haven nook, with two Ghosties settled beside her.'),
     'creativity-desk': ('../haven-scenes/creativity-desk.png', None, 'Nari concentrates on polish practice at her desk while Ghosties help with bottles and color swatches.'),
     'connections-game': ('../haven-scenes/connections-game.png', None, 'Nari laughs with a game controller as two Ghosties celebrate around a cozy gaming desk.'),
     'work-table': ('../haven-scenes/work-table.png', None, 'Nari plans at a cream desk with an open notebook and a Ghostie carrying an envelope.'),

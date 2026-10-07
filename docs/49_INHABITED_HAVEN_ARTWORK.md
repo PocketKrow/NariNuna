@@ -28,9 +28,9 @@ Built-in image generation created seven accepted transparent PNG masters in `src
 
 ## Validation and review state
 
-Observed evidence is appended after the current checks. Prior-pass results are historical. This pass does not clear final Nari identity/adoption, model-artist/public derivative rights, attribution, host, contact/invite or remaining production/manual-QA decisions. Production-readiness remains independently blocked. Roll back the latest follow-up commit to restore the connected minimal build at `8585622c110a65f593c3945192587842c6d323e8`; preserve the preceding review commits.
+Observed evidence is appended after the current checks. Prior-pass results are historical. This pass does not clear final Nari identity/adoption, model-artist/public derivative rights, attribution, host, contact/invite or remaining production/manual-QA decisions. Production-readiness remains independently blocked. Reverting the seven-scene introduction commit `2b9af4e` restores the connected minimal build at `8585622c110a65f593c3945192587842c6d323e8`; preserve the preceding review commits. Revert only the subsequent hand-correction commit to recover the original Meet nook at `2b9af4e`.
 
-Observed on the current 2026-10-07 build:
+Observed on the seven-scene build at `2b9af4e`, 2026-10-07 (historical evidence after the correction below):
 
 - Fresh `npm ci` and `npm run check` pass: lint, strict Astro/Vue checks (44 files, zero errors/warnings/hints), nine credit records / 14 classified families, seven static documents, 51 unit tests, and HTTP retrieval of 230 essential assets plus all 27 supplied Prinny derivatives.
 - `verify:browser` passes all seven documents at 320/390/768/1024/1440/1920px: required local images decode, one main/h1, no overflow/runtime/CSP errors, keyboard menu/Escape/desktop reset, six native 301 redirects, branded unknown-path 404, reduced motion, and 320px no-JS navigation.
@@ -41,3 +41,13 @@ Observed on the current 2026-10-07 build:
 - `node scripts/verify-release.mjs` returns the expected `NOT READY FOR PUBLIC RELEASE`; unresolved approvals and production acceptance records remain unchanged. This is a review-preview update only.
 
 Remote exact-commit CI and host evidence belong in PR #31 after the review branch update. Review next at `https://deploy-preview-31--narinunademo.netlify.app`, with document 49 and ASSET-2026-024 as the current handoff.
+
+## Meet Nari hand correction — 2026-10-07
+
+Jake reports awkward hands in the Meet banner. The original nook contains an extra cheek-resting hand/forearm in addition to the ledge-side sleeve and wave. A targeted built-in image edit removes that duplicated limb, adds a relaxed hand to the ledge and connects the one waving arm naturally. The face, character design, Ghosties, alcove, palette and overall composition remain. This is an anatomy repair within ADR-016, not a new design direction or rights approval.
+
+Retain `meet-nook.png` and its original prompt; the accepted correction is `src/assets/source/haven-scenes/meet-nook-hands-fixed.png`, with the exact sibling `.prompt.txt`. The existing `meet-nook` manifest slot points to this version through the anime preparation script. Five new hashed WebPs replace the active candidates; the old delivery files are retained for review history/rollback. The family ledger tracks the new 480px derivative. Every other artwork entry, page template, caption, style, share graphic and favicon remains unchanged. ASSET-2026-024 records the correction authority and provenance.
+
+Observed current checks: fresh `npm ci` and full `npm run check` pass, including 51 unit tests, zero type diagnostics, nine credits / 14 families, seven documents and asset retrieval. Source and five derivative hashes verify; largest corrected candidate is 125,018 bytes, under the existing 150,000-byte ceiling. The other 81 manifest candidates and entries are unchanged. Rendered Meet review at 320/390/768/1440px shows two connected arms, complete proportional artwork, decoded required images and no overflow/runtime errors. Phone and desktop review confirms the repaired hands read naturally.
+
+The managed local Chromium download again exhausted its retries on truncated/non-ZIP files. Local rendered verification uses Chromium 153.0.8010.0 from `@sparticuz/chromium` installed in the scratch verification tools directory, with no repository dependency/lockfile change. Its bundled binary/SwiftShader are extracted locally because the provider's tar extraction attempted an unsupported `chown`. `verify:browser` passes all seven routes at 320/390/768/1024/1440/1920px, required local-image decoding, native menu/focus, no-JS navigation, redirects, branded 404 and reduced motion. The two Meet composition baselines are refreshed explicitly at 390/1440px after visual inspection; all other baselines remain intact. Exact-commit remote evidence is recorded in PR #31 after completion. Approval, production/manual-QA limitations remain as recorded above.

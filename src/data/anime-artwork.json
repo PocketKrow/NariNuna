@@ -688,62 +688,62 @@
       "record": "docs/asset-records/ASSET-2026-024-inhabited-haven-scenes.md"
     },
     "meet-nook": {
-      "source": "src/assets/source/haven-scenes/meet-nook.png",
-      "sourceSha256": "5412fd16004448771e09cea5d0c5e845208cf174cdf17405e8a3795c7fbf8b0e",
-      "sourceBytes": 2464109,
+      "source": "src/assets/source/haven-scenes/meet-nook-hands-fixed.png",
+      "sourceSha256": "a596221469c478c7a860a7e6e3f936fdcdcf45a0dd3634de11713735658fd066",
+      "sourceBytes": 2383713,
       "sourceWidth": 1536,
       "sourceHeight": 1024,
       "alpha": true,
       "slotCrop": null,
       "alphaBounds": [
-        7,
+        8,
         1,
         1531,
-        1009
+        1008
       ],
       "padding": 24,
-      "width": 1572,
-      "height": 1056,
+      "width": 1571,
+      "height": 1055,
       "alt": "Nari smiles and waves from a cushioned Haven nook, with two Ghosties settled beside her.",
       "candidates": [
         {
-          "src": "/media/anime/meet-nook-240.57b53ccc606187a1.webp",
+          "src": "/media/anime/meet-nook-240.1d992267aea0731a.webp",
           "width": 240,
           "height": 161,
-          "bytes": 17154,
-          "sha256": "57b53ccc606187a1a1e55f3556594f7d8928aa801c36b499a1a35602acea512a",
+          "bytes": 16858,
+          "sha256": "1d992267aea0731a17edf7d95a68145f102535601241a96184eb7606e6cc1fb7",
           "quality": 84
         },
         {
-          "src": "/media/anime/meet-nook-320.813d2e7395a8e925.webp",
+          "src": "/media/anime/meet-nook-320.f3c7736a1f7df53f.webp",
           "width": 320,
           "height": 215,
-          "bytes": 26220,
-          "sha256": "813d2e7395a8e92576c33981f0ba5d10cdbf8f610f8b4f888967ba3b073a64c8",
+          "bytes": 25822,
+          "sha256": "f3c7736a1f7df53f2d3d3f3988e8c48c02586677ae46458e55469c8a88e8324c",
           "quality": 84
         },
         {
-          "src": "/media/anime/meet-nook-480.1ace6d6ee3e48598.webp",
+          "src": "/media/anime/meet-nook-480.3dad9bcd2580f76d.webp",
           "width": 480,
           "height": 322,
-          "bytes": 47274,
-          "sha256": "1ace6d6ee3e485984bb226612957ffb7170ecdf01e163105bbbad6df8f12c49e",
+          "bytes": 44956,
+          "sha256": "3dad9bcd2580f76db0f90d06e4a581144eb3c2eb264573b26507d94b21aa9ac1",
           "quality": 84
         },
         {
-          "src": "/media/anime/meet-nook-640.c0435f082963872c.webp",
+          "src": "/media/anime/meet-nook-640.ae4689b6481d5cbd.webp",
           "width": 640,
           "height": 430,
-          "bytes": 72268,
-          "sha256": "c0435f082963872cb8673a9996753dccab2967389dada1f7dac281b88dde289e",
+          "bytes": 69452,
+          "sha256": "ae4689b6481d5cbd1ba5ff173bcd9a3f50dc4e491d2232ba1ce1a74ef6e7639a",
           "quality": 84
         },
         {
-          "src": "/media/anime/meet-nook-960.a45b7b6d8e4315f1.webp",
+          "src": "/media/anime/meet-nook-960.08b918cb1788fb73.webp",
           "width": 960,
           "height": 645,
-          "bytes": 139038,
-          "sha256": "a45b7b6d8e4315f14246ee12c31da1e415e1043191244f96c8669bb33e0f90e4",
+          "bytes": 125018,
+          "sha256": "08b918cb1788fb73265c5925da5d3c18851cac5610830c4d2f478027e8f5a7f1",
           "quality": 84
         }
       ],
