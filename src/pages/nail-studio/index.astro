@@ -6,14 +6,14 @@ import RoomArrival from "@/components/astro/RoomArrival.astro";
 import ResponsiveArtwork from "@/components/art/ResponsiveArtwork.vue";
 import ArtworkCreditLink from "@/components/art/ArtworkCreditLink.vue";
 import RoomDiscovery from "@/components/ui/RoomDiscovery.vue";
-import { ArrowRight, Heart, Paintbrush, Sparkles } from "@lucide/vue";
+import { ArrowRight, Paintbrush } from "@lucide/vue";
 import GhostieArt from "@/components/art/GhostieArt.vue";
 import { environmentArtwork, storybookPostcards } from "@/data/artwork";
 ---
 
 <SiteLayout pageId="nailStudio">
   <!-- Illustrated atmosphere leads into practice notes and an honest real-work hold; artwork is not portfolio evidence. -->
-  <RoomArrival room="nails" artwork={environmentArtwork.nails} description="An illustrated view of Nari's autumn nail-art desk. This is atmosphere, not a nail portfolio." note="POLISH, PRACTICE & PATIENCE">
+  <RoomArrival room="nails" artwork={environmentArtwork.nails} description="Nari paints a practice tip at her illustrated autumn workbench while a Ghostie studies a polish bottle. This is atmosphere, not a nail portfolio.">
 
         <p class="eyebrow">
           <Paintbrush size={16} aria-hidden="true" /> her favorite little desk
@@ -24,14 +24,7 @@ import { environmentArtwork, storybookPostcards } from "@/data/artwork";
           <em>Big Nari energy.</em>
         </h1>
         <p>Nari is self-taught, still practicing, and learning one tiny detail at a time.</p>
-        <div class="tag-row">
-          <span>
-            <Heart size={15} aria-hidden="true" /> Made with love
-          </span>
-          <span>
-            <Sparkles size={15} aria-hidden="true" /> Probably with glitter
-          </span>
-        </div>
+
         <ArtworkCreditLink creditId="website-storybook-artwork" />
 
   </RoomArrival>
@@ -61,12 +54,12 @@ import { environmentArtwork, storybookPostcards } from "@/data/artwork";
       </figure>
       <div class="studio-workbench__notes">
         <article>
-          <p class="room-kicker">01 · The practice</p>
+          <p class="room-kicker">The practice</p>
           <h3>A little better, one set at a time.</h3>
-          <p>Nari is a self-taught artist exploring color, process, and details on her own nails.</p>
+          <p>Color experiments, tiny details, and a frankly unreasonable affection for polish.</p>
         </article>
         <article>
-          <p class="room-kicker">02 · The learning</p>
+          <p class="room-kicker">The learning</p>
           <h3>Figuring it out is part of the fun.</h3>
           <p>Honest little lessons, creative experiments, and the things she learns along the way.</p>
           <a class="text-link" href="/resources/#nail-desk">
@@ -83,8 +76,7 @@ import { environmentArtwork, storybookPostcards } from "@/data/artwork";
         <p class="room-kicker">The real-work collection</p>
         <h2>The gallery is waiting for the real thing.</h2>
         <p>
-          Nari's own approved photographs will go here. Until then, the illustrated desk stays clearly labelled as
-          atmosphere.
+          Nari's own approved photographs will go here. The desk above is a workspace illustration.
         </p>
       </div>
     </div>

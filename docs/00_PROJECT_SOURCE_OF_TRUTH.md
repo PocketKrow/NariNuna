@@ -1,5 +1,7 @@
 # Project Source of Truth
 
+> **2026-10-07 Main refinement:** Jake selected current Main's warm illustrated Haven for refinement: retain its routes, rooms, storytelling and rich materials with approximately 15% restraint. Do not use minimalist PR #31 or hybrid PR #32 as the base. [Document 44](44_MAIN_REFINEMENT.md) owns this implementation/audit and review evidence. Existing canon, rights and production approvals retain their status.
+
 > **2026-10-05 vNext:** [Document 43](43_VNEXT_EXPERIENCE.md) owns the current experience. The guided bottom passage and Passport are retired; prior descriptions below are historical. Astro/static content, rights and release boundaries remain. All painted arrivals now have one composition owner; CSS/GSAP and selective deferred Three.js replace Motion-V.
 
 
