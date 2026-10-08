@@ -3,18 +3,18 @@ import SiteLayout from "@/layouts/SiteLayout.astro";
 import RoomArrival from "@/components/astro/RoomArrival.astro";
 import ResponsiveArtwork from "@/components/art/ResponsiveArtwork.vue";
 import ArtworkCreditLink from "@/components/art/ArtworkCreditLink.vue";
-import { ArrowRight, Sparkles } from "@lucide/vue";
+import { ArrowRight } from "@lucide/vue";
 import SocialDock from "@/components/ui/SocialDock.vue";
 import { environmentArtwork, storybookPostcards } from "@/data/artwork";
 const corners = [
-  { href: "/streams/", name: "The broadcast desk", note: "There's always one more good bit.", artwork: storybookPostcards.streams, label: "Games & good company" },
-  { href: "/nail-studio/", name: "A little color & craft", note: "A little glitter gets everywhere.", artwork: storybookPostcards.nails, label: "Nari's nail studio" },
-  { href: "/haven/", name: "The common room", note: "Leave the room a little kinder.", artwork: storybookPostcards.haven, label: "A place to belong" },
+  { href: "/streams/", name: "Streams", note: "There's always one more good bit.", artwork: storybookPostcards.streams },
+  { href: "/nail-studio/", name: "Nail Studio", note: "A little glitter gets everywhere.", artwork: storybookPostcards.nails },
+  { href: "/haven/", name: "The Haven", note: "Leave the room a little kinder.", artwork: storybookPostcards.haven },
 ];
 ---
 <SiteLayout pageId="home">
-  <RoomArrival room="home" artwork={environmentArtwork.homeSunset} description="Nari, with emerald eyes, asymmetric cat-and-dog ears, lavender clothes, and her purple-tipped tail, welcomes a Ghostie from the autumn window seat in her Haven." note="AUTUMN, AFTER HOURS" atmosphere>
-    <p class="eyebrow"><Sparkles size={15} aria-hidden="true" /> A warm seat for lovely weirdos</p>
+  <RoomArrival room="home" artwork={environmentArtwork.homeSunset} description="Nari, with emerald eyes, asymmetric cat-and-dog ears, lavender clothes, and her purple-tipped tail, offers a seat beside a Ghostie at the autumn window in her Haven." atmosphere>
+    <p class="eyebrow">A warm seat for lovely weirdos</p>
     <h1><span>Nari</span><em>Nuna</em></h1>
     <p class="arrival-subtitle">Your favorite chaotic big sister.</p>
     <p>Streams get loud, polish gets everywhere, and somebody is always yapping. Pull up a seat.</p>
@@ -28,13 +28,11 @@ const corners = [
   <section class="haven-corners room-section page-width" aria-labelledby="corners-title">
     <header class="room-heading">
       <div><p class="room-kicker">Make yourself at home</p><h2 id="corners-title">A few favorite <em>corners.</em></h2></div>
-      <p>The warmth, the chaos, and the craft.</p>
     </header>
     <div class="haven-corners__shelf">
       {corners.map((corner) => (
         <a class="haven-corner" href={corner.href} data-material-reveal>
           <div class="haven-corner__frame"><ResponsiveArtwork artwork={corner.artwork} sizes="(min-width: 64rem) 30vw, (min-width: 40rem) 44vw, calc(100vw - 48px)" alt="" /></div>
-          <p class="room-kicker">{corner.label}</p>
           <h3>{corner.name} <ArrowRight size={18} aria-hidden="true" /></h3>
           <p>{corner.note}</p>
         </a>

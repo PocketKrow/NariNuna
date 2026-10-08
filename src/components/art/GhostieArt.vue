@@ -98,6 +98,7 @@ withDefaults(
   display: block;
   width: min(94%, var(--ghostie-size, 12rem));
   max-width: 100%;
+  max-height: 94%;
   height: auto;
   aspect-ratio: 1;
   object-fit: contain;

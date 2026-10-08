@@ -62,7 +62,7 @@
   justify-content: space-between;
   gap: 0.5rem;
   padding: 0 clamp(3.5rem, 7vw, 5.5rem) 1rem 0;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   border-bottom: 1px solid var(--line-dark);
   color: var(--ink-muted);
   font-family: var(--font-detail);
@@ -82,7 +82,7 @@
   color: var(--ink-muted);
 }
 .collaboration-letter__fits {
-  margin-block: 2rem;
+  margin-block: 1.5rem;
 }
 .collaboration-letter__fits > div {
   padding-block: 1.2rem;

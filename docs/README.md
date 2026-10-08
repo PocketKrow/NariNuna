@@ -1,5 +1,7 @@
 # Nari Nuna's Haven — Documentation Hub
 
+Current owner-directed refinement: [44 — preserve Main, reduce visual competition, strengthen selected artwork](44_MAIN_REFINEMENT.md). Jake selected Main at `9ac7be3`; minimalist PRs #31/#32 are separate explorations, not implementation parents.
+
 Current implementation: [43 — vNext experience, authority, source owners, validation and rollback](43_VNEXT_EXPERIENCE.md). Older tour/Passport and hero-cascade descriptions are superseded.
 
 

@@ -1,5 +1,9 @@
 # Governance and Decision Log
 
+## 2026-10-07 — Main-preserving refinement
+
+Jake's attached brief explicitly selects the current Main design, directs a new branch from Main and a separate review PR, and requests targeted density/composition changes plus supplied-model-preserving artwork. All routes and Astro architecture remain. Minimalist PRs #31/#32 remain separate experiments. [Document 44](44_MAIN_REFINEMENT.md) records the audit, implementation and evidence; ASSET-2026-022 records generated derivatives, prompts and unresolved approvals. Review/Netlify-preview authorization does not authorize merge or production release or settle Nari's final likeness, model artist, derivative, credit, canon, contact or rights decisions.
+
 ## 2026-09-12 — Haven depth and explicit release gate
 
 Jake directed implementation of the Phase Two handoff except Media Kit. Authorized scope is production-readiness data/tooling, archive-capable Credits with contextual access, a local-only Haven Passport, a few cross-room continuity details, rendered QA and synchronized documentation on a branch based on open PR #22. Full Nari content replacement remains deferred. This authority does not approve public artwork/derivative/franchise rights, Nari wording/canon, contact information, Discord, host/domain, merge, deployment or release; the new gate must preserve those blockers rather than marking them complete.

@@ -1,5 +1,7 @@
 # Current State Audit
 
+> **2026-10-07 current task:** `kiva/nari-main-refinement` starts from Main `9ac7be3e7b27eb76973debf54b3724087ad69b22`. The route-by-route keep/trim/refine/replace/add audit and current validation are in [document 44](44_MAIN_REFINEMENT.md). Historical test counts and browser limitations below are dated evidence.
+
 > **2026-10-05 vNext:** [Document 43](43_VNEXT_EXPERIENCE.md) owns the current experience. The guided bottom passage and Passport are retired; prior descriptions below are historical. Astro/static content, rights and release boundaries remain. All painted arrivals now have one composition owner; CSS/GSAP and selective deferred Three.js replace Motion-V.
 
 

@@ -2,23 +2,19 @@
 import SiteLayout from "@/layouts/SiteLayout.astro";
 import RoomArrival from "@/components/astro/RoomArrival.astro";
 
-// Own the introduction, identity journal and boundary note. Pillar order is coupled to the Ghostie tuple below; keep these in sync.
-import { ArrowRight, Eye, Gamepad2, Heart, MoonStar, Paintbrush, Sparkles } from "@lucide/vue";
-import GhostieArt, { type GhostieArtVariant } from "@/components/art/GhostieArt.vue";
+// Preserve arrival → identity journal → protective promise. One reading Ghostie belongs to the journal opening.
+import { ArrowRight, Eye, MoonStar, Sparkles } from "@lucide/vue";
+import GhostieArt from "@/components/art/GhostieArt.vue";
 import ArtworkCreditLink from "@/components/art/ArtworkCreditLink.vue";
 import RoomDiscovery from "@/components/ui/RoomDiscovery.vue";
 import { environmentArtwork } from "@/data/artwork";
 import { identityPillars } from "@/data/content";
 
-const identityEntries = identityPillars.map((pillar, index) => ({
-  ...pillar,
-  ghostie: (["heart", "chaotic", "nailTech"] satisfies GhostieArtVariant[])[index],
-}));
 ---
 
 <SiteLayout pageId="meetNari">
   <!-- Character-led arrival, identity journal, then protective promise; preserve that reading order on mobile. -->
-  <RoomArrival room="meet" artwork={environmentArtwork.meetNari} description="Nari at her illustrated autumn window, with emerald eyes, asymmetric ears, and lavender clothes." note="THE GIRL BEHIND THE DOOR">
+  <RoomArrival room="meet" artwork={environmentArtwork.meetNari} description="Nari at her illustrated autumn window, with emerald eyes, asymmetric ears, and lavender clothes.">
 
       <p class="eyebrow">
         <Sparkles size={16} aria-hidden="true" /> the girl behind the door
@@ -28,26 +24,16 @@ const identityEntries = identityPillars.map((pillar, index) => ({
       </h1>
       <p class="character-intro__subtitle">VTuber. Gamer. Nail-polish menace. Your loud big sister.</p>
       <p class="character-intro__text">
-        Nari is a warm, protective, curious VTuber, gamer, self-taught nail artist, and prolific yapper.
+        Pull up a chair. There is room for your quiet days and your loud ones.
       </p>
-      <div class="tag-row" aria-label="Nari's creative roles">
-        <span>
-          <Gamepad2 size={16} aria-hidden="true" /> VTuber & gamer
-        </span>
-        <span>
-          <Paintbrush size={16} aria-hidden="true" /> Self-taught nail artist
-        </span>
-        <span>
-          <Heart size={16} aria-hidden="true" /> Protective big sister
-        </span>
-      </div>
+
       <a class="button button--ember" href="/haven/">
         Come see the Haven <ArrowRight size={18} aria-hidden="true" />
       </a>
       <ArtworkCreditLink creditId="website-storybook-artwork" />
 
   </RoomArrival>
-  <!-- The identity tuple above determines both copy order and decorative Ghostie pose. -->
+  <!-- A single companion reads over the journal; the entries keep their editorial rhythm. -->
   <section class="nari-journal room-section page-width" aria-labelledby="journal-title">
     <header class="nari-journal__opening">
       <p class="room-kicker">Notes from the girl next door</p>
@@ -56,28 +42,23 @@ const identityEntries = identityPillars.map((pillar, index) => ({
         <br />
         <em>A little chaos included.</em>
       </h2>
-      <p>Warm welcome. Sharp boundaries. Glitter somewhere it should not be.</p>
+      <GhostieArt class="nari-journal__reader" sizes="160px" variant="study" />
     </header>
     <div class="nari-journal__surface" data-material-reveal>
       <span class="nari-journal__bookmark" aria-hidden="true">
         NARI
       </span>
       <div class="nari-journal__entries">
-        {identityEntries.map((entry, index) => (
+        {identityPillars.map((entry) => (
           <article class="journal-entry">
             <div class="journal-entry__marker">
-              <span aria-hidden="true">0{index + 1}</span>
               <p class="room-kicker">{entry.eyebrow}</p>
             </div>
             <div class="journal-entry__copy">
               <h3>{entry.title}</h3>
               <p>{entry.text}</p>
             </div>
-            <GhostieArt
-              class="journal-entry__ghostie"
-              sizes="(min-width: 48rem) 176px, 104px"
-              variant={entry.ghostie}
-            />
+
           </article>
         ))}
       </div>

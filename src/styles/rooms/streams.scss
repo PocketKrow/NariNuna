@@ -10,19 +10,6 @@
   border-block: 1px solid color-mix(in srgb, var(--story-line) 74%, var(--storybook-gold));
   box-shadow: inset 0 -0.45rem 0 color-mix(in srgb, var(--bg-inset) 62%, transparent), 0 1.2rem 2.8rem rgb(13 8 12 / 14%);
 }
-.clip-desk__moments::before {
-  position: absolute;
-  top: -0.65rem;
-  left: 1rem;
-  padding: 0.2rem 0.65rem;
-  color: var(--bg-inset);
-  background: var(--storybook-gold);
-  content: "ON THE DESK";
-  font-family: var(--font-detail);
-  font-size: 0.65rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-}
 .clip-desk__lead {
   min-width: 0;
   padding-bottom: clamp(1.25rem, 3vw, 2rem);
@@ -91,6 +78,5 @@
     padding-block: 1.35rem;
   }
   .broadcast-tuning > div { align-items: flex-start; }
-  .broadcast-tuning .text-link { width: 100%; justify-content: space-between; border-top: 1px solid var(--story-line); }
   .clip-desk__next { margin-inline-start: 0; }
 }
