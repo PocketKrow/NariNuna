@@ -81,13 +81,14 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium firefox
+      - name: Install matching composition fonts
+        run: sudo apt-get install -y fonts-dejavu-core
       - name: Build candidate for review
         run: npm run build
-      - name: Verify Firefox behavior and accessibility on the candidate
-        run: npx playwright test --project=firefox
       - name: Capture candidate production typography and network
         env:
           NARI_REVIEW_LABEL: candidate
+          NARI_REVIEW_SNAPSHOT: '1'
           NARI_REVIEW_INLINE: '1'
         run: npx playwright test --project=chromium --grep "review evidence:" --output=review-candidate
       - name: Check out PR base for equivalent comparison
@@ -104,6 +105,8 @@ jobs:
           NARI_REVIEW_INLINE: '1'
           NARI_PREVIEW_ROOT: review-base-source/dist
         run: npx playwright test --project=chromium --grep "review evidence:" --output=review-base
+      - name: Verify Firefox behavior and accessibility on the candidate
+        run: npx playwright test --project=firefox
       - name: Attach base and candidate review evidence
         if: always()
         uses: actions/upload-artifact@v4

@@ -28,6 +28,14 @@ for (const width of [390, 1440]) {
       }
       await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
       await testInfo.attach(`${name}-${width}-production-fonts`, { body: await page.screenshot({ fullPage: true }), contentType: "image/png" });
+      if (process.env.NARI_REVIEW_SNAPSHOT === "1" && name === "nails") {
+        const normalization = await page.addStyleTag({ content: ':root { --font-display: "DejaVu Serif"; --font-body: "DejaVu Sans"; --font-detail: "DejaVu Sans Mono"; }' });
+        await page.evaluate(() => document.fonts.ready);
+        await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
+        const snapshot = await page.screenshot({ fullPage: true });
+        console.info("NARI_REVIEW_SNAPSHOT " + JSON.stringify({ name, width, data: snapshot.toString("base64") }));
+        await normalization.evaluate((node) => node.remove());
+      }
       // Optional inline previews let a reviewer inspect CI renders without a local browser or artifact extractor.
       if (process.env.NARI_REVIEW_INLINE === "1" && ((name === "nails") || (name === "resources" && width === 1440) || (name === "work" && width === 390))) {
         const preview = await page.screenshot({ fullPage: true, type: "jpeg", quality: 45 });
@@ -76,4 +84,33 @@ test("review evidence: desktop Haven requested-file gzip before and after the do
   };
   console.info("HAVEN_NETWORK_REVIEW " + JSON.stringify(report));
   await testInfo.attach("haven-requested-gzip.json", { body: JSON.stringify(report, null, 2), contentType: "application/json" });
+});
+
+test("review evidence: actual interaction styles", async ({ page }, testInfo) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.route("https://i.ytimg.com/**", (route) => route.abort());
+  const observations = [];
+  for (const [path, linkSelector, paperSelector] of [
+    ["/stories/", ".media-card--album > a", ".memory-album__pages"],
+    ["/nail-studio/", ".studio-workbench__notes .text-link", ".studio-workbench__notes"],
+    ["/work-with-nari/", ".letter-link", ".collaboration-letter"],
+  ]) {
+    await page.goto(path);
+    await settle(page);
+    const link = page.locator(linkSelector).first();
+    await link.hover();
+    const hover = await link.evaluate((node) => getComputedStyle(node.querySelector("h3") ?? node).color);
+    await link.focus();
+    await page.keyboard.press("Tab");
+    await page.keyboard.press("Shift+Tab");
+    const outline = await link.evaluate((node) => {
+      const style = getComputedStyle(node);
+      return { color: style.outlineColor, width: style.outlineWidth, style: style.outlineStyle, token: style.getPropertyValue("--focus"), focused: node.matches(":focus-visible") };
+    });
+    const background = await page.locator(paperSelector).evaluate((node) => getComputedStyle(node).backgroundColor);
+    observations.push({ path, hover, outline, background });
+    await testInfo.attach(path.split("/")[1] + "-focused-paper", { body: await page.locator(paperSelector).screenshot(), contentType: "image/png" });
+  }
+  console.info("NARI_INTERACTION_REVIEW " + JSON.stringify({ build: process.env.NARI_REVIEW_LABEL, observations }));
 });

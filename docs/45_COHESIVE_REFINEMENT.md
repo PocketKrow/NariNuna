@@ -16,6 +16,7 @@ The local execution tool returned **“No usable execution environment is availa
 | Duplicate clips promoted as a different archive | Streams names the same-clips album; Story Time explicitly describes its shared selection. The charter discovery makes the same distinction. No story or anecdote is invented. |
 | Empty resource shelf suggested as an existing guide | Nail Studio's link says the shelf is still curating; its discovery is a bookmark for that shelf, not a guide. Stable resource fragments remain. |
 | Haven downloads graphics while visitors read the arrival | `lifecycle.ts` observes atmosphere canvases with 300px proximity before probing shaders or importing Three. One import promise serves eligible canvases per generation. Observers disconnect on preference/layout changes and page exit; stale async work cannot mount. Existing renderer visibility, pause/resume, disposal and BFCache handling remain. Without observation support, artwork stays static. |
+| Nail Studio repeats the same painting before the real-work hold | Keep the arrival painting once; place the honest real-photo hold at the start of the workbench alongside concise practice/curating notes. Retain all artwork assets and attribution access in the arrival. |
 | Stale style comments / duplicate adjacent rule | Correct retired face-safe/Vue-page ownership comments and merge the adjacent header-link declarations. No global layer reordering or broad cascade rewrite. |
 
 The door and floorboard retain `client:load`: prompt keyboard operation, fragment entry, focus and failure fallbacks take priority over speculative hydration savings. Media recovery also remains immediate. Shared motion remains deferred after load/idle; only eligible, nearby artwork requests the graphics graph.
@@ -37,7 +38,7 @@ Requested-file gzip is computed from files the browser requested, excluding imag
 
 | Handoff area | Reason and executable next step |
 | --- | --- |
-| Nail workbench/gallery recomposition | Existing source shows repeated workspace/practice content, but no local rendered inspection is available. Inspect the paired production-font screenshots before changing proportions or removing artwork. Keep the honest real-photo hold. |
+| Nail workbench/gallery review | The retained baseline screenshot confirms duplicate workspace imagery and a late gallery hold. Remove the duplicate illustration, move the honest hold beside/before concise practice notes, and retain original art. Inspect the new CI render before accepting updated Nail Studio snapshots. |
 | Meet Nari / Resources / Work density and wide/tablet composition | Inspect the same-runner page comparisons and the existing tablet/short-screen checks; make specific layout adjustments only from rendered evidence. This pass does not claim a completed aesthetic redesign. |
 | Typography | Retain the existing display fallback stack and optional locally installed Inter/system body stack. No new font payload or unverified license is introduced. Real-stack CI screenshots expose Linux rendering; macOS/Windows variation and native enlarged-text review remain pending. |
 | Broad SCSS ownership consolidation | Active layers overlap. Continue one owner at a time with rendered comparisons; do not append another polish layer or reorder the cascade blind. |
