@@ -13,6 +13,7 @@ async function settle(page: Page): Promise<void> {
 }
 for (const width of [390, 1440]) {
   test(`review evidence: production typography at ${width}px`, async ({ page }, testInfo) => {
+    test.setTimeout(120_000);
     await page.setViewportSize({ width, height: 900 });
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.route("https://i.ytimg.com/**", (route) => route.abort());
@@ -28,14 +29,6 @@ for (const width of [390, 1440]) {
       }
       await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
       await testInfo.attach(`${name}-${width}-production-fonts`, { body: await page.screenshot({ fullPage: true }), contentType: "image/png" });
-      if (process.env.NARI_REVIEW_SNAPSHOT === "1" && name === "nails") {
-        const normalization = await page.addStyleTag({ content: ':root { --font-display: "DejaVu Serif"; --font-body: "DejaVu Sans"; --font-detail: "DejaVu Sans Mono"; }' });
-        await page.evaluate(() => document.fonts.ready);
-        await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
-        const snapshot = await page.screenshot({ fullPage: true });
-        console.info("NARI_REVIEW_SNAPSHOT " + JSON.stringify({ name, width, data: snapshot.toString("base64") }));
-        await normalization.evaluate((node) => node.remove());
-      }
       // Optional inline previews let a reviewer inspect CI renders without a local browser or artifact extractor.
       if (process.env.NARI_REVIEW_INLINE === "1" && ((name === "nails") || (name === "resources" && width === 1440) || (name === "work" && width === 390))) {
         const preview = await page.screenshot({ fullPage: true, type: "jpeg", quality: 45 });

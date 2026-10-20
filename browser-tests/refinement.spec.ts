@@ -4,16 +4,27 @@ import { expect, test, type Locator, type Page } from "@playwright/test";
 async function contrast(foreground: Locator, background: Locator, property = "color"): Promise<number> {
   const color = await foreground.evaluate((node, key) => getComputedStyle(node).getPropertyValue(key), property);
   const paper = await background.evaluate((node) => getComputedStyle(node).backgroundColor);
-  const luminance = (value: string) => {
-    const channels = value.match(/[\d.]+/g)?.slice(0, 3).map(Number);
-    if (!channels || channels.length !== 3) throw new Error(`Unexpected computed color: ${value}`);
-    return channels.map((channel) => {
-      const component = channel / 255;
-      return component <= 0.04045 ? component / 12.92 : ((component + 0.055) / 1.055) ** 2.4;
-    }).reduce((sum, component, index) => sum + component * [0.2126, 0.7152, 0.0722][index], 0);
-  };
-  const first = luminance(color);
-  const second = luminance(paper);
+  // Let the browser resolve CSS Color 4 values (including normalized color(srgb ...)).
+  const [foregroundChannels, backgroundChannels] = await foreground.evaluate((node, values) => {
+    const canvas = node.ownerDocument.createElement("canvas");
+    canvas.width = canvas.height = 1;
+    const context = canvas.getContext("2d");
+    if (!context) throw new Error("Color measurement requires a 2D canvas");
+    return values.map((value) => {
+      context.clearRect(0, 0, 1, 1);
+      context.fillStyle = value;
+      context.fillRect(0, 0, 1, 1);
+      return [...context.getImageData(0, 0, 1, 1).data];
+    });
+  }, [color, paper]);
+  expect(foregroundChannels[3], "Interaction color must be opaque").toBe(255);
+  expect(backgroundChannels[3], "Measure against an opaque paper surface").toBe(255);
+  const luminance = (channels: number[]) => channels.slice(0, 3).map((channel) => {
+    const component = channel / 255;
+    return component <= 0.04045 ? component / 12.92 : ((component + 0.055) / 1.055) ** 2.4;
+  }).reduce((sum, component, index) => sum + component * [0.2126, 0.7152, 0.0722][index], 0);
+  const first = luminance(foregroundChannels);
+  const second = luminance(backgroundChannels);
   return (Math.max(first, second) + 0.05) / (Math.min(first, second) + 0.05);
 }
 async function focusContrast(link: Locator, paper: Locator): Promise<number> {
@@ -155,4 +166,21 @@ test("Haven remains usable when its deferred graphics import fails", async ({ pa
   await expect(page.getByRole("link", { name: /Enter Nari's Haven on Discord/ })).toBeFocused();
   await expect(page.locator("[data-atmosphere]")).toHaveAttribute("data-atmosphere-state", "static");
   expect(errors).toEqual([]);
+});
+
+test("missing proximity observation keeps decorative graphics static", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator, "hardwareConcurrency", { value: 8 });
+    Reflect.deleteProperty(window, "IntersectionObserver");
+  });
+  const graphics: string[] = [];
+  page.on("request", (request) => { if (/\/assets\/atmosphere\./.test(request.url())) graphics.push(request.url()); });
+  await page.goto("/haven/#haven-door");
+  await settle(page);
+  await page.waitForTimeout(2200);
+  expect(graphics).toEqual([]);
+  await expect(page.locator("[data-atmosphere]")).toHaveAttribute("data-atmosphere-state", "static");
+  await expect(page.getByRole("button", { name: "Give the first knock", exact: true }).last()).toBeEnabled();
 });

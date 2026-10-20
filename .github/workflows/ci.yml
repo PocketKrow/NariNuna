@@ -88,7 +88,6 @@ jobs:
       - name: Capture candidate production typography and network
         env:
           NARI_REVIEW_LABEL: candidate
-          NARI_REVIEW_SNAPSHOT: '1'
           NARI_REVIEW_INLINE: '1'
         run: npx playwright test --project=chromium --grep "review evidence:" --output=review-candidate
       - name: Check out PR base for equivalent comparison
