@@ -88,6 +88,7 @@ jobs:
       - name: Capture candidate production typography and network
         env:
           NARI_REVIEW_LABEL: candidate
+          NARI_REVIEW_INLINE: '1'
         run: npx playwright test --project=chromium --grep "review evidence:" --output=review-candidate
       - name: Check out PR base for equivalent comparison
         uses: actions/checkout@v4
@@ -100,6 +101,7 @@ jobs:
       - name: Capture base production typography and network
         env:
           NARI_REVIEW_LABEL: base
+          NARI_REVIEW_INLINE: '1'
           NARI_PREVIEW_ROOT: review-base-source/dist
         run: npx playwright test --project=chromium --grep "review evidence:" --output=review-base
       - name: Attach base and candidate review evidence

@@ -27,7 +27,8 @@ describe("Astro document contracts", () => {
     const home = readFileSync("dist/index.html", "utf8");
     const secret = readFileSync("dist/the-prinny-cult/index.html", "utf8");
     expect(home).toContain("Your favorite chaotic big sister.");
-    expect(home).toContain("Find the common room");
+    // The browser journey regression verifies the primary action without freezing editorial wording.
+    expect(home).toContain('href="/haven/"');
     expect(home).not.toContain('id="app"');
     expect(secret).toContain("A suspicious little dood.");
     expect(secret).not.toMatch(/astro-island|site-header|room-passage/);

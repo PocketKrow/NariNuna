@@ -28,6 +28,11 @@ for (const width of [390, 1440]) {
       }
       await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
       await testInfo.attach(`${name}-${width}-production-fonts`, { body: await page.screenshot({ fullPage: true }), contentType: "image/png" });
+      // Optional inline previews let a reviewer inspect CI renders without a local browser or artifact extractor.
+      if (process.env.NARI_REVIEW_INLINE === "1" && ((name === "nails") || (name === "resources" && width === 1440) || (name === "work" && width === 390))) {
+        const preview = await page.screenshot({ fullPage: true, type: "jpeg", quality: 45 });
+        console.info("NARI_REVIEW_IMAGE " + JSON.stringify({ name, width, build: process.env.NARI_REVIEW_LABEL, data: preview.toString("base64") }));
+      }
     }
   });
 }
