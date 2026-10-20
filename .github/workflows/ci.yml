@@ -1,4 +1,4 @@
-# Read-only PR/main gate on Node 22. Locked installation precedes all lint/type/test/build/HTTP checks; audit reporting remains separate.
+# Read-only PR/main gate on Node 22. Locked installation precedes all lint/type/test/build/HTTP checks; dependency audits fail on moderate-or-higher advisories.
 name: Quality gate
 
 on:
@@ -23,6 +23,10 @@ jobs:
           cache: npm
       - name: Install locked dependencies
         run: npm ci
+      - name: Audit full dependency tree
+        run: npm audit --audit-level=moderate
+      - name: Audit production dependency tree
+        run: npm audit --omit=dev --audit-level=moderate
       - name: Run repository quality gate
         run: npm run check
       - name: Install Chromium for interaction checks
@@ -47,3 +51,19 @@ jobs:
           name: browser-failure-evidence
           path: test-results/
           if-no-files-found: ignore
+
+  production-metadata:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      # Reserved test origin exercises generated metadata; this artifact is never deployed.
+      NARI_DEPLOY_CONTEXT: production
+      NARI_SITE_ORIGIN: https://example.invalid
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build

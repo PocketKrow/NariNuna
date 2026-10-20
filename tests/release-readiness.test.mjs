@@ -76,3 +76,19 @@ describe("production release readiness", () => {
     expect(result.blockers).toEqual([]);
   });
 });
+
+it("does not mistake stale HTML for successful build validation", async () => {
+  const { mkdtempSync, mkdirSync, writeFileSync, rmSync } = await import("node:fs");
+  const { tmpdir } = await import("node:os");
+  const { runBuildValidation } = await import("../scripts/verify-release.mjs");
+  const root = mkdtempSync(`${tmpdir()}/nari-release-test-`);
+  try {
+    mkdirSync(`${root}/dist`);
+    writeFileSync(`${root}/dist/index.html`, "stale artifact");
+    const fixture = (code) => JSON.stringify({ scripts: { build: `node -e "process.exit(${code})"` } });
+    writeFileSync(`${root}/package.json`, fixture(1));
+    expect(runBuildValidation(root)).toBe(false);
+    writeFileSync(`${root}/package.json`, fixture(0));
+    expect(runBuildValidation(root)).toBe(true);
+  } finally { rmSync(root, { recursive: true, force: true }); }
+});

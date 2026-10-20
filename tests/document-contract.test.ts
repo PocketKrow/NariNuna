@@ -1,6 +1,7 @@
 // Inspect real Astro sources and built documents; a route must exist independently of JavaScript.
 import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
+import { siteConfiguration, pageMetadata } from "../scripts/site-metadata.mjs";
 import projectPages from "@/data/projectPages.json";
 import { primaryNavigation, footerNavigation } from "@/data/navigation";
 
@@ -18,7 +19,7 @@ describe("Astro document contracts", () => {
       expect(html.match(/<main\b/g)).toHaveLength(1);
       expect(html).toContain('data-theme="nari"');
       expect(html).toContain(`data-route="${page.routeName}"`);
-      if (page.socialImage) expect(html).toContain(`property="og:image" content="${page.socialImage}"`);
+      if (page.socialImage) expect(html).toContain(`property="og:image" content="${pageMetadata(page, siteConfiguration()).image}"`);
       else expect(html).toContain('content="noindex, nofollow"');
     }
   });

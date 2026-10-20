@@ -9,10 +9,10 @@
   "scripts": {
     "dev": "astro dev --host 0.0.0.0",
     "build": "npm run typecheck && npm run validate:credits && astro build && node scripts/secure-build.mjs && node scripts/validate-build.mjs && node scripts/validate-performance.mjs",
-    "preview": "astro preview",
+    "preview": "astro preview --ignore-lock",
     "verify:preview": "node scripts/verify-preview.mjs",
-    "verify:release": "npm run build && node scripts/verify-release.mjs",
-    "start": "npm run preview",
+    "verify:release": "node scripts/verify-release.mjs",
+    "start": "astro preview --ignore-lock",
     "test": "vitest run --config vitest.config.ts",
     "typecheck": "astro check && vue-tsc --noEmit",
     "check": "npm run lint && npm run build && npm run test && npm run verify:preview",
@@ -32,7 +32,7 @@
     "astro": "7.3.5",
     "gsap": "^3.15.0",
     "three": "^0.186.1",
-    "vue": "^3.5.41"
+    "vue": "^3.5.44"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",

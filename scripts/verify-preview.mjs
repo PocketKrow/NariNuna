@@ -1,48 +1,17 @@
-// Verify HTTP retrieval and metadata, not pixels or final host headers. Own a local preview unless NARI_PREVIEW_URL is supplied; always stop the owned child.
+// Verify HTTP retrieval and metadata, not pixels or final host headers. Own an ephemeral static preview unless NARI_PREVIEW_URL is supplied; always close the owned listener.
+import { siteConfiguration, pageMetadata } from "./site-metadata.mjs";
 import projectPages from "../src/data/projectPages.json" with { type: "json" };
 import { existsSync } from "node:fs";
 import assert from "node:assert/strict";
-import { spawn } from "node:child_process";
+import { startBrowserPreview } from "./browser-preview.mjs";
 import { readdir, readFile } from "node:fs/promises";
-import { setTimeout as delay } from "node:timers/promises";
 
-const origin = process.env.NARI_PREVIEW_URL ?? "http://127.0.0.1:4173";
-const managesPreview = !process.env.NARI_PREVIEW_URL;
-let preview;
-
-if (managesPreview) {
-  preview = spawn(process.execPath, ["node_modules/astro/bin/astro.mjs", "preview", "--host", "127.0.0.1", "--port", "4173", "--ignore-lock"], {
-    stdio: ["ignore", "ignore", "pipe"]
-  });
-
-  let startupError = "";
-  preview.stderr.setEncoding("utf8");
-  preview.stderr.on("data", (chunk) => {
-    startupError += chunk;
-  });
-
-  let ready = false;
-  for (let attempt = 0; attempt < 100; attempt += 1) {
-    if (preview.exitCode !== null) break;
-    try {
-      const response = await fetch(origin);
-      if (response.ok) {
-        ready = true;
-        break;
-      }
-    } catch {
-      await delay(50);
-    }
-  }
-
-  if (!ready) {
-    preview.kill("SIGTERM");
-    throw new Error(`The production preview could not start at ${origin}: ${startupError.trim()}`);
-  }
-}
+const preview = process.env.NARI_PREVIEW_URL ? undefined : await startBrowserPreview();
+const origin = process.env.NARI_PREVIEW_URL ?? preview.origin;
 
 try {
-const routes = projectPages.map(({ path, title, socialImage }) => [path, title, socialImage]);
+const site = siteConfiguration();
+const routes = projectPages.map((page) => [page.path, page.title, pageMetadata(page, site).image]);
 
 const requiredAssets = [
   "/media/nari/nari-model-fullbody.webp",
@@ -103,7 +72,5 @@ for (const filename of prinnyFiles) {
 
 console.log(`Verified ${routes.length} independently served HTML documents, ${requiredAssets.length} essential identity/environment assets, and all ${prinnyFiles.length} supplied Prinny designs.`);
 } finally {
-  if (preview && preview.exitCode === null) {
-    preview.kill("SIGTERM");
-  }
+  await preview?.close();
 }

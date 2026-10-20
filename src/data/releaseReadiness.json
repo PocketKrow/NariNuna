@@ -3,7 +3,7 @@
   "requiredCategories": ["artwork-rights", "content", "infrastructure", "accessibility-visual-qa", "security"],
   "items": [
     { "id": "final-artwork-rights-review", "category": "artwork-rights", "status": "manual-review", "summary": "Final public-use, derivative, attribution, and third-party rights review has not been completed.", "releaseBlocking": true },
-    { "id": "final-nari-content-approval", "category": "content", "status": "pending", "summary": "Nari has not approved the final public wording.", "releaseBlocking": true },
+    { "id": "final-nari-content-approval", "category": "content", "status": "pending", "summary": "Final public wording approval is not recorded; reconcile Nari’s actual approval evidence before release.", "releaseBlocking": true },
     { "id": "identity-canon-approval", "category": "content", "status": "pending", "summary": "The public identity and canon relationship still needs Nari's decision.", "releaseBlocking": true },
     { "id": "real-nail-studio-content", "category": "content", "status": "pending", "summary": "The flagship Nail Studio does not yet contain Nari's approved real work.", "releaseBlocking": true },
     { "id": "approved-resources", "category": "content", "status": "pending", "summary": "Resource recommendations are intentionally still being curated.", "releaseBlocking": false },
@@ -11,7 +11,7 @@
     { "id": "professional-contact-route", "category": "content", "status": "pending", "summary": "A dedicated public professional contact route has not been approved.", "releaseBlocking": true },
     { "id": "canonical-discord-destination", "category": "content", "status": "manual-review", "summary": "The Discord destination must be reverified immediately before release.", "releaseBlocking": true },
     { "id": "production-host", "category": "infrastructure", "status": "blocked", "summary": "The production host and account owner are not recorded.", "releaseBlocking": true },
-    { "id": "canonical-domain", "category": "infrastructure", "status": "blocked", "summary": "The canonical production domain is not approved.", "releaseBlocking": true },
+    { "id": "canonical-domain", "category": "infrastructure", "status": "blocked", "summary": "The canonical production origin is not recorded; the validated NARI_SITE_ORIGIN configuration still needs its approved value.", "releaseBlocking": true },
     { "id": "production-https", "category": "infrastructure", "status": "manual-review", "summary": "HTTPS has not been observed on the final production host.", "releaseBlocking": true },
     { "id": "unknown-path-http", "category": "infrastructure", "status": "manual-review", "summary": "Production unknown-path status and 404 mapping have not been observed.", "releaseBlocking": true },
     { "id": "production-headers", "category": "infrastructure", "status": "manual-review", "summary": "Production security headers have not been observed.", "releaseBlocking": true },
@@ -26,6 +26,6 @@
     { "id": "desktop-rendered-qa", "category": "accessibility-visual-qa", "status": "manual-review", "summary": "The final 768, 1440, 1920, and very-wide rendered review is incomplete.", "releaseBlocking": true },
     { "id": "firefox-qa", "category": "accessibility-visual-qa", "status": "manual-review", "summary": "Current desktop Firefox has not been reviewed against the final release commit.", "releaseBlocking": true },
     { "id": "chromium-qa", "category": "accessibility-visual-qa", "status": "manual-review", "summary": "A Chromium-family browser has not been reviewed against the final release commit.", "releaseBlocking": true },
-    { "id": "production-dependency-audit", "category": "security", "status": "manual-review", "summary": "A production dependency audit must be rerun and recorded for the final release commit.", "releaseBlocking": true }
+    { "id": "production-dependency-audit", "category": "security", "status": "resolved", "summary": "The candidate production dependency audit reports zero vulnerabilities; recheck if the lockfile changes before release.", "releaseBlocking": true, "evidenceRef": "evidence/2026-10-19-v1-readiness/npm-audit-production.json (engineering commit e7fecd1de094ffdb7602ed33e7f2326aa4db2a45)" }
   ]
 }
