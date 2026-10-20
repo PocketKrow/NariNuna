@@ -12,9 +12,9 @@ export interface RoomDiscoveryRecord {
 
 export const roomDiscoveries = [
   { id: "journal-letter", from: "/meet-nari/", href: "/work-with-nari/", label: "A sealed note in the journal", note: "The writing desk has a place for careful correspondence.", kind: "letter" },
-  { id: "workbench-bookmark", from: "/nail-studio/", href: "/resources/#nail-desk", label: "A dog-eared guide beside the polish", note: "The next useful shelf is already bookmarked.", kind: "bookmark" },
+  { id: "workbench-bookmark", from: "/nail-studio/", href: "/resources/#nail-desk", label: "A bookmark for the nail desk shelf", note: "The nail desk shelf is still being curated.", kind: "bookmark" },
   { id: "shelf-broadcast-stub", from: "/resources/", href: "/streams/", label: "A broadcast stub between two books", note: "The louder room is only a doorway away.", kind: "broadcast" },
-  { id: "charter-memory-scrap", from: "/haven/", href: "/stories/", label: "A little memory pinned near the charter", note: "Someone kept a quiet page for it in Story Time.", kind: "memory" }
+  { id: "charter-memory-scrap", from: "/haven/", href: "/stories/", label: "A clip saved beside the charter", note: "The same stream clips, saved in Story Time.", kind: "memory" }
 ] as const satisfies readonly RoomDiscoveryRecord[];
 
 export function roomDiscoveryById(id: string) {

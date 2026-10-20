@@ -16,6 +16,15 @@ async function contrast(foreground: Locator, background: Locator, property = "co
   const second = luminance(paper);
   return (Math.max(first, second) + 0.05) / (Math.min(first, second) + 0.05);
 }
+async function focusContrast(link: Locator, paper: Locator): Promise<number> {
+  const outline = await link.evaluate((node) => {
+    const style = getComputedStyle(node);
+    return { style: style.outlineStyle, width: parseFloat(style.outlineWidth) };
+  });
+  expect(outline.style, "A visible outline must actually be painted").not.toBe("none");
+  expect(outline.width, "Retain the shared focus outline geometry").toBeGreaterThanOrEqual(3);
+  return contrast(link, paper, "outline-color");
+}
 async function settle(page: Page): Promise<void> {
   await page.waitForFunction(() => [...document.querySelectorAll('astro-island[client="load"]')].every((island) => !island.hasAttribute("ssr")));
 }
@@ -39,7 +48,7 @@ for (const width of [390, 1440]) {
     await expect(link).toBeFocused();
     expect(await link.evaluate((node) => node.matches(":focus-visible"))).toBe(true);
     expect(await contrast(heading, paper), "Album title with keyboard focus").toBeGreaterThanOrEqual(4.5);
-    expect(await contrast(link, paper, "outline-color"), "Album focus outline on paper").toBeGreaterThanOrEqual(3);
+    expect(await focusContrast(link, paper), "Album focus outline on paper").toBeGreaterThanOrEqual(3);
   });
 }
 
@@ -57,7 +66,7 @@ for (const [path, surface, selector] of [
     await page.keyboard.press("Shift+Tab");
     await expect(link).toBeFocused();
     expect(await link.evaluate((node) => node.matches(":focus-visible"))).toBe(true);
-    expect(await contrast(link, page.locator(surface), "outline-color")).toBeGreaterThanOrEqual(3);
+    expect(await focusContrast(link, page.locator(surface))).toBeGreaterThanOrEqual(3);
     expect(await contrast(link, page.locator(surface))).toBeGreaterThanOrEqual(4.5);
   });
 }
@@ -102,4 +111,48 @@ test("Haven leaves the atmosphere unloaded until the doorway approaches", async 
   await expect(page.locator("[data-atmosphere]")).toHaveAttribute("data-atmosphere-state", "static");
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await expect(page.locator("[data-atmosphere]")).toHaveAttribute("data-atmosphere-state", "active");
+});
+
+for (const path of ["/meet-nari/", "/nail-studio/", "/work-with-nari/"]) {
+  test(`mobile paper introduction retains a dark focus outline on ${path}`, async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 900 });
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.goto(path);
+    await settle(page);
+    const link = page.locator(".room-arrival__copy .artwork-credit-link, .room-arrival__copy .button").first();
+    await link.focus();
+    await page.keyboard.press("Tab");
+    await page.keyboard.press("Shift+Tab");
+    await expect(link).toBeFocused();
+    expect(await focusContrast(link, page.locator(".room-arrival__body"))).toBeGreaterThanOrEqual(3);
+  });
+}
+
+test("Haven fragment entry can enhance without changing three knocks", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.addInitScript(() => Object.defineProperty(navigator, "hardwareConcurrency", { value: 8 }));
+  await page.goto("/haven/#haven-door");
+  await settle(page);
+  for (const label of ["Give the first knock", "Give the second knock", "Promise kindness · third knock"]) {
+    await page.getByRole("button", { name: label, exact: true }).last().click();
+  }
+  await expect(page.getByRole("link", { name: /Enter Nari's Haven on Discord/ })).toBeFocused();
+});
+
+test("Haven remains usable when its deferred graphics import fails", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.addInitScript(() => Object.defineProperty(navigator, "hardwareConcurrency", { value: 8 }));
+  await page.route(/\/assets\/atmosphere\./, (route) => route.abort());
+  const errors: string[] = [];
+  page.on("pageerror", (error) => errors.push(error.message));
+  await page.goto("/haven/#haven-door");
+  await settle(page);
+  for (const label of ["Give the first knock", "Give the second knock", "Promise kindness · third knock"]) {
+    await page.getByRole("button", { name: label, exact: true }).last().click();
+  }
+  await expect(page.getByRole("link", { name: /Enter Nari's Haven on Discord/ })).toBeFocused();
+  await expect(page.locator("[data-atmosphere]")).toHaveAttribute("data-atmosphere-state", "static");
+  expect(errors).toEqual([]);
 });

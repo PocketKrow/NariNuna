@@ -1,5 +1,9 @@
 # Current State Audit
 
+## 20 October 2026 — cohesive refinement under review
+
+Branch `kiva/haven-cohesive-refinement`, PR #36, starts from Main `cadc39162dac9f5d32d4c27b4b5dcb2f47118010`. [Document 45](45_COHESIVE_REFINEMENT.md) owns the surface-aware focus/album interactions, values-first Home journey, accurate shared-clip/resource labels, proximity-gated graphics and paired CI review evidence. The local execution environment is unavailable. Current outcomes belong to completed PR checks; no local build, manual visual approval or production readiness is inferred. Broader layout/font/cascade work and all existing owner/rights/manual release inputs remain open.
+
 ## 19 October 2026 — v1 engineering candidate
 
 Branch `kiva/nari-v1-readiness` starts from current main `23ab2b2c2ddd111d9d5c97b42a77b8422b13def2` (PR #33). This section supersedes the September “current implementation” below; the older sections remain historical evidence. Twelve static Astro documents use native links and focused Vue islands. Tour/Passport and Vue Router remain retired. Main’s illustrated composition and every source/delivery artwork byte are preserved.

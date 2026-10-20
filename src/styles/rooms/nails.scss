@@ -10,7 +10,7 @@
 .studio-workbench__notes h3 { font-size: clamp(1.6rem, 2vw, 2rem); line-height: 1.2; }
 .studio-workbench__notes p:not(.room-kicker) { color: var(--ink-muted); }
 .studio-workbench__notes .room-kicker { color: var(--ink-muted); }
-.studio-workbench__notes .text-link { color: var(--emerald-ink); }
+.studio-workbench__notes .text-link { color: var(--interaction-on-paper); }
 .studio-portfolio-hold { display: grid; grid-template-columns: 6rem minmax(0,1fr); gap: 1.5rem; align-items: center; max-width: 55rem; margin: 3rem auto 1.5rem; padding-block: 1.5rem; border-block: 1px dashed var(--story-line); }
 .studio-portfolio-hold .ghostie-art { --ghostie-size: 6rem; height: 7rem; }
 .studio-portfolio-hold h2 { font-size: 1.7rem; line-height: 1.2; }

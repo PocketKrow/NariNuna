@@ -4,7 +4,8 @@ import { readFile, stat } from "node:fs/promises";
 import { extname, resolve, sep } from "node:path";
 
 export async function startBrowserPreview() {
-  const root = resolve("dist");
+  // An explicit local build root allows equivalent base/candidate review without changing either artifact.
+  const root = resolve(process.env.NARI_PREVIEW_ROOT ?? "dist");
   const lines = (await readFile(`${root}/_headers`, "utf8")).split("\n");
   const policies = [];
   let policy;

@@ -125,6 +125,11 @@ em {
   background: var(--lavender);
 }
 
+// Paper containers opt into the same outline geometry with a surface-appropriate color.
+[data-surface="paper"] {
+  --focus: var(--focus-on-paper);
+}
+
 :focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: 4px;
