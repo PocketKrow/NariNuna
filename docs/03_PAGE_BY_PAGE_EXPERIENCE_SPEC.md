@@ -1,5 +1,7 @@
 # Page-by-Page Experience Specification
 
+> **20 October 2026 refinement:** [Document 45](45_COHESIVE_REFINEMENT.md) owns current paper interaction/focus tokens, Home → Haven introduction → charter → door, shared Streams/Story Time collection labels and truthful curating-shelf links. Routes, content approval boundaries and Main's visual foundation remain. Historical descriptions below are not fresh validation.
+
 > **2026-10-05 vNext:** [Document 43](43_VNEXT_EXPERIENCE.md) owns the current experience. The guided bottom passage and Passport are retired; prior descriptions below are historical. Astro/static content, rights and release boundaries remain. All painted arrivals now have one composition owner; CSS/GSAP and selective deferred Three.js replace Motion-V.
 
 

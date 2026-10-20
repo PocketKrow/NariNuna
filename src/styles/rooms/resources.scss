@@ -28,8 +28,8 @@
 }
 .resource-shelf {
   position: relative;
-  padding: 0 0 2rem;
-  margin-block-end: 2rem;
+  padding: 0 0 1.25rem;
+  margin-block-end: 1.25rem;
   border-bottom: 0.45rem solid color-mix(in srgb, var(--story-line) 70%, var(--bg-inset));
   scroll-margin-top: calc(var(--header-height) + 1.5rem);
 }
@@ -48,10 +48,10 @@
 }
 .resource-shelf__heading {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) 10rem;
+  grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
   gap: 1.2rem;
-  margin-block-end: 1.25rem;
+  margin-block-end: 0.75rem;
 }
 .resource-shelf__number {
   color: var(--storybook-gold);
@@ -68,30 +68,9 @@
   margin: 0;
   font-size: clamp(1.75rem, 3vw, 2.5rem);
 }
-.resource-shelf__heading img {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  object-position: 78% center;
-  border: 1px solid var(--story-line);
-  padding: 0.25rem;
-}
 .resource-shelf > p {
   max-width: 40rem;
   color: var(--text-muted);
-}
-.resource-shelf ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.5rem;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-.resource-shelf li {
-  padding-inline-start: 0.8rem;
-  border-inline-start: 2px solid var(--lavender);
-  font-size: 0.875rem;
 }
 .resource-review {
   padding-block-end: 4rem;
@@ -132,15 +111,11 @@
   .resource-library { gap: 1.35rem; }
   .resource-library__index h2 { font-size: clamp(2rem, 9vw, 2.65rem); }
   .resource-shelf__heading {
-    grid-template-columns: minmax(0, 1fr) 7rem;
+    grid-template-columns: minmax(0, 1fr);
     gap: 1rem;
   }
   .resource-shelf__number {
     display: none;
-  }
-  .resource-shelf ul {
-    display: grid;
-    gap: 0.6rem;
   }
   .resource-library__shelves { padding-inline: 0.65rem; }
   .resource-shelf { padding-bottom: 1.4rem; margin-block-end: 1.5rem; }

@@ -132,9 +132,6 @@
   font-size: 0.875rem;
   font-weight: 750;
 }
-.letter-link:focus-visible {
-  outline-color: var(--ink);
-}
 .public-directory {
   padding-top: 0;
   scroll-margin-top: calc(var(--header-height) + 1rem);

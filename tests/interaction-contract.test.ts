@@ -45,11 +45,11 @@ describe("client-feedback interaction contracts", () => {
     expect(transitionedCopy).not.toContain("haven-threshold__action");
   });
 
-  it("routes Come sit with us directly into the Haven doorway", () => {
+  it("introduces the Haven before its stable doorway fragment", () => {
     const home = sourceAt("src/pages/index.astro");
     const haven = sourceAt("src/pages/haven/index.astro");
 
-    expect(home).toContain('class="button button--ember" href="/haven/#haven-door"');
+    expect(home).toContain('class="button button--ember" href="/haven/"');
     expect(home).not.toContain('import { twitchUrl } from "@/data/socials"');
     expect(haven).toContain('id="haven-door" class="haven-entry page-width section-pad"');
   });

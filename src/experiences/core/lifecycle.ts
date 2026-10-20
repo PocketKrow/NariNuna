@@ -1,10 +1,12 @@
 import { canAnimate, canRenderAtmosphere, readCapabilities } from "./capabilities";
 import { supportsAtmosphere } from "./webgl";
 
-// Load after the document's critical images, then idle. Async results cannot survive a page exit or preference change.
+// Choreography waits for critical images and idle time. Graphics also wait for proximity;
+// no observer, import or renderer may survive a page exit or preference change.
 export function startExperience(): void {
   document.querySelectorAll<HTMLCanvasElement>("[data-atmosphere]").forEach((canvas) => { canvas.dataset.atmosphereState = "static"; });
   let disposeMotion: (() => void) | undefined;
+  let atmosphereObserver: IntersectionObserver | undefined;
   const atmosphereDisposers: (() => void)[] = [];
   let generation = 0;
   let scheduled = 0;
@@ -17,6 +19,8 @@ export function startExperience(): void {
     clearTimeout(scheduled);
     if (idle && "cancelIdleCallback" in window) window.cancelIdleCallback(idle);
     idle = 0;
+    atmosphereObserver?.disconnect();
+    atmosphereObserver = undefined;
     disposeMotion?.();
     disposeMotion = undefined;
     atmosphereDisposers.splice(0).forEach((dispose) => dispose());
@@ -33,16 +37,35 @@ export function startExperience(): void {
       // Static artwork and content are complete even if an optional chunk is unavailable.
     }
     const canvases = document.querySelectorAll<HTMLCanvasElement>("[data-atmosphere]");
-    if (!canvases.length || !canRenderAtmosphere(capabilities) || !active || version !== generation) return;
-    // Validate shader queries before downloading Three, then recheck the actual canvas in the renderer.
-    if (!supportsAtmosphere()) return;
-    try {
-      const { createAtmosphere } = await import("../home/atmosphere");
+    if (!canvases.length || !canRenderAtmosphere(readCapabilities()) || !active || version !== generation) return;
+    // Without proximity observation, retain the complete static composition.
+    if (!("IntersectionObserver" in window)) return;
+    let supported: boolean | undefined;
+    let atmosphereModule: Promise<typeof import("../home/atmosphere")> | undefined;
+    const enhance = async (canvas: HTMLCanvasElement) => {
+      if (!active || version !== generation || !canRenderAtmosphere(readCapabilities())) return;
+      try {
+        // Probe shader support only near the artwork, before downloading Three.
+        supported ??= supportsAtmosphere();
+        if (!supported) return;
+        atmosphereModule ??= import("../home/atmosphere");
+        const { createAtmosphere } = await atmosphereModule;
+        if (!active || version !== generation) return;
+        atmosphereDisposers.push(createAtmosphere(canvas));
+      } catch {
+        // Renderer creation or chunk failure preserves the static composition.
+      }
+    };
+    const observer = new IntersectionObserver((entries) => {
       if (!active || version !== generation) return;
-      for (const canvas of canvases) atmosphereDisposers.push(createAtmosphere(canvas));
-    } catch {
-      // Renderer creation or chunk failure preserves the static composition.
-    }
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        observer.unobserve(entry.target);
+        void enhance(entry.target as HTMLCanvasElement);
+      }
+    }, { rootMargin: "300px 0px" });
+    atmosphereObserver = observer;
+    canvases.forEach((canvas) => observer.observe(canvas));
   };
   const schedule = () => {
     clear();

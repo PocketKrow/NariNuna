@@ -1,5 +1,7 @@
 # Design System and Component Language
 
+> **20 October 2026 refinement:** [Document 45](45_COHESIVE_REFINEMENT.md) owns current paper interaction/focus tokens, Home → Haven introduction → charter → door, shared Streams/Story Time collection labels and truthful curating-shelf links. Routes, content approval boundaries and Main's visual foundation remain. Historical descriptions below are not fresh validation.
+
 **Status:** `IMPLEMENTED` foundation; final contrast/art review `PENDING`  
 **Owns:** Exact tokens, typography, layout, breakpoints, component semantics, visual state rules  
 **Implementation files:** `src/styles/_tokens.scss`, `_base.scss`, `_components.scss`, `_pages.scss`, `_responsive.scss`, `_mobile-first.scss`

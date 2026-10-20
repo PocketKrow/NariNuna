@@ -67,3 +67,47 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+
+  refinement-review:
+    # Compare both artifacts on the same machine; these screenshots never update accepted baselines.
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium firefox
+      - name: Install matching composition fonts
+        run: sudo apt-get install -y fonts-dejavu-core
+      - name: Build candidate for review
+        run: npm run build
+      - name: Capture candidate production typography and network
+        env:
+          NARI_REVIEW_LABEL: candidate
+        run: npx playwright test --project=chromium --grep "review evidence:" --output=review-candidate
+      - name: Check out PR base for equivalent comparison
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: review-base-source
+      - name: Build PR base
+        working-directory: review-base-source
+        run: npm ci && npm run build
+      - name: Capture base production typography and network
+        env:
+          NARI_REVIEW_LABEL: base
+          NARI_PREVIEW_ROOT: review-base-source/dist
+        run: npx playwright test --project=chromium --grep "review evidence:" --output=review-base
+      - name: Verify Firefox behavior and accessibility on the candidate
+        run: npx playwright test --project=firefox
+      - name: Attach base and candidate review evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: haven-refinement-review
+          path: review-evidence/
+          if-no-files-found: ignore

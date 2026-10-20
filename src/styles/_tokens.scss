@@ -48,7 +48,11 @@
   --cream: #f9e8d6;
   --emerald: #4fc59e;
   --emerald-ink: #0b4c3d;
-  --focus: #72e2bc;
+  --focus-on-dark: #72e2bc;
+  --focus-on-paper: var(--ink);
+  --interaction-on-dark: var(--lavender);
+  --interaction-on-paper: var(--emerald-ink);
+  --focus: var(--focus-on-dark);
   --page-glow: radial-gradient(circle at 80% 10%, rgb(216 116 72 / 17%), transparent 34%), radial-gradient(circle at 10% 30%, rgb(137 83 126 / 14%), transparent 32%);
   --grain-opacity: 0.04;
 }

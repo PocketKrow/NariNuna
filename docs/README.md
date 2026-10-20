@@ -1,5 +1,7 @@
 # Nari Nuna's Haven — Documentation Hub
 
+Current refinement PR: [45 — paper interactions, values-first discovery, accurate content journeys and selective atmosphere](45_COHESIVE_REFINEMENT.md). Branch `kiva/haven-cohesive-refinement`, PR #36, starts from Main `cadc391`. Local execution is unavailable; the document separates GitHub CI evidence from pending manual visual approval.
+
 Current owner-directed refinement: [44 — preserve Main, reduce visual competition, strengthen selected artwork](44_MAIN_REFINEMENT.md). Jake selected Main at `9ac7be3`; minimalist PRs #31/#32 are separate explorations, not implementation parents.
 
 Current implementation: [43 — vNext experience, authority, source owners, validation and rollback](43_VNEXT_EXPERIENCE.md). Older tour/Passport and hero-cascade descriptions are superseded.
@@ -10,9 +12,9 @@ Current implementation: [43 — vNext experience, authority, source owners, vali
 This directory owns the product contracts, engineering guidance, and release evidence. Start with the current audit; dated implementation logs preserve history rather than defining today's branch status.
 
 **Repository:** public `PocketKrow/NariNuna`
-**Current engineering branch:** `kiva/nari-v1-readiness`, based on main `23ab2b2c2ddd111d9d5c97b42a77b8422b13def2` (merged PR #33).
+**Current engineering branch:** `kiva/haven-cohesive-refinement`, PR #36, based on Main `cadc39162dac9f5d32d4c27b4b5dcb2f47118010`.
 **Current architecture:** Astro 7 static documents + focused Vue 3 islands, strict TypeScript, SCSS, Lucide and deferred GSAP/Three.js. Native document navigation; no client router, tour or Passport.
-**Current status:** v1 engineering candidate under review; client, rights, content, host and manual production QA gates remain open. [Current audit](17_CURRENT_STATE_AUDIT.md) owns fresh evidence; dated results below and in documents 36/42–44 are historical.
+**Current status:** cohesive refinement under review; client, rights, content, host and manual production QA gates remain open. [Current audit](17_CURRENT_STATE_AUDIT.md) owns fresh evidence; dated results below and in documents 36/42–44 are historical.
 **Delivery:** [Runbook](15_DEPLOYMENT_AND_RELEASE_RUNBOOK.md) separates development, foreground preview and production static hosting. Full and production-only dependency audits run in CI.
 
 Current maintenance: [37 — size and validation](37_SIZE_MAINTENANCE.md), [38 — code ownership](38_CODE_OWNERSHIP.md), [39 — asset disposition](39_ASSET_DISPOSITION.md), [40 — credits and copy humanization](40_CREDITS_AND_COPY_HUMANIZATION.md), [41 — Haven depth and release readiness](41_HAVEN_DEPTH_AND_RELEASE_READINESS.md).

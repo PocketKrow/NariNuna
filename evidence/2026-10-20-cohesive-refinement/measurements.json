@@ -1,0 +1,423 @@
+{
+  "measuredCodeCommit": "f5369144eff99bbbe9ae04d8a99d7e2221fc06a2",
+  "baseCommit": "cadc39162dac9f5d32d4c27b4b5dcb2f47118010",
+  "run": "https://github.com/PocketKrow/NariNuna/actions/runs/39481778577",
+  "network": [
+    {
+      "method": "Sum of gzip-compressed local JS/CSS files requested at 1440x900, 8 cores, no reduced motion, same runner; not HTTP transfer timings or Core Web Vitals.",
+      "build": "candidate",
+      "stateBeforeDoor": "static",
+      "supported": true,
+      "arrivalOnly": {
+        "gzipBytes": 111225,
+        "files": [
+          {
+            "path": "/assets/ArtworkCreditLink.CSAVUXaR.css",
+            "gzipBytes": 350
+          },
+          {
+            "path": "/assets/HavenDoor.wlCJHdGP.js",
+            "gzipBytes": 4167
+          },
+          {
+            "path": "/assets/LooseFloorboard.DGBCNttQ.js",
+            "gzipBytes": 1047
+          },
+          {
+            "path": "/assets/RoomArrival.DMhjab5_.css",
+            "gzipBytes": 1283
+          },
+          {
+            "path": "/assets/RoomArrival.astro_astro_type_script_index_0_lang.DYoojPae.js",
+            "gzipBytes": 1793
+          },
+          {
+            "path": "/assets/RoomDiscovery.D1tlp21M.css",
+            "gzipBytes": 571
+          },
+          {
+            "path": "/assets/SiteHeader.FO7Wv4vW.js",
+            "gzipBytes": 2826
+          },
+          {
+            "path": "/assets/SiteLayout.BKnVJdz1.css",
+            "gzipBytes": 11329
+          },
+          {
+            "path": "/assets/arrow-up-right.OMwPywmG.js",
+            "gzipBytes": 159
+          },
+          {
+            "path": "/assets/artwork.B4HIb1yd.js",
+            "gzipBytes": 4180
+          },
+          {
+            "path": "/assets/client.Di1Fe-34.js",
+            "gzipBytes": 618
+          },
+          {
+            "path": "/assets/createLucideIcon.Bdkkclu3.js",
+            "gzipBytes": 812
+          },
+          {
+            "path": "/assets/index.CO6AWGBd.css",
+            "gzipBytes": 5391
+          },
+          {
+            "path": "/assets/motion.Bo0HQbZh.js",
+            "gzipBytes": 44225
+          },
+          {
+            "path": "/assets/runtime-core.esm-bundler.Dpbe3m0o.js",
+            "gzipBytes": 26810
+          },
+          {
+            "path": "/assets/runtime-dom.esm-bundler.mmT_yTfS.js",
+            "gzipBytes": 4225
+          },
+          {
+            "path": "/assets/socials.CcHqoFsf.js",
+            "gzipBytes": 1160
+          },
+          {
+            "path": "/assets/sparkles.Y2oICK6-.js",
+            "gzipBytes": 279
+          }
+        ]
+      },
+      "doorwayVisit": {
+        "gzipBytes": 241852,
+        "files": [
+          {
+            "path": "/assets/ArtworkCreditLink.CSAVUXaR.css",
+            "gzipBytes": 350
+          },
+          {
+            "path": "/assets/HavenDoor.wlCJHdGP.js",
+            "gzipBytes": 4167
+          },
+          {
+            "path": "/assets/LooseFloorboard.DGBCNttQ.js",
+            "gzipBytes": 1047
+          },
+          {
+            "path": "/assets/RoomArrival.DMhjab5_.css",
+            "gzipBytes": 1283
+          },
+          {
+            "path": "/assets/RoomArrival.astro_astro_type_script_index_0_lang.DYoojPae.js",
+            "gzipBytes": 1793
+          },
+          {
+            "path": "/assets/RoomDiscovery.D1tlp21M.css",
+            "gzipBytes": 571
+          },
+          {
+            "path": "/assets/SiteHeader.FO7Wv4vW.js",
+            "gzipBytes": 2826
+          },
+          {
+            "path": "/assets/SiteLayout.BKnVJdz1.css",
+            "gzipBytes": 11329
+          },
+          {
+            "path": "/assets/arrow-up-right.OMwPywmG.js",
+            "gzipBytes": 159
+          },
+          {
+            "path": "/assets/artwork.B4HIb1yd.js",
+            "gzipBytes": 4180
+          },
+          {
+            "path": "/assets/atmosphere.DK0IngXf.js",
+            "gzipBytes": 130627
+          },
+          {
+            "path": "/assets/client.Di1Fe-34.js",
+            "gzipBytes": 618
+          },
+          {
+            "path": "/assets/createLucideIcon.Bdkkclu3.js",
+            "gzipBytes": 812
+          },
+          {
+            "path": "/assets/index.CO6AWGBd.css",
+            "gzipBytes": 5391
+          },
+          {
+            "path": "/assets/motion.Bo0HQbZh.js",
+            "gzipBytes": 44225
+          },
+          {
+            "path": "/assets/runtime-core.esm-bundler.Dpbe3m0o.js",
+            "gzipBytes": 26810
+          },
+          {
+            "path": "/assets/runtime-dom.esm-bundler.mmT_yTfS.js",
+            "gzipBytes": 4225
+          },
+          {
+            "path": "/assets/socials.CcHqoFsf.js",
+            "gzipBytes": 1160
+          },
+          {
+            "path": "/assets/sparkles.Y2oICK6-.js",
+            "gzipBytes": 279
+          }
+        ]
+      }
+    },
+    {
+      "method": "Sum of gzip-compressed local JS/CSS files requested at 1440x900, 8 cores, no reduced motion, same runner; not HTTP transfer timings or Core Web Vitals.",
+      "build": "base",
+      "stateBeforeDoor": "active",
+      "supported": true,
+      "arrivalOnly": {
+        "gzipBytes": 241656,
+        "files": [
+          {
+            "path": "/assets/ArtworkCreditLink.CSAVUXaR.css",
+            "gzipBytes": 350
+          },
+          {
+            "path": "/assets/HavenDoor.wlCJHdGP.js",
+            "gzipBytes": 4167
+          },
+          {
+            "path": "/assets/LooseFloorboard.DGBCNttQ.js",
+            "gzipBytes": 1047
+          },
+          {
+            "path": "/assets/RoomArrival.DOlRO8O0.css",
+            "gzipBytes": 1270
+          },
+          {
+            "path": "/assets/RoomArrival.astro_astro_type_script_index_0_lang.DMT7ZDQV.js",
+            "gzipBytes": 1664
+          },
+          {
+            "path": "/assets/RoomDiscovery.D1tlp21M.css",
+            "gzipBytes": 571
+          },
+          {
+            "path": "/assets/SiteHeader.FO7Wv4vW.js",
+            "gzipBytes": 2826
+          },
+          {
+            "path": "/assets/SiteLayout.oH82PfFY.css",
+            "gzipBytes": 11274
+          },
+          {
+            "path": "/assets/arrow-up-right.OMwPywmG.js",
+            "gzipBytes": 159
+          },
+          {
+            "path": "/assets/artwork.B4HIb1yd.js",
+            "gzipBytes": 4180
+          },
+          {
+            "path": "/assets/atmosphere.GT4b4-Og.js",
+            "gzipBytes": 130628
+          },
+          {
+            "path": "/assets/client.Di1Fe-34.js",
+            "gzipBytes": 618
+          },
+          {
+            "path": "/assets/createLucideIcon.Bdkkclu3.js",
+            "gzipBytes": 812
+          },
+          {
+            "path": "/assets/index.CO6AWGBd.css",
+            "gzipBytes": 5391
+          },
+          {
+            "path": "/assets/motion.Bo0HQbZh.js",
+            "gzipBytes": 44225
+          },
+          {
+            "path": "/assets/runtime-core.esm-bundler.Dpbe3m0o.js",
+            "gzipBytes": 26810
+          },
+          {
+            "path": "/assets/runtime-dom.esm-bundler.mmT_yTfS.js",
+            "gzipBytes": 4225
+          },
+          {
+            "path": "/assets/socials.CcHqoFsf.js",
+            "gzipBytes": 1160
+          },
+          {
+            "path": "/assets/sparkles.Y2oICK6-.js",
+            "gzipBytes": 279
+          }
+        ]
+      },
+      "doorwayVisit": {
+        "gzipBytes": 241656,
+        "files": [
+          {
+            "path": "/assets/ArtworkCreditLink.CSAVUXaR.css",
+            "gzipBytes": 350
+          },
+          {
+            "path": "/assets/HavenDoor.wlCJHdGP.js",
+            "gzipBytes": 4167
+          },
+          {
+            "path": "/assets/LooseFloorboard.DGBCNttQ.js",
+            "gzipBytes": 1047
+          },
+          {
+            "path": "/assets/RoomArrival.DOlRO8O0.css",
+            "gzipBytes": 1270
+          },
+          {
+            "path": "/assets/RoomArrival.astro_astro_type_script_index_0_lang.DMT7ZDQV.js",
+            "gzipBytes": 1664
+          },
+          {
+            "path": "/assets/RoomDiscovery.D1tlp21M.css",
+            "gzipBytes": 571
+          },
+          {
+            "path": "/assets/SiteHeader.FO7Wv4vW.js",
+            "gzipBytes": 2826
+          },
+          {
+            "path": "/assets/SiteLayout.oH82PfFY.css",
+            "gzipBytes": 11274
+          },
+          {
+            "path": "/assets/arrow-up-right.OMwPywmG.js",
+            "gzipBytes": 159
+          },
+          {
+            "path": "/assets/artwork.B4HIb1yd.js",
+            "gzipBytes": 4180
+          },
+          {
+            "path": "/assets/atmosphere.GT4b4-Og.js",
+            "gzipBytes": 130628
+          },
+          {
+            "path": "/assets/client.Di1Fe-34.js",
+            "gzipBytes": 618
+          },
+          {
+            "path": "/assets/createLucideIcon.Bdkkclu3.js",
+            "gzipBytes": 812
+          },
+          {
+            "path": "/assets/index.CO6AWGBd.css",
+            "gzipBytes": 5391
+          },
+          {
+            "path": "/assets/motion.Bo0HQbZh.js",
+            "gzipBytes": 44225
+          },
+          {
+            "path": "/assets/runtime-core.esm-bundler.Dpbe3m0o.js",
+            "gzipBytes": 26810
+          },
+          {
+            "path": "/assets/runtime-dom.esm-bundler.mmT_yTfS.js",
+            "gzipBytes": 4225
+          },
+          {
+            "path": "/assets/socials.CcHqoFsf.js",
+            "gzipBytes": 1160
+          },
+          {
+            "path": "/assets/sparkles.Y2oICK6-.js",
+            "gzipBytes": 279
+          }
+        ]
+      }
+    }
+  ],
+  "interactions": [
+    {
+      "build": "candidate",
+      "observations": [
+        {
+          "path": "/stories/",
+          "hover": "rgb(11, 76, 61)",
+          "outline": {
+            "color": "rgb(44, 24, 33)",
+            "width": "3px",
+            "style": "solid",
+            "token": "#2c1821",
+            "focused": true
+          },
+          "background": "rgb(244, 230, 213)"
+        },
+        {
+          "path": "/nail-studio/",
+          "hover": "rgb(11, 76, 61)",
+          "outline": {
+            "color": "rgb(44, 24, 33)",
+            "width": "3px",
+            "style": "solid",
+            "token": "#2c1821",
+            "focused": true
+          },
+          "background": "rgb(244, 230, 213)"
+        },
+        {
+          "path": "/work-with-nari/",
+          "hover": "rgb(44, 24, 33)",
+          "outline": {
+            "color": "rgb(44, 24, 33)",
+            "width": "3px",
+            "style": "solid",
+            "token": "#2c1821",
+            "focused": true
+          },
+          "background": "rgb(244, 230, 213)"
+        }
+      ]
+    },
+    {
+      "build": "base",
+      "observations": [
+        {
+          "path": "/stories/",
+          "hover": "rgb(198, 166, 212)",
+          "outline": {
+            "color": "rgb(114, 226, 188)",
+            "width": "3px",
+            "style": "solid",
+            "token": "#72e2bc",
+            "focused": true
+          },
+          "background": "rgb(244, 230, 213)"
+        },
+        {
+          "path": "/nail-studio/",
+          "hover": "rgb(11, 76, 61)",
+          "outline": {
+            "color": "rgb(114, 226, 188)",
+            "width": "3px",
+            "style": "solid",
+            "token": "#72e2bc",
+            "focused": true
+          },
+          "background": "rgb(244, 230, 213)"
+        },
+        {
+          "path": "/work-with-nari/",
+          "hover": "rgb(44, 24, 33)",
+          "outline": {
+            "color": "rgb(44, 24, 33)",
+            "width": "3px",
+            "style": "solid",
+            "token": "#72e2bc",
+            "focused": true
+          },
+          "background": "rgb(244, 230, 213)"
+        }
+      ]
+    }
+  ]
+}

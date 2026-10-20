@@ -1,9 +1,5 @@
-// Global route-signature materials and pacing. Preserve scoped room interiors and later focal-position/mobile overrides.
-/*
- * Shared Home composition and Haven entry continuity. Interior page compositions
- * now live in styles/rooms/ with their own Vue pages. Face-safe hero
- * placement remains in _face-safe.scss, loaded after this file.
- */
+// Shared chapter materials, fragment offsets and Haven entry continuity.
+// Astro pages load styles/rooms/ for interiors; objects/arrival.scss owns painted introductions.
 
 /* Home: one deliberate desktop viewport with a clean, uninterrupted arrival. */
 

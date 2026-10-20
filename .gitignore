@@ -41,3 +41,9 @@ __pycache__/
 
 /test-results/
 /playwright-report/
+
+# Paired local/CI review evidence is attached to the PR, never committed.
+review-evidence/
+review-base/
+review-candidate/
+review-base-source/

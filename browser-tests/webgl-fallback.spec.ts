@@ -52,6 +52,8 @@ for (const fault of ["unavailable", "creation throws", "probe precision", "canva
     await page.route("https://i.ytimg.com/**", (route) => route.abort());
     for (const path of ["/", "/haven/"]) {
       await page.goto(path);
+      // Graphics faults are injected only when the deferred Haven doorway is approached.
+      if (path === "/haven/") await page.locator("#haven-door").scrollIntoViewIfNeeded();
       await expect(page.locator("html")).toHaveAttribute("data-webgl-fault", fault);
       await expect(page.locator("[data-atmosphere]")).toHaveAttribute("data-atmosphere-state", "static");
       await expect(page.locator("[data-atmosphere-control]")).toBeHidden();

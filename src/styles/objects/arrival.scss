@@ -61,6 +61,7 @@
   .room-arrival--meet .room-arrival__body,
   .room-arrival--nails .room-arrival__body,
   .room-arrival--work .room-arrival__body {
+    --focus: var(--focus-on-paper);
     background: var(--storybook-paper); color: var(--ink);
     border-top-color: var(--plum);
   }

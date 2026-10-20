@@ -1,5 +1,7 @@
 # Content Inventory
 
+> **20 October 2026 refinement:** [Document 45](45_COHESIVE_REFINEMENT.md) owns current paper interaction/focus tokens, Home → Haven introduction → charter → door, shared Streams/Story Time collection labels and truthful curating-shelf links. Routes, content approval boundaries and Main's visual foundation remain. Historical descriptions below are not fresh validation.
+
 > 2026-09-07 implementation delta: [integrated visual refinement](34_DISTINCTIVE_UI_REFINEMENT.md) records current layouts, style ownership, content disclosures, and observed QA. Earlier implementation descriptions below are historical where superseded; product and release requirements remain in force.
 
 **Status:** Current implementation mapped; production content partially blocked  

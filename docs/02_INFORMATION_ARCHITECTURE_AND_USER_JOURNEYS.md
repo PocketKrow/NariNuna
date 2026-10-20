@@ -1,5 +1,7 @@
 # Information Architecture and User Journeys
 
+> **20 October 2026 refinement:** [Document 45](45_COHESIVE_REFINEMENT.md) owns current paper interaction/focus tokens, Home → Haven introduction → charter → door, shared Streams/Story Time collection labels and truthful curating-shelf links. Routes, content approval boundaries and Main's visual foundation remain. Historical descriptions below are not fresh validation.
+
 **Status:** `LOCKED` route model; content depth still evolving  
 **Owns:** Navigation, route responsibility, audience journeys, CTA priority, metadata and empty-state policy  
 **Implementation files:** `src/data/navigation.ts`, `src/router/index.ts`, HTML entry documents, `SiteHeader.vue`, `SiteFooter.vue`  
