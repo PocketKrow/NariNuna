@@ -1,5 +1,6 @@
 # Static-host rules, not CSS: the opening wildcard is a URL pattern. Inline style bindings require the current style-src policy.
 /*
+  Cache-Control: public, max-age=0, must-revalidate
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()

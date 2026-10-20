@@ -1,5 +1,7 @@
 // Keep production approval separate from the development gate. Automated facts are derived; only human decisions live in readiness data.
-import { existsSync, readFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
+import { spawnSync } from "node:child_process";
+import { siteConfiguration } from "./site-metadata.mjs";
 import { fileURLToPath } from "node:url";
 import { resolve } from "node:path";
 import { validateCreditRegistry } from "./validate-credits.mjs";
@@ -68,6 +70,12 @@ export function validateReleaseReadiness(readiness, registry, automatic = {}) {
   return { errors, blockers, notices, passes };
 }
 
+// A fresh successful pipeline is evidence; a stale dist directory is not.
+export function runBuildValidation(cwd = process.cwd()) {
+  const build = spawnSync("npm", ["run", "build"], { cwd, stdio: "inherit", shell: process.platform === "win32" });
+  return build.status === 0 && !build.error;
+}
+
 function printReport(result) {
   console.log("\nNari Nuna — Production Release Readiness\n");
   console.log("PASS");
@@ -94,7 +102,8 @@ if (isCli) {
   const registryPath = resolve(process.argv[3] ?? "src/data/artCredits.json");
   const readiness = JSON.parse(readFileSync(readinessPath, "utf8"));
   const registry = JSON.parse(readFileSync(registryPath, "utf8"));
-  const expectedDocuments = JSON.parse(readFileSync(resolve("src/data/projectPages.json"), "utf8"));
-  const buildIntegrity = expectedDocuments.every(({ document }) => existsSync(resolve("dist", document)));
-  if (!printReport(validateReleaseReadiness(readiness, registry, { buildIntegrity }))) process.exitCode = 1;
+  const buildIntegrity = runBuildValidation();
+  const result = validateReleaseReadiness(readiness, registry, { buildIntegrity });
+  if (!siteConfiguration().production) result.blockers.push({ id: "production-metadata", summary: "Release requires NARI_DEPLOY_CONTEXT=production and the approved NARI_SITE_ORIGIN; this artifact is a noindex preview." });
+  if (!printReport(result)) process.exitCode = 1;
 }

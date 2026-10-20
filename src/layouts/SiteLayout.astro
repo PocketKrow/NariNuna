@@ -3,6 +3,7 @@
 import SiteHeader from "@/components/layout/SiteHeader.vue";
 import SiteFooter from "@/components/layout/SiteFooter.astro";
 import { primaryNavigation, footerNavigation } from "@/data/navigation";
+import { siteConfiguration, pageMetadata } from "../../scripts/site-metadata.mjs";
 import pages from "@/data/projectPages.json";
 import { environmentArtwork } from "@/data/artwork";
 import { heroSources } from "@/data/artworkDelivery";
@@ -13,6 +14,7 @@ interface Props {
 }
 const page = pages.find(({ id }) => id === Astro.props.pageId);
 if (!page) throw new Error(`Unregistered Haven page: ${Astro.props.pageId}`);
+const metadata = pageMetadata(page, siteConfiguration());
 const secret = page.id === "prinnyCult";
 const preloadSources = page.hero ? heroSources(environmentArtwork[page.hero as keyof typeof environmentArtwork]) : [];
 const noScriptLinks = [...primaryNavigation, ...footerNavigation];
@@ -26,17 +28,20 @@ const noScriptLinks = [...primaryNavigation, ...footerNavigation];
     <meta name="theme-color" content="#2a1820" />
     <meta name="description" content={page.description} />
     <title>{page.title}</title>
-    {page.socialImage ? (
+    {metadata.noindex && <meta name="robots" content="noindex, nofollow" />}
+    {metadata.canonical && <Fragment>
+      <link rel="canonical" href={metadata.canonical} />
+      <meta property="og:url" content={metadata.canonical} />
+    </Fragment>}
+    {page.socialImage && (
       <Fragment>
         <meta property="og:type" content="website" />
         <meta property="og:title" content={page.title} />
         <meta property="og:description" content={page.socialDescription} />
-        <meta property="og:image" content={page.socialImage} />
+        <meta property="og:image" content={metadata.image} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content={page.socialImage} />
+        <meta name="twitter:image" content={metadata.image} />
       </Fragment>
-    ) : (
-      <meta name="robots" content="noindex, nofollow" />
     )}
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />

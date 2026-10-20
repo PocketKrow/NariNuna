@@ -1,5 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
+import { discordUrl } from "../src/data/socials";
 import pages from "../src/data/projectPages.json" with { type: "json" };
 
 async function settle(page: Page): Promise<void> {
@@ -142,5 +143,47 @@ for (const viewport of [{ width: 390, height: 568 }, { width: 768, height: 900 }
       expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), `${path} at ${viewport.width}px`).toBe(false);
       await expect(page.locator("h1")).toBeVisible();
     }
+  });
+}
+
+// The invitation is a native disclosure until the required door island has actually mounted.
+for (const failure of ["disabled-js", "blocked-door-module"] as const) {
+  test(`community invitation survives ${failure}`, async ({ browser }) => {
+    const context = await browser.newContext({ javaScriptEnabled: failure !== "disabled-js", viewport: { width: 320, height: 568 } });
+    const page = await context.newPage();
+    if (failure === "blocked-door-module") await page.route(/\/assets\/HavenDoor\./, (route) => route.abort());
+    await page.goto("http://127.0.0.1:4175/haven/");
+    const disclosure = page.locator(".haven-invitation-fallback");
+    await expect(disclosure).toBeVisible();
+    await disclosure.locator("summary").focus();
+    await page.keyboard.press("Enter");
+    const invite = disclosure.getByRole("link", { name: /Join Nari's Haven on Discord/ });
+    await expect(invite).toBeVisible();
+    await expect(invite).toHaveAttribute("href", discordUrl);
+    expect(await page.locator(".haven-charter").evaluate((charter) => Boolean(charter.compareDocumentPosition(document.querySelector(".haven-invitation-fallback")!) & Node.DOCUMENT_POSITION_FOLLOWING))).toBe(true);
+    await expect(page.getByRole("button", { name: "Give the first knock", exact: true }).last()).toBeDisabled();
+    await context.close();
+  });
+}
+
+for (const control of ["painted-door", "story-action"] as const) {
+  test(`three keyboard knocks and focus/reset via ${control}`, async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.route("**/*.webp", (route) => route.abort());
+    await page.goto("/haven/"); await settle(page);
+    await expect(page.locator(".haven-invitation-fallback")).toHaveCount(0);
+    const invitation = page.getByRole("link", { name: /Enter Nari's Haven on Discord/ });
+    for (const label of ["Give the first knock", "Give the second knock", "Promise kindness · third knock"]) {
+      await expect(invitation).toHaveCount(0);
+      const buttons = page.getByRole("button", { name: label, exact: true });
+      await (control === "painted-door" ? buttons.first() : buttons.last()).focus();
+      await page.keyboard.press("Enter");
+    }
+    await expect(invitation).toBeFocused();
+    await expect(invitation).toHaveAttribute("href", discordUrl);
+    await page.getByRole("button", { name: "Close the door behind me" }).focus();
+    await page.keyboard.press("Enter");
+    await expect(invitation).toHaveCount(0);
+    await expect(page.getByRole("button", { name: "Give the first knock", exact: true }).last()).toBeFocused();
   });
 }

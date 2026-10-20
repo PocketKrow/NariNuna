@@ -3,13 +3,16 @@
 import GhostieArt from "@/components/art/GhostieArt.vue";
 import ResponsiveArtwork from "@/components/art/ResponsiveArtwork.vue";
 import { ArrowUpRight, HeartHandshake, ShieldCheck } from "@lucide/vue";
-import { computed, nextTick, ref } from "vue";
+import { computed, nextTick, onMounted, ref } from "vue";
 import { useHavenDoor } from "@/composables/useHavenDoor";
 
 import { environmentArtwork } from "@/data/artwork";
 import { discordUrl } from "@/data/socials";
 
 const { knocksRequired, step, threshold, loadInterior, prepareInterior, isOpen, knock, closeDoor } = useHavenDoor();
+// The server-rendered disclosure survives disabled JavaScript or a failed island import.
+const enhanced = ref(false);
+onMounted(() => { enhanced.value = true; });
 const storyAction = ref<HTMLButtonElement | null>(null);
 const discordAction = ref<HTMLAnchorElement | null>(null);
 
@@ -54,9 +57,9 @@ const sceneNote = computed(() => {
   return stages[step.value - 1].sceneNote;
 });
 
-/** Only the focused final story action transfers focus after Vue mounts the invite. */
-async function knockFromStory(): Promise<void> {
-  const shouldTransferFocus = document.activeElement === storyAction.value && step.value === knocksRequired - 1;
+/** Either focused knock control transfers focus before its final action disappears or disables. */
+async function knockFromStory(event: MouseEvent): Promise<void> {
+  const shouldTransferFocus = (document.activeElement === storyAction.value || document.activeElement === event.currentTarget) && step.value === knocksRequired - 1;
   knock();
   if (shouldTransferFocus) {
     await nextTick();
@@ -121,8 +124,8 @@ async function closeFromStory(): Promise<void> {
           class="haven-threshold__door"
           type="button"
           :aria-label="isOpen ? 'The Haven doorway is open' : currentStage.action"
-          :disabled="isOpen"
-          @click="knock"
+          :disabled="!enhanced || isOpen"
+          @click="knockFromStory"
         >
           <span class="haven-threshold__door-grain" aria-hidden="true"></span>
           <span class="haven-threshold__door-panel" aria-hidden="true"></span>
@@ -193,7 +196,7 @@ async function closeFromStory(): Promise<void> {
       </Transition>
 
       <div class="haven-threshold__action-region">
-        <button v-if="!isOpen" ref="storyAction" class="button button--ember haven-threshold__action" type="button" @click="knockFromStory">
+        <button v-if="!isOpen" ref="storyAction" class="button button--ember haven-threshold__action" type="button" :disabled="!enhanced" @click="knockFromStory">
           <ShieldCheck v-if="step === 2" :size="18" aria-hidden="true" />
           <HeartHandshake v-else :size="18" aria-hidden="true" />
           {{ currentStage.action }}
@@ -215,9 +218,21 @@ async function closeFromStory(): Promise<void> {
       </div>
     </div>
   </section>
+  <details v-if="!enhanced" class="haven-invitation-fallback">
+    <summary>Read the values? Open the community invitation</summary>
+    <p>The Haven door also opens this way. Kindness and respect still come with you.</p>
+    <a class="button button--emerald" :href="discordUrl" target="_blank" rel="noopener noreferrer">
+      Join Nari's Haven on Discord<span class="sr-only"> (opens in a new tab)</span>
+    </a>
+  </details>
 </template>
 
 <style scoped>
+/* Native disclosure remains operable before hydration; only a successful mount removes it. */
+.haven-invitation-fallback { margin-block: 2rem; }
+.haven-invitation-fallback summary { cursor: pointer; min-height: 2.75rem; padding-block: 0.75rem; }
+.haven-invitation-fallback p { max-width: 50ch; }
+
 /* Door-owned layering: room behind rotating door, decorations around the arch, narrative alongside it. Deep selectors are not needed for the single-img artwork root. */
 .haven-threshold {
   display: grid;

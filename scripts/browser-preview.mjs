@@ -6,13 +6,24 @@ import { extname, resolve, sep } from "node:path";
 export async function startBrowserPreview() {
   const root = resolve("dist");
   const lines = (await readFile(`${root}/_headers`, "utf8")).split("\n");
-  const headers = {};
-  for (const line of lines.slice(lines.indexOf("/*") + 1)) {
-    if (!line.trim()) break;
-    const colon = line.indexOf(":");
-    headers[line.slice(0, colon).trim()] = line.slice(colon + 1).trim();
+  const policies = [];
+  let policy;
+  for (const line of lines) {
+    if (!line.trim() || line.trimStart().startsWith("#")) continue;
+    if (!line.startsWith(" ")) {
+      policy = { pattern: line.trim(), headers: {} };
+      policies.push(policy);
+    } else if (policy) {
+      const colon = line.indexOf(":");
+      policy.headers[line.slice(0, colon).trim()] = line.slice(colon + 1).trim();
+    }
   }
+  const responseHeaders = (pathname) => Object.assign({}, ...policies
+    .filter(({ pattern }) => pattern.endsWith("*") ? pathname.startsWith(pattern.slice(0, -1)) : pathname === pattern)
+    .map(({ headers }) => headers));
   const types = {
+    ".xml": "application/xml",
+    ".txt": "text/plain",
     ".html": "text/html",
     ".js": "text/javascript",
     ".css": "text/css",
@@ -35,15 +46,22 @@ export async function startBrowserPreview() {
         return;
       }
       try {
-        if ((await stat(path)).isDirectory()) path += "/index.html";
+        if ((await stat(path)).isDirectory()) {
+          if (!pathname.endsWith("/")) {
+            response.writeHead(301, { ...responseHeaders(pathname), Location: `${pathname}/${new URL(request.url, "http://localhost").search}` });
+            response.end();
+            return;
+          }
+          path += "/index.html";
+        }
         await stat(path);
       } catch {
         path = `${root}/404.html`;
         status = 404;
       }
       const content = await readFile(path);
-      response.writeHead(status, { ...headers, "Content-Type": types[extname(path)] ?? "application/octet-stream" });
-      response.end(content);
+      response.writeHead(status, { ...responseHeaders(pathname), "Content-Type": types[extname(path)] ?? "application/octet-stream" });
+      response.end(request.method === "HEAD" ? undefined : content);
     } catch {
       response.writeHead(500);
       response.end("Preview could not read this build artifact.");
