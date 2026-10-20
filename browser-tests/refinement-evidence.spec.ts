@@ -1,9 +1,15 @@
-import { readFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { gzipSync } from "node:zlib";
 import { expect, test, type Page } from "@playwright/test";
 
 test.skip(!process.env.NARI_REVIEW_LABEL, "Run explicitly for paired base/candidate review.");
+
+function saveEvidence(name: string, content: Buffer | string): void {
+  const directory = resolve("review-evidence", process.env.NARI_REVIEW_LABEL ?? "candidate");
+  mkdirSync(directory, { recursive: true });
+  writeFileSync(resolve(directory, name), content);
+}
 
 // These are review artifacts, not automatically accepted visual baselines.
 // Use the real font stack and the same runner for both base and candidate builds.
@@ -28,12 +34,9 @@ for (const width of [390, 1440]) {
         await image.evaluate((element: HTMLImageElement) => element.decode().catch(() => undefined));
       }
       await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
-      await testInfo.attach(`${name}-${width}-production-fonts`, { body: await page.screenshot({ fullPage: true }), contentType: "image/png" });
-      // Optional inline previews let a reviewer inspect CI renders without a local browser or artifact extractor.
-      if (process.env.NARI_REVIEW_INLINE === "1" && ((name === "nails") || (name === "resources" && width === 1440) || (name === "work" && width === 390))) {
-        const preview = await page.screenshot({ fullPage: true, type: "jpeg", quality: 45 });
-        console.info("NARI_REVIEW_IMAGE " + JSON.stringify({ name, width, build: process.env.NARI_REVIEW_LABEL, data: preview.toString("base64") }));
-      }
+      const screenshot = await page.screenshot({ fullPage: true });
+      saveEvidence(`${name}-${width}-production-fonts.png`, screenshot);
+      await testInfo.attach(`${name}-${width}-production-fonts`, { body: screenshot, contentType: "image/png" });
     }
   });
 }
@@ -75,6 +78,7 @@ test("review evidence: desktop Haven requested-file gzip before and after the do
     arrivalOnly: { gzipBytes: arrivalOnly.reduce((sum, file) => sum + file.gzipBytes, 0), files: arrivalOnly },
     doorwayVisit: { gzipBytes: doorwayVisit.reduce((sum, file) => sum + file.gzipBytes, 0), files: doorwayVisit },
   };
+  saveEvidence("haven-requested-gzip.json", JSON.stringify(report, null, 2));
   console.info("HAVEN_NETWORK_REVIEW " + JSON.stringify(report));
   await testInfo.attach("haven-requested-gzip.json", { body: JSON.stringify(report, null, 2), contentType: "application/json" });
 });
@@ -103,7 +107,12 @@ test("review evidence: actual interaction styles", async ({ page }, testInfo) =>
     });
     const background = await page.locator(paperSelector).evaluate((node) => getComputedStyle(node).backgroundColor);
     observations.push({ path, hover, outline, background });
-    await testInfo.attach(path.split("/")[1] + "-focused-paper", { body: await page.locator(paperSelector).screenshot(), contentType: "image/png" });
+    const screenshot = await page.locator(paperSelector).screenshot();
+    const name = path.split("/")[1] + "-focused-paper";
+    saveEvidence(`${name}.png`, screenshot);
+    await testInfo.attach(name, { body: screenshot, contentType: "image/png" });
   }
-  console.info("NARI_INTERACTION_REVIEW " + JSON.stringify({ build: process.env.NARI_REVIEW_LABEL, observations }));
+  const report = { build: process.env.NARI_REVIEW_LABEL, observations };
+  saveEvidence("interaction-styles.json", JSON.stringify(report, null, 2));
+  console.info("NARI_INTERACTION_REVIEW " + JSON.stringify(report));
 });

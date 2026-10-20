@@ -2,7 +2,7 @@
 
 ## 20 October 2026 — cohesive refinement under review
 
-Branch `kiva/haven-cohesive-refinement`, PR #36, starts from Main `cadc39162dac9f5d32d4c27b4b5dcb2f47118010`. [Document 45](45_COHESIVE_REFINEMENT.md) owns the surface-aware focus/album interactions, values-first Home journey, accurate shared-clip/resource labels, proximity-gated graphics and paired CI review evidence. The local execution environment is unavailable. Current outcomes belong to completed PR checks; no local build, manual visual approval or production readiness is inferred. Broader layout/font/cascade work and all existing owner/rights/manual release inputs remain open.
+Branch `kiva/haven-cohesive-refinement`, PR #36, starts from Main `cadc39162dac9f5d32d4c27b4b5dcb2f47118010`. [Document 45](45_COHESIVE_REFINEMENT.md) owns the surface-aware focus/album interactions, values-first Home journey, accurate shared-clip/resource labels, proximity-gated graphics and paired CI review evidence. The local execution environment is unavailable. The documented CI checkpoint passed all 106 repository tests, twelve-route Chromium smoke, production-origin build and Firefox; the final PR checks own the exact current result. Paired computed styles confirm corrected album/paper contrast; arrival-only Haven requested-file gzip fell 53.97%. Nail Studio and Resources were recomposed after rendered inspection. No local build, client visual approval or production readiness is inferred. Broader layout/font/cascade work and all existing owner/rights/manual release inputs remain open.
 
 ## 19 October 2026 — v1 engineering candidate
 
