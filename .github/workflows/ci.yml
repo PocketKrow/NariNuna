@@ -1,4 +1,4 @@
-# Read-only PR/main gate on Node 22. Locked installation precedes all lint/type/test/build/HTTP checks; audit reporting remains separate.
+# Read-only PR/main gate on Node 22. Locked installation precedes all lint/type/test/build/HTTP checks; dependency audits fail on moderate-or-higher advisories.
 name: Quality gate
 
 on:
@@ -23,6 +23,10 @@ jobs:
           cache: npm
       - name: Install locked dependencies
         run: npm ci
+      - name: Audit full dependency tree
+        run: npm audit --audit-level=moderate
+      - name: Audit production dependency tree
+        run: npm audit --omit=dev --audit-level=moderate
       - name: Run repository quality gate
         run: npm run check
       - name: Install Chromium for interaction checks
