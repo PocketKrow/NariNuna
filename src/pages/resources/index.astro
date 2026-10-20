@@ -5,7 +5,7 @@ import RoomArrival from "@/components/astro/RoomArrival.astro";
 // Render three stable shelf fragments with curating copy. Category positions below must remain Nail desk, Creator shelf, Game pile.
 import ResponsiveArtwork from "@/components/art/ResponsiveArtwork.vue";
 import RoomDiscovery from "@/components/ui/RoomDiscovery.vue";
-import { BookMarked, HeartHandshake } from "@lucide/vue";
+import { BookMarked } from "@lucide/vue";
 import { environmentArtwork, storybookPostcards } from "@/data/artwork";
 import { resourceCategories } from "@/data/content";
 
@@ -18,7 +18,7 @@ const resourceShelves = [
 
 <SiteLayout pageId="resources">
   <!-- Shelf fragments are public link contracts used by Nail Studio and Work; descriptive examples are not product endorsements. -->
-  <RoomArrival room="resources" artwork={environmentArtwork.resources} description="A painted autumn library of books, creative tools, and helpful little Ghosties." note="USEFUL THINGS, CHOSEN WITH CARE">
+  <RoomArrival room="resources" artwork={environmentArtwork.resources} description="A painted autumn library of books, creative tools, and helpful little Ghosties.">
 
       <p class="eyebrow">
         <BookMarked size={16} aria-hidden="true" /> the very helpful shelf
@@ -32,11 +32,6 @@ const resourceShelves = [
         The shelves are sparse on purpose. Nothing gets a label until Nari has actually used it and wants to explain why
         it belongs here.
       </p>
-      <div class="room-opening__signals">
-        <span>
-          <HeartHandshake size={15} aria-hidden="true" /> People before products
-        </span>
-      </div>
 
   </RoomArrival>
   <!-- Keep the three shelves even while recommendations are being curated. -->
@@ -48,7 +43,7 @@ const resourceShelves = [
         <br />
         <em>A little more making.</em>
       </h2>
-      <p class="room-caption">Nari is still choosing. Empty space beats a recommendation she cannot stand behind.</p>
+      <p class="room-caption">Empty space beats a recommendation she cannot stand behind.</p>
     </header>
     <div class="resource-library__shelves">
       {resourceShelves.map((shelf, index) => (

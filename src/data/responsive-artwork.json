@@ -69,6 +69,40 @@
         }
       ]
     },
+    "/media/storybook/scenes/haven-sunset-v2.webp": {
+      "sourceFile": "src/assets/source/delivery/media/storybook/scenes/haven-sunset-v2.webp",
+      "role": "scene",
+      "sourceSha256": "9f1e84aaddbbbcaec288014e37ccc586ac4d2bbfc4d95243ab9aabafd7d81c4a",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "candidates": [
+        {
+          "src": "/media/responsive/scene-haven-sunset-v2-768.f6a7b47112674695.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 92660,
+          "sha256": "f6a7b4711267469571bb759e9e6a33c20a37f59d9ed4a330975157d31b33df3f",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/scene-haven-sunset-v2-1280.f45631ffac9af68e.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 142794,
+          "sha256": "f45631ffac9af68e07c218f6bd4c10d508e07d1f51e6c5d586ef0baf21235dcb",
+          "quality": 76
+        },
+        {
+          "src": "/media/responsive/scene-haven-sunset-v2-1672.af112bdfa371ac84.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 146700,
+          "sha256": "af112bdfa371ac846936bf5bf3008a0d0cf2d92c7eea8c07e283cde73221348a",
+          "quality": 52
+        }
+      ]
+    },
     "/media/storybook/scenes/haven-sunset.webp": {
       "sourceFile": "src/assets/source/delivery/media/storybook/scenes/haven-sunset.webp",
       "role": "scene",
@@ -134,6 +168,40 @@
           "bytes": 145342,
           "sha256": "613f0aee145d1c47b13b6d9fd031077f8dde75aecdd6727134bfe90e4c81e0e6",
           "quality": 52
+        }
+      ]
+    },
+    "/media/storybook/scenes/nails-atelier-v2.webp": {
+      "sourceFile": "src/assets/source/delivery/media/storybook/scenes/nails-atelier-v2.webp",
+      "role": "scene",
+      "sourceSha256": "4d1fc99430401a06efa9e016a3697ae2f634e21886657bb1f0d68baecb29deac",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "candidates": [
+        {
+          "src": "/media/responsive/scene-nails-atelier-v2-768.35f84ef91846b3bc.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 83700,
+          "sha256": "35f84ef91846b3bc4d27fe94fa326ed5cee6759e406553585727195826c9c2a0",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/scene-nails-atelier-v2-1280.2eb164dd35f47643.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 145640,
+          "sha256": "2eb164dd35f476432cdfb0f631dee4b512fe4b941b2247b590e1ec3d0e9716ed",
+          "quality": 80
+        },
+        {
+          "src": "/media/responsive/scene-nails-atelier-v2-1672.816645cd48f67fc7.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 145884,
+          "sha256": "816645cd48f67fc783596c98402b374065fe168816973b7669708607db11afad",
+          "quality": 62
         }
       ]
     },
@@ -239,6 +307,40 @@
         }
       ]
     },
+    "/media/storybook/scenes/streams-atelier-v2.webp": {
+      "sourceFile": "src/assets/source/delivery/media/storybook/scenes/streams-atelier-v2.webp",
+      "role": "scene",
+      "sourceSha256": "9a296e08082f9f714b6eb5a1310ed82f382e6ba8b1950e2a5e431bb6fd76fe75",
+      "width": 1672,
+      "height": 940,
+      "alpha": false,
+      "candidates": [
+        {
+          "src": "/media/responsive/scene-streams-atelier-v2-768.f06ebe97111c8c76.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 80740,
+          "sha256": "f06ebe97111c8c768768cd6695123968b4909daca073ba1b383fb0e353adeb46",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/scene-streams-atelier-v2-1280.0e20106f8be2e662.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 139588,
+          "sha256": "0e20106f8be2e6626facb371846eb76badd720f8b85f80fc6edc9939dd5c0731",
+          "quality": 80
+        },
+        {
+          "src": "/media/responsive/scene-streams-atelier-v2-1672.16ba56904e84a2e7.webp",
+          "width": 1672,
+          "height": 940,
+          "bytes": 146368,
+          "sha256": "16ba56904e84a2e72f0c500e480c98df5f08746e05eb21f74fd3c14f5a8e0bdc",
+          "quality": 68
+        }
+      ]
+    },
     "/media/storybook/scenes/streams-atelier.webp": {
       "sourceFile": "src/assets/source/delivery/media/storybook/scenes/streams-atelier.webp",
       "role": "scene",
@@ -269,6 +371,40 @@
           "height": 941,
           "bytes": 144810,
           "sha256": "c97cd21f53ff29ddb4e7cfaf584aeb59cf75a85ffc49276cd6a306801584db77",
+          "quality": 58
+        }
+      ]
+    },
+    "/media/storybook/scenes/work-correspondence-v2.webp": {
+      "sourceFile": "src/assets/source/delivery/media/storybook/scenes/work-correspondence-v2.webp",
+      "role": "scene",
+      "sourceSha256": "beb51d57367f859c608c0b783ec500dadf60dce1d6cc2576e910f7d77d5e568e",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "candidates": [
+        {
+          "src": "/media/responsive/scene-work-correspondence-v2-768.002c0da82431f39a.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 84220,
+          "sha256": "002c0da82431f39ad8729a06b3a00dc0e9905fc4524ec62230fb7125c582e271",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/scene-work-correspondence-v2-1280.413882f701b53f3b.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 139986,
+          "sha256": "413882f701b53f3b1b292a1793e75ef55d78216d35c50d45f03ea241f9157150",
+          "quality": 78
+        },
+        {
+          "src": "/media/responsive/scene-work-correspondence-v2-1672.45a8de0d7841b77e.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 145532,
+          "sha256": "45a8de0d7841b77e0a21338629e9aa05c5ec81d0ae31f2b79cbf09c6c9bccb83",
           "quality": 58
         }
       ]
@@ -346,6 +482,48 @@
           "bytes": 69394,
           "sha256": "e535fc0d74c2e8587c7dca8a38c4201fc545a1640f91d4397634cf05a8286d4c",
           "quality": 82
+        }
+      ]
+    },
+    "/media/storybook/postcards/haven-sunset-v2.webp": {
+      "sourceFile": "src/assets/source/delivery/media/storybook/postcards/haven-sunset-v2.webp",
+      "role": "postcard",
+      "sourceSha256": "9b4301b24d5dfc6945fbce346a0e4246d14190f102cbe167db4e788220109515",
+      "width": 959,
+      "height": 540,
+      "alpha": false,
+      "candidates": [
+        {
+          "src": "/media/responsive/postcard-haven-sunset-v2-128.875317f62ab2fe85.webp",
+          "width": 128,
+          "height": 72,
+          "bytes": 3828,
+          "sha256": "875317f62ab2fe85705fcd2ad2c0d2938f1e6e0769d90c965b49c79b9ca60afe",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/postcard-haven-sunset-v2-256.f9e4d8299705e3ad.webp",
+          "width": 256,
+          "height": 144,
+          "bytes": 13132,
+          "sha256": "f9e4d8299705e3addd3f6bb9f396af2d7b08ee4e5b0c08ad9317c8fabdf536f6",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/postcard-haven-sunset-v2-480.35236c00dae5f4c2.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 41498,
+          "sha256": "35236c00dae5f4c2b4960a9a42bdfd467df052e153f501718c5c43c9a3c1fef8",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/postcard-haven-sunset-v2-768.cc9cb0c69c4f7c19.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 64686,
+          "sha256": "cc9cb0c69c4f7c1933d7e5c14482da8bebcee4eea466e9e17b0eaebfdba62f35",
+          "quality": 76
         }
       ]
     },
@@ -430,6 +608,48 @@
           "bytes": 67806,
           "sha256": "01a79c9ebbfa7efe1970cdb5a263a96ddc8e14cb0535f672547585dd9f13fddb",
           "quality": 78
+        }
+      ]
+    },
+    "/media/storybook/postcards/nails-atelier-v2.webp": {
+      "sourceFile": "src/assets/source/delivery/media/storybook/postcards/nails-atelier-v2.webp",
+      "role": "postcard",
+      "sourceSha256": "2e37c7bfb4d8a6daa2715fcf350e1e568e2b8413dd868b3617d815f70899dc23",
+      "width": 959,
+      "height": 540,
+      "alpha": false,
+      "candidates": [
+        {
+          "src": "/media/responsive/postcard-nails-atelier-v2-128.8cde4d9458e3def3.webp",
+          "width": 128,
+          "height": 72,
+          "bytes": 4080,
+          "sha256": "8cde4d9458e3def38095e489e705afa592fee1e88da5b24c0c8d3bd9194cd738",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/postcard-nails-atelier-v2-256.28716b56de4dfff7.webp",
+          "width": 256,
+          "height": 144,
+          "bytes": 13434,
+          "sha256": "28716b56de4dfff792b0d82cd4e13be86d1f555ee101f804df00ba22a33e3d16",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/postcard-nails-atelier-v2-480.fd21e0a0641d3404.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 39308,
+          "sha256": "fd21e0a0641d3404df003da1d4b96e89daae5fd2c1e5ca3ada293d578e511713",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/postcard-nails-atelier-v2-768.277856c3a2b98e45.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 69116,
+          "sha256": "277856c3a2b98e455fddc550d2be2b982e44b07a7bfb772160e7372f8a17fb58",
+          "quality": 80
         }
       ]
     },
@@ -559,6 +779,48 @@
         }
       ]
     },
+    "/media/storybook/postcards/streams-atelier-v2.webp": {
+      "sourceFile": "src/assets/source/delivery/media/storybook/postcards/streams-atelier-v2.webp",
+      "role": "postcard",
+      "sourceSha256": "3aef6a1e27893868a0868d70ac0a59e34e3940246b613f2385ff3e6c1744c8c5",
+      "width": 960,
+      "height": 540,
+      "alpha": false,
+      "candidates": [
+        {
+          "src": "/media/responsive/postcard-streams-atelier-v2-128.799d6ab6c2a5a3cb.webp",
+          "width": 128,
+          "height": 72,
+          "bytes": 3868,
+          "sha256": "799d6ab6c2a5a3cb795d71ee74fc4d116c09c05f159d19518cd1fcf842e6cdfc",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/postcard-streams-atelier-v2-256.d36121a05bd2afc4.webp",
+          "width": 256,
+          "height": 144,
+          "bytes": 12924,
+          "sha256": "d36121a05bd2afc43143a4a4b4971aa30e81817d4d3bbb30ffeb0a686c563f7d",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/postcard-streams-atelier-v2-480.c005c0af438e3c2e.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 38204,
+          "sha256": "c005c0af438e3c2e2d9855b80704116a9ea7aacaf9db6024a822168a8a2c04fa",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/postcard-streams-atelier-v2-768.cc657ef8297359cc.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 67188,
+          "sha256": "cc657ef8297359cc8b56c953663703f8bf79e59a5cc5d74eaa0377800ea3e344",
+          "quality": 80
+        }
+      ]
+    },
     "/media/storybook/postcards/streams-atelier.webp": {
       "sourceFile": "src/assets/source/delivery/media/storybook/postcards/streams-atelier.webp",
       "role": "postcard",
@@ -597,6 +859,48 @@
           "height": 432,
           "bytes": 64714,
           "sha256": "440c8b0ce7cb8ca829e7762e046e8ff8d0aa8a4cee4b04e6cb578aa414059da1",
+          "quality": 80
+        }
+      ]
+    },
+    "/media/storybook/postcards/work-correspondence-v2.webp": {
+      "sourceFile": "src/assets/source/delivery/media/storybook/postcards/work-correspondence-v2.webp",
+      "role": "postcard",
+      "sourceSha256": "dff14aa24962f060ef906f2205cd82d58de9da79e83dcb0660f8b7320e1db48b",
+      "width": 959,
+      "height": 540,
+      "alpha": false,
+      "candidates": [
+        {
+          "src": "/media/responsive/postcard-work-correspondence-v2-128.d0cd7cf5e6bb51c7.webp",
+          "width": 128,
+          "height": 72,
+          "bytes": 3800,
+          "sha256": "d0cd7cf5e6bb51c72d770a439d15f2e7c009b627959fb9f1325f6ada343db53f",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/postcard-work-correspondence-v2-256.9d1fc1e8a78250e1.webp",
+          "width": 256,
+          "height": 144,
+          "bytes": 12690,
+          "sha256": "9d1fc1e8a78250e140ee3d441944f047b9ebbd6712603b9acdc29b96d5bfc6a8",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/postcard-work-correspondence-v2-480.66952730d2ac1741.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 38080,
+          "sha256": "66952730d2ac17415dfb463d1e334d3b148488d34d90fd28e94542c335138c93",
+          "quality": 84
+        },
+        {
+          "src": "/media/responsive/postcard-work-correspondence-v2-768.2c7e4eb5e918f612.webp",
+          "width": 768,
+          "height": 432,
+          "bytes": 69644,
+          "sha256": "2c7e4eb5e918f612defac07f934389e78ed6b95a05238a3f59b21cf87b0501c8",
           "quality": 80
         }
       ]

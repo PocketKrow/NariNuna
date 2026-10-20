@@ -6,16 +6,14 @@ interface Props {
   room: string;
   artwork: string;
   description: string;
-  note: string;
   atmosphere?: boolean;
 }
-const { room, artwork, description, note, atmosphere = false } = Astro.props;
+const { room, artwork, description, atmosphere = false } = Astro.props;
 ---
 <section class={`room-arrival room-arrival--${room} responsive-hero`} style={heroStyle(artwork)} data-experience>
   <div class="room-arrival__painting" role="img" aria-label={description}>
     <div class="room-arrival__light" aria-hidden="true"></div>
     {atmosphere && <canvas class="ambient-field" data-atmosphere aria-hidden="true"></canvas>}
-    <span class="room-arrival__annotation" aria-hidden="true">{note}</span>
   </div>
   <div class="room-arrival__body page-width">
     <div class="room-arrival__copy"><slot /></div>

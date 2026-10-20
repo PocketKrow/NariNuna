@@ -1,5 +1,9 @@
 # Asset Manifest and Art Pipeline
 
+## 2026-10-07 Main refinement intake
+
+Four versioned, supplied-model-anchored Home/Streams/Nails/Work paintings enter review under [ASSET-2026-022](asset-records/ASSET-2026-022-main-refinement.md). PNG masters and their hashes are retained in `src/assets/source/refinement/`; WebP delivery inputs are siblings of the existing sources. The retained-source inventory and full/runtime responsive manifests include all eight new scene/postcard keys. Existing masters and candidate bytes are unchanged. The existing storybook credit family tracks the new scenes with unchanged unresolved rights/adoption states. No new image is cleared for the Credits archive or public production use.
+
 **Status:** Owner-supplied authentic-artwork private review `IMPLEMENTED`; public-production artwork permissions `BLOCKED`
 **Audit baseline:** 2026-08-13 at `b65e1c5a6da5a35f4f4f5969465c13f32f277912`  
 **Owns:** Asset inventory, provenance, rights, naming, source preservation, derivatives, alt/credit, replacement and retirement  

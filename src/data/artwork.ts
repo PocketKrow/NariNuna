@@ -68,28 +68,28 @@ export const officialEmotes = {
 // Alternate atmospheres and the old gathering remain retained keys with no active runtime candidates.
 // Only active keys may be passed to the delivery helpers.
 export const environmentArtwork = {
-  homeSunset: "/media/storybook/scenes/haven-sunset.webp",
+  homeSunset: "/media/storybook/scenes/haven-sunset-v2.webp",
   homeNight: "/media/storybook/scenes/haven-midnight.webp",
   homeDaylight: "/media/storybook/scenes/haven-daybreak.webp",
   meetNari: "/media/storybook/scenes/meet-nari.webp",
   commonRoom: "/media/storybook/scenes/haven-community.webp",
   havenGathering: "/media/storybook/scenes/haven-doorway-gathering.webp",
   havenDoorInterior: "/media/storybook/scenes/haven-doorway-interior.webp",
-  streams: "/media/storybook/scenes/streams-atelier.webp",
-  nails: "/media/storybook/scenes/nails-atelier.webp",
+  streams: "/media/storybook/scenes/streams-atelier-v2.webp",
+  nails: "/media/storybook/scenes/nails-atelier-v2.webp",
   resources: "/media/storybook/scenes/resources-library.webp",
-  work: "/media/storybook/scenes/work-correspondence.webp",
+  work: "/media/storybook/scenes/work-correspondence-v2.webp",
   stories: "/media/storybook/scenes/stories-lantern.webp"
 } as const;
 
 export const storybookPostcards = {
-  home: "/media/storybook/postcards/haven-sunset.webp",
+  home: "/media/storybook/postcards/haven-sunset-v2.webp",
   meetNari: "/media/storybook/postcards/meet-nari.webp",
   haven: "/media/storybook/postcards/haven-community.webp",
-  streams: "/media/storybook/postcards/streams-atelier.webp",
-  nails: "/media/storybook/postcards/nails-atelier.webp",
+  streams: "/media/storybook/postcards/streams-atelier-v2.webp",
+  nails: "/media/storybook/postcards/nails-atelier-v2.webp",
   resources: "/media/storybook/postcards/resources-library.webp",
-  work: "/media/storybook/postcards/work-correspondence.webp",
+  work: "/media/storybook/postcards/work-correspondence-v2.webp",
   stories: "/media/storybook/postcards/stories-lantern.webp"
 } as const;
 

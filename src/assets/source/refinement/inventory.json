@@ -1,0 +1,86 @@
+{
+  "haven-sunset-v2": {
+    "master": "src/assets/source/refinement/haven-sunset-v2.png",
+    "masterSha256": "8221c18015b34ff8356e0c237b16fb9a0e6b3b37b82b17f694d4cac221f171b4",
+    "masterBytes": 2684821,
+    "derivatives": [
+      {
+        "file": "src/assets/source/delivery/media/storybook/scenes/haven-sunset-v2.webp",
+        "sha256": "9f1e84aaddbbbcaec288014e37ccc586ac4d2bbfc4d95243ab9aabafd7d81c4a",
+        "width": 1672,
+        "height": 941,
+        "bytes": 455982
+      },
+      {
+        "file": "src/assets/source/delivery/media/storybook/postcards/haven-sunset-v2.webp",
+        "sha256": "9b4301b24d5dfc6945fbce346a0e4246d14190f102cbe167db4e788220109515",
+        "width": 959,
+        "height": 540,
+        "bytes": 182120
+      }
+    ]
+  },
+  "nails-atelier-v2": {
+    "master": "src/assets/source/refinement/nails-atelier-v2.png",
+    "masterSha256": "f968701a0b0fd5497244c36c0e251cd81962b9aa100013c5ca718c98fc14f115",
+    "masterBytes": 2435817,
+    "derivatives": [
+      {
+        "file": "src/assets/source/delivery/media/storybook/scenes/nails-atelier-v2.webp",
+        "sha256": "4d1fc99430401a06efa9e016a3697ae2f634e21886657bb1f0d68baecb29deac",
+        "width": 1672,
+        "height": 941,
+        "bytes": 379430
+      },
+      {
+        "file": "src/assets/source/delivery/media/storybook/postcards/nails-atelier-v2.webp",
+        "sha256": "2e37c7bfb4d8a6daa2715fcf350e1e568e2b8413dd868b3617d815f70899dc23",
+        "width": 959,
+        "height": 540,
+        "bytes": 157354
+      }
+    ]
+  },
+  "work-correspondence-v2": {
+    "master": "src/assets/source/refinement/work-correspondence-v2.png",
+    "masterSha256": "57850369b3fef2a7dad651625b4ec9d93bfaab8dd640ad238cc0f3d8ac5fe098",
+    "masterBytes": 2522398,
+    "derivatives": [
+      {
+        "file": "src/assets/source/delivery/media/storybook/scenes/work-correspondence-v2.webp",
+        "sha256": "beb51d57367f859c608c0b783ec500dadf60dce1d6cc2576e910f7d77d5e568e",
+        "width": 1672,
+        "height": 941,
+        "bytes": 415068
+      },
+      {
+        "file": "src/assets/source/delivery/media/storybook/postcards/work-correspondence-v2.webp",
+        "sha256": "dff14aa24962f060ef906f2205cd82d58de9da79e83dcb0660f8b7320e1db48b",
+        "width": 959,
+        "height": 540,
+        "bytes": 166208
+      }
+    ]
+  },
+  "streams-atelier-v2": {
+    "master": "src/assets/source/refinement/streams-atelier-v2.png",
+    "masterSha256": "aec0e20dec0c6009a7b394b1f62394911e5ed910335eef6ea7151c37c30f6c0f",
+    "masterBytes": 2364564,
+    "derivatives": [
+      {
+        "file": "src/assets/source/delivery/media/storybook/scenes/streams-atelier-v2.webp",
+        "sha256": "9a296e08082f9f714b6eb5a1310ed82f382e6ba8b1950e2a5e431bb6fd76fe75",
+        "width": 1672,
+        "height": 940,
+        "bytes": 362234
+      },
+      {
+        "file": "src/assets/source/delivery/media/storybook/postcards/streams-atelier-v2.webp",
+        "sha256": "3aef6a1e27893868a0868d70ac0a59e34e3940246b613f2385ff3e6c1744c8c5",
+        "width": 960,
+        "height": 540,
+        "bytes": 155270
+      }
+    ]
+  }
+}

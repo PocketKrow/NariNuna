@@ -441,6 +441,62 @@
       "bytes": 27998,
       "sha256": "b9f9c7b5abb32fc662c411f46f8d8352b5afd43f0c85495a87acd6b0d913f273",
       "role": "retired-placeholder-derivative"
+    },
+    {
+      "previousUrl": "/media/storybook/scenes/haven-sunset-v2.webp",
+      "sourceFile": "src/assets/source/delivery/media/storybook/scenes/haven-sunset-v2.webp",
+      "bytes": 455982,
+      "sha256": "9f1e84aaddbbbcaec288014e37ccc586ac4d2bbfc4d95243ab9aabafd7d81c4a",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/storybook/scenes/nails-atelier-v2.webp",
+      "sourceFile": "src/assets/source/delivery/media/storybook/scenes/nails-atelier-v2.webp",
+      "bytes": 379430,
+      "sha256": "4d1fc99430401a06efa9e016a3697ae2f634e21886657bb1f0d68baecb29deac",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/storybook/scenes/streams-atelier-v2.webp",
+      "sourceFile": "src/assets/source/delivery/media/storybook/scenes/streams-atelier-v2.webp",
+      "bytes": 362234,
+      "sha256": "9a296e08082f9f714b6eb5a1310ed82f382e6ba8b1950e2a5e431bb6fd76fe75",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/storybook/scenes/work-correspondence-v2.webp",
+      "sourceFile": "src/assets/source/delivery/media/storybook/scenes/work-correspondence-v2.webp",
+      "bytes": 415068,
+      "sha256": "beb51d57367f859c608c0b783ec500dadf60dce1d6cc2576e910f7d77d5e568e",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/storybook/postcards/haven-sunset-v2.webp",
+      "sourceFile": "src/assets/source/delivery/media/storybook/postcards/haven-sunset-v2.webp",
+      "bytes": 182120,
+      "sha256": "9b4301b24d5dfc6945fbce346a0e4246d14190f102cbe167db4e788220109515",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/storybook/postcards/nails-atelier-v2.webp",
+      "sourceFile": "src/assets/source/delivery/media/storybook/postcards/nails-atelier-v2.webp",
+      "bytes": 157354,
+      "sha256": "2e37c7bfb4d8a6daa2715fcf350e1e568e2b8413dd868b3617d815f70899dc23",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/storybook/postcards/streams-atelier-v2.webp",
+      "sourceFile": "src/assets/source/delivery/media/storybook/postcards/streams-atelier-v2.webp",
+      "bytes": 155270,
+      "sha256": "3aef6a1e27893868a0868d70ac0a59e34e3940246b613f2385ff3e6c1744c8c5",
+      "role": "responsive-source"
+    },
+    {
+      "previousUrl": "/media/storybook/postcards/work-correspondence-v2.webp",
+      "sourceFile": "src/assets/source/delivery/media/storybook/postcards/work-correspondence-v2.webp",
+      "bytes": 166208,
+      "sha256": "dff14aa24962f060ef906f2205cd82d58de9da79e83dcb0660f8b7320e1db48b",
+      "role": "responsive-source"
     }
   ]
 }

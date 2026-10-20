@@ -3,7 +3,7 @@ import SiteLayout from "@/layouts/SiteLayout.astro";
 import RoomArrival from "@/components/astro/RoomArrival.astro";
 
 // Own the Twitch/YouTube broadcast desk. The first curated moment leads; MediaCard owns blocked-thumbnail fallback.
-import { ArrowUpRight, Gamepad2, MessageCircle, Radio, Video } from "@lucide/vue";
+import { ArrowUpRight, Radio, Video } from "@lucide/vue";
 import MediaCard from "@/components/ui/MediaCard.vue";
 import { environmentArtwork } from "@/data/artwork";
 import { featuredMoments } from "@/data/media";
@@ -16,7 +16,7 @@ const supportingMoments = featuredMoments.slice(1);
 
 <SiteLayout pageId="streams">
   <!-- Hero sources precede the fallback img and match head preloads; clips remain outbound links with no embedded player. -->
-  <RoomArrival room="streams" artwork={environmentArtwork.streams} description="Nari laughs at her autumn streaming desk beside a Ghostie wearing lavender headphones." note="SOMEWHERE AFTER MIDNIGHT">
+  <RoomArrival room="streams" artwork={environmentArtwork.streams} description="Nari laughs over a controller at her autumn streaming desk while a headphone-wearing Ghostie tugs at a cable.">
 
       <p class="eyebrow">
         <Radio size={16} aria-hidden="true" /> somewhere after midnight
@@ -41,14 +41,6 @@ const supportingMoments = featuredMoments.slice(1);
             <span class="sr-only"> (opens in a new tab)</span>
           </a>
         ) : null}
-      </div>
-      <div class="room-opening__signals">
-        <span>
-          <MessageCircle size={15} aria-hidden="true" /> Chat welcome
-        </span>
-        <span>
-          <Gamepad2 size={15} aria-hidden="true" /> Plans optional
-        </span>
       </div>
 
   </RoomArrival>
@@ -81,16 +73,7 @@ const supportingMoments = featuredMoments.slice(1);
           <span>Find current stream times on Twitch and Nari's socials.</span>
         </p>
       </div>
-      <a class="text-link" href={twitchUrl} target="_blank" rel="noreferrer noopener">
-        Open Twitch <ArrowUpRight size={18} aria-hidden="true" />
-        <span class="sr-only"> (opens in a new tab)</span>
-      </a>
-      {youtube ? (
-        <a class="text-link" href={youtube.url} target="_blank" rel="noreferrer noopener">
-          More on YouTube <ArrowUpRight size={18} aria-hidden="true" />
-          <span class="sr-only"> (opens in a new tab)</span>
-        </a>
-      ) : null}
+
     </div>
     <a class="clip-desk__next text-link" href="/stories/">
       Open the quieter memory album <ArrowUpRight size={17} aria-hidden="true" />

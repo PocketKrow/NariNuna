@@ -1,20 +1,19 @@
 // The journal opens as an editorial spread. One paper surface owns the entries at every width.
 .nari-journal { display: grid; grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.4fr); align-items: start; gap: 2.5rem 4rem; }
 .nari-journal__opening { padding-top: 2rem; }
+.nari-journal__reader { --ghostie-size: 8rem; width: 8rem; height: 8rem; margin: 1rem 0 0 auto; }
 .nari-journal__opening h2 { font-size: clamp(2rem, 3vw, 3rem); line-height: 1.15; }
 .nari-journal__opening > p:last-child { color: var(--text-muted); max-width: 22rem; }
 .nari-journal__surface { position: relative; padding: 1rem clamp(1.5rem, 3vw, 3rem) 1rem clamp(2rem, 4vw, 4rem); background: var(--storybook-paper); color: var(--ink); border-left: 0.5rem solid #634253; box-shadow: 0.75rem 0.75rem 0 #1a0e1640; }
 .nari-journal__surface::before { position: absolute; inset: 0 0 auto; height: 0.4rem; background: var(--plum); content: ""; }
 .nari-journal__bookmark { position: absolute; top: -0.7rem; right: 1.5rem; padding: 0.75rem 0.6rem 1.15rem; background: #704758; color: #fff0e0; font: 0.65rem var(--font-detail); letter-spacing: 0.12em; clip-path: polygon(0 0,100% 0,100% 100%,50% 85%,0 100%); }
-.journal-entry { display: grid; grid-template-columns: minmax(0, 1fr) 6rem; gap: 0.75rem 1rem; padding-block: 2rem; }
+.journal-entry { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.75rem 1rem; padding-block: 2rem; }
 .journal-entry + .journal-entry { border-top: 1px solid var(--line-dark); }
 .journal-entry__marker { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; }
-.journal-entry__marker > span { font: italic 1.8rem var(--font-display); color: #81526a; }
 .journal-entry__marker .room-kicker { color: var(--ink-muted); margin: 0; font-size: 0.68rem; }
 .journal-entry__copy { grid-column: 1 / -1; }
 .journal-entry__copy h3 { font-size: clamp(1.6rem, 2.2vw, 2.1rem); line-height: 1.2; }
 .journal-entry__copy p { color: var(--ink-muted); margin: 0; line-height: 1.8; max-width: 37rem; }
-.journal-entry__ghostie { --ghostie-size: 6rem; grid-column: 2; grid-row: 1; height: 5rem; }
 .nari-journal > .room-discovery { grid-column: 2; }
 .nari-promise-note { display: grid; grid-template-columns: 14rem minmax(0,1fr); gap: 3rem; align-items: center; max-width: 64rem; padding-block: 1rem 4rem; }
 .nari-promise-note__guardian { --ghostie-size: 14rem; height: 14rem; }
@@ -27,13 +26,13 @@
 @media (max-width: 63.99rem) {
   .nari-journal { grid-template-columns: 1fr; gap: 1.5rem; }
   .nari-journal__opening { padding: 0; }
+  .nari-journal__reader { --ghostie-size: 5rem; width: 5rem; height: 5rem; margin-top: 0; }
   .nari-journal__opening > p:last-child { max-width: 34rem; }
   .nari-journal > .room-discovery { grid-column: 1; }
 }
 @media (max-width: 47.99rem) {
   .nari-journal__surface { padding: 1rem 1.25rem; border-left-width: 0.25rem; box-shadow: 0.35rem 0.35rem 0 #1a0e1640; }
-  .journal-entry { grid-template-columns: minmax(0,1fr) 4rem; padding-block: 1.5rem; }
-  .journal-entry__ghostie { --ghostie-size: 4rem; height: 4rem; }
+  .journal-entry { grid-template-columns: minmax(0,1fr); padding-block: 1.5rem; }
   .nari-promise-note { grid-template-columns: 1fr; gap: 1rem; padding-top: 0; }
   .nari-promise-note__guardian { --ghostie-size: 7rem; width: 7rem; height: 7rem; }
 }

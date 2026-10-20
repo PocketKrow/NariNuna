@@ -92,8 +92,8 @@
     {
       "id": "storybook-environments",
       "label": "Storybook rooms and supporting website artwork",
-      "assetRecord": "docs/asset-records/ASSET-2026-019-storybook-environments-and-ghosties.md",
-      "trackedAssets": ["/media/storybook/scenes/haven-sunset.webp", "/media/storybook/scenes/resources-library.webp"],
+      "assetRecord": "docs/asset-records/ASSET-2026-022-main-refinement.md",
+      "trackedAssets": ["/media/storybook/scenes/haven-sunset.webp", "/media/storybook/scenes/resources-library.webp", "/media/storybook/scenes/haven-sunset-v2.webp", "/media/storybook/scenes/nails-atelier-v2.webp", "/media/storybook/scenes/work-correspondence-v2.webp", "/media/storybook/scenes/streams-atelier-v2.webp"],
       "publicationStatus": "pending",
       "websiteUseStatus": "pending",
       "derivativeUseStatus": "pending",
