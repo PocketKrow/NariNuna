@@ -28,6 +28,81 @@ npm run verify:experience
 
 `NARI_BROWSER_PATH` can select an existing Chromium executable. `npm run verify:browsers` covers Chromium + Firefox after both are installed; `npm run verify:release-browsers` adds WebKit. Eight visual baselines cover Home, Meet Nari, Haven and Nails at 390/1440px. Inspect deliberate changes before running `npm run verify:visual-update`.
 
+## Deploy to Google Cloud (Compute Engine VM)
+
+This website is built as static files. On an existing Linux Compute Engine VM, use **Nginx to serve the generated `dist/` directory**. Node.js is required on the build machine only; the deployed website needs no running Node application, database or Astro adapter. The build can run on the administrator's workstation, CI or the VM.
+
+These instructions target a Compute Engine VM. GCP account access, billing, VM administration, DNS, certificates, firewall rules, monitoring, operating-system updates and deployment/rollback are the hosting operator's responsibility. No GCP credentials are required by the website source.
+
+### 1. Prepare their hosting environment
+
+The hosting operator must:
+
+- Install and manage Nginx on the VM using instructions appropriate to its operating system.
+- Reserve/assign a stable external IP when exposing the VM directly, and point the approved domain's DNS to it. If an existing load balancer fronts the VM, use that endpoint instead.
+- Configure the GCP and host firewalls for the chosen HTTP/HTTPS setup. Keep administrative access restricted.
+- Configure HTTPS for the approved domain, redirect HTTP to HTTPS, and choose the canonical host. TLS may terminate on Nginx or an existing load balancer.
+- Choose a dedicated document root and deployment user. Serve only the built artifact, never the repository root, source artwork or `node_modules/`.
+
+Google's [Compute Engine web-server guide](https://docs.cloud.google.com/compute/docs/tutorials/basic-webserver-apache) covers VM access and networking using Apache as its example; the production server recommended here is Nginx. See also [static external IP configuration](https://docs.cloud.google.com/compute/docs/ip-addresses/configure-static-external-ip-address).
+
+### 2. Build the production artifact
+
+Use Node.js 22.13+ and npm. Check out the agreed deployment revision before building. Replace the example origin below with the approved real HTTPS domain; do not deploy with the example value.
+
+```bash
+git clone https://github.com/PocketKrow/NariNuna.git
+cd NariNuna
+
+export NARI_DEPLOY_CONTEXT=production
+export NARI_SITE_ORIGIN="https://their-domain.example"
+
+npm ci --include=dev
+npm run check
+```
+
+For an existing checkout, select the agreed revision rather than cloning again. Development dependencies are needed during the build, even when the serving environment is production.
+
+`npm run check` performs linting, type checks, the complete build pipeline, artifact validators, unit tests and local HTTP verification. It generates `dist/`, including canonical/social metadata, the public sitemap and the CSP hashes required by Astro's island loaders. Do not replace it with bare `astro build`.
+
+Without explicit production context, builds deliberately remain noindex previews. Production context requires `NARI_SITE_ORIGIN`; neither the request hostname nor a temporary GCP endpoint is automatically treated as the canonical domain. The artifact assumes hosting at the domain root.
+
+### 3. Publish with Nginx
+
+Upload the **contents** of `dist/` to a versioned release directory and configure Nginx's document root to serve that directory. For example, a deployment-managed `current` symlink can select the active release. The administrator chooses paths and permissions appropriate to the VM.
+
+Required Nginx behavior:
+
+| Concern | Required configuration/result |
+| --- | --- |
+| Directory pages | Serve `index.html` within route directories, including direct requests to `/haven/` and `/meet-nari/` |
+| Canonical paths | Redirect directory URLs without the trailing slash to their slash form, preserving query strings |
+| Missing paths | Serve the branded `404.html` with HTTP **404**; do not use an SPA rewrite to `index.html` |
+| HTML and unversioned files | `Cache-Control: public, max-age=0, must-revalidate` |
+| `/assets/*` and `/media/responsive/*` | `Cache-Control: public, max-age=31536000, immutable` on successful asset responses; never overwrite bytes at an immutable URL |
+| Security | Apply the generated security headers, including the complete CSP and loader hashes |
+| Transfer | Enable gzip or Brotli where supported for eligible HTML, CSS, JavaScript and XML |
+
+**Nginx does not automatically interpret `_headers`.** Translate the policy in **generated `dist/_headers`** into the server's actual response-header configuration. Do not copy the unhashed `public/_headers` CSP: it would block island hydration. Regenerate and deploy the matching header configuration with every build. On Nginx configurations where location-level `add_header` directives replace inherited headers, repeat/include the security policy in locations that set their own cache headers. See the [Nginx header-module documentation](https://nginx.org/en/docs/http/ngx_http_headers_module.html).
+
+Keep the generated HTTPS-upgrade policy for production HTTPS. The repository's loopback HTTP test-server exception is not a production hosting setting. Check Nginx configuration with `nginx -t` before reloading it through the VM's normal service-management process.
+
+**Do not use `npm start`, `npm run preview` or `npm run dev` as the production web server.** They are development/preview tools; fixing the preview startup contract does not change the static hosting architecture. See [Astro's preview documentation](https://docs.astro.build/en/reference/cli-reference/#astro-preview).
+
+### 4. Verify, update and roll back
+
+Before public launch, complete the existing approval and release checks in the [deployment and release runbook](docs/15_DEPLOYMENT_AND_RELEASE_RUNBOOK.md). A successful build does not clear unresolved release-readiness records.
+
+After publishing, the hosting operator should:
+
+1. Direct-load the registered routes and verify the real domain's canonical URLs and `/sitemap.xml`.
+2. Confirm that a nonexistent URL returns the branded page with HTTP 404.
+3. Inspect actual response headers, HTTPS redirects, cache policies and compression. A configuration file alone does not prove that GCP/Nginx applied it.
+4. Check browser console/network output and exercise the mobile menu, three-knock invitation/reset and thumbnail fallback. Confirm no CSP or hydration failures.
+5. Record the deployed revision/artifact and retain the previous working artifact **with its matching security-header configuration**.
+
+For subsequent approved updates, build the selected revision again, validate it, and switch the artifact/header configuration together using the administrator's deployment procedure. Roll back to the previous verified pair if needed. A Node process does not need to remain running after the build.
+
 ## Architecture and source owners
 
 | Concern | Owner |
