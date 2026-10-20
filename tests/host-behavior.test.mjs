@@ -9,6 +9,8 @@ it("serves deep documents, redirects directory URLs, revalidates HTML and gives 
     const deep = await fetch(`${preview.origin}/haven/`);
     expect(deep.status).toBe(200);
     expect(deep.headers.get("cache-control")).toBe("public, max-age=0, must-revalidate");
+    expect(readFileSync("dist/_headers", "utf8")).toContain("upgrade-insecure-requests");
+    expect(deep.headers.get("content-security-policy")).not.toContain("upgrade-insecure-requests");
     const html = await deep.text();
     const asset = html.match(/(?:src|href)="(\/assets\/[^"]+)"/)[1];
     const compiled = await fetch(preview.origin + asset);

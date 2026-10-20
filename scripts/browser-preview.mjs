@@ -18,9 +18,15 @@ export async function startBrowserPreview() {
       policy.headers[line.slice(0, colon).trim()] = line.slice(colon + 1).trim();
     }
   }
-  const responseHeaders = (pathname) => Object.assign({}, ...policies
-    .filter(({ pattern }) => pattern.endsWith("*") ? pathname.startsWith(pattern.slice(0, -1)) : pathname === pattern)
-    .map(({ headers }) => headers));
+  const responseHeaders = (pathname) => {
+    const headers = Object.assign({}, ...policies
+      .filter(({ pattern }) => pattern.endsWith("*") ? pathname.startsWith(pattern.slice(0, -1)) : pathname === pattern)
+      .map(({ headers }) => headers));
+    // This listener is loopback HTTP: WebKit otherwise upgrades local files to a nonexistent TLS server.
+    // Keep hashes and every other CSP directive exact; production dist/_headers retains HTTPS enforcement.
+    headers["Content-Security-Policy"] = headers["Content-Security-Policy"]?.replace(/;?\s*upgrade-insecure-requests\b/, "");
+    return headers;
+  };
   const types = {
     ".xml": "application/xml",
     ".txt": "text/plain",
