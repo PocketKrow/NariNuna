@@ -1,5 +1,17 @@
 # Technical Architecture
 
+## Current architecture — 19 October 2026
+
+Astro 7.3.5 owns twelve prerendered documents and `SiteLayout.astro`. Vue 3.5.44 primitives render at build time; menu, door, floorboard and media recovery hydrate explicitly. Native anchors own navigation. Strict TypeScript, SCSS, Lucide, deferred GSAP and capability-gated Three.js remain. There is no Vue Router, `App.vue`, root `pages/` scaffold, Passport or guided tour. Documents 42–44 own migration, experience and Main’s accepted visual composition; older architecture sections below are historical.
+
+`projectPages.json` owns routes/metadata/preloads. `scripts/site-metadata.mjs` validates explicit production-origin/context configuration and derives canonical/social/discovery URLs. The shared layout and post-build generator consume it; `validate-build.mjs` verifies emitted metadata, sitemap and local social-image files. Previews deliberately omit canonicals and sitemap and emit noindex robots/header policy. Production requires the approved origin, never the request/preview host.
+
+`npm start` invokes Astro directly in foreground mode. `astro.config.mjs` supplies 0.0.0.0:8080 defaults only for npm’s `start` lifecycle; CLI host/port overrides take precedence without duplicate flags. Local `npm run preview` keeps Astro’s localhost:4321 defaults. `verify-preview.mjs` owns an ephemeral static HTTP listener using the generated header rules; startup regression tests separately exercise real npm/Astro processes and clean their process groups. OS interface enumeration restrictions are an explicit local test skip, not a simulated success.
+
+`npm run build` owns types, credits, Astro generation, exact inline CSP hashes, discovery generation and document/performance validation. `verify-release.mjs` runs that pipeline itself before evaluating separate approval/rights records. File existence alone can never pass its build-integrity check. `dist/` is the production artifact; Astro preview is a local QA tool. See the deployment runbook for the actual static-host contract.
+
+## Historical architecture snapshots
+
 > **2026-10-05 vNext:** [Document 43](43_VNEXT_EXPERIENCE.md) owns the current experience. The guided bottom passage and Passport are retired; prior descriptions below are historical. Astro/static content, rights and release boundaries remain. All painted arrivals now have one composition owner; CSS/GSAP and selective deferred Three.js replace Motion-V.
 
 

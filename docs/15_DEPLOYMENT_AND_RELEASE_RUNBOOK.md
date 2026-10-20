@@ -1,244 +1,81 @@
 # Deployment and Release Runbook
 
-> **2026-10-03 Astro migration:** Jake explicitly requested the rebuild in Astro. ADR-011 and [42 — Astro rebuild](42_ASTRO_REBUILD.md) own the current route, shell, dependency, validation and rollback contracts. Vite-MPA/client-router paths below are dated history. Product content, imagery, privacy and release approval boundaries still apply.
+Current contract: 19 October 2026. Repository `PocketKrow/NariNuna`, Astro static output; no Node adapter or production application server is required. Host/account/domain remain owner decisions. A hosting panel’s start field is not authority to change the architecture.
 
-**Status:** Provider/domain `BLOCKED`; provider-neutral artifact contract `DEFINED`  
-**Owns:** Build artifact, host requirements, environment configuration, verification, release, rollback, post-release checks  
-**Update trigger:** Provider, domain, routing, headers, cache, CI/CD, preview, or rollback procedure changes
+## Install, develop and preview
 
-## Release principle
+Node 22.13+ (CI: Node 22), npm and committed lockfile:
 
-The repository produces a portable static artifact. A provider may host it, but must not become an alternate source of truth. Source changes flow from `SomberKrow/NariNuna`; generated hosting mirrors do not flow back into architecture.
+```bash
+npm ci
+npm run dev
+npm run check
+npm run preview
+```
 
-No production release occurs until critical canon, rights, privacy, accessibility, host, and rollback gates in `12_QA_ACCEPTANCE_CRITERIA.md` pass.
+`dev` serves source with hot reload. `check` runs lint, full build/validators, tests and static HTTP checks. `preview` requires an existing `dist/` and defaults to localhost:4321. For issue #34’s preview contract:
 
-## Current security review before release
+```bash
+npm start
+npm start -- --host 127.0.0.1 --port 8081
+```
 
-At main `fa83954` (9 September 2026), the full gate passes but the separate dependency audit reports four affected development packages. See [document 36](36_MAIN_SECURITY_AND_KNOWN_ISSUES.md) for patch targets, exposure and raw evidence. Run both `npm audit --json` and `npm audit --omit=dev --json` against the intended release lockfile and resolve or explicitly triage findings; `npm run check` does not currently include an advisory gate. Neither a clean production-only audit nor a passing build clears host or manual security review.
+`start` defaults to 0.0.0.0:8080; caller flags override configuration defaults. It calls Astro directly rather than forwarding through another npm script. Both preview scripts use `--ignore-lock` to stay in the foreground even in agent environments; stop them with Ctrl+C. Missing output produces Astro’s build-required error, never a development fallback. Failed binds/startup must exit or report failure visibly. The host/port startup regression runs real HTTP requests; process groups are stopped in `finally` blocks.
 
-## Artifact contract
+[Astro preview](https://docs.astro.build/en/reference/cli-reference/#astro-preview) is not a production server. Do not use `npm start` as the production serving contract. A container/server configuration can be supplied when the actual host is confirmed; no paid vendor or unknown operational endpoint is selected here.
 
-From a clean checkout:
+## Environment and discovery
+
+| Variable | Contract |
+| --- | --- |
+| `NARI_DEPLOY_CONTEXT` | `preview` by default, or explicit `production` |
+| `NARI_SITE_ORIGIN` | Approved public HTTPS origin only, e.g. the eventual canonical host; no path, query, credentials, fragment or port |
+| `NARI_BROWSER_PATH` | Optional existing Chromium executable for local QA |
+| `NARI_PREVIEW_URL` | Optional externally managed URL for HTTP artifact verification; not a canonical source |
+| `NARI_PREVIEW_PORT` | Optional local browser-QA listener port; otherwise ephemeral |
+
+Set build variables in the build process environment. They are configuration, not secrets. No client/server secret is required. Production builds fail without `NARI_SITE_ORIGIN`; ordinary local work does not require it. Do not substitute a temporary deployment/localhost domain. Preview builds stay noindex even if an approved origin is available: no canonical/og:url or sitemap is emitted, robots disallows crawling and generated headers add `X-Robots-Tag`. Noindex is not access control.
+
+An explicit production build emits absolute canonical/og:url and social-image URLs, trailing-slash public URLs and a ten-route sitemap. The optional secret room and 404 remain noindex and absent from discovery. Production robots references the sitemap and discourages the secret route.
+
+## Production artifact
+
+After the origin is approved, export both production variables, then run:
 
 ```bash
 npm ci
 npm run check
+npm audit --audit-level=moderate
+npm audit --omit=dev --audit-level=moderate
+npm run verify:release-browsers
 npm run verify:release
 ```
 
-Expected artifact: `dist/` containing:
+`verify:release` also rebuilds through the full pipeline, including when invoked directly as `node scripts/verify-release.mjs`; it does not infer validator success from existing files. It remains nonzero until actual approval/rights/manual/host records are cleared. Never use bare `astro build` as the deployment pipeline: it omits CSP/discovery generation and artifact validators. Publish only validated `dist/`; do not upload source masters or replace generated `dist/_headers` with the unhashed source file.
 
-- `index.html`;
-- directory-index documents for Meet Nari, Streams, Nail Studio, Haven, Resources, Work, Support, Stories, and the hidden room;
-- `404.html`;
-- hashed compiled assets under `assets/`;
-- local media under `media/`;
-- icons, manifest, robots, and compatible static-host files.
+The chosen static host must apply `dist/_headers` or its accurate native equivalent. Many servers ignore `_headers`: copy the generated CSP value including every inline-loader hash into the server’s actual response-header configuration. Apply the general rules to all responses; override caching for the two immutable path families below. Confirm policy from real HTTP responses and browser hydration. Do not add blanket script `unsafe-inline`/`unsafe-eval` permissions.
 
-Do not deploy the Vite development server. Do not upload source masters from `src/assets/source/` as public files.
+| Resource/behavior | Required host result |
+| --- | --- |
+| `/`, ten public/optional route directories | Directory index documents at their registered paths; direct loads and refresh work |
+| Directory URL without slash | Redirect to the trailing-slash form, preserving query |
+| Unknown URL | Branded `404.html` with HTTP 404; no SPA 200 rewrite |
+| HTML, robots, manifest, unversioned media/icons | Revalidate: `public, max-age=0, must-revalidate` |
+| `/assets/*`, `/media/responsive/*` | `public, max-age=31536000, immutable`; never replace bytes under these URLs |
+| Security | Generated CSP, nosniff, referrer and permissions policy on actual responses |
+| Transport | HTTPS; canonical-host redirects; Brotli/gzip for eligible HTML/JS/CSS/XML where supported |
+| Release/rollback | Atomic artifact promotion and a known previous-good artifact |
 
-## Required host behavior
+The artifact assumes deployment at domain root. Do not patch individual paths for subdirectory hosting. HSTS and alternate-host redirects require the confirmed domain and HTTPS policy; they are not guessed here.
 
-| Requirement | Reason | Verification |
-|---|---|---|
-| HTTPS | Integrity/privacy baseline | Browser and command-line header check |
-| Directory indexes | Every route is a real document | Direct-load each trailing-slash route |
-| Branded 404 mapping | Unknown route recovery | Request a unique nonexistent path |
-| Root-relative asset support | Documents reference `/assets`, `/media` | Inspect nested route network |
-| Security headers | CSP/privacy/framing/permissions | Observe response headers, not config file |
-| Immutable hashed asset caching | Efficient stable delivery | Inspect `Cache-Control` on hashed assets |
-| HTML revalidation | Avoid stale document/chunk references | Inspect HTML cache policy |
-| Atomic deploy or equivalent | Avoid mixed old/new hashes | Provider behavior and rollout test |
-| Rollback | Safe recovery | Identify and rehearse previous-good artifact |
-| Preview protection/noindex | Avoid accidental draft indexing | Inspect preview access and robots headers/meta |
+## Verification and release evidence
 
-## Root-path assumption
+On the exact intended artifact, run all routes, links/fragments, the branded real 404, no-JS navigation, menu focus/Escape, both three-knock controls/reset, invitation with disabled JS/blocked island, floorboard/secret return, image failure and optional graphics failure. Inspect 320/390/430, tablet, desktop and very wide. Record named browsers, keyboard, reduced motion, contrast, native zoom and screen-reader evidence separately from automated scans/root-font reflow.
 
-The current build uses root-relative routes and assets and assumes deployment at the domain root, not `/subdirectory/`.
+The local browser server models emitted header/cache and directory/404 behavior for regression checks. It omits only CSP `upgrade-insecure-requests` on its loopback HTTP responses because WebKit otherwise rewrites assets to a nonexistent TLS listener; all loader hashes and other directives remain exact, and generated production headers retain HTTPS enforcement. It does not prove host header parsing, compression, HTTPS, external invite validity or production rollback. Before promotion, inspect actual host responses, nested assets, console/CSP, cache/compression and unknown status, and rehearse rollback. Reverify the existing Discord invite and external destinations immediately before launch. No messages to Nari/Panda are part of this workflow.
 
-If subpath deployment becomes a requirement, do not patch random URLs. Record an architecture decision covering Vite `base`, Router history base, navigation/data links, manifest/icons, metadata/canonical URLs, static host routing, and tests.
+## Owner checklist and rollback
 
-## Provider configuration inputs
+The current audit lists the exact missing approvals/content/infrastructure/manual evidence. Keep `releaseReadiness.json` and Credits truthful; final version/tag/release is a separate owner action. Do not mark 1.0.0 or clear approval statuses because automation passed.
 
-Before implementation, record:
-
-- provider and account owner;
-- production domain and DNS owner;
-- deployment source branch and trigger;
-- preview behavior/access;
-- build image/runtime and Node version;
-- build command and publish directory;
-- routing/404 syntax;
-- header/cache syntax and limitations;
-- environment variables (public only; no client secrets);
-- access roles and emergency owner;
-- logs/retention and privacy posture;
-- rollback mechanism and retention;
-- canonical URL and redirect policy.
-
-Do not invent values in repository documentation before these are chosen.
-
-## Build configuration
-
-Recommended provider-neutral settings:
-
-```text
-Runtime: Node.js 22.13 or newer compatible 22.x
-Install: npm ci
-Build: npm run check
-Publish: dist
-```
-
-If the provider separates test and build steps, keep `npm run check` as a required gate and avoid rebuilding from a different dependency state.
-
-The site requires no server runtime and no secret environment variables. Any `VITE_*` variable will be visible in client output.
-
-## Routing contract
-
-Direct requests must serve:
-
-```text
-/                         -> dist/index.html
-/meet-nari/               -> dist/meet-nari/index.html
-/streams/                 -> dist/streams/index.html
-/nail-studio/             -> dist/nail-studio/index.html
-/haven/                   -> dist/haven/index.html
-/resources/               -> dist/resources/index.html
-/work-with-nari/          -> dist/work-with-nari/index.html
-/support/                 -> dist/support/index.html
-/stories/                 -> dist/stories/index.html
-/credits/                 -> dist/credits/index.html
-/the-prinny-cult/         -> dist/the-prinny-cult/index.html
-/unknown-path             -> dist/404.html with intended host status
-```
-
-Do not configure a universal rewrite to `index.html`; that would erase the true MPA and can produce incorrect metadata/status behavior.
-
-Decide and test canonical behavior for non-trailing-slash requests. Prefer one redirect form rather than serving duplicate URL variants.
-
-## Header baseline
-
-The host must reproduce or improve the intent in `public/_headers`:
-
-- content-type sniffing disabled;
-- strict referrer behavior;
-- camera/microphone/geolocation/payment and unnecessary APIs disabled;
-- CSP defaults to self, permits only required image origin, and blocks frames/media/objects;
-- framing denied;
-- base/form actions restricted;
-- HTTPS upgrade on production;
-- immutable caching for versioned compiled assets and generated media.
-
-Review `style-src 'unsafe-inline'` as a known policy compromise. Never add `unsafe-eval` or `unsafe-inline` to scripts to make a feature convenient.
-
-HSTS requires domain/HTTPS confidence. Decide max-age/includeSubDomains/preload implications deliberately and verify the actual emitted header.
-
-## Cache policy
-
-Recommended intent:
-
-| Resource | Policy intent |
-|---|---|
-| Hashed `/assets/*` | Long-lived immutable |
-| Versioned/local generated media | Long-lived; invalidate through filename change when content changes |
-| HTML documents | Revalidate/no long stale cache |
-| Manifest, robots, icons | Explicit short/revalidation policy unless versioned |
-| 404 | Revalidate; avoid long-lived accidental response |
-
-Responsive artwork under `/media/responsive/` is content-addressed; generated media and compiled assets also receive immutable cache headers. Preserve filename/content integrity and never replace bytes under an immutable URL. Unversioned icons, other media and HTML need a separately verified host policy.
-
-## Domain and metadata cutover
-
-After the final domain is approved:
-
-1. Configure DNS and HTTPS.
-2. Choose canonical host form (`www` or apex) and redirect the other.
-3. Add canonical URLs to every public HTML entry.
-4. Add rights-cleared Open Graph/social metadata and route-specific images where approved.
-5. Confirm secret/404 robots metadata.
-6. Update manifest start URL/scope/name as needed.
-7. Verify favicon/apple icons and browser theme colors.
-8. Verify social preview crawlers do not receive preview/private URLs.
-9. Update public references only after production is stable.
-
-Do not add canonical URLs pointing to a temporary preview domain.
-
-## Pre-release procedure
-
-1. Freeze the intended release commit.
-2. Confirm all critical approval, asset, privacy, and license records.
-3. Run clean install and `npm run check`.
-4. Preview the exact artifact locally.
-5. Complete page, theme, viewport, keyboard, screen-reader, zoom, reduced-motion, link, image-failure, and network matrix.
-6. Scan public derivatives for metadata and inspect visual privacy.
-7. Verify external destinations, Discord guild, rating, and volatile content.
-8. Compare bundle/image budgets.
-9. Complete `templates/RELEASE_EVIDENCE_RECORD.md` with commit and environment.
-10. Identify previous-good deployment and rollback operator.
-11. Deploy to a protected/noindex preview using the same host behavior.
-12. Verify preview headers/routes/404/caches/HTTPS before production promotion.
-
-## Production deployment
-
-1. Deploy/promote the exact verified artifact or commit.
-2. Confirm atomic completion before public navigation.
-3. Run smoke checks from a clean browser profile and a second network/device where practical.
-4. Inspect response headers and network requests.
-5. Direct-load every route, secret, and unknown path.
-6. Verify theme persistence across documents.
-7. Test primary outbound links without submitting private data.
-8. Record deployment identifier, time, operator, and result.
-
-## Post-deploy smoke matrix
-
-- Home hero/art, social dock, Haven CTA, and Meet Nari path.
-- Header current state and mobile menu.
-- Nari/Dark/Light pre-paint and persistence.
-- Streams selected media/text fallbacks.
-- Nail gallery/hold and final detail behavior.
-- Haven door, invite destination, floorboard, secret exit/counter.
-- Work contact and Support destination.
-- 404 response and Home recovery.
-- CSP console/network, third-party requests, caching, layout shift.
-- Keyboard/focus on at least one ordinary route and custom interaction.
-
-## Rollback triggers
-
-Rollback or immediately disable the focused content when:
-
-- private or unlicensed material is public;
-- identity/canon is materially wrong;
-- critical route/asset fails;
-- 404/routing sends users to incorrect documents;
-- security headers/CSP are missing or dangerously weakened;
-- a client secret appears;
-- critical accessibility obstruction prevents navigation/action;
-- mixed deployment assets cause runtime failure;
-- an external destination is compromised or points to the wrong identity.
-
-## Rollback procedure
-
-1. Identify the last known-good deployment/commit.
-2. Promote/redeploy it through the provider's normal recoverable mechanism.
-3. Purge only the affected caches when necessary; avoid broad destructive actions without understanding scope.
-4. Verify every route, headers, and critical asset after rollback.
-5. Disable/revoke/rotate affected external credentials or links when applicable.
-6. Record incident, public impact, rollback time, remaining cache/external risk, and corrective owner.
-7. Fix forward in a focused reviewed change; do not silently reapply the failed release.
-
-## Monitoring without surveillance
-
-Basic provider uptime/build health may be used if it does not add visitor tracking. Before adding client-side analytics or real-user monitoring, approve purpose, fields, processor, consent/legal basis, sampling, retention, access, and deletion.
-
-Build/deployment alerts should name repository/commit/status, not include private content or credentials.
-
-## Release completion
-
-A release is complete when:
-
-- the exact release commit and deployment ID are recorded;
-- automated and manual gates pass;
-- production routes, headers, caches, metadata, links, network, and rollback are observed;
-- no critical blocker remains;
-- the release evidence and governance log are updated;
-- remaining noncritical work has an owner and honest status.
+Rollback by a normal revert of the focused commits or promotion of the previous-good verified artifact. Verify routes, headers and primary actions after rollback. Do not reset history, delete source artwork or silently reapply a failed artifact.

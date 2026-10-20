@@ -1,5 +1,29 @@
 # Current State Audit
 
+## 19 October 2026 — v1 engineering candidate
+
+Branch `kiva/nari-v1-readiness` starts from current main `23ab2b2c2ddd111d9d5c97b42a77b8422b13def2` (PR #33). This section supersedes the September “current implementation” below; the older sections remain historical evidence. Twelve static Astro documents use native links and focused Vue islands. Tour/Passport and Vue Router remain retired. Main’s illustrated composition and every source/delivery artwork byte are preserved.
+
+Implemented: issue #34 startup defaults and caller overrides; targeted dependency patches and CI audits; a native community invitation disclosure that survives disabled JS and failed door hydration; keyboard focus transfer from both knock controls; opt-in production metadata/sitemap and noindex previews; HTML revalidation and accurate local header/404/redirect QA; direct release validation rebuilds instead of trusting stale HTML. No content, external destination, rights approval, host or domain was invented. The loopback HTTP QA listener omits only the HTTPS-upgrade directive to avoid WebKit requesting local assets from a nonexistent TLS endpoint; production headers retain it.
+
+Fresh preview and test-origin production quality gates passed: 105 tests passed, one default-interface startup test skipped locally because OS network-interface enumeration is restricted. Full and production-only audits now report zero vulnerabilities. Chromium route smoke and all 31 experience cases passed, with eight unchanged composition snapshots. Firefox added 17 passes/14 intentional capability/baseline skips; WebKit added 23 passes/eight baseline skips. Local browser installation, sandbox and HTTP-transport workarounds are recorded explicitly in the evidence. Home/Haven initial payloads are 57.93/68.70 KB gzip against 120 KB; optional graph remains 174.85 KB against 180 KB. [Full dated evidence and visual/network review](../evidence/2026-10-19-v1-readiness/README.md) separates automated outcomes from owner/manual launch evidence.
+
+### Exact launch inputs still needed
+
+| Area | Missing decision/evidence | Proposed outcome |
+| --- | --- | --- |
+| All public pages | Nari’s final wording, identity/canon and artwork adoption | Approve current neutral wording or supply exact changes; record public-safe approval references |
+| Art/Credits | Model, derivative, display, attribution and franchise permissions | Complete existing credit-family records from actual rights-holder evidence |
+| Nail Studio | Approved real photographs and captions | Keep illustrated workspace labelled; add only supplied approved real work |
+| Work With Nari | Confirmed public professional contact | Use an approved contact URL/address; no backend or invented inbox |
+| Haven | Confirm current Discord guild/invite immediately before launch | Retain existing `f25YtvtnbV` destination until explicitly replaced |
+| Hosting/metadata | Host/account owner and approved canonical HTTPS origin | Set `NARI_DEPLOY_CONTEXT=production`, `NARI_SITE_ORIGIN`; verify emitted headers, compression, redirects, HTTPS and rollback on actual host |
+| Accessibility | Named screen reader, native 400% zoom, physical devices and remaining manual contrast review | Record final release commit/environment; automated scans do not replace these checks |
+
+Resources and personal stories are honest nonblocking content holds. Recommend keeping Resources secondary at launch; current routes and navigation remain intact. Readiness JSON preserves unresolved owner/manual statuses; no approval was inferred from an unchecked record or from existing artwork.
+
+## Historical snapshots
+
 > **2026-10-07 current task:** `kiva/nari-main-refinement` starts from Main `9ac7be3e7b27eb76973debf54b3724087ad69b22`. The route-by-route keep/trim/refine/replace/add audit and current validation are in [document 44](44_MAIN_REFINEMENT.md). Historical test counts and browser limitations below are dated evidence.
 
 > **2026-10-05 vNext:** [Document 43](43_VNEXT_EXPERIENCE.md) owns the current experience. The guided bottom passage and Passport are retired; prior descriptions below are historical. Astro/static content, rights and release boundaries remain. All painted arrivals now have one composition owner; CSS/GSAP and selective deferred Three.js replace Motion-V.

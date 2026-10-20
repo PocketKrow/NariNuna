@@ -1,0 +1,149 @@
+{
+  "browser": "153.0.8010.0",
+  "method": "Fresh browser contexts, 2.5 seconds after navigation, uncompressed local HTTP server. gzipBytesForRequestedJsCss is computed from requested files, not a production transfer measurement. No scrolling/door activation during network sampling.",
+  "measurements": [
+    {
+      "path": "/",
+      "width": 390,
+      "requestedJsCss": [
+        "/assets/RoomArrival.DOlRO8O0.css",
+        "/assets/ArtworkCreditLink.CSAVUXaR.css",
+        "/assets/SiteLayout.oH82PfFY.css",
+        "/assets/index.BUUbdRma.css",
+        "/assets/RoomArrival.astro_astro_type_script_index_0_lang.DMT7ZDQV.js",
+        "/assets/SiteHeader.FO7Wv4vW.js",
+        "/assets/client.Di1Fe-34.js",
+        "/assets/runtime-core.esm-bundler.Dpbe3m0o.js",
+        "/assets/runtime-dom.esm-bundler.mmT_yTfS.js",
+        "/assets/createLucideIcon.Bdkkclu3.js",
+        "/assets/socials.CcHqoFsf.js",
+        "/assets/sparkles.Y2oICK6-.js",
+        "/assets/artwork.B4HIb1yd.js"
+      ],
+      "gzipBytesForRequestedJsCss": 56027,
+      "failedRequests": [],
+      "duplicateImageUrls": []
+    },
+    {
+      "path": "/haven/",
+      "width": 390,
+      "requestedJsCss": [
+        "/assets/RoomArrival.DOlRO8O0.css",
+        "/assets/SiteLayout.oH82PfFY.css",
+        "/assets/ArtworkCreditLink.CSAVUXaR.css",
+        "/assets/RoomDiscovery.D1tlp21M.css",
+        "/assets/index.CO6AWGBd.css",
+        "/assets/RoomArrival.astro_astro_type_script_index_0_lang.DMT7ZDQV.js",
+        "/assets/SiteHeader.FO7Wv4vW.js",
+        "/assets/client.Di1Fe-34.js",
+        "/assets/HavenDoor.wlCJHdGP.js",
+        "/assets/LooseFloorboard.DGBCNttQ.js",
+        "/assets/runtime-core.esm-bundler.Dpbe3m0o.js",
+        "/assets/runtime-dom.esm-bundler.mmT_yTfS.js",
+        "/assets/createLucideIcon.Bdkkclu3.js",
+        "/assets/socials.CcHqoFsf.js",
+        "/assets/sparkles.Y2oICK6-.js",
+        "/assets/artwork.B4HIb1yd.js",
+        "/assets/arrow-up-right.OMwPywmG.js"
+      ],
+      "gzipBytesForRequestedJsCss": 66803,
+      "failedRequests": [],
+      "duplicateImageUrls": []
+    },
+    {
+      "path": "/work-with-nari/",
+      "width": 390,
+      "requestedJsCss": [
+        "/assets/RoomArrival.DOlRO8O0.css",
+        "/assets/index.Dfa1ux3f.css",
+        "/assets/SiteLayout.oH82PfFY.css",
+        "/assets/RoomArrival.astro_astro_type_script_index_0_lang.DMT7ZDQV.js",
+        "/assets/SiteHeader.FO7Wv4vW.js",
+        "/assets/client.Di1Fe-34.js",
+        "/assets/runtime-core.esm-bundler.Dpbe3m0o.js",
+        "/assets/createLucideIcon.Bdkkclu3.js",
+        "/assets/socials.CcHqoFsf.js",
+        "/assets/sparkles.Y2oICK6-.js",
+        "/assets/runtime-dom.esm-bundler.mmT_yTfS.js",
+        "/assets/artwork.B4HIb1yd.js"
+      ],
+      "gzipBytesForRequestedJsCss": 56728,
+      "failedRequests": [],
+      "duplicateImageUrls": []
+    },
+    {
+      "path": "/",
+      "width": 1440,
+      "requestedJsCss": [
+        "/assets/RoomArrival.DOlRO8O0.css",
+        "/assets/ArtworkCreditLink.CSAVUXaR.css",
+        "/assets/SiteLayout.oH82PfFY.css",
+        "/assets/index.BUUbdRma.css",
+        "/assets/RoomArrival.astro_astro_type_script_index_0_lang.DMT7ZDQV.js",
+        "/assets/SiteHeader.FO7Wv4vW.js",
+        "/assets/client.Di1Fe-34.js",
+        "/assets/runtime-core.esm-bundler.Dpbe3m0o.js",
+        "/assets/runtime-dom.esm-bundler.mmT_yTfS.js",
+        "/assets/createLucideIcon.Bdkkclu3.js",
+        "/assets/socials.CcHqoFsf.js",
+        "/assets/sparkles.Y2oICK6-.js",
+        "/assets/artwork.B4HIb1yd.js",
+        "/assets/motion.Bo0HQbZh.js",
+        "/assets/atmosphere.GT4b4-Og.js"
+      ],
+      "gzipBytesForRequestedJsCss": 230880,
+      "failedRequests": [],
+      "duplicateImageUrls": []
+    },
+    {
+      "path": "/haven/",
+      "width": 1440,
+      "requestedJsCss": [
+        "/assets/RoomArrival.DOlRO8O0.css",
+        "/assets/SiteLayout.oH82PfFY.css",
+        "/assets/ArtworkCreditLink.CSAVUXaR.css",
+        "/assets/RoomDiscovery.D1tlp21M.css",
+        "/assets/index.CO6AWGBd.css",
+        "/assets/RoomArrival.astro_astro_type_script_index_0_lang.DMT7ZDQV.js",
+        "/assets/SiteHeader.FO7Wv4vW.js",
+        "/assets/client.Di1Fe-34.js",
+        "/assets/HavenDoor.wlCJHdGP.js",
+        "/assets/LooseFloorboard.DGBCNttQ.js",
+        "/assets/runtime-core.esm-bundler.Dpbe3m0o.js",
+        "/assets/runtime-dom.esm-bundler.mmT_yTfS.js",
+        "/assets/createLucideIcon.Bdkkclu3.js",
+        "/assets/socials.CcHqoFsf.js",
+        "/assets/sparkles.Y2oICK6-.js",
+        "/assets/artwork.B4HIb1yd.js",
+        "/assets/arrow-up-right.OMwPywmG.js",
+        "/assets/motion.Bo0HQbZh.js",
+        "/assets/atmosphere.GT4b4-Og.js"
+      ],
+      "gzipBytesForRequestedJsCss": 241656,
+      "failedRequests": [],
+      "duplicateImageUrls": []
+    },
+    {
+      "path": "/work-with-nari/",
+      "width": 1440,
+      "requestedJsCss": [
+        "/assets/RoomArrival.DOlRO8O0.css",
+        "/assets/index.Dfa1ux3f.css",
+        "/assets/SiteLayout.oH82PfFY.css",
+        "/assets/RoomArrival.astro_astro_type_script_index_0_lang.DMT7ZDQV.js",
+        "/assets/SiteHeader.FO7Wv4vW.js",
+        "/assets/client.Di1Fe-34.js",
+        "/assets/runtime-core.esm-bundler.Dpbe3m0o.js",
+        "/assets/createLucideIcon.Bdkkclu3.js",
+        "/assets/socials.CcHqoFsf.js",
+        "/assets/sparkles.Y2oICK6-.js",
+        "/assets/runtime-dom.esm-bundler.mmT_yTfS.js",
+        "/assets/artwork.B4HIb1yd.js",
+        "/assets/motion.Bo0HQbZh.js"
+      ],
+      "gzipBytesForRequestedJsCss": 100953,
+      "failedRequests": [],
+      "duplicateImageUrls": []
+    }
+  ]
+}

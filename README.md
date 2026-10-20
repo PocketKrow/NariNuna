@@ -1,6 +1,6 @@
 # Nari Nuna's Haven
 
-A warm illustrated Astro website for Nari: streaming, self-taught nail art, community and creative collaboration. Twelve real static documents, focused Vue islands and ordinary links. Current vNext experience work builds on the Astro migration in PR #24.
+A warm illustrated Astro website for Nari: streaming, self-taught nail art, community and creative collaboration. Twelve real static documents, focused Vue islands and ordinary links. The v1 engineering candidate preserves Main’s illustrated refinement merged in PR #33.
 
 ## Run
 
@@ -52,6 +52,10 @@ Initial JS/CSS stays below 120 KB gzip per route. Optional enhancement graph has
 
 Preserve approved copy, original artwork, source masters, privacy, credit and permission records. Nail Studio is personal learning/practice; illustrated workspaces do not impersonate real nail work. Support never buys attention or access. The Prinny joke room remains separate and noindex. Resources, private biography, metrics, schedules, partnerships, contact and lore are never invented.
 
-`npm run verify:release` intentionally remains blocked until client/content/rights/production-host/manual-QA records are cleared. The former `http-cache-semantics` advisory is resolved by the targeted upstream 4.3.0 patch; Astro remains 7.3.5 and the current full audit reports zero vulnerabilities.
+`npm run verify:release` rebuilds through the complete pipeline and remains blocked until actual client/content/rights/production-host/manual-QA records are cleared. On 19 October 2026, `npm audit --json` and `npm audit --omit=dev --json` both reported zero vulnerabilities after targeted Vue 3.5.44, selector parser 7.1.6 and source-map-js 1.2.2 patches. Reproduce audits on the intended lockfile; CI checks both trees at moderate severity or higher. This is dated evidence, not a permanent guarantee.
+
+`npm start` provides foreground local preview at 0.0.0.0:8080; `npm start -- --host 127.0.0.1 --port 8081` overrides those defaults. It requires `dist/`. Astro preview is not a production server: deploy the full pipeline’s static artifact and generated header policy. See [the deployment runbook](docs/15_DEPLOYMENT_AND_RELEASE_RUNBOOK.md).
+
+Builds default to noindex previews with no canonical/sitemap. Only an explicit `NARI_DEPLOY_CONTEXT=production` plus the approved HTTPS `NARI_SITE_ORIGIN` emits absolute production metadata and the public sitemap. The final origin/host remain owner inputs; no domain is invented.
 
 Read [the vNext implementation and current evidence](docs/43_VNEXT_EXPERIENCE.md), [the documentation hub](docs/README.md), and `AGENTS.md` before making changes. Earlier documents are dated history where superseded by the current implementation records.
