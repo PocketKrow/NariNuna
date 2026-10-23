@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-Production artifact and checks:
+Local build checks and preview:
 
 ```bash
 npm run check
@@ -28,32 +28,55 @@ npm run verify:experience
 
 `NARI_BROWSER_PATH` can select an existing Chromium executable. `npm run verify:browsers` covers Chromium + Firefox after both are installed; `npm run verify:release-browsers` adds WebKit. Eight visual baselines cover Home, Meet Nari, Haven and Nails at 390/1440px. Inspect deliberate changes before running `npm run verify:visual-update`.
 
-## Deploy to Google Cloud (Compute Engine VM)
+## Deploy to Google Cloud Run
 
-This website is built as static files. On an existing Linux Compute Engine VM, use **Nginx to serve the generated `dist/` directory**. Node.js is required on the build machine only; the deployed website needs no running Node application, database or Astro adapter. The build can run on the administrator's workstation, CI or the VM.
+The client uses **Cloud Run services with source deployment and Google's Node.js buildpacks**. Cloud Run builds the source into a container and launches the entrypoint selected by the buildpack, normally the `start` script in `package.json`. The website remains an Astro static build: the serving process delivers the generated files in `dist/`; no SSR migration or database is required.
 
-These instructions target a Compute Engine VM. GCP account access, billing, VM administration, DNS, certificates, firewall rules, monitoring, operating-system updates and deployment/rollback are the hosting operator's responsibility. No GCP credentials are required by the website source.
+This replaces the earlier Compute Engine VM instructions. The client does not need to provision a VM, install Nginx manually, reserve a VM IP or maintain an operating system for this deployment path. Cloud Run handles external HTTPS; the serving process receives HTTP inside the container.
 
-### 1. Prepare their hosting environment
+**Current repository status:** `npm run build` produces the validated static artifact, but `npm start` still runs `astro preview --ignore-lock`. Astro preview is a local QA server, not the production entrypoint. The existing start configuration also defaults to port 8080 instead of reading Cloud Run's supplied `PORT`. A production static-serving entrypoint is still required before this repository can be treated as production-ready for Cloud Run. Updating this README does not implement that runtime change.
 
-The hosting operator must:
+### 1. Configure the source build
 
-- Install and manage Nginx on the VM using instructions appropriate to its operating system.
-- Reserve/assign a stable external IP when exposing the VM directly, and point the approved domain's DNS to it. If an existing load balancer fronts the VM, use that endpoint instead.
-- Configure the GCP and host firewalls for the chosen HTTP/HTTPS setup. Keep administrative access restricted.
-- Configure HTTPS for the approved domain, redirect HTTP to HTTPS, and choose the canonical host. TLS may terminate on Nginx or an existing load balancer.
-- Choose a dedicated document root and deployment user. Serve only the built artifact, never the repository root, source artwork or `node_modules/`.
+Use the repository root as the source directory and Google's Node.js buildpack path in the client's existing Cloud Run/source-build integration. Deploy an agreed revision. Keep `package-lock.json` committed.
 
-Google's [Compute Engine web-server guide](https://docs.cloud.google.com/compute/docs/tutorials/basic-webserver-apache) covers VM access and networking using Apache as its example; the production server recommended here is Nginx. See also [static external IP configuration](https://docs.cloud.google.com/compute/docs/ip-addresses/configure-static-external-ip-address).
+Configure these as **build environment variables**, not only runtime/service variables:
 
-### 2. Build the production artifact
+| Build variable | Value / purpose |
+| --- | --- |
+| `GOOGLE_NODEJS_VERSION` | `22.x.x`, selecting the CI-tested Node 22 line; the project requires Node 22.13+ |
+| `GOOGLE_NODE_RUN_SCRIPTS` | `build`, running the repository's full build script |
+| `NARI_DEPLOY_CONTEXT` | `production` for the approved public site |
+| `NARI_SITE_ORIGIN` | The approved canonical HTTPS origin, with no path, query, fragment or credentials |
 
-Use Node.js 22.13+ and npm. Check out the agreed deployment revision before building. Replace the example origin below with the approved real HTTPS domain; do not deploy with the example value.
+The custom build step needs both `dependencies` and `devDependencies`: TypeScript and other validators run during the build. Google's buildpack installs both for configured custom build steps by default; avoid install/build overrides that omit development dependencies.
+
+The existing `build` script includes type checks, credit validation, Astro generation, generated CSP hashes and document/performance validation. Do not override it with bare `astro build`, skip it with an empty `GOOGLE_NODE_RUN_SCRIPTS`, or build the site on each container startup. CI's broader `npm run check` remains the quality gate.
+
+The production origin is baked into canonical/social metadata and the sitemap. Changing only runtime variables will not rewrite already-built HTML; rebuild after an origin change. Preview builds should keep preview context so they remain noindex. A temporary Cloud Run URL is not automatically adopted as the production canonical origin.
+
+### 2. Complete the application startup contract
+
+Before production deployment, the repository's `start` script must launch a production static server that:
+
+- Serves only the built `dist/` artifact and requires no build tools at startup.
+- Listens on `0.0.0.0` and the injected `PORT` environment variable, with 8080 as a local default.
+- Serves directory indexes and trailing-slash routes, and returns branded `404.html` responses with HTTP **404**.
+- Applies the policy in generated `dist/_headers`, including exact CSP hashes; a Node server does not automatically interpret this file.
+- Revalidates HTML/unversioned files and applies immutable caching to successful responses under `/assets/` and `/media/responsive/`.
+- Starts in the foreground, fails clearly if the build is missing, and handles Cloud Run shutdown signals cleanly.
+
+Any package needed by that entrypoint must be available as a production dependency. `npm run preview` remains the local Astro preview command.
+
+Cloud Run injects `PORT` into the ingress container, defaulting to 8080; do not hardcode the serving port or bind only to localhost. Cloud Run terminates TLS, so the application should serve HTTP internally. External HTTPS security headers still apply: the repository's loopback HTTP QA exception is not the production policy.
+
+Once this entrypoint is implemented and validated, the client's source-deployment workflow can build the repository and start it through `package.json`, without manual VM administration. Until then, a successful source build or a working preview process is not proof of a supported production deployment.
+
+### 3. Verify the build and deployed revision
+
+Local build verification uses Node.js 22.13+ and npm. Replace the example origin with the approved real domain:
 
 ```bash
-git clone https://github.com/PocketKrow/NariNuna.git
-cd NariNuna
-
 export NARI_DEPLOY_CONTEXT=production
 export NARI_SITE_ORIGIN="https://their-domain.example"
 
@@ -61,47 +84,23 @@ npm ci --include=dev
 npm run check
 ```
 
-For an existing checkout, select the agreed revision rather than cloning again. Development dependencies are needed during the build, even when the serving environment is production.
+This verifies the artifact; it does not certify the pending production entrypoint. After the startup change, exercise the production entrypoint with a nondefault `PORT`, direct routes, real 404s and emitted headers before deploying.
 
-`npm run check` performs linting, type checks, the complete build pipeline, artifact validators, unit tests and local HTTP verification. It generates `dist/`, including canonical/social metadata, the public sitemap and the CSP hashes required by Astro's island loaders. Do not replace it with bare `astro build`.
+On the resulting Cloud Run revision, verify:
 
-Without explicit production context, builds deliberately remain noindex previews. Production context requires `NARI_SITE_ORIGIN`; neither the request hostname nor a temporary GCP endpoint is automatically treated as the canonical domain. The artifact assumes hosting at the domain root.
+1. Successful startup/readiness on the injected port.
+2. Direct route loads, canonical/social URLs, `/sitemap.xml` and preview/public indexing behavior.
+3. Real response security/cache headers and the absence of CSP/hydration failures.
+4. The mobile menu, three-knock invitation/reset, disabled-JavaScript invitation and thumbnail fallback.
+5. A usable previous revision for rollback, retaining each revision's matching artifact and CSP policy.
 
-### 3. Publish with Nginx
+The existing approval and release criteria in the [deployment and release runbook](docs/15_DEPLOYMENT_AND_RELEASE_RUNBOOK.md) still apply. This section owns the Cloud Run hosting guidance; the runbook's generic static-host contract does not imply that a VM or manual file upload is required.
 
-Upload the **contents** of `dist/` to a versioned release directory and configure Nginx's document root to serve that directory. For example, a deployment-managed `current` symlink can select the active release. The administrator chooses paths and permissions appropriate to the VM.
+### Hosting responsibilities and references
 
-Required Nginx behavior:
+The client/hosting operator owns the Google Cloud project, billing, permissions, source-build trigger, Cloud Run service settings, public access/ingress, domain configuration, monitoring and revision rollout/rollback. Application changes belong in the repository; no GCP credentials belong in source code.
 
-| Concern | Required configuration/result |
-| --- | --- |
-| Directory pages | Serve `index.html` within route directories, including direct requests to `/haven/` and `/meet-nari/` |
-| Canonical paths | Redirect directory URLs without the trailing slash to their slash form, preserving query strings |
-| Missing paths | Serve the branded `404.html` with HTTP **404**; do not use an SPA rewrite to `index.html` |
-| HTML and unversioned files | `Cache-Control: public, max-age=0, must-revalidate` |
-| `/assets/*` and `/media/responsive/*` | `Cache-Control: public, max-age=31536000, immutable` on successful asset responses; never overwrite bytes at an immutable URL |
-| Security | Apply the generated security headers, including the complete CSP and loader hashes |
-| Transfer | Enable gzip or Brotli where supported for eligible HTML, CSS, JavaScript and XML |
-
-**Nginx does not automatically interpret `_headers`.** Translate the policy in **generated `dist/_headers`** into the server's actual response-header configuration. Do not copy the unhashed `public/_headers` CSP: it would block island hydration. Regenerate and deploy the matching header configuration with every build. On Nginx configurations where location-level `add_header` directives replace inherited headers, repeat/include the security policy in locations that set their own cache headers. See the [Nginx header-module documentation](https://nginx.org/en/docs/http/ngx_http_headers_module.html).
-
-Keep the generated HTTPS-upgrade policy for production HTTPS. The repository's loopback HTTP test-server exception is not a production hosting setting. Check Nginx configuration with `nginx -t` before reloading it through the VM's normal service-management process.
-
-**Do not use `npm start`, `npm run preview` or `npm run dev` as the production web server.** They are development/preview tools; fixing the preview startup contract does not change the static hosting architecture. See [Astro's preview documentation](https://docs.astro.build/en/reference/cli-reference/#astro-preview).
-
-### 4. Verify, update and roll back
-
-Before public launch, complete the existing approval and release checks in the [deployment and release runbook](docs/15_DEPLOYMENT_AND_RELEASE_RUNBOOK.md). A successful build does not clear unresolved release-readiness records.
-
-After publishing, the hosting operator should:
-
-1. Direct-load the registered routes and verify the real domain's canonical URLs and `/sitemap.xml`.
-2. Confirm that a nonexistent URL returns the branded page with HTTP 404.
-3. Inspect actual response headers, HTTPS redirects, cache policies and compression. A configuration file alone does not prove that GCP/Nginx applied it.
-4. Check browser console/network output and exercise the mobile menu, three-knock invitation/reset and thumbnail fallback. Confirm no CSP or hydration failures.
-5. Record the deployed revision/artifact and retain the previous working artifact **with its matching security-header configuration**.
-
-For subsequent approved updates, build the selected revision again, validate it, and switch the artifact/header configuration together using the administrator's deployment procedure. Roll back to the previous verified pair if needed. A Node process does not need to remain running after the build.
+Official references: [source deployment](https://docs.cloud.google.com/run/docs/deploying-source-code), [Node.js buildpack build/start behavior](https://docs.cloud.google.com/docs/buildpacks/nodejs), [Cloud Run port/TLS/runtime contract](https://docs.cloud.google.com/run/docs/container-contract), and [Astro preview limitations](https://docs.astro.build/en/reference/cli-reference/#astro-preview).
 
 ## Architecture and source owners
 
@@ -129,8 +128,8 @@ Preserve approved copy, original artwork, source masters, privacy, credit and pe
 
 `npm run verify:release` rebuilds through the complete pipeline and remains blocked until actual client/content/rights/production-host/manual-QA records are cleared. On 19 October 2026, `npm audit --json` and `npm audit --omit=dev --json` both reported zero vulnerabilities after targeted Vue 3.5.44, selector parser 7.1.6 and source-map-js 1.2.2 patches. Reproduce audits on the intended lockfile; CI checks both trees at moderate severity or higher. This is dated evidence, not a permanent guarantee.
 
-`npm start` provides foreground local preview at 0.0.0.0:8080; `npm start -- --host 127.0.0.1 --port 8081` overrides those defaults. It requires `dist/`. Astro preview is not a production server: deploy the full pipeline’s static artifact and generated header policy. See [the deployment runbook](docs/15_DEPLOYMENT_AND_RELEASE_RUNBOOK.md).
+`npm start` currently provides foreground Astro preview at 0.0.0.0:8080; caller host/port flags override those defaults. It requires `dist/`. The Cloud Run production entrypoint remains pending as described in [the Cloud Run deployment section](#deploy-to-google-cloud-run).
 
-Builds default to noindex previews with no canonical/sitemap. Only an explicit `NARI_DEPLOY_CONTEXT=production` plus the approved HTTPS `NARI_SITE_ORIGIN` emits absolute production metadata and the public sitemap. The final origin/host remain owner inputs; no domain is invented.
+Builds default to noindex previews with no canonical/sitemap. Only an explicit `NARI_DEPLOY_CONTEXT=production` plus the approved HTTPS `NARI_SITE_ORIGIN` emits absolute production metadata and the public sitemap. Cloud Run is the selected hosting service; the approved production origin and client-specific service settings remain operator inputs.
 
 Read [the vNext implementation and current evidence](docs/43_VNEXT_EXPERIENCE.md), [the documentation hub](docs/README.md), and `AGENTS.md` before making changes. Earlier documents are dated history where superseded by the current implementation records.
