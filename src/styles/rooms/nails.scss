@@ -1,21 +1,48 @@
-// An honest real-photo hold and concise practice notes share the workbench. The arrival is the sole workspace illustration.
-.studio-workbench__spread { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 2rem; align-items: center; padding: clamp(1rem, 2vw, 1.5rem); background: #322127; border-block: 1px solid var(--story-line); }
-.studio-workbench__notes { padding: 0.5rem 1.75rem; background: var(--storybook-paper); color: var(--ink); border-top: 0.25rem solid #8a657b; box-shadow: 0.5rem 0.6rem 0 #1b121b40; }
-.studio-workbench__notes article { padding-block: 1.5rem; }
+// Practice notes lead the workbench; the smaller illustrated hold remains honest about the future gallery.
+.studio-workbench__spread {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.85fr);
+  gap: clamp(1rem, 2.5vw, 2rem);
+  align-items: center;
+  padding: clamp(1rem, 2.5vw, 2rem);
+  background: linear-gradient(145deg, #493039, #322127 65%);
+  border-block: 1px solid var(--story-line);
+  box-shadow: inset 0 0.35rem 0 #704c4d, inset 0 -0.35rem 0 #24171d;
+}
+.studio-workbench__notes {
+  padding: 0.5rem clamp(1.25rem, 3vw, 2rem);
+  background: var(--storybook-paper);
+  color: var(--ink);
+  border-top: 0.25rem solid #8a657b;
+  box-shadow: 0.5rem 0.6rem 0 #1b121b40;
+}
+.studio-workbench__notes article { padding-block: 1.35rem; }
 .studio-workbench__notes article + article { border-top: 1px solid var(--line-dark); }
-.studio-workbench__notes h3 { font-size: clamp(1.6rem, 2vw, 2rem); line-height: 1.2; }
+.studio-workbench__notes h3 { font-size: clamp(1.5rem, 2vw, 1.9rem); line-height: 1.2; }
 .studio-workbench__notes p:not(.room-kicker) { color: var(--ink-muted); }
 .studio-workbench__notes .room-kicker { color: var(--ink-muted); }
 .studio-workbench__notes .text-link { color: var(--interaction-on-paper); }
-.studio-portfolio-hold { display: grid; grid-template-columns: 6rem minmax(0,1fr); gap: 1.5rem; align-items: center; max-width: 55rem; margin: 0; padding-block: 1.5rem; border-block: 1px dashed var(--story-line); }
-.studio-portfolio-hold .ghostie-art { --ghostie-size: 6rem; height: 7rem; }
-.studio-portfolio-hold h3 { font-size: 1.7rem; line-height: 1.2; }
+.studio-portfolio-hold {
+  display: grid;
+  grid-template-columns: 5rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
+  margin: 0;
+  padding: 1.25rem;
+  background: #25182080;
+  border: 1px solid var(--story-line);
+  border-top: 0.2rem solid #ac8067;
+}
+.studio-portfolio-hold .ghostie-art { --ghostie-size: 5rem; height: 5rem; }
+.studio-portfolio-hold h3 { font-size: clamp(1.3rem, 1.8vw, 1.6rem); line-height: 1.2; }
 .studio-portfolio-hold p:not(.room-kicker) { margin: 0; color: var(--text-muted); }
 .studio-scope { padding-top: 1rem; margin: 0; color: var(--text-muted); font-size: 0.875rem; }
-@media (max-width: 63.99rem) { .studio-workbench__spread { grid-template-columns: 1fr; gap: 1.5rem; } }
+@media (max-width: 63.99rem) {
+  .studio-workbench__spread { grid-template-columns: 1fr; gap: 1rem; }
+}
 @media (max-width: 30rem) {
-  .studio-workbench__spread { padding: 0; background: none; border: 0; }
+  .studio-workbench__spread { padding: 1rem; }
   .studio-workbench__notes { padding-inline: 1.25rem; }
-  .studio-portfolio-hold { grid-template-columns: 1fr; gap: 0.5rem; }
-  .studio-portfolio-hold .ghostie-art { --ghostie-size: 4rem; height: 4rem; }
+  .studio-portfolio-hold { grid-template-columns: 3.5rem minmax(0, 1fr); gap: 0.75rem; padding: 1rem; }
+  .studio-portfolio-hold .ghostie-art { --ghostie-size: 3.5rem; height: 3.5rem; }
 }

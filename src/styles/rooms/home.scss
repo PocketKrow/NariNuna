@@ -1,17 +1,53 @@
-// Three room objects form a shelf, not a sequential guided tour.
+// Three room objects share a shelf, while each retains its own material accent.
 .haven-corners { padding-block: clamp(2.5rem, 5vw, 4.5rem); }
-.haven-corners__shelf { display: grid; gap: 2rem; }
-.haven-corner { min-width: 0; color: var(--text); text-decoration: none; }
-.haven-corner__frame { padding: 0.45rem; margin-bottom: 1rem; background: var(--storybook-paper); box-shadow: 0 0.75rem 1.75rem #10080c40; transition: transform 180ms ease; }
-.haven-corner__frame img { width: 100%; aspect-ratio: 16 / 9; object-fit: contain; }
-.haven-corner h3 { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; font-size: 1.65rem; }
-.haven-corner > p:last-child { color: var(--text-muted); font-size: 0.9rem; margin: 0; }
-.haven-corner:hover .haven-corner__frame { transform: translateY(-4px); }
-@media (min-width: 40rem) { .haven-corners__shelf { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (min-width: 64rem) {
-  .haven-corners__shelf { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
-  .haven-corner:nth-child(2) .haven-corner__frame { transform: rotate(1deg); }
-  .haven-corner:nth-child(3) .haven-corner__frame { transform: rotate(-1deg); }
-  .haven-corner:hover .haven-corner__frame, .haven-corner:focus-visible .haven-corner__frame { transform: translateY(-4px); }
+.haven-corners__shelf { display: grid; gap: 1rem; }
+.haven-corner {
+  display: grid;
+  min-width: 0;
+  color: var(--text);
+  text-decoration: none;
+  background: var(--bg-raised);
+  border: 1px solid var(--storybook-rule);
+  box-shadow: 0 0.75rem 1.75rem #10080c30;
+  transition: border-color 180ms ease, transform 180ms ease;
 }
-@media (prefers-reduced-motion: reduce) { .haven-corner__frame { transition: none; transform: none !important; } }
+.haven-corner__frame {
+  padding: 0.45rem;
+  background: var(--storybook-paper);
+  border-bottom: 3px solid var(--storybook-gold);
+}
+.haven-corner:nth-child(2) .haven-corner__frame { border-bottom-color: var(--plum); }
+.haven-corner:nth-child(3) .haven-corner__frame { border-bottom-color: var(--lavender); }
+.haven-corner__frame img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: contain; }
+.haven-corner__caption { padding: 1.1rem 1.2rem 1.25rem; }
+.haven-corner__label {
+  margin: 0 0 0.45rem;
+  color: var(--storybook-gold);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+}
+.haven-corner h3 { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin: 0 0 0.4rem; font-size: 1.55rem; }
+.haven-corner h3 svg { flex: none; transition: transform 180ms ease; }
+.haven-corner__note { color: var(--text-muted); font-size: 0.9rem; margin: 0; }
+.haven-corner:hover, .haven-corner:focus-visible { border-color: var(--storybook-gold); transform: translateY(-3px); }
+.haven-corner:hover h3 svg, .haven-corner:focus-visible h3 svg { transform: translateX(3px); }
+@media (min-width: 24rem) and (max-width: 39.99rem) {
+  .haven-corner { grid-template-columns: minmax(0, 42%) minmax(0, 1fr); align-items: center; }
+  .haven-corner__frame { border-bottom: 0; border-right: 3px solid var(--storybook-gold); }
+  .haven-corner:nth-child(2) .haven-corner__frame { border-right-color: var(--plum); }
+  .haven-corner:nth-child(3) .haven-corner__frame { border-right-color: var(--lavender); }
+}
+@media (min-width: 40rem) { .haven-corners__shelf { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; } }
+@media (min-width: 64rem) {
+  .haven-corners__shelf {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 4px solid var(--storybook-gold);
+    box-shadow: 0 5px 0 var(--bg-inset);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .haven-corner, .haven-corner h3 svg { transition: none; transform: none !important; }
+}

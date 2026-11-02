@@ -7,9 +7,9 @@ import { ArrowRight } from "@lucide/vue";
 import SocialDock from "@/components/ui/SocialDock.vue";
 import { environmentArtwork, storybookPostcards } from "@/data/artwork";
 const corners = [
-  { href: "/streams/", name: "Streams", note: "There's always one more good bit.", artwork: storybookPostcards.streams },
-  { href: "/nail-studio/", name: "Nail Studio", note: "A little glitter gets everywhere.", artwork: storybookPostcards.nails },
-  { href: "/haven/", name: "The Haven", note: "Leave the room a little kinder.", artwork: storybookPostcards.haven },
+  { href: "/streams/", name: "Streams", label: "At the broadcast desk", note: "There's always one more good bit.", artwork: storybookPostcards.streams },
+  { href: "/nail-studio/", name: "Nail Studio", label: "At the workbench", note: "A little glitter gets everywhere.", artwork: storybookPostcards.nails },
+  { href: "/haven/", name: "The Haven", label: "In the common room", note: "Leave the room a little kinder.", artwork: storybookPostcards.haven },
 ];
 ---
 <SiteLayout pageId="home">
@@ -33,8 +33,11 @@ const corners = [
       {corners.map((corner) => (
         <a class="haven-corner" href={corner.href} data-material-reveal>
           <div class="haven-corner__frame"><ResponsiveArtwork artwork={corner.artwork} sizes="(min-width: 64rem) 30vw, (min-width: 40rem) 44vw, calc(100vw - 48px)" alt="" /></div>
-          <h3>{corner.name} <ArrowRight size={18} aria-hidden="true" /></h3>
-          <p>{corner.note}</p>
+          <div class="haven-corner__caption">
+            <p class="haven-corner__label">{corner.label}</p>
+            <h3>{corner.name} <ArrowRight size={18} aria-hidden="true" /></h3>
+            <p class="haven-corner__note">{corner.note}</p>
+          </div>
         </a>
       ))}
     </div>

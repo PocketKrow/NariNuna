@@ -223,8 +223,9 @@ onBeforeUnmount(() => {
   margin-block-start: 0.5rem;
   background: var(--story-surface-deep);
   border: 1px solid var(--story-line);
-  border-radius: 0.6rem;
-  box-shadow: 0 1rem 2.5rem rgb(12 7 11 / 22%);
+  border-top: 2px solid var(--storybook-gold);
+  border-radius: 0.35rem;
+  box-shadow: inset 0 1px rgb(255 239 215 / 8%), 0 1rem 2.5rem rgb(12 7 11 / 28%);
 }
 .site-header__more > nav > a {
   display: grid;
@@ -233,12 +234,12 @@ onBeforeUnmount(() => {
   color: var(--story-copy);
   background: color-mix(in srgb, var(--story-surface) 78%, transparent);
   border: 1px solid transparent;
-  border-radius: 0.45rem;
+  border-radius: 0.25rem;
   text-decoration: none;
 }
 .site-header__more > nav > a:hover,
 .site-header__more > nav > a[aria-current="page"] { border-color: var(--story-line); background: var(--story-surface-soft); }
-.site-header__more > nav > a small { color: var(--story-muted); font-size: 0.58rem; font-weight: 650; letter-spacing: 0.04em; }
+.site-header__more > nav > a small { color: var(--story-muted); font-size: 0.75rem; font-weight: 650; line-height: 1.35; }
 @media (min-width: 56rem) {
   .site-header__more > summary { min-height: auto; padding: 0.65rem 0.7rem; border-color: transparent; border-radius: var(--radius-sm); }
   .site-header__more > nav {
@@ -289,7 +290,8 @@ onBeforeUnmount(() => {
     color: var(--story-copy);
     background: color-mix(in srgb, var(--story-surface) 76%, transparent);
     border: 1px solid var(--story-line);
-    border-radius: 0.55rem;
+    border-radius: 0.3rem;
+    box-shadow: inset 0 1px rgb(255 239 215 / 7%);
     text-decoration: none;
     white-space: normal;
   }
@@ -338,5 +340,4 @@ onBeforeUnmount(() => {
 .site-header__live-link,
 .site-header__more > summary,
 .site-header__more > nav > a { font-size: 0.875rem; }
-.site-header__more > nav > a small { font-size: 0.75rem; }
 </style>

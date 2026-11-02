@@ -1,16 +1,17 @@
 // The promise is a quiet textile heading beside a paper charter. The doorway is the room's focal interaction.
 .haven-charter { display: grid; grid-template-columns: minmax(0,0.8fr) minmax(0,1.4fr); gap: 3rem; align-items: center; padding-block: 4rem; }
-.haven-charter__welcome { padding: 0; }
+.haven-charter__welcome { padding: 1rem 0; }
 .haven-charter__welcome h2 { font-size: clamp(2.4rem,3.8vw,3.7rem); line-height: 1.12; }
 .haven-charter__welcome .ghostie-art { --ghostie-size: 12rem; height: 12rem; }
 .haven-charter__welcome .room-caption { margin: 0; }
-.haven-charter__values { list-style: none; margin: 0; padding: 0.75rem clamp(1.5rem,3vw,2.5rem); color: var(--ink); background: var(--storybook-paper); border-top: 0.3rem solid #8a657b; box-shadow: 0.5rem 0.6rem 0 #1a0e1640; }
+.haven-charter__values { list-style: none; margin: 0; padding: 0.75rem clamp(1.5rem,3vw,2.5rem); color: var(--ink); background: linear-gradient(135deg, #fff8eb 0%, var(--storybook-paper) 45%); border-top: 0.3rem solid #8a657b; border-bottom: 0.2rem solid #b99077; box-shadow: 0.5rem 0.6rem 0 #1a0e1640, 0 1rem 2rem #10080c30; }
 .haven-charter__values li { display: grid; grid-template-columns: 2rem minmax(0,1fr); gap: 1rem; padding-block: 1.5rem; }
 .haven-charter__values li + li { border-top: 1px solid var(--line-dark); }
 .haven-charter__number { white-space: nowrap; color: #81526a; font: italic 1.5rem var(--font-display); }
 .haven-charter__values h3 { font-size: 1.65rem; line-height: 1.2; }
 .haven-charter__values p { color: var(--ink-muted); margin: 0; line-height: 1.75; }
 .haven-entry { position: relative; isolation: isolate; padding-block: 3rem 4rem; }
+.haven-entry::before { position: absolute; z-index: -1; inset: 4.5rem 0 5.5rem; border-block: 1px solid var(--story-line); background: linear-gradient(90deg, transparent, #a87c5b18, transparent); content: ""; pointer-events: none; }
 .haven-entry__atmosphere { z-index: 2; top: 3rem; left: var(--page-gutter); width: calc(42% - var(--page-gutter)); height: calc(100% - 7rem); }
 .haven-entry > .atmosphere-control { top: 3.5rem; right: auto; left: calc(var(--page-gutter) + 0.75rem); }
 @media (max-width: 47.99rem) {

@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Review builds stay noindex even if the Netlify site has production variables.
+[context.deploy-preview.environment]
+  NARI_DEPLOY_CONTEXT = "preview"
+
+[context.branch-deploy.environment]
+  NARI_DEPLOY_CONTEXT = "preview"

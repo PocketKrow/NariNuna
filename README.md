@@ -28,6 +28,10 @@ npm run verify:experience
 
 `NARI_BROWSER_PATH` can select an existing Chromium executable. `npm run verify:browsers` covers Chromium + Firefox after both are installed; `npm run verify:release-browsers` adds WebKit. Eight visual baselines cover Home, Meet Nari, Haven and Nails at 390/1440px. Inspect deliberate changes before running `npm run verify:visual-update`.
 
+## Beta review on Netlify
+
+The `beta` branch is the review branch for the Netlify demo. `netlify.toml` builds the static `dist/` artifact using Node 22; deploy-preview and branch-deploy contexts explicitly use the noindex preview configuration. A connected Netlify site must have deploy previews or branch deploys enabled to provide a demo URL. Review deployments do not clear the artwork, client, or production-release gates below.
+
 ## Deploy to Google Cloud Run
 
 The client uses **Cloud Run services with source deployment and Google's Node.js buildpacks**. Cloud Run builds the source into a container and launches the entrypoint selected by the buildpack, normally the `start` script in `package.json`. The website remains an Astro static build: the serving process delivers the generated files in `dist/`; no SSR migration or database is required.
