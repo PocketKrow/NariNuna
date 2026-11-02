@@ -94,8 +94,15 @@ describe("creative credit registry", () => {
   it("renders every public group from data without exposing blocked artwork", async () => {
     const html = readFileSync(`dist/${CreditsPage}`, "utf8").split('id="main-content"')[1].split("</main>")[0];
     expect(html).toContain("The people behind");
-    expect(html).toContain("Somber Crow");
-    expect(html).toContain("Awaiting confirmation");
+    expect(html).toContain("PocketKrow");
+    expect(html).toContain("https://x.com/PocketKrow");
+    expect(html).toContain("https://github.com/PocketKrow");
+    expect(html).toContain("Website coming soon");
+    expect(html).not.toContain('id="credit-group-ghosties"');
+    expect(html).not.toContain('id="credit-group-prinnies"');
+    expect(html).not.toContain('id="credit-group-website-artwork"');
+    expect(html).not.toContain('id="credit-group-photography-nails"');
+    expect(html).not.toContain("Awaiting confirmation");
     expect(html).toContain("The archive opens when individual pieces have confirmed display permission");
     expect(html).not.toMatch(/<img|<picture/);
     expect(html).not.toContain("Do not publish");

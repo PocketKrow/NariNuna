@@ -2,7 +2,7 @@
 // Contextual access resolves a stable registry ID; artist names and statuses remain owned by the Credits data.
 import { BadgeInfo } from "@lucide/vue";
 import { computed } from "vue";
-import { publicCreditById } from "@/data/artCredits";
+import { artCreditRegistry } from "@/data/artCredits";
 
 const props = withDefaults(defineProps<{
   creditId: string;
@@ -12,16 +12,17 @@ const props = withDefaults(defineProps<{
   label: "Artwork & credits"
 });
 
-const credit = computed(() => publicCreditById(props.creditId));
-if (!credit.value) throw new Error(`Unknown public artwork credit: ${props.creditId}`);
+const credit = computed(() => artCreditRegistry.credits.find((entry) => entry.id === props.creditId && entry.creditStatus !== "blocked"));
+if (!credit.value) throw new Error(`Unknown artwork credit: ${props.creditId}`);
+const linksToPage = computed(() => props.pageOnly || !credit.value?.pageVisible);
 </script>
 
 <template>
   <a
     class="artwork-credit-link"
-    :href="pageOnly ? '/credits/' : `/credits/#${creditId}`"
+    :href="linksToPage ? '/credits/' : `/credits/#${creditId}`"
     :data-credit-id="creditId"
-    :aria-label="pageOnly ? label : `${label}: ${credit?.displayName}`"
+    :aria-label="linksToPage ? label : `${label}: ${credit?.displayName}`"
   >
     <BadgeInfo :size="15" aria-hidden="true" />
     <span>{{ label }}</span>

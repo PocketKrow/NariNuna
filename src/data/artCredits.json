@@ -251,7 +251,7 @@
       "creditStatus": "pending",
       "artworkDisplayStatus": "not-approved",
       "artwork": [],
-      "pageVisible": true
+      "pageVisible": false
     },
     {
       "id": "prinny-attribution-pending",
@@ -265,7 +265,7 @@
       "creditStatus": "pending",
       "artworkDisplayStatus": "not-approved",
       "artwork": [],
-      "pageVisible": true
+      "pageVisible": false
     },
     {
       "id": "website-storybook-artwork",
@@ -279,7 +279,7 @@
       "creditStatus": "internal",
       "artworkDisplayStatus": "not-approved",
       "artwork": [],
-      "pageVisible": true
+      "pageVisible": false
     },
     {
       "id": "nail-photography-hold",
@@ -293,16 +293,16 @@
       "creditStatus": "pending",
       "artworkDisplayStatus": "not-approved",
       "artwork": [],
-      "pageVisible": true
+      "pageVisible": false
     },
     {
       "id": "somber-crow-website",
       "groupId": "website",
-      "displayName": "Somber Crow",
+      "displayName": "PocketKrow",
       "roles": ["Design", "Development", "Engineering"],
       "contribution": "Website architecture, visual implementation, accessibility work, and ongoing maintenance.",
-      "creditText": "Built for Nari Nuna and her Ghosties.",
-      "links": [],
+      "creditText": "Built for Nari Nuna and her community.",
+      "links": [{ "label": "X", "url": "https://x.com/PocketKrow" }, { "label": "GitHub", "url": "https://github.com/PocketKrow" }],
       "assetFamilyIds": ["website-implementation"],
       "creditStatus": "internal",
       "artworkDisplayStatus": "not-applicable",
