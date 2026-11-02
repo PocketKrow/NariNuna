@@ -37,30 +37,30 @@ function statusIcon(status: CreditStatus) {
         <em>the pretty things.</em>
       </h1>
       <p>
-        This little world came together through art, care, and a lot of creativity. Here's a place for the people and work that help make it feel like home.
+        The model, the movement, the tiny expressions. A little world carries a lot of care. These are the people behind it.
       </p>
       <a class="credits-opening__jump" href="#ledger-title">Meet the makers <ArrowDown size={16} aria-hidden="true" /></a>
     </div>
-    <aside class="credits-opening__note" aria-label="How this page handles artwork credits">
+    <aside class="credits-opening__note" aria-label="A thank-you to the creators">
       <HeartHandshake size={26} aria-hidden="true" />
       <p>
-        <strong>Every little detail has a story.</strong>
-        <span>We're taking care to credit each contribution properly as details are confirmed.</span>
+        <strong>Good work deserves a name.</strong>
+        <span>Follow a creator's link to see more of what they make.</span>
       </p>
     </aside>
   </section>
   <section class="credits-ledger room-section page-width" aria-labelledby="ledger-title">
     <header class="room-heading">
       <div>
-        <p class="room-kicker">Made with care</p>
+        <p class="room-kicker">The credit ledger</p>
         <h2 id="ledger-title">
-          A home made
+          Made with care.
           <br />
-          <em>by many hands.</em>
+          <em>Shared with thanks.</em>
         </h2>
       </div>
       <p>
-        From Nari's character to the details around the Haven, each contribution deserves its own thank-you. Some names and permissions are still being confirmed.
+        A thank-you for each contribution, with creator links gathered in one place.
       </p>
     </header>
     <nav class="credits-index" aria-label="Credit categories">
@@ -111,7 +111,8 @@ function statusIcon(status: CreditStatus) {
       ))}
     </div>
   </section>
-  <section class="credits-archive room-section page-width" aria-labelledby="archive-title">
+  {approvedArchiveArtwork.length ? (
+    <section class="credits-archive room-section page-width" aria-labelledby="archive-title">
     <header class="room-heading">
       <div>
         <p class="room-kicker">A place for the artwork</p>
@@ -125,7 +126,6 @@ function statusIcon(status: CreditStatus) {
         We'd love to share more of the work behind the Haven here, alongside the people who made it, when permission is confirmed.
       </p>
     </header>
-    {approvedArchiveArtwork.length ? (
       <div class="credits-archive__grid">
         {approvedArchiveArtwork.map((artwork) => (
           <figure id={artwork.id} class="archive-piece">
@@ -146,21 +146,22 @@ function statusIcon(status: CreditStatus) {
           </figure>
         ))}
       </div>
-    ) : (
-      <p class="credits-archive__empty">
-        The archive opens when individual pieces have confirmed display permission. The credit ledger above remains
-        available in the meantime.
-      </p>
-    )}
-  </section>
+    </section>
+  ) : (
+    <div class="credits-permissions page-width">
+      <details>
+        <summary><ShieldCheck size={15} aria-hidden="true" /> A note about sharing artwork</summary>
+        <p>Crediting a creator and sharing their artwork are separate things. Individual pieces appear here only when display permission is confirmed.</p>
+      </details>
+    </div>
+  )}
   <section class="credits-correction page-width" aria-labelledby="credits-correction-title">
     <ShieldCheck size={28} aria-hidden="true" />
     <div>
       <p class="room-kicker">Help us get it right</p>
       <h2 id="credits-correction-title">Know something we missed?</h2>
       <p>
-        Corrections are welcome. Private contracts, approval messages, and personal contact details stay out of this
-        public ledger.
+        A name, a link, a missing detail? Let Nari know through her public profiles. Please keep private agreements and personal details private.
       </p>
       <a class="text-link" href="/work-with-nari/#nari-links">
         Find Nari's public profiles <ArrowRight size={16} aria-hidden="true" />

@@ -3,7 +3,7 @@ import SiteLayout from "@/layouts/SiteLayout.astro";
 import RoomArrival from "@/components/astro/RoomArrival.astro";
 
 // Keep free support first and the optional wishlist subordinate. Support never changes access, boundaries or claims on time.
-import { ArrowUpRight, Gift, Heart } from "@lucide/vue";
+import { ArrowRight, ArrowUpRight, Gift, Heart } from "@lucide/vue";
 import GhostieArt, { type GhostieArtVariant } from "@/components/art/GhostieArt.vue";
 import { environmentArtwork } from "@/data/artwork";
 import { throneUrl } from "@/data/socials";
@@ -45,8 +45,9 @@ const ways: { title: string; text: string; ghostie: GhostieArtVariant; mirror?: 
         are all real support.
       </p>
 
+      <a class="text-link" href="#kindness-notes">The things that cost nothing <ArrowRight size={16} aria-hidden="true" /></a>
   </RoomArrival>
-  <section class="kindness-notes room-section page-width" aria-labelledby="kindness-title">
+  <section id="kindness-notes" class="kindness-notes room-section page-width" aria-labelledby="kindness-title">
     <header class="room-heading">
       <div>
         <p class="room-kicker">The things that cost nothing</p>

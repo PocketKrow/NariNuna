@@ -103,7 +103,11 @@ describe("creative credit registry", () => {
     expect(html).not.toContain('id="credit-group-website-artwork"');
     expect(html).not.toContain('id="credit-group-photography-nails"');
     expect(html).not.toContain("Awaiting confirmation");
-    expect(html).toContain("The archive opens when individual pieces have confirmed display permission");
+    // Attribution alone cannot enable archive imagery; permission guidance stays a native disclosure.
+    expect(html).toContain('class="credits-permissions page-width"');
+    expect(html).toMatch(/<details\b[^>]*>[\s\S]*<summary[^>]*>[\s\S]*sharing artwork[\s\S]*<\/summary>/);
+    expect(html).toMatch(/Individual pieces[^<]*only when display permission is confirmed/);
+    expect(html).not.toContain("credits-archive__grid");
     expect(html).not.toMatch(/<img|<picture/);
     expect(html).not.toContain("Do not publish");
   });

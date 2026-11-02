@@ -6,14 +6,15 @@
   align-items: center;
   padding: clamp(1rem, 2.5vw, 2rem);
   background: linear-gradient(145deg, #493039, #322127 65%);
-  border-block: 1px solid var(--story-line);
+  border: 1px solid var(--storybook-rule);
   box-shadow: inset 0 0.35rem 0 #704c4d, inset 0 -0.35rem 0 #24171d;
 }
 .studio-workbench__notes {
   padding: 0.5rem clamp(1.25rem, 3vw, 2rem);
   background: var(--storybook-paper);
   color: var(--ink);
-  border-top: 0.25rem solid #8a657b;
+  border: 1px solid var(--paper-edge);
+  border-top: 0.25rem solid var(--paper-edge);
   box-shadow: 0.5rem 0.6rem 0 #1b121b40;
 }
 .studio-workbench__notes article { padding-block: 1.35rem; }
@@ -26,7 +27,7 @@
   display: grid;
   grid-template-columns: 5rem minmax(0, 1fr);
   gap: 1rem;
-  align-items: center;
+  align-items: start;
   margin: 0;
   padding: 1.25rem;
   background: #25182080;
@@ -43,6 +44,12 @@
 @media (max-width: 30rem) {
   .studio-workbench__spread { padding: 1rem; }
   .studio-workbench__notes { padding-inline: 1.25rem; }
-  .studio-portfolio-hold { grid-template-columns: 3.5rem minmax(0, 1fr); gap: 0.75rem; padding: 1rem; }
+  .studio-portfolio-hold { grid-template-columns: minmax(0, 1fr); gap: 0.75rem; padding: 1rem; }
   .studio-portfolio-hold .ghostie-art { --ghostie-size: 3.5rem; height: 3.5rem; }
 }
+
+.studio-workbench__notes, .studio-portfolio-hold { min-width: 0; }
+.studio-workbench__spread { align-items: stretch; }
+.studio-portfolio-hold { align-content: center; }
+.studio-portfolio-hold .room-kicker { font-size: 0.7rem; }
+#nari-workbench { scroll-margin-top: calc(var(--header-height) + 1rem); }

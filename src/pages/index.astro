@@ -4,17 +4,22 @@ import RoomArrival from "@/components/astro/RoomArrival.astro";
 import StreamSchedule from "@/components/astro/StreamSchedule.astro";
 import ResponsiveArtwork from "@/components/art/ResponsiveArtwork.vue";
 import ArtworkCreditLink from "@/components/art/ArtworkCreditLink.vue";
-import { ArrowRight } from "@lucide/vue";
+import { ArrowRight, ArrowUpRight, Radio, Sparkles, Paintbrush, Heart } from "@lucide/vue";
+import GhostieArt from "@/components/art/GhostieArt.vue";
+import MediaCard from "@/components/ui/MediaCard.vue";
+import { featuredMoments } from "@/data/media";
 import SocialDock from "@/components/ui/SocialDock.vue";
 import { environmentArtwork, storybookPostcards } from "@/data/artwork";
+const homeMoment = featuredMoments[0];
 const corners = [
-  { href: "/streams/", name: "Streams", label: "At the broadcast desk", note: "There's always one more good bit.", artwork: storybookPostcards.streams },
-  { href: "/nail-studio/", name: "Nail Studio", label: "At the workbench", note: "A little glitter gets everywhere.", artwork: storybookPostcards.nails },
-  { href: "/haven/", name: "The Haven", label: "In the common room", note: "Leave the room a little kinder.", artwork: storybookPostcards.haven },
+  { href: "/streams/", name: "Streams", label: "At the broadcast desk", note: "There's always one more good bit.", artwork: storybookPostcards.streams, icon: Radio },
+  { href: "/nail-studio/", name: "Nail Studio", label: "At the workbench", note: "A little glitter gets everywhere.", artwork: storybookPostcards.nails, icon: Paintbrush },
+  { href: "/haven/", name: "The Haven", label: "In the common room", note: "Leave the room a little kinder.", artwork: storybookPostcards.haven, icon: Heart },
 ];
 ---
 <SiteLayout pageId="home">
   <RoomArrival room="home" artwork={environmentArtwork.homeSunset} description="Nari, with emerald eyes, asymmetric cat-and-dog ears, lavender clothes, and her purple-tipped tail, offers a seat beside a Ghostie at the autumn window in her Haven." atmosphere>
+    <p class="home-arrival-note">Welcome to Nari's Haven</p>
     <p class="eyebrow">A warm seat for lovely weirdos</p>
     <h1><span>Nari</span><em>Nuna</em></h1>
     <p class="arrival-subtitle">Your favorite chaotic big sister.</p>
@@ -26,17 +31,17 @@ const corners = [
     <SocialDock />
     <ArtworkCreditLink creditId="website-storybook-artwork" pageOnly />
   </RoomArrival>
-  <StreamSchedule />
   <section class="haven-corners room-section page-width" aria-labelledby="corners-title">
     <header class="room-heading">
-      <div><p class="room-kicker">Make yourself at home</p><h2 id="corners-title">A few favorite <em>corners.</em></h2></div>
+      <div><p class="room-kicker">Make yourself at home</p><h2 id="corners-title">A little chaos.<br /><em>A lot of heart.</em></h2></div>
+      <p>Games, color, and good company. Pick a corner and stay a while.</p>
     </header>
     <div class="haven-corners__shelf">
       {corners.map((corner) => (
         <a class="haven-corner" href={corner.href} data-material-reveal>
           <div class="haven-corner__frame"><ResponsiveArtwork artwork={corner.artwork} sizes="(min-width: 64rem) 30vw, (min-width: 40rem) 44vw, calc(100vw - 48px)" alt="" /></div>
           <div class="haven-corner__caption">
-            <p class="haven-corner__label">{corner.label}</p>
+            <p class="haven-corner__label"><corner.icon size={15} aria-hidden="true" />{corner.label}</p>
             <h3>{corner.name} <ArrowRight size={18} aria-hidden="true" /></h3>
             <p class="haven-corner__note">{corner.note}</p>
           </div>
@@ -44,6 +49,17 @@ const corners = [
       ))}
     </div>
   </section>
+  <StreamSchedule />
+  {homeMoment && <section class="home-moment room-section page-width" aria-labelledby="home-moment-title">
+    <div class="home-moment__intro">
+      <p class="room-kicker"><Sparkles size={15} aria-hidden="true" /> A taste of the chaos</p>
+      <h2 id="home-moment-title">You had to<br /><em>be there.</em></h2>
+      <p>Or you can watch the clip. Same Nari energy, a much smaller time commitment.</p>
+      <a class="text-link" href="/streams/#selected-moments">More stream moments <ArrowRight size={16} aria-hidden="true" /></a>
+      <div class="home-moment__ghostie"><GhostieArt variant="gaming" sizes="112px" /><span>One more good bit.</span></div>
+    </div>
+    <div class="home-moment__clip"><MediaCard moment={homeMoment} client:visible /></div>
+  </section>}
   <section class="welcome-room page-width" aria-labelledby="welcome-room-title">
     <div class="welcome-room__image">
       <img src="/media/storybook/welcome/welcome-room-1200.webp" srcset="/media/storybook/welcome/welcome-room-720.webp 720w, /media/storybook/welcome/welcome-room-1200.webp 1200w" sizes="(min-width: 64rem) 52vw, calc(100vw - 32px)" width="1200" height="600" loading="lazy" decoding="async" alt="A Ghostie waits beside two cups of tea in a warmly lit autumn room." />
@@ -53,6 +69,7 @@ const corners = [
       <h2 id="welcome-room-title">Come as you <em>are.</em></h2>
       <p>Whether you're here for a laugh, a little company, or a quiet place to land, there's a spot for you in the Haven.</p>
       <a class="text-link" href="/haven/">Get to know the Haven <ArrowRight size={16} aria-hidden="true" /></a>
+      <a class="welcome-room__meet" href="/meet-nari/">And the big sister behind it <ArrowUpRight size={15} aria-hidden="true" /></a>
       <ArtworkCreditLink creditId="website-storybook-artwork" pageOnly />
     </div>
   </section>

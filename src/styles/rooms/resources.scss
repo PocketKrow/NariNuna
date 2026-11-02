@@ -23,12 +23,14 @@
   z-index: -1;
   inset: -1rem 0.15rem;
   background: color-mix(in srgb, var(--bg-inset) 28%, transparent);
-  border: 1px solid color-mix(in srgb, var(--story-line) 44%, transparent);
+  border: 1px solid var(--storybook-rule);
   content: "";
 }
 .resource-shelf {
   position: relative;
-  padding: 0 0 1.25rem;
+  padding: 1.1rem 1rem 1.25rem;
+  background: color-mix(in srgb, var(--bg-raised) 72%, transparent);
+  border-top: 1px solid var(--story-line);
   margin-block-end: 1.25rem;
   border-bottom: 0.45rem solid color-mix(in srgb, var(--story-line) 70%, var(--bg-inset));
   scroll-margin-top: calc(var(--header-height) + 1.5rem);
@@ -81,6 +83,7 @@
   gap: 1.2rem;
   padding: 2rem;
   background: var(--story-surface-deep);
+  border: 1px solid var(--story-line);
   border-inline-start: 3px solid var(--storybook-gold);
 }
 .shelf-policy svg {
@@ -128,3 +131,9 @@
 
 .resource-review { overflow-wrap: anywhere; }
 .shelf-policy > div { min-width: 0; }
+
+// Shelf links carry their own names and keep empty collections discoverable.
+.resource-library__shortcuts { display: grid; margin-block: 1.25rem; border-top: 1px solid var(--story-line); }
+.resource-library__shortcuts a { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 2.75rem; padding-block: 0.65rem; border-bottom: 1px solid var(--story-line); color: var(--text-muted); font-size: 0.875rem; text-decoration: none; }
+.resource-library__shortcuts a:hover { color: var(--cream); }
+.resource-library__shortcuts svg { flex: none; }

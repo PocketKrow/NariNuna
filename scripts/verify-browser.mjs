@@ -32,6 +32,9 @@ async function verifyDocuments() {
       await page.waitForFunction(() =>
         [...document.querySelectorAll('astro-island[client="load"]')].every((el) => !el.hasAttribute("ssr")),
       );
+      // Exercise below-fold visibility before checking the clip's failed-thumbnail recovery.
+      for (const card of await page.locator(".media-card").all()) await card.scrollIntoViewIfNeeded();
+      await page.waitForFunction(() => document.querySelectorAll('.media-card__image img[src^="https://i.ytimg.com"]').length === 0);
       assert.equal(await page.locator("h1").count(), 1, `${width}px ${path}: one heading`);
       assert.equal(await page.locator("main").count(), 1, `${width}px ${path}: one main`);
       assert.equal(
@@ -68,12 +71,20 @@ try {
   await page.waitForFunction(() => !document.querySelector('astro-island[client="load"]')?.hasAttribute("ssr"));
   await page.getByRole("button", { name: "Open navigation" }).click();
   assert.equal(await page.locator("body").evaluate((el) => el.classList.contains("nav-is-open")), true);
-  await page.keyboard.press("Tab");
+  assert.equal(await page.locator("#main-content").evaluate((el) => el.inert), true);
+  assert.equal(await page.locator(".site-footer").evaluate((el) => el.inert), true);
+  await page.waitForFunction(() => document.querySelector(".site-header__mobile-nav a") === document.activeElement);
   await page.keyboard.press("Shift+Tab");
+  assert.equal(await page.locator(".nav-toggle").evaluate((el) => el === document.activeElement), true);
+  await page.keyboard.press("Shift+Tab");
+  assert.equal(await page.locator(".site-header__live-link").evaluate((el) => el === document.activeElement), true);
+  await page.keyboard.press("Tab");
   assert.equal(await page.locator(".nav-toggle").evaluate((el) => el === document.activeElement), true);
   await page.keyboard.press("Escape");
   assert.equal(await page.getByRole("button", { name: "Open navigation" }).getAttribute("aria-expanded"), "false");
-  log.push("Mobile menu opens, locks scrolling, traps Tab and restores focus on Escape.");
+  assert.equal(await page.locator("#main-content").evaluate((el) => el.inert), false);
+  assert.equal(await page.locator(".site-footer").evaluate((el) => el.inert), false);
+  log.push("Mobile menu focuses its first link, makes the background inert, traps Tab and restores focus/background on Escape.");
   await page.getByRole("button", { name: "Open navigation" }).click();
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.waitForTimeout(100);

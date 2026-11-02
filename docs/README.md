@@ -1,5 +1,7 @@
 # Nari Nuna's Haven — Documentation Hub
 
+Current beta refresh: [46 — complete Haven refresh](46_BETA_HAVEN_REFRESH.md), branch `beta`, draft PR #37. This is the latest scope; older branch summaries below are dated history.
+
 Current refinement PR: [45 — paper interactions, values-first discovery, accurate content journeys and selective atmosphere](45_COHESIVE_REFINEMENT.md). Branch `kiva/haven-cohesive-refinement`, PR #36, starts from Main `cadc391`. Local execution is unavailable; the document separates GitHub CI evidence from pending manual visual approval.
 
 Current owner-directed refinement: [44 — preserve Main, reduce visual competition, strengthen selected artwork](44_MAIN_REFINEMENT.md). Jake selected Main at `9ac7be3`; minimalist PRs #31/#32 are separate explorations, not implementation parents.

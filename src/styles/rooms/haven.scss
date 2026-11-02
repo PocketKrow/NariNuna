@@ -1,31 +1,51 @@
-// The promise is a quiet textile heading beside a paper charter. The doorway is the room's focal interaction.
-.haven-charter { display: grid; grid-template-columns: minmax(0,0.8fr) minmax(0,1.4fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; padding-block: clamp(3rem, 6vw, 5.5rem); }
-.haven-charter__welcome { padding: 1rem 0; }
-.haven-charter__welcome h2 { font-size: clamp(2.4rem,3.8vw,3.7rem); line-height: 1.12; }
-.haven-charter__intro { max-width: 25rem; margin: 1.15rem 0 0; color: var(--text-muted); line-height: 1.75; }
-.haven-charter__ghostie { display: flex; align-items: center; gap: 1rem; width: fit-content; max-width: 100%; margin-top: 1.5rem; padding: 0.5rem 1.25rem 0.5rem 0.5rem; border: 1px solid var(--storybook-rule); background: #50303a55; }
+// The textile introduction and one paper charter precede the interactive threshold.
+.haven-charter {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.25fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+  padding-block: clamp(3rem, 6vw, 5rem);
+}
+.haven-charter__welcome { padding: 2rem 1.5rem; border-block: 1px solid var(--storybook-rule); }
+.haven-charter__welcome h2 { font-size: clamp(2.25rem, 3.5vw, 3.35rem); line-height: 1.12; }
+.haven-charter__intro { max-width: 25rem; margin: 1rem 0 0; color: var(--text-muted); line-height: 1.75; }
+.haven-charter__ghostie { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; max-width: 100%; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--story-line); }
 .haven-charter__ghostie .ghostie-art { --ghostie-size: 7rem; width: 7rem; height: 7rem; flex: none; }
-.haven-charter__ghostie p { max-width: 10rem; margin: 0; color: var(--cream); font: italic 1.1rem/1.4 var(--font-display); }
-.haven-charter__paper { position: relative; padding: 1.5rem clamp(1.5rem,3vw,2.5rem) 0.75rem; color: var(--ink); background: linear-gradient(135deg, #fff8eb 0%, var(--storybook-paper) 55%); border: 1px solid #b99077; border-top: 0.3rem solid #8a657b; box-shadow: 0.5rem 0.6rem 0 #1a0e1640, 0 1rem 2rem #10080c30; }
-.haven-charter__paper-label { display: flex; justify-content: space-between; gap: 1rem; padding-bottom: 0.9rem; margin: 0; border-bottom: 1px solid var(--line-dark); color: #704354; font: 700 0.7rem/1.5 var(--font-detail); letter-spacing: 0.09em; text-transform: uppercase; }
-.haven-charter__paper-label span { color: #8a5b40; }
+.haven-charter__ghostie p { max-width: 10rem; margin: 0; color: var(--cream); font: italic 1.15rem/1.4 var(--font-display); }
+.haven-charter__paper {
+  position: relative;
+  --focus: var(--focus-on-paper);
+  padding: 1.5rem clamp(1.5rem, 3vw, 2.5rem) 0.75rem;
+  color: var(--ink);
+  background: var(--storybook-paper);
+  border: 1px solid var(--paper-edge);
+  border-top: 0.3rem solid var(--plum);
+  box-shadow: 0.5rem 0.6rem 0 #1a0e1640, 0 1rem 2rem #10080c30;
+}
+.haven-charter__paper::before { position: absolute; inset: 0.4rem; border: 1px solid var(--line-dark); content: ""; pointer-events: none; }
+.haven-charter__paper-label { display: flex; justify-content: space-between; gap: 1rem; padding-bottom: 0.9rem; margin: 0; border-bottom: 1px solid var(--line-dark); color: var(--ink-muted); font: 700 0.7rem/1.5 var(--font-detail); letter-spacing: 0.09em; text-transform: uppercase; }
+.haven-charter__paper-label span { color: var(--ink-muted); }
 .haven-charter__values { list-style: none; margin: 0; padding: 0; }
-.haven-charter__values li { display: grid; grid-template-columns: 2rem minmax(0,1fr); gap: 1rem; padding-block: 1.5rem; }
+.haven-charter__values li { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 1rem; padding-block: 1.4rem; }
 .haven-charter__values li + li { border-top: 1px solid var(--line-dark); }
-.haven-charter__number { white-space: nowrap; color: #81526a; font: italic 1.5rem var(--font-display); }
-.haven-charter__values h3 { font-size: 1.65rem; line-height: 1.2; }
+.haven-charter__number { white-space: nowrap; color: var(--ink-muted); font: italic 1.5rem var(--font-display); }
+.haven-charter__values h3 { font-size: clamp(1.35rem, 2vw, 1.65rem); line-height: 1.2; }
 .haven-charter__values p { color: var(--ink-muted); margin: 0; line-height: 1.75; }
-.haven-entry { position: relative; isolation: isolate; padding-block: 3rem 4rem; }
-.haven-entry::before { position: absolute; z-index: -1; inset: 4.5rem 0 5.5rem; border-block: 1px solid var(--story-line); background: linear-gradient(90deg, transparent, #a87c5b18, transparent); content: ""; pointer-events: none; }
-.haven-entry__atmosphere { z-index: 2; top: 3rem; left: var(--page-gutter); width: calc(42% - var(--page-gutter)); height: calc(100% - 7rem); }
-.haven-entry > .atmosphere-control { top: 3.5rem; right: auto; left: calc(var(--page-gutter) + 0.75rem); }
+.haven-entry { position: relative; isolation: isolate; padding-block: 2.5rem 4rem; }
+.haven-entry__heading { max-width: 46rem; padding-block: 1.5rem 2rem; margin-bottom: 1rem; border-top: 1px solid var(--storybook-rule); }
+.haven-entry__heading h2 { font-size: clamp(2rem, 3vw, 3rem); line-height: 1.15; }
+.haven-entry__heading > p:last-child { color: var(--text-muted); margin-bottom: 0; }
+.haven-entry::before { position: absolute; z-index: -1; inset: 12rem 0 5.5rem; border-block: 1px solid var(--story-line); background: color-mix(in srgb, var(--bg-raised) 25%, transparent); content: ""; pointer-events: none; }
+.haven-entry__atmosphere { z-index: 2; top: 12rem; left: var(--page-gutter); width: calc(42% - var(--page-gutter)); height: calc(100% - 16rem); }
+.haven-entry > .atmosphere-control { top: 12.5rem; right: auto; left: calc(var(--page-gutter) + 0.75rem); }
 @media (max-width: 47.99rem) {
-  .haven-charter { grid-template-columns: 1fr; gap: 1.5rem; padding-block: 2.5rem; }
-  .haven-charter__welcome { padding: 0; }
+  .haven-charter { grid-template-columns: 1fr; gap: 1.75rem; padding-block: 2.5rem; }
+  .haven-charter__welcome { display: grid; grid-template-columns: minmax(0, 1fr); padding-block: 1.25rem; padding-inline: 0; }
   .haven-charter__ghostie { margin-top: 1.2rem; }
   .haven-charter__ghostie .ghostie-art { --ghostie-size: 5rem; width: 5rem; height: 5rem; }
-  .haven-charter__welcome h2 { font-size: clamp(2rem,8vw,2.6rem); }
-  .haven-charter__paper { padding-inline: 1.25rem; }
-  .haven-charter__values li { grid-template-columns: 1.4rem minmax(0,1fr); gap: 0.65rem; }
+  .haven-charter__welcome h2 { font-size: clamp(2rem, 8vw, 2.6rem); }
+  .haven-charter__paper { padding-inline: 1.25rem; box-shadow: 0.25rem 0.35rem 0 #1a0e1640; }
+  .haven-charter__values li { grid-template-columns: max-content minmax(0, 1fr); gap: 0.75rem; }
   .haven-entry { padding-block: 2rem; }
+  .haven-entry__heading { padding-bottom: 1.25rem; }
 }

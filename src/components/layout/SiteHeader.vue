@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // Own mobile-directory state, native More disclosure and keyboard focus. Keep the 56rem layout listener aligned with the CSS breakpoint.
 import { ChevronDown, Menu, Radio, Sparkles, X } from "@lucide/vue";
-import { onBeforeUnmount, onMounted, ref, watch } from "vue";
+import { nextTick, onBeforeUnmount, onMounted, ref, watch } from "vue";
 import GhostieArt from "@/components/art/GhostieArt.vue";
 import { havenRoomNotes } from "@/data/rooms";
 import { footerNavigation, primaryNavigation } from "@/data/navigation";
@@ -15,13 +15,13 @@ const menuPanel = ref<HTMLElement | null>(null);
 const moreToggle = ref<HTMLElement | null>(null);
 // Astro passes the canonical route, so current-page labels are correct before hydration.
 const principalLinks = primaryNavigation.filter((item) =>
-  ["/meet-nari/", "/streams/", "/haven/", "/work-with-nari/"].includes(item.href)
+  ["/meet-nari/", "/streams/", "/nail-studio/", "/haven/"].includes(item.href)
 );
 const moreLinks = [
-  ...primaryNavigation.filter((item) => ["/resources/", "/nail-studio/"].includes(item.href)),
+  ...primaryNavigation.filter((item) => ["/resources/", "/work-with-nari/"].includes(item.href)),
   ...footerNavigation
 ];
-const mobileLinks = [...principalLinks, ...moreLinks];
+const mobileLinks = [primaryNavigation[0]!, ...principalLinks, ...moreLinks];
 
 /** Compare normalized document destinations; labels are free to change independently. */
 function isCurrent(href: string): boolean {
@@ -86,14 +86,24 @@ onMounted(() => {
 });
 
 // Body scroll lock follows local state and is removed on teardown, even mid-navigation.
-watch(menuOpen, (open) => {
+function setContentInert(inert: boolean): void {
+  // The directory overlays the document; background links must not remain a second keyboard path.
+  document.querySelectorAll<HTMLElement>("#main-content, .site-footer").forEach((element) => { element.inert = inert; });
+}
+watch(menuOpen, async (open) => {
   document.body.classList.toggle("nav-is-open", open);
+  setContentInert(open);
+  if (open) {
+    await nextTick();
+    if (menuOpen.value) menuPanel.value?.querySelector<HTMLElement>(".site-header__mobile-nav a")?.focus();
+  }
 });
 
 onBeforeUnmount(() => {
   window.removeEventListener("keydown", handleNavigationKeys);
   desktopNavigation?.removeEventListener("change", handleNavigationLayout);
   document.body.classList.remove("nav-is-open");
+  setContentInert(false);
 });
 </script>
 
@@ -164,7 +174,7 @@ onBeforeUnmount(() => {
               @click="closeMenu"
             >
               <span>{{ item.shortLabel ?? item.label }}</span>
-              <small>{{ item.href === "/resources/" ? "Useful things" : item.href === "/nail-studio/" ? "Color and craft" : item.href === "/stories/" ? "Saved moments" : item.href === "/credits/" ? "Meet the makers" : "Support Nari" }}</small>
+              <small>{{ item.href === "/resources/" ? "Useful things" : item.href === "/nail-studio/" ? "Color and craft" : item.href === "/work-with-nari/" ? "Creative collaborations" : item.href === "/stories/" ? "Saved moments" : item.href === "/credits/" ? "Meet the makers" : "Support Nari" }}</small>
             </a>
           </nav>
         </details>
@@ -347,4 +357,27 @@ onBeforeUnmount(() => {
 .site-header__live-link,
 .site-header__more > summary,
 .site-header__more > nav > a { font-size: 0.875rem; }
+/* One sign above all rooms; the Ghostie stays clear of navigation hit areas. */
+.site-header { box-shadow: 0 0.3rem 1.5rem #10080c24; }
+.site-header__inner { min-height: var(--header-height); }
+.brand-mark { min-width: 0; flex: 0 1 auto; gap: 0.7rem; }
+.brand-mark > span:last-child { min-width: 0; }
+.brand-mark strong { overflow-wrap: anywhere; font-size: 1.4rem; }
+.nav-toggle { flex: none; border-radius: 0.2rem; background: var(--bg-raised); }
+.brand-mark__emblem { width: 2.9rem; height: 2.9rem; border: 1px solid var(--storybook-rule); border-radius: 0.4rem; background: var(--bg-raised); }
+.brand-mark__emblem :deep(.ghostie-art) { --ghostie-size: 3.1rem; width: 3.1rem; height: 3.1rem; }
+.brand-mark small { color: var(--text-muted); font-size: 0.58rem; letter-spacing: 0.09em; }
+.site-header__main-nav > a { border-radius: 0.2rem; }
+.site-header__main-nav > a[aria-current="page"] { background: var(--bg-soft); }
+.site-header__live-link { min-height: 2.75rem; border: 1px solid var(--storybook-rule); background: var(--bg-raised); border-radius: 0.2rem; }
+@media (max-width: 55.99rem) {
+  .site-header__mobile-nav > a { min-width: 0; }
+  .site-header__mobile-nav > a strong, .site-header__mobile-nav > a small { overflow-wrap: anywhere; }
+  .site-header__panel { border-top: 1px solid var(--storybook-rule); }
+}
+@media (max-width: 30rem) {
+  .brand-mark strong { display: block; font-size: 1.3rem; }
+  .brand-mark strong i { padding-inline-start: 0; }
+  .brand-mark small { display: none; }
+}
 </style>

@@ -47,7 +47,11 @@ for (const fault of ["unavailable", "creation throws", "probe precision", "canva
     const errors: string[] = [];
     const chunks: string[] = [];
     page.on("pageerror", (error) => errors.push(error.message));
-    page.on("console", (message) => { if (message.type() === "error") errors.push(message.text()); });
+    page.on("console", (message) => {
+      // The fixture deliberately aborts only this remote thumbnail origin; other errors remain fatal.
+      const controlledThumbnailFailure = message.text().includes("ERR_FAILED") && message.location().url.startsWith("https://i.ytimg.com/");
+      if (message.type() === "error" && !controlledThumbnailFailure) errors.push(message.text());
+    });
     page.on("request", (request) => { if (/\/assets\/atmosphere\./.test(request.url())) chunks.push(request.url()); });
     await page.route("https://i.ytimg.com/**", (route) => route.abort());
     for (const path of ["/", "/haven/"]) {

@@ -29,11 +29,18 @@ for (const width of [390, 1440]) {
       test.skip(browserName !== "chromium", "Visual baselines belong to the Chromium PR job.");
       await page.setViewportSize({ width, height: 900 });
       await page.emulateMedia({ reducedMotion: "reduce" });
+      // Visual baselines use the local supported fallback rather than volatile remote media.
+      await page.route("https://i.ytimg.com/**", (route) => route.abort());
       await page.goto(path);
       await settle(page);
       // Normalize Linux test fonts so CI checks composition rather than the host's optional serif aliases.
       await page.addStyleTag({ content: ':root { --font-display: "DejaVu Serif"; --font-body: "DejaVu Sans"; --font-detail: "DejaVu Sans Mono"; }' });
+      // Hydrate visible clips before resolving images; a failed SSR thumbnail may detach on mount.
+      for (const card of await page.locator(".media-card").all()) await card.scrollIntoViewIfNeeded();
+      await page.waitForFunction(() => [...document.querySelectorAll('astro-island[client="visible"]')].every((el) => !el.hasAttribute("ssr")));
+      await expect(page.locator('.media-card__image img[src^="https://i.ytimg.com"]')).toHaveCount(0);
       for (const image of await page.locator("img").all()) {
+        if (!(await image.isVisible())) continue;
         await image.scrollIntoViewIfNeeded();
         await image.evaluate((element: HTMLImageElement) => element.decode().catch(() => undefined));
       }
@@ -187,3 +194,21 @@ for (const control of ["painted-door", "story-action"] as const) {
     await expect(page.getByRole("button", { name: "Give the first knock", exact: true }).last()).toBeFocused();
   });
 }
+
+
+// Document scrollWidth can hide clipped controls when decorative overflow is suppressed.
+test("visible controls remain within the viewport at 390px with 200% text", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.route("https://i.ytimg.com/**", (route) => route.abort());
+  for (const route of pages.filter(({ id }) => id !== "prinnyCult")) {
+    await page.goto(route.path); await settle(page);
+    await page.evaluate(() => { document.documentElement.style.fontSize = "200%"; });
+    const clipped = await page.locator("main a, main button, .site-footer a").evaluateAll((elements) => elements
+      .filter((element) => element.getClientRects().length && getComputedStyle(element).visibility !== "hidden")
+      .map((element) => ({ label: element.textContent?.trim(), rect: element.getBoundingClientRect() }))
+      .filter(({ rect }) => rect.width > 0 && (rect.left < -1 || rect.right > innerWidth + 1))
+      .map(({ label, rect }) => ({ label, left: rect.left, right: rect.right })));
+    expect(clipped, route.path).toEqual([]);
+  }
+});

@@ -3,7 +3,7 @@ import SiteLayout from "@/layouts/SiteLayout.astro";
 import RoomArrival from "@/components/astro/RoomArrival.astro";
 
 // Values precede the three-knock Discord threshold; the optional floorboard follows it. Keep the door fragment stable for inbound links.
-import { House } from "@lucide/vue";
+import { ArrowRight, House } from "@lucide/vue";
 import GhostieArt from "@/components/art/GhostieArt.vue";
 import ArtworkCreditLink from "@/components/art/ArtworkCreditLink.vue";
 import RoomDiscovery from "@/components/ui/RoomDiscovery.vue";
@@ -29,10 +29,11 @@ import { communityValues } from "@/data/content";
           No audition. No volume requirement. Just big personalities, quiet lurkers, tired people, weird jokes, and
           respect for the human on the other side of the screen.
         </p>
+        <a class="text-link" href="#haven-charter">Read the room <ArrowRight size={16} aria-hidden="true" /></a>
         <ArtworkCreditLink creditId="website-storybook-artwork" />
 
   </RoomArrival>
-  <section class="haven-charter room-section page-width" aria-labelledby="charter-title">
+  <section id="haven-charter" class="haven-charter room-section page-width" aria-labelledby="charter-title">
     <div class="haven-charter__welcome">
       <p class="room-kicker">What keeps this place a home</p>
       <h2 id="charter-title">
@@ -67,7 +68,12 @@ import { communityValues } from "@/data/content";
     <RoomDiscovery discoveryId="charter-memory-scrap" />
   </div>
   <!-- The public fragment targets both invitation and optional discovery, after the charter. -->
-  <section id="haven-door" class="haven-entry page-width section-pad" data-experience>
+  <section id="haven-door" class="haven-entry page-width section-pad" aria-labelledby="haven-entry-title" data-experience>
+    <header class="haven-entry__heading">
+      <p class="room-kicker">A place at the table</p>
+      <h2 id="haven-entry-title">Three little knocks.<br /><em>One warm welcome.</em></h2>
+      <p>Bring a little kindness with you. The Ghostie will take it from here.</p>
+    </header>
     <canvas class="ambient-field haven-entry__atmosphere" data-atmosphere aria-hidden="true"></canvas>
     <button class="atmosphere-control" type="button" data-atmosphere-control hidden aria-pressed="false">Pause atmosphere</button>
     <HavenDoor client:load />

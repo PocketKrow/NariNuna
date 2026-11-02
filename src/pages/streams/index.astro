@@ -3,7 +3,7 @@ import SiteLayout from "@/layouts/SiteLayout.astro";
 import RoomArrival from "@/components/astro/RoomArrival.astro";
 
 // Own the Twitch/YouTube broadcast desk. The first curated moment leads; MediaCard owns blocked-thumbnail fallback.
-import { ArrowUpRight, Radio, Video } from "@lucide/vue";
+import { ArrowRight, ArrowUpRight, Radio, Video } from "@lucide/vue";
 import MediaCard from "@/components/ui/MediaCard.vue";
 import { environmentArtwork } from "@/data/artwork";
 import { featuredMoments } from "@/data/media";
@@ -44,8 +44,12 @@ const supportingMoments = featuredMoments.slice(1);
       </div>
 
   </RoomArrival>
+  <nav class="broadcast-tabs page-width" aria-label="Stream room shortcuts">
+    <a href="#selected-moments">Selected moments <ArrowRight size={16} aria-hidden="true" /></a>
+    <a href="#whole-evening">Full streams &amp; times <ArrowRight size={16} aria-hidden="true" /></a>
+  </nav>
   <!-- The curated lead and supporting clips share MediaCard fallback behavior. -->
-  <section class="clip-desk room-section page-width" aria-labelledby="moments-title">
+  <section id="selected-moments" class="clip-desk room-section page-width" aria-labelledby="moments-title">
     <header class="room-heading">
       <div>
         <p class="room-kicker">A taste of the room</p>
@@ -65,7 +69,7 @@ const supportingMoments = featuredMoments.slice(1);
         ))}
       </div>
     </div>
-    <div class="broadcast-tuning">
+    <div id="whole-evening" class="broadcast-tuning">
       <div>
         <Radio size={25} aria-hidden="true" />
         <p>
@@ -73,7 +77,10 @@ const supportingMoments = featuredMoments.slice(1);
           <span>Find current stream times on Twitch and Nari's socials.</span>
         </p>
       </div>
-
+      <div class="broadcast-tuning__links">
+        <a class="text-link" href={twitchUrl} target="_blank" rel="noreferrer noopener">Stream times on Twitch <ArrowUpRight size={16} aria-hidden="true" /><span class="sr-only"> (opens in a new tab)</span></a>
+        {youtube ? <a class="text-link" href={youtube.url} target="_blank" rel="noreferrer noopener">More videos on YouTube <ArrowUpRight size={16} aria-hidden="true" /><span class="sr-only"> (opens in a new tab)</span></a> : null}
+      </div>
     </div>
     <a class="clip-desk__next text-link" href="/stories/">
       See these clips in the memory album <ArrowUpRight size={17} aria-hidden="true" />

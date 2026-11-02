@@ -1,8 +1,10 @@
 ---
 import { ArrowUpRight, CalendarDays } from "@lucide/vue";
-import { streamSchedule } from "@/data/schedule";
+import { getPublishedStreamSchedule, streamSchedule } from "@/data/schedule";
 import { twitchUrl } from "@/data/socials";
 import GhostieArt from "@/components/art/GhostieArt.vue";
+// Static output reflects publication/expiry at build time; rebuild before expiry.
+const publishedSchedule = getPublishedStreamSchedule(streamSchedule);
 ---
 <section class="stream-schedule page-width" aria-labelledby="schedule-title">
   <div class="stream-schedule__board">
@@ -14,19 +16,19 @@ import GhostieArt from "@/components/art/GhostieArt.vue";
       <a class="stream-schedule__link" href={twitchUrl} target="_blank" rel="noreferrer noopener">Visit Nari on Twitch <ArrowUpRight size={16} aria-hidden="true" /><span class="sr-only"> (opens in a new tab)</span></a>
     </div>
     <div class="stream-schedule__paper" data-surface="paper">
-      {streamSchedule && streamSchedule.entries.length ? (
+      {publishedSchedule ? (
         <>
-          <div class="stream-schedule__paper-heading"><p>Stream schedule</p><span>{streamSchedule.periodLabel}</span></div>
-          <p class="stream-schedule__zone">Times shown in {streamSchedule.timeZone}</p>
+          <div class="stream-schedule__paper-heading"><p>Stream schedule</p><span>{publishedSchedule.periodLabel}</span></div>
+          <p class="stream-schedule__zone">Times shown in {publishedSchedule.timeZone}</p>
           <ul class="stream-schedule__entries">
-            {streamSchedule.entries.map((entry) => (
+            {publishedSchedule.entries.map((entry) => (
               <li>
                 <div><strong>{entry.dateLabel}</strong><span>{entry.timeLabel}</span></div>
                 <div><strong>{entry.title}</strong>{entry.note && <p>{entry.note}</p>}</div>
               </li>
             ))}
           </ul>
-          <p class="stream-schedule__updated">Posted {streamSchedule.updatedLabel} · Plans may change.</p>
+          <p class="stream-schedule__updated">Posted {publishedSchedule.updatedLabel} · Plans may change.</p>
         </>
       ) : (
         <div class="stream-schedule__empty">
@@ -75,5 +77,14 @@ import GhostieArt from "@/components/art/GhostieArt.vue";
   .stream-schedule__empty p { max-width: 28rem; margin: 0; color: var(--ink-muted); line-height: 1.65; }
   .stream-schedule__ghostie { width: 100%; aspect-ratio: 1; }
   @media (min-width: 48rem) { .stream-schedule__board { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 2rem; } }
-  @media (max-width: 23rem) { .stream-schedule__entries li { grid-template-columns: 1fr; gap: 0.4rem; } .stream-schedule__empty { grid-template-columns: minmax(0, 1fr) 4rem; } .stream-schedule__empty h3 { font-size: 1.35rem; } }
+  @media (max-width: 39.99rem) {
+    .stream-schedule__empty { grid-template-columns: minmax(0, 1fr); }
+    .stream-schedule__ghostie { display: none; }
+    .stream-schedule__board { padding: 1.4rem 1.1rem; }
+    .stream-schedule__paper { padding: 1.4rem 1.1rem; }
+    .stream-schedule__empty h3 { font-size: 1.5rem; }
+    .stream-schedule__link { overflow-wrap: anywhere; }
+    .stream-schedule__link svg { flex: none; }
+  }
+  @media (max-width: 23rem) { .stream-schedule__entries li { grid-template-columns: 1fr; gap: 0.4rem; } .stream-schedule__empty h3 { font-size: 1.35rem; } }
 </style>

@@ -32,7 +32,7 @@ Never claim a test, build, branch, commit, PR, deployment, link, right, or appro
 ## Locked architecture
 
 - Astro 7 static output + Vue 3 islands + strict TypeScript + SCSS + Lucide. Vite/Vitest own compilation/tests; there is no client router. CSS micro-motion plus deferred GSAP/ScrollTrigger; selective Three.js on Home/Haven.
-- npm with committed lockfile and Node.js 22.13+.
+- npm with committed lockfile and Node.js 22.19+.
 - Twelve prerendered documents owned by `src/pages/*.astro` and nested `index.astro` routes.
 - Ordinary anchors for top-level document navigation.
 - Shared `SiteLayout.astro`; static page bodies/footer; explicit Vue client directives only for behavior.
