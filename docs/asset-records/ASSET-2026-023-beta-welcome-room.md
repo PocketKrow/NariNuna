@@ -1,0 +1,7 @@
+# ASSET-2026-023 — Beta welcome room
+
+Owner-directed private beta review, November 2026. A new, character-free environment generated using the built-in OpenAI image generation tool. Reference: the existing Home composition screenshot in `browser-tests/snapshots/home-1440.png`, used for color, environment, and overall atmosphere, not as a model reference. Prompt: a wide warm late-autumn storybook entryway and common room with timber, lanterns, lavender fabric, books, two teacups and a friendly cream Ghostie; no Nari, lettering, or logos. No existing master was replaced.
+
+The selected master is `src/assets/source/beta/welcome-room-v1.png` (SHA-256 `71f86b9d8ca5ec566917ef5d30d4d596be31adab1407f31ab5fdfecf30656f69`). Pillow generated metadata-free, non-upscaled WebP derivatives at 720 and 1200 pixels, quality 76, method 6, in `public/media/storybook/welcome/`. SHA-256: 720 `c0007e925a02a6f5e0fb8340ee1dfc3b6667a1d5d0a218bcb41ba9c44383e57d`; 1200 `c28747cedfb285d0a4b185c5d3cf93916f393bad5dc61dcd102c2689724c8999`.
+
+The scene supports Home's invitation and is described in the image alternative text. It uses the existing storybook-environments credit family and retains its pending website use, derivative, third-party and final-approval states. It is a review concept, not evidence of public-release clearance or Nari's final adoption. Revert the Home section and remove only these newly introduced derivatives to roll back; preserve the source master while review remains active.

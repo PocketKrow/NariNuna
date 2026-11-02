@@ -1,6 +1,7 @@
 ---
 // Build-time shell projection; navigation is ordinary document anchors.
 import { ArrowUpRight, Heart } from "@lucide/vue";
+import GhostieArt from "@/components/art/GhostieArt.vue";
 import { havenRoomNotes } from "@/data/rooms";
 import { footerNavigation } from "@/data/navigation";
 import { socialLinks } from "@/data/socials";
@@ -16,10 +17,14 @@ const roomNote = havenRoomNotes[currentPath] ?? "The little world next door.";
 <footer class="site-footer site-footer--compact">
   <div class="site-footer__inner page-width">
     <div class="site-footer__top">
-      <a class="site-footer__brand" href="/">
-        <strong>Nari Nuna</strong>
-        <span>{roomNote}</span>
-      </a>
+      <div class="site-footer__welcome">
+        <div class="site-footer__ghostie"><GhostieArt variant="cozy" sizes="80px" /></div>
+        <a class="site-footer__brand" href="/">
+          <span class="site-footer__farewell">Until next time</span>
+          <strong>Nari Nuna</strong>
+          <span>{roomNote}</span>
+        </a>
+      </div>
       <div class="site-footer__socials" aria-label="Nari's social profiles">
         {featuredSocials.map((link) => (
           <a href={link.url} target="_blank" rel="noreferrer noopener">
@@ -61,6 +66,7 @@ const roomNote = havenRoomNotes[currentPath] ?? "The little world next door.";
     gap: 0.9rem;
   }
   .site-footer__top {
+    align-items: flex-start;
     padding-block-end: 1rem;
     border-bottom: 1px solid var(--story-line);
   }
@@ -72,6 +78,29 @@ const roomNote = havenRoomNotes[currentPath] ?? "The little world next door.";
     gap: 0.08rem;
     color: var(--text);
     text-decoration: none;
+  }
+  .site-footer__welcome {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .site-footer__ghostie {
+    flex: 0 0 4.5rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    border: 1px solid var(--storybook-rule);
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 65%, #835b653d, transparent 70%);
+  }
+  .site-footer__brand .site-footer__farewell {
+    color: var(--storybook-gold);
+    font-family: var(--font-detail);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.5;
+    text-transform: uppercase;
   }
   .site-footer__brand strong {
     font-family: var(--font-display);
@@ -120,6 +149,9 @@ const roomNote = havenRoomNotes[currentPath] ?? "The little world next door.";
   .site-footer__socials > a:hover {
     color: var(--text);
   }
+  .site-footer__socials > a:focus-visible,
+  .site-footer__bottom nav a:focus-visible,
+  .site-footer__brand:focus-visible { outline-offset: 0.2rem; }
   .site-footer__bottom > p {
     display: inline-flex;
     align-items: center;

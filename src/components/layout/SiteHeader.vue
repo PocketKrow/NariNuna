@@ -241,7 +241,8 @@ onBeforeUnmount(() => {
 .site-header__more > nav > a[aria-current="page"] { border-color: var(--story-line); background: var(--story-surface-soft); }
 .site-header__more > nav > a small { color: var(--story-muted); font-size: 0.75rem; font-weight: 650; line-height: 1.35; }
 @media (min-width: 56rem) {
-  .site-header__more > summary { min-height: auto; padding: 0.65rem 0.7rem; border-color: transparent; border-radius: var(--radius-sm); }
+  .site-header__main-nav > a { display: inline-flex; min-height: 2.75rem; align-items: center; }
+  .site-header__more > summary { min-height: 2.75rem; padding: 0.65rem 0.7rem; border-color: transparent; border-radius: var(--radius-sm); }
   .site-header__more > nav {
     position: absolute;
     z-index: 30;
@@ -281,6 +282,12 @@ onBeforeUnmount(() => {
     font-weight: 800;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+  }
+  .site-header__mobile-context::after {
+    flex: 1 1 auto;
+    height: 1px;
+    background: linear-gradient(90deg, var(--storybook-rule), transparent);
+    content: "";
   }
   .site-header__mobile-nav > a {
     display: flex;

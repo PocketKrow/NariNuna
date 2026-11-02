@@ -40,21 +40,28 @@ import { communityValues } from "@/data/content";
         <br />
         <em>has a backbone.</em>
       </h2>
-      <GhostieArt variant="support" sizes="(min-width: 48rem) 288px, 160px" />
+      <p class="haven-charter__intro">There's room for the loud days and the quiet ones. Here's how we look after each other.</p>
+      <div class="haven-charter__ghostie">
+        <GhostieArt variant="support" sizes="(min-width: 48rem) 288px, 160px" />
+        <p>A little care goes a long way.</p>
+      </div>
     </div>
-    <ol class="haven-charter__values" data-material-reveal>
-      {communityValues.map((value, index) => (
-        <li>
-          <span class="haven-charter__number" aria-hidden="true">
-            0{index + 1}
-          </span>
-          <div>
-            <h3>{value.title}</h3>
-            <p>{value.description}</p>
-          </div>
-        </li>
-      ))}
-    </ol>
+    <div class="haven-charter__paper" data-material-reveal>
+      <p class="haven-charter__paper-label">A note for everyone <span aria-hidden="true">✦</span></p>
+      <ol class="haven-charter__values">
+        {communityValues.map((value, index) => (
+          <li>
+            <span class="haven-charter__number" aria-hidden="true">
+              0{index + 1}
+            </span>
+            <div>
+              <h3>{value.title}</h3>
+              <p>{value.description}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
   </section>
   <div class="page-width">
     <RoomDiscovery discoveryId="charter-memory-scrap" />
