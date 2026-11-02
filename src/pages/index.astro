@@ -1,6 +1,7 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
 import RoomArrival from "@/components/astro/RoomArrival.astro";
+import StreamSchedule from "@/components/astro/StreamSchedule.astro";
 import ResponsiveArtwork from "@/components/art/ResponsiveArtwork.vue";
 import ArtworkCreditLink from "@/components/art/ArtworkCreditLink.vue";
 import { ArrowRight } from "@lucide/vue";
@@ -25,6 +26,7 @@ const corners = [
     <SocialDock />
     <ArtworkCreditLink creditId="website-storybook-artwork" pageOnly />
   </RoomArrival>
+  <StreamSchedule />
   <section class="haven-corners room-section page-width" aria-labelledby="corners-title">
     <header class="room-heading">
       <div><p class="room-kicker">Make yourself at home</p><h2 id="corners-title">A few favorite <em>corners.</em></h2></div>

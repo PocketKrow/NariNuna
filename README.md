@@ -120,6 +120,23 @@ Official references: [source deployment](https://docs.cloud.google.com/run/docs/
 | Credits and approval boundaries | `src/data/artCredits.json`, offline validator and independent release gate |
 | Tests | Vitest, built-artifact validators, Playwright + axe and eight composition snapshots |
 
+### Updating the Home stream schedule
+
+Edit `src/data/schedule.ts` and replace `null` with an approved, dated schedule. For example, the shape below uses illustrative text only; replace every value with Nari's actual plans:
+
+```ts
+export const streamSchedule: StreamSchedule | null = {
+  periodLabel: "Example week, month and year",
+  timeZone: "Time zone supplied by Nari",
+  updatedLabel: "Date posted",
+  entries: [
+    { dateLabel: "Day and date", timeLabel: "Start time", title: "Stream title", note: "Optional note" }
+  ]
+};
+```
+
+List each stream separately and specify the time zone alongside the times. The site displays the text as entered; it does not convert time zones or automatically remove an old schedule. Replace it when plans change, or set `streamSchedule` back to `null` to show the not-yet-posted message. Commit the edit to the intended branch to publish it through the existing build and hosting workflow. There is no in-site posting interface or automatic Twitch sync.
+
 Astro 7, Vue 3, strict TypeScript, SCSS, Lucide, GSAP/ScrollTrigger and selective Three.js. No backend, CMS, database, account, analytics, form, iframe, heavy media player, Tailwind or UI kit. Native View Transitions were evaluated and disabled after rapid history navigation exposed browser abort errors. All navigation is immediate ordinary document navigation.
 
 The static website is complete without decorative JavaScript. Required islands hydrate explicitly. Optional motion/graphics wait until load/idle, are skipped for reduced motion/save-data/mobile/coarse input and dispose on navigation/preferences. Home and Haven alone have a canvas. Pause/resume, visibility suspension and context-loss fallback keep atmosphere optional.

@@ -1,0 +1,64 @@
+---
+import { ArrowUpRight, CalendarDays } from "@lucide/vue";
+import { streamSchedule } from "@/data/schedule";
+import { twitchUrl } from "@/data/socials";
+---
+<section class="stream-schedule page-width" aria-labelledby="schedule-title">
+  <div class="stream-schedule__board">
+    <div class="stream-schedule__intro">
+      <p class="room-kicker"><CalendarDays size={16} aria-hidden="true" /> A note from the broadcast desk</p>
+      <h2 id="schedule-title">When to <em>drop by.</em></h2>
+      <p>Looking for a little chaos and company? Here's where you'll find Nari's stream plans.</p>
+      <a class="stream-schedule__link" href={twitchUrl} target="_blank" rel="noreferrer noopener">Visit Nari on Twitch <ArrowUpRight size={16} aria-hidden="true" /><span class="sr-only"> (opens in a new tab)</span></a>
+    </div>
+    <div class="stream-schedule__paper" data-surface="paper">
+      {streamSchedule && streamSchedule.entries.length ? (
+        <>
+          <div class="stream-schedule__paper-heading"><p>Stream schedule</p><span>{streamSchedule.periodLabel}</span></div>
+          <p class="stream-schedule__zone">Times shown in {streamSchedule.timeZone}</p>
+          <ul class="stream-schedule__entries">
+            {streamSchedule.entries.map((entry) => (
+              <li>
+                <div><strong>{entry.dateLabel}</strong><span>{entry.timeLabel}</span></div>
+                <div><strong>{entry.title}</strong>{entry.note && <p>{entry.note}</p>}</div>
+              </li>
+            ))}
+          </ul>
+          <p class="stream-schedule__updated">Posted {streamSchedule.updatedLabel} · Plans may change.</p>
+        </>
+      ) : (
+        <div class="stream-schedule__empty">
+          <span aria-hidden="true">✦</span>
+          <h3>Schedule coming soon</h3>
+          <p>Nari's next schedule isn't posted here yet. Check Twitch for the latest updates.</p>
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+<style lang="scss">
+  .stream-schedule { padding-block: clamp(2.5rem, 5vw, 4.5rem) 0; }
+  .stream-schedule__board { display: grid; gap: 1.5rem; padding: clamp(1.25rem, 3vw, 2.5rem); background: linear-gradient(140deg, #4a2935, #2d1923 75%); border: 1px solid var(--storybook-rule); box-shadow: 0 1rem 2.5rem #10080c38; }
+  .stream-schedule__intro { align-self: center; }
+  .stream-schedule__intro .room-kicker { display: flex; align-items: center; gap: 0.5rem; }
+  .stream-schedule__intro h2 { margin: 0 0 1rem; font-size: clamp(2rem, 3.6vw, 3rem); line-height: 1.12; }
+  .stream-schedule__intro h2 em { color: var(--lavender); }
+  .stream-schedule__intro > p:not(.room-kicker) { max-width: 30rem; color: var(--text-muted); line-height: 1.7; }
+  .stream-schedule__link { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 2.75rem; color: var(--cream); font-weight: 700; text-underline-offset: 0.2em; }
+  .stream-schedule__link:hover { color: var(--storybook-gold); }
+  .stream-schedule__paper { min-width: 0; padding: clamp(1.25rem, 3vw, 2rem); color: var(--ink); background: var(--storybook-paper); border-top: 0.3rem solid var(--plum); box-shadow: 0.5rem 0.5rem 0 #140a1050; }
+  .stream-schedule__paper-heading { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.4rem 1rem; border-bottom: 1px solid var(--line-dark); padding-bottom: 0.75rem; }
+  .stream-schedule__paper-heading p { margin: 0; font: 700 0.75rem/1.5 var(--font-detail); letter-spacing: 0.06em; text-transform: uppercase; }
+  .stream-schedule__paper-heading span, .stream-schedule__zone, .stream-schedule__updated { color: var(--ink-muted); font-size: 0.875rem; }
+  .stream-schedule__zone { margin: 0.75rem 0 0; }
+  .stream-schedule__entries { margin: 0; padding: 0; list-style: none; }
+  .stream-schedule__entries li { display: grid; grid-template-columns: minmax(6rem, 0.65fr) minmax(0, 1.35fr); gap: 1rem; padding-block: 1rem; border-bottom: 1px solid var(--line-dark); overflow-wrap: anywhere; }
+  .stream-schedule__entries li > div { display: grid; align-content: start; gap: 0.2rem; }
+  .stream-schedule__entries span, .stream-schedule__entries p { margin: 0; color: var(--ink-muted); font-size: 0.9rem; }
+  .stream-schedule__updated { margin: 1rem 0 0; }
+  .stream-schedule__empty > span { color: #79516b; font-size: 1.3rem; }
+  .stream-schedule__empty h3 { margin: 0.4rem 0 0.5rem; font-size: 1.6rem; }
+  .stream-schedule__empty p { max-width: 28rem; margin: 0; color: var(--ink-muted); line-height: 1.65; }
+  @media (min-width: 48rem) { .stream-schedule__board { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 2rem; } }
+  @media (max-width: 23rem) { .stream-schedule__entries li { grid-template-columns: 1fr; gap: 0.4rem; } }
+</style>
