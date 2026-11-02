@@ -2,13 +2,13 @@
 import SiteLayout from "@/layouts/SiteLayout.astro";
 
 // Render public-safe registry fields only. Artwork stays absent unless a record carries a separate explicit display approval.
-import { ArrowRight, ArrowUpRight, CheckCircle2, Clock3, HeartHandshake, Palette, ShieldCheck } from "@lucide/vue";
+import { ArrowDown, ArrowRight, ArrowUpRight, CheckCircle2, Clock3, HeartHandshake, Palette, ShieldCheck } from "@lucide/vue";
 import ResponsiveArtwork from "@/components/art/ResponsiveArtwork.vue";
 import { approvedArchiveArtwork, publicCreditGroups } from "@/data/artCredits";
 import type { CreditStatus } from "@/types/content";
 
 const statusLabels: Record<CreditStatus, string> = {
-  verified: "Verified",
+  verified: "Credited",
   pending: "Awaiting confirmation",
   internal: "Project-created",
   "not-required": "Credit not required",
@@ -26,9 +26,10 @@ function statusIcon(status: CreditStatus) {
 
 <SiteLayout pageId="credits">
   <section class="credits-opening page-width" aria-labelledby="credits-title">
+    <div class="credits-opening__scene" aria-hidden="true"></div>
     <div class="credits-opening__copy">
       <p class="eyebrow">
-        <Palette size={16} aria-hidden="true" /> Credits · the names behind the work
+        <Palette size={16} aria-hidden="true" /> A little gratitude
       </p>
       <h1 id="credits-title">
         The people behind
@@ -36,38 +37,41 @@ function statusIcon(status: CreditStatus) {
         <em>the pretty things.</em>
       </h1>
       <p>
-        Art matters. So does knowing who made it. Confirmed credits belong here; anything unresolved stays clearly
-        marked until it can be named properly.
+        This little world came together through art, care, and a lot of creativity. Here's a place for the people and work that help make it feel like home.
       </p>
+      <a class="credits-opening__jump" href="#ledger-title">Meet the makers <ArrowDown size={16} aria-hidden="true" /></a>
     </div>
     <aside class="credits-opening__note" aria-label="How this page handles artwork credits">
       <HeartHandshake size={26} aria-hidden="true" />
       <p>
-        <strong>No mystery names. No guessed links.</strong>
-        <span>Credit approval and permission to display artwork are tracked separately.</span>
+        <strong>Every little detail has a story.</strong>
+        <span>We're taking care to credit each contribution properly as details are confirmed.</span>
       </p>
     </aside>
   </section>
   <section class="credits-ledger room-section page-width" aria-labelledby="ledger-title">
     <header class="room-heading">
       <div>
-        <p class="room-kicker">The creative ledger</p>
+        <p class="room-kicker">Made with care</p>
         <h2 id="ledger-title">
-          Credit what is known.
+          A home made
           <br />
-          <em>Keep honest holds for the rest.</em>
+          <em>by many hands.</em>
         </h2>
       </div>
       <p>
-        The current review build still has open artist and rights questions. Pending means the gap is recorded—not
-        forgotten.
+        From Nari's character to the details around the Haven, each contribution deserves its own thank-you. Some names and permissions are still being confirmed.
       </p>
     </header>
+    <nav class="credits-index" aria-label="Credit categories">
+      <span>Explore the credits</span>
+      {publicCreditGroups.map((group) => <a href={`#credit-group-${group.id}`}>{group.label}</a>)}
+    </nav>
     <div class="credits-ledger__groups">
       {publicCreditGroups.map((group) => (
         <section class="credit-group" aria-labelledby={`credit-group-${group.id}`}>
           <header class="credit-group__heading">
-            <p class="room-kicker">Creative contribution</p>
+            <p class="room-kicker">With thanks</p>
             <h3 id={`credit-group-${group.id}`}>{group.label}</h3>
             <p>{group.description}</p>
           </header>
@@ -90,7 +94,7 @@ function statusIcon(status: CreditStatus) {
                 <p>{credit.contribution}</p>
                 <p class="credit-entry__note">{credit.creditText}</p>
                 {credit.links.length ? (
-                  <nav class="credit-entry__links" aria-label={`Approved links for ${credit.displayName}`}>
+                  <nav class="credit-entry__links" aria-label={`Creator links for ${credit.displayName}`}>
                     {credit.links.map((link) => (
                       <a href={link.url} target="_blank" rel="noreferrer noopener">
                         {link.label} <ArrowUpRight size={15} aria-hidden="true" />
@@ -109,16 +113,15 @@ function statusIcon(status: CreditStatus) {
   <section class="credits-archive room-section page-width" aria-labelledby="archive-title">
     <header class="room-heading">
       <div>
-        <p class="room-kicker">Artwork archive</p>
+        <p class="room-kicker">A place for the artwork</p>
         <h2 id="archive-title">
-          Cleared work,
+          Art with its
           <br />
-          <em>kept beside its maker.</em>
+          <em>makers in mind.</em>
         </h2>
       </div>
       <p>
-        Only optimized artwork with explicit display permission appears here. A credit can remain visible while its
-        images stay private.
+        We'd love to share more of the work behind the Haven here, alongside the people who made it, when permission is confirmed.
       </p>
     </header>
     {approvedArchiveArtwork.length ? (
@@ -152,8 +155,8 @@ function statusIcon(status: CreditStatus) {
   <section class="credits-correction page-width" aria-labelledby="credits-correction-title">
     <ShieldCheck size={28} aria-hidden="true" />
     <div>
-      <p class="room-kicker">A credit needs correcting?</p>
-      <h2 id="credits-correction-title">Tell Nari through a public profile.</h2>
+      <p class="room-kicker">Help us get it right</p>
+      <h2 id="credits-correction-title">Know something we missed?</h2>
       <p>
         Corrections are welcome. Private contracts, approval messages, and personal contact details stay out of this
         public ledger.

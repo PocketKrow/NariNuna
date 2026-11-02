@@ -7,6 +7,7 @@ import { publicCreditById } from "@/data/artCredits";
 const props = withDefaults(defineProps<{
   creditId: string;
   label?: string;
+  pageOnly?: boolean;
 }>(), {
   label: "Artwork & credits"
 });
@@ -18,9 +19,9 @@ if (!credit.value) throw new Error(`Unknown public artwork credit: ${props.credi
 <template>
   <a
     class="artwork-credit-link"
-    :href="`/credits/#${creditId}`"
+    :href="pageOnly ? '/credits/' : `/credits/#${creditId}`"
     :data-credit-id="creditId"
-    :aria-label="`${label}: ${credit?.displayName}`"
+    :aria-label="pageOnly ? label : `${label}: ${credit?.displayName}`"
   >
     <BadgeInfo :size="15" aria-hidden="true" />
     <span>{{ label }}</span>

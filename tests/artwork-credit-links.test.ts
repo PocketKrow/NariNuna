@@ -3,6 +3,9 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { publicCreditById } from "@/data/artCredits";
+import { createSSRApp, h } from "vue";
+import { renderToString } from "vue/server-renderer";
+import ArtworkCreditLink from "@/components/art/ArtworkCreditLink.vue";
 
 const attributedPages = ["index.astro", "meet-nari/index.astro", "nail-studio/index.astro", "haven/index.astro", "stories/index.astro"];
 
@@ -20,5 +23,15 @@ describe("contextual artwork attribution", () => {
     const creditsSource = readFileSync(resolve("src/pages/credits/index.astro"), "utf8");
     expect(creditsSource).toContain('id={credit.id}');
     expect(publicCreditById("website-storybook-artwork")?.pageVisible).toBe(true);
+  });
+
+  it("offers the general Credits page on Home without removing contextual links elsewhere", async () => {
+    const renderLink = (pageOnly: boolean) => renderToString(createSSRApp({
+      render: () => h(ArtworkCreditLink, { creditId: "website-storybook-artwork", pageOnly })
+    }));
+    expect(await renderLink(true)).toContain('href="/credits/"');
+    expect(await renderLink(false)).toContain('href="/credits/#website-storybook-artwork"');
+    const home = readFileSync(resolve("src/pages/index.astro"), "utf8");
+    expect(home.match(/<ArtworkCreditLink\b[^>]*\bpageOnly\b/g)).toHaveLength(2);
   });
 });

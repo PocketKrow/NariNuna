@@ -127,13 +127,22 @@
     {
       "id": "nari-character-attribution-pending",
       "groupId": "nari-character",
-      "displayName": "Attribution being confirmed",
-      "roles": ["Character and model artwork"],
-      "contribution": "Nari's supplied character model, portrait, and cozy illustration.",
-      "creditText": "The original artist and preferred public credit are still being confirmed.",
-      "links": [],
-      "assetFamilyIds": ["supplied-nari-character"],
-      "creditStatus": "pending",
+      "displayName": "Kansla",
+      "roles": [
+        "Model artwork"
+      ],
+      "contribution": "Nari’s character model.",
+      "creditText": "Thank you for bringing Nari to life.",
+      "links": [
+        {
+          "label": "@Kanslaaaa on X",
+          "url": "https://x.com/Kanslaaaa"
+        }
+      ],
+      "assetFamilyIds": [
+        "supplied-nari-character"
+      ],
+      "creditStatus": "verified",
       "artworkDisplayStatus": "not-approved",
       "artwork": [],
       "pageVisible": true
@@ -141,13 +150,22 @@
     {
       "id": "nari-rigging-attribution-pending",
       "groupId": "model-rigging",
-      "displayName": "Attribution being confirmed",
-      "roles": ["Model rigging"],
-      "contribution": "Nari's model setup and rigging credit is waiting for a verified public name and destination.",
-      "creditText": "No rigger name is published here until Nari confirms it.",
-      "links": [],
-      "assetFamilyIds": ["nari-model-rigging"],
-      "creditStatus": "pending",
+      "displayName": "Toto",
+      "roles": [
+        "Model rigging"
+      ],
+      "contribution": "Rigging for Nari’s model.",
+      "creditText": "Thank you for bringing movement to Nari’s model.",
+      "links": [
+        {
+          "label": "@totochomp on X",
+          "url": "https://x.com/totochomp"
+        }
+      ],
+      "assetFamilyIds": [
+        "nari-model-rigging"
+      ],
+      "creditStatus": "verified",
       "artworkDisplayStatus": "not-applicable",
       "artwork": [],
       "pageVisible": true
@@ -155,13 +173,22 @@
     {
       "id": "nari-emote-attribution-pending",
       "groupId": "emotes",
-      "displayName": "Attribution being confirmed",
-      "roles": ["Emote artwork"],
-      "contribution": "Nari's supplied static emote collection.",
-      "creditText": "The original emote artist and preferred public credit are still being confirmed.",
-      "links": [],
-      "assetFamilyIds": ["official-static-emotes"],
-      "creditStatus": "pending",
+      "displayName": "Haru",
+      "roles": [
+        "Emote artwork"
+      ],
+      "contribution": "Nari’s emotes.",
+      "creditText": "Thank you for these expressive little moments.",
+      "links": [
+        {
+          "label": "@Harumiitsa on X",
+          "url": "https://x.com/Harumiitsa"
+        }
+      ],
+      "assetFamilyIds": [
+        "official-static-emotes"
+      ],
+      "creditStatus": "verified",
       "artworkDisplayStatus": "not-approved",
       "artwork": [],
       "pageVisible": true
@@ -169,13 +196,45 @@
     {
       "id": "channel-artwork-attribution-pending",
       "groupId": "channel-artwork",
-      "displayName": "Details still needed",
-      "roles": ["Banners, panels, and channel graphics"],
-      "contribution": "Channel-art contributors will be added after Nari confirms the work, names, links, and wording.",
-      "creditText": "This category is intentionally open rather than guessed.",
-      "links": [],
-      "assetFamilyIds": ["channel-identity-artwork"],
-      "creditStatus": "pending",
+      "displayName": "Famocii1",
+      "roles": [
+        "Banner artwork"
+      ],
+      "contribution": "Nari’s channel banner.",
+      "creditText": "Thank you for the channel banner.",
+      "links": [
+        {
+          "label": "@famoccii1 on X",
+          "url": "https://x.com/famoccii1"
+        }
+      ],
+      "assetFamilyIds": [
+        "channel-identity-artwork"
+      ],
+      "creditStatus": "verified",
+      "artworkDisplayStatus": "not-applicable",
+      "artwork": [],
+      "pageVisible": true
+    },
+    {
+      "id": "channel-panels-mikiqt",
+      "groupId": "channel-artwork",
+      "displayName": "Mikiqt",
+      "roles": [
+        "Panel artwork"
+      ],
+      "contribution": "Nari’s channel panels.",
+      "creditText": "Thank you for the channel panels.",
+      "links": [
+        {
+          "label": "@namankung on X",
+          "url": "https://x.com/namankung"
+        }
+      ],
+      "assetFamilyIds": [
+        "channel-identity-artwork"
+      ],
+      "creditStatus": "verified",
       "artworkDisplayStatus": "not-applicable",
       "artwork": [],
       "pageVisible": true
