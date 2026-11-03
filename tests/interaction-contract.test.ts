@@ -80,7 +80,6 @@ describe("client-feedback interaction contracts", () => {
     const floorboard = sourceAt("src/components/haven/LooseFloorboard.vue");
     const doorway = sourceAt("src/components/haven/HavenDoor.vue");
     const cult = sourceAt("src/pages/the-prinny-cult/index.astro");
-    const arrival = sourceAt("src/styles/objects/arrival.scss");
 
     expect(floorboard).toContain("font-size: 0.875rem");
     expect(floorboard).toContain("min-height: 2.75rem");
@@ -89,8 +88,6 @@ describe("client-feedback interaction contracts", () => {
     expect(doorway).toContain("font-size: 0.8125rem");
     expect(cult).toContain("font-size: 0.875rem");
     expect(cult).toContain("min-height: 2.75rem");
-    expect(arrival).toContain("min-height: 2.75rem");
-    expect(arrival).toContain("font-size: 0.75rem");
   });
 
   it("keeps the hidden Prinny route tiny instead of restoring a cult system", () => {

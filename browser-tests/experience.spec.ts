@@ -86,7 +86,7 @@ test("reduced motion, save-data and mobile never fetch decorative runtimes", asy
     await page.goto("http://127.0.0.1:4175/"); await settle(page);
     await page.waitForTimeout(1800);
     expect(enhancements).toEqual([]);
-    await expect(page.getByRole("button", { name: "Pause atmosphere" })).toBeHidden();
+    await expect(page.locator("[data-atmosphere], [data-atmosphere-control]")).toHaveCount(0);
     await context.close();
   }
 });
@@ -101,29 +101,6 @@ test("optional chunk failure leaves the page and navigation usable", async ({ pa
   await expect(page).toHaveURL(/\/meet-nari\//);
   expect(errors).toEqual([]);
 });
-
-test("capable desktop can pause atmosphere and switch to static mode", async ({ page }) => {
-  await page.setViewportSize({ width: 1440, height: 900 });
-  await page.emulateMedia({ reducedMotion: "no-preference" });
-  await page.addInitScript(() => Object.defineProperty(navigator, "hardwareConcurrency", { value: 8 }));
-  await page.goto("/"); await settle(page);
-  const supported = await page.evaluate(() => !!document.createElement("canvas").getContext("webgl2"));
-  test.skip(!supported, "Browser lacks WebGL2; static fallback is covered separately.");
-  const field = page.locator("[data-atmosphere]");
-  await expect(field).toHaveAttribute("data-atmosphere-state", "active");
-  await page.getByRole("button", { name: "Pause atmosphere" }).click();
-  await expect(field).toHaveAttribute("data-atmosphere-state", "paused");
-  await page.getByRole("button", { name: "Resume atmosphere" }).click();
-  await expect(field).toHaveAttribute("data-atmosphere-state", "active");
-  await page.emulateMedia({ reducedMotion: "reduce" });
-  await expect(field).toHaveAttribute("data-atmosphere-state", "static");
-  await expect(page.getByRole("button", { name: "Pause atmosphere" })).toBeHidden();
-  await page.emulateMedia({ reducedMotion: "no-preference" });
-  await expect(field).toHaveAttribute("data-atmosphere-state", "active");
-  await page.getByRole("button", { name: "Pause atmosphere" }).click();
-  await expect(field).toHaveAttribute("data-atmosphere-state", "paused");
-});
-
 
 test("native navigation retains back and forward behavior", async ({ page }) => {
   const errors: string[] = []; page.on("pageerror", (error) => errors.push(error.message));
@@ -198,6 +175,7 @@ for (const control of ["painted-door", "story-action"] as const) {
 
 // Document scrollWidth can hide clipped controls when decorative overflow is suppressed.
 test("visible controls remain within the viewport at 390px with 200% text", async ({ page }) => {
+  test.setTimeout(120_000);
   await page.setViewportSize({ width: 390, height: 844 });
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.route("https://i.ytimg.com/**", (route) => route.abort());
@@ -212,3 +190,21 @@ test("visible controls remain within the viewport at 390px with 200% text", asyn
     expect(clipped, route.path).toEqual([]);
   }
 });
+
+for (const width of [320, 768, 1440]) {
+  test(`painted arrivals fill their frames at ${width}px`, async ({ page }) => {
+    test.setTimeout(120_000);
+    await page.route("https://i.ytimg.com/**", (route) => route.abort());
+    await page.setViewportSize({ width, height: 900 });
+    for (const route of pages) {
+      await page.goto(route.path);
+      await expect(page.locator("[data-atmosphere], [data-atmosphere-control]")).toHaveCount(0);
+      const painting = page.locator(".room-arrival__painting");
+      if (await painting.count()) {
+        await expect(painting).toHaveCSS("background-size", "cover");
+        await expect(painting).toBeVisible();
+        expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), route.path).toBe(false);
+      }
+    }
+  });
+}

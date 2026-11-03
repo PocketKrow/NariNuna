@@ -1,6 +1,6 @@
 // Framed paintings and one readable placard. Keep responsive selection/preloads in artworkDelivery.
 .room-arrival { position: relative; isolation: isolate; width: calc(100% - var(--page-gutter) * 2); max-width: var(--page-width); margin: clamp(1rem, 2.5vw, 2rem) auto 0; padding: 0.5rem; overflow: clip; background: var(--bg-inset); border: 1px solid var(--storybook-rule); box-shadow: inset 0 0 0 3px var(--bg-raised), 0 1.2rem 3rem #10080c35; }
-.room-arrival__painting { position: relative; aspect-ratio: 16 / 9; border: 1px solid var(--storybook-rule); background: var(--responsive-hero-art) center / contain no-repeat; }
+.room-arrival__painting { position: relative; aspect-ratio: 16 / 9; border: 1px solid var(--storybook-rule); background: var(--responsive-hero-art) center / cover no-repeat; }
 .room-arrival__light { position: absolute; inset: 0; pointer-events: none; }
 .room-arrival__body { position: relative; z-index: 1; width: 100%; padding: 1.75rem 1.25rem 1.5rem; }
 .room-arrival__copy { min-width: 0; max-width: 35rem; margin-inline: auto; }
@@ -21,13 +21,9 @@
 .room-arrival--home .social-dock__label { display: none; }
 .home-arrival-note { display: flex; align-items: center; gap: 0.65rem; margin-bottom: 1.25rem; color: var(--text-muted); font-size: 0.8rem; }
 .home-arrival-note::before { width: 1.5rem; height: 1px; background: var(--storybook-gold); content: ""; }
-.ambient-field { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.55; }
-.atmosphere-control { position: absolute; z-index: 3; top: 1rem; right: 1rem; max-width: calc(100% - 2rem); min-height: 2.75rem; padding: 0.5rem 0.75rem; border: 1px solid var(--story-line); background: var(--bg-inset); color: var(--text); border-radius: 0.2rem; font-size: 0.75rem; cursor: pointer; }
-.atmosphere-control[hidden] { display: none; }
 @media (min-width: 64rem) {
   .room-arrival { min-height: 35rem; }
-  // Contain the whole painting; the quiet copy lane absorbs spare canvas width.
-  .room-arrival__painting { position: absolute; inset: 0.5rem; aspect-ratio: auto; background-size: contain; background-position: right center; }
+  .room-arrival__painting { position: absolute; inset: 0.5rem; aspect-ratio: auto; background-size: cover; background-position: center; }
   .room-arrival__light { background: linear-gradient(90deg, #21151eb0, transparent 65%); }
   .room-arrival__body { display: flex; min-height: inherit; align-items: center; padding: 2.5rem; }
   .room-arrival__copy { width: min(37vw, 30rem); margin: 0; padding: clamp(1.5rem, 2.4vw, 2.25rem); background: #24151df5; border: 1px solid var(--storybook-rule); border-top: 3px solid var(--plum); box-shadow: 0 1rem 2rem #10080c38; }
@@ -42,6 +38,7 @@
   :is(.room-arrival--meet, .room-arrival--nails, .room-arrival--work) :is(.room-arrival__copy > p:not(.eyebrow), .eyebrow, .arrival-location, .arrival-location > span:last-child) { color: var(--ink-muted); }
   :is(.room-arrival--meet, .room-arrival--nails, .room-arrival--work) .room-arrival__copy h1 em { color: var(--paper-edge); }
   :is(.room-arrival--meet, .room-arrival--nails, .room-arrival--work) .text-link { color: var(--interaction-on-paper); }
+  .room-arrival--work .letter-link { color: var(--interaction-on-paper); }
   .room-arrival--home .room-arrival__copy { max-width: 35rem; }
 }
 @media (max-width: 30rem) {
@@ -55,6 +52,5 @@
   .arrival-location { margin-bottom: 1rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .ambient-field, .atmosphere-control { display: none; }
   .room-arrival__painting { transform: none !important; }
 }

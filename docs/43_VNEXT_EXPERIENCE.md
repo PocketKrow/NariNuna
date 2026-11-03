@@ -1,5 +1,7 @@
 # NariNuna vNext experience
 
+> **2026-11-02 beta update:** At Jake’s request, the Home and Haven decorative atmosphere effects and controls were removed. Painted arrivals now fill their frames with cover cropping; CSS/GSAP choreography remains optional. Earlier Three.js notes below are historical.
+
 Owner instruction: Jake's 5 October 2026 handoff explicitly authorizes a substantial experience redesign based on `kiva/astro-rebuild` / PR #24, removal of the bottom guided tour, GSAP/ScrollTrigger, selective Three.js and a new review PR. The baseline is `fea296225e5e57721b60d91797eb173738b8590a`. This document supersedes older passage/Passport, Motion-V and hero-cascade instructions. Implementation/review authority does not authorize merge or production release.
 
 ## Product and composition
