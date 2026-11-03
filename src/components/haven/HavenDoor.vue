@@ -236,6 +236,7 @@ async function closeFromStory(): Promise<void> {
 /* Door-owned layering: room behind rotating door, decorations around the arch, narrative alongside it. Deep selectors are not needed for the single-img artwork root. */
 .haven-threshold {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   overflow: hidden;
   color: var(--story-copy);
   background: var(--story-surface);
@@ -831,6 +832,8 @@ async function closeFromStory(): Promise<void> {
 /* Story copy and stable action region sit outside the decorative scene to preserve reading and focus order. */
 .haven-threshold__content {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
   align-content: center;
   justify-items: start;
   min-height: 26rem;
@@ -843,11 +846,17 @@ async function closeFromStory(): Promise<void> {
 
 .haven-threshold__story-copy {
   display: grid;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
   justify-items: start;
 }
 
 .haven-threshold__action-region {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
+  width: 100%;
   justify-items: start;
   gap: 0.65rem;
   min-height: 4.1rem;
@@ -855,6 +864,8 @@ async function closeFromStory(): Promise<void> {
 
 .haven-threshold__chapter {
   display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
   width: 100%;
   align-items: center;
   justify-content: space-between;
@@ -983,6 +994,9 @@ async function closeFromStory(): Promise<void> {
 }
 
 .haven-threshold__action {
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
   max-width: 100%;
 }
 

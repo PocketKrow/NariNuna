@@ -29,11 +29,18 @@ for (const width of [390, 1440]) {
       test.skip(browserName !== "chromium", "Visual baselines belong to the Chromium PR job.");
       await page.setViewportSize({ width, height: 900 });
       await page.emulateMedia({ reducedMotion: "reduce" });
+      // Visual baselines use the local supported fallback rather than volatile remote media.
+      await page.route("https://i.ytimg.com/**", (route) => route.abort());
       await page.goto(path);
       await settle(page);
       // Normalize Linux test fonts so CI checks composition rather than the host's optional serif aliases.
       await page.addStyleTag({ content: ':root { --font-display: "DejaVu Serif"; --font-body: "DejaVu Sans"; --font-detail: "DejaVu Sans Mono"; }' });
+      // Hydrate visible clips before resolving images; a failed SSR thumbnail may detach on mount.
+      for (const card of await page.locator(".media-card").all()) await card.scrollIntoViewIfNeeded();
+      await page.waitForFunction(() => [...document.querySelectorAll('astro-island[client="visible"]')].every((el) => !el.hasAttribute("ssr")));
+      await expect(page.locator('.media-card__image img[src^="https://i.ytimg.com"]')).toHaveCount(0);
       for (const image of await page.locator("img").all()) {
+        if (!(await image.isVisible())) continue;
         await image.scrollIntoViewIfNeeded();
         await image.evaluate((element: HTMLImageElement) => element.decode().catch(() => undefined));
       }
@@ -79,7 +86,7 @@ test("reduced motion, save-data and mobile never fetch decorative runtimes", asy
     await page.goto("http://127.0.0.1:4175/"); await settle(page);
     await page.waitForTimeout(1800);
     expect(enhancements).toEqual([]);
-    await expect(page.getByRole("button", { name: "Pause atmosphere" })).toBeHidden();
+    await expect(page.locator("[data-atmosphere], [data-atmosphere-control]")).toHaveCount(0);
     await context.close();
   }
 });
@@ -94,29 +101,6 @@ test("optional chunk failure leaves the page and navigation usable", async ({ pa
   await expect(page).toHaveURL(/\/meet-nari\//);
   expect(errors).toEqual([]);
 });
-
-test("capable desktop can pause atmosphere and switch to static mode", async ({ page }) => {
-  await page.setViewportSize({ width: 1440, height: 900 });
-  await page.emulateMedia({ reducedMotion: "no-preference" });
-  await page.addInitScript(() => Object.defineProperty(navigator, "hardwareConcurrency", { value: 8 }));
-  await page.goto("/"); await settle(page);
-  const supported = await page.evaluate(() => !!document.createElement("canvas").getContext("webgl2"));
-  test.skip(!supported, "Browser lacks WebGL2; static fallback is covered separately.");
-  const field = page.locator("[data-atmosphere]");
-  await expect(field).toHaveAttribute("data-atmosphere-state", "active");
-  await page.getByRole("button", { name: "Pause atmosphere" }).click();
-  await expect(field).toHaveAttribute("data-atmosphere-state", "paused");
-  await page.getByRole("button", { name: "Resume atmosphere" }).click();
-  await expect(field).toHaveAttribute("data-atmosphere-state", "active");
-  await page.emulateMedia({ reducedMotion: "reduce" });
-  await expect(field).toHaveAttribute("data-atmosphere-state", "static");
-  await expect(page.getByRole("button", { name: "Pause atmosphere" })).toBeHidden();
-  await page.emulateMedia({ reducedMotion: "no-preference" });
-  await expect(field).toHaveAttribute("data-atmosphere-state", "active");
-  await page.getByRole("button", { name: "Pause atmosphere" }).click();
-  await expect(field).toHaveAttribute("data-atmosphere-state", "paused");
-});
-
 
 test("native navigation retains back and forward behavior", async ({ page }) => {
   const errors: string[] = []; page.on("pageerror", (error) => errors.push(error.message));
@@ -185,5 +169,42 @@ for (const control of ["painted-door", "story-action"] as const) {
     await page.keyboard.press("Enter");
     await expect(invitation).toHaveCount(0);
     await expect(page.getByRole("button", { name: "Give the first knock", exact: true }).last()).toBeFocused();
+  });
+}
+
+
+// Document scrollWidth can hide clipped controls when decorative overflow is suppressed.
+test("visible controls remain within the viewport at 390px with 200% text", async ({ page }) => {
+  test.setTimeout(120_000);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.route("https://i.ytimg.com/**", (route) => route.abort());
+  for (const route of pages.filter(({ id }) => id !== "prinnyCult")) {
+    await page.goto(route.path); await settle(page);
+    await page.evaluate(() => { document.documentElement.style.fontSize = "200%"; });
+    const clipped = await page.locator("main a, main button, .site-footer a").evaluateAll((elements) => elements
+      .filter((element) => element.getClientRects().length && getComputedStyle(element).visibility !== "hidden")
+      .map((element) => ({ label: element.textContent?.trim(), rect: element.getBoundingClientRect() }))
+      .filter(({ rect }) => rect.width > 0 && (rect.left < -1 || rect.right > innerWidth + 1))
+      .map(({ label, rect }) => ({ label, left: rect.left, right: rect.right })));
+    expect(clipped, route.path).toEqual([]);
+  }
+});
+
+for (const width of [320, 768, 1440]) {
+  test(`painted arrivals fill their frames at ${width}px`, async ({ page }) => {
+    test.setTimeout(120_000);
+    await page.route("https://i.ytimg.com/**", (route) => route.abort());
+    await page.setViewportSize({ width, height: 900 });
+    for (const route of pages) {
+      await page.goto(route.path);
+      await expect(page.locator("[data-atmosphere], [data-atmosphere-control]")).toHaveCount(0);
+      const painting = page.locator(".room-arrival__painting");
+      if (await painting.count()) {
+        await expect(painting).toHaveCSS("background-size", "cover");
+        await expect(painting).toBeVisible();
+        expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), route.path).toBe(false);
+      }
+    }
   });
 }

@@ -24,10 +24,11 @@ import { environmentArtwork } from "@/data/artwork";
         </h1>
         <p>Nari is self-taught, still practicing, and learning one tiny detail at a time.</p>
 
+        <a class="button button--ember" href="#nari-workbench">Pull up to the workbench <ArrowRight size={17} aria-hidden="true" /></a>
         <ArtworkCreditLink creditId="website-storybook-artwork" />
 
   </RoomArrival>
-  <section class="studio-workbench room-section page-width" aria-labelledby="workbench-title">
+  <section id="nari-workbench" class="studio-workbench room-section page-width" aria-labelledby="workbench-title">
     <header class="room-heading">
       <div>
         <p class="room-kicker">Polish · practice · a little patience</p>
@@ -40,17 +41,6 @@ import { environmentArtwork } from "@/data/artwork";
       <p>Color, tiny details, glitter experiments, and honest practice on her own nails.</p>
     </header>
     <div class="studio-workbench__spread">
-      <!-- This hold remains until real, approved photographs replace the illustrative workspace. -->
-      <div class="studio-portfolio-hold">
-        <GhostieArt variant="study" sizes="128px" />
-        <div>
-          <p class="room-kicker">The real-work collection</p>
-          <h3>The gallery is waiting for the real thing.</h3>
-          <p>
-            Nari's own approved photographs will go here. The desk above is a workspace illustration.
-          </p>
-        </div>
-      </div>
       <div class="studio-workbench__notes" data-surface="paper">
         <article>
           <p class="room-kicker">The practice</p>
@@ -65,6 +55,17 @@ import { environmentArtwork } from "@/data/artwork";
             Nail desk shelf · still curating <ArrowRight size={16} aria-hidden="true" />
           </a>
         </article>
+      </div>
+      <!-- This hold remains until real, approved photographs replace the illustrative workspace. -->
+      <div class="studio-portfolio-hold">
+        <GhostieArt variant="study" sizes="128px" />
+        <div>
+          <p class="room-kicker">The real-work collection</p>
+          <h3>Real work belongs here.</h3>
+          <p>
+            Nari's own photographs will go here when they're ready to share. The desk above is an illustration of the workspace.
+          </p>
+        </div>
       </div>
     </div>
     <RoomDiscovery discoveryId="workbench-bookmark" />

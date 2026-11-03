@@ -3,7 +3,7 @@ import SiteLayout from "@/layouts/SiteLayout.astro";
 import RoomArrival from "@/components/astro/RoomArrival.astro";
 
 // Values precede the three-knock Discord threshold; the optional floorboard follows it. Keep the door fragment stable for inbound links.
-import { House } from "@lucide/vue";
+import { ArrowRight, House } from "@lucide/vue";
 import GhostieArt from "@/components/art/GhostieArt.vue";
 import ArtworkCreditLink from "@/components/art/ArtworkCreditLink.vue";
 import RoomDiscovery from "@/components/ui/RoomDiscovery.vue";
@@ -29,10 +29,11 @@ import { communityValues } from "@/data/content";
           No audition. No volume requirement. Just big personalities, quiet lurkers, tired people, weird jokes, and
           respect for the human on the other side of the screen.
         </p>
+        <a class="text-link" href="#haven-charter">Read the room <ArrowRight size={16} aria-hidden="true" /></a>
         <ArtworkCreditLink creditId="website-storybook-artwork" />
 
   </RoomArrival>
-  <section class="haven-charter room-section page-width" aria-labelledby="charter-title">
+  <section id="haven-charter" class="haven-charter room-section page-width" aria-labelledby="charter-title">
     <div class="haven-charter__welcome">
       <p class="room-kicker">What keeps this place a home</p>
       <h2 id="charter-title">
@@ -40,29 +41,39 @@ import { communityValues } from "@/data/content";
         <br />
         <em>has a backbone.</em>
       </h2>
-      <GhostieArt variant="support" sizes="(min-width: 48rem) 288px, 160px" />
+      <p class="haven-charter__intro">There's room for the loud days and the quiet ones. Here's how we look after each other.</p>
+      <div class="haven-charter__ghostie">
+        <GhostieArt variant="support" sizes="(min-width: 48rem) 288px, 160px" />
+        <p>A little care goes a long way.</p>
+      </div>
     </div>
-    <ol class="haven-charter__values" data-material-reveal>
-      {communityValues.map((value, index) => (
-        <li>
-          <span class="haven-charter__number" aria-hidden="true">
-            0{index + 1}
-          </span>
-          <div>
-            <h3>{value.title}</h3>
-            <p>{value.description}</p>
-          </div>
-        </li>
-      ))}
-    </ol>
+    <div class="haven-charter__paper" data-material-reveal>
+      <p class="haven-charter__paper-label">A note for everyone <span aria-hidden="true">✦</span></p>
+      <ol class="haven-charter__values">
+        {communityValues.map((value, index) => (
+          <li>
+            <span class="haven-charter__number" aria-hidden="true">
+              0{index + 1}
+            </span>
+            <div>
+              <h3>{value.title}</h3>
+              <p>{value.description}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
   </section>
   <div class="page-width">
     <RoomDiscovery discoveryId="charter-memory-scrap" />
   </div>
   <!-- The public fragment targets both invitation and optional discovery, after the charter. -->
-  <section id="haven-door" class="haven-entry page-width section-pad" data-experience>
-    <canvas class="ambient-field haven-entry__atmosphere" data-atmosphere aria-hidden="true"></canvas>
-    <button class="atmosphere-control" type="button" data-atmosphere-control hidden aria-pressed="false">Pause atmosphere</button>
+  <section id="haven-door" class="haven-entry page-width section-pad" aria-labelledby="haven-entry-title" data-experience>
+    <header class="haven-entry__heading">
+      <p class="room-kicker">A place at the table</p>
+      <h2 id="haven-entry-title">Three little knocks.<br /><em>One warm welcome.</em></h2>
+      <p>Bring a little kindness with you. The Ghostie will take it from here.</p>
+    </header>
     <HavenDoor client:load />
     <LooseFloorboard client:load />
   </section>

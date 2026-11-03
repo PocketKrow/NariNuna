@@ -9,12 +9,13 @@
   background:
     repeating-linear-gradient(0deg, transparent 0 2.9rem, color-mix(in srgb, var(--story-line) 12%, transparent) 2.9rem calc(2.9rem + 1px)),
     color-mix(in srgb, var(--bg-raised) 62%, transparent);
-  border-block: 1px solid var(--story-line);
+  border: 1px solid var(--storybook-rule);
 }
 .kindness-notes__wall article {
   padding: 0 1.5rem 1.75rem;
-  background: transparent;
-  border-bottom: 1px solid var(--story-line);
+  background: var(--bg-inset);
+  border: 1px solid var(--story-line);
+  border-top: 3px solid var(--paper-edge);
 }
 .kindness-notes__wall article:nth-child(2) {
   margin-top: 2rem;
@@ -49,9 +50,10 @@
   gap: 1.25rem;
   max-width: 47rem;
   margin: 3.5rem auto 0;
-  padding-top: 2rem;
-  border-top: 1px solid var(--story-line);
-  opacity: 0.92;
+  padding: 1.5rem;
+  border: 1px solid var(--story-line);
+  border-top: 3px solid var(--paper-edge);
+  background: var(--bg-inset);
 }
 .wishlist-note > svg {
   color: var(--storybook-gold);
@@ -97,7 +99,8 @@
   }
   .wishlist-note {
     margin-top: 2rem;
-    padding-top: 1.5rem;
+    padding: 1.25rem;
+    grid-template-columns: minmax(0, 1fr);
   }
   .wishlist-note h2 { font-size: 1.75rem; }
 }
@@ -106,3 +109,8 @@
     grid-template-columns: 1fr;
   }
 }
+
+.kindness-notes__wall article { min-width: 0; }
+.kindness-notes__wall article:nth-child(2) { border-color: var(--paper-edge); }
+.wishlist-note > div { min-width: 0; }
+#kindness-notes { scroll-margin-top: calc(var(--header-height) + 1rem); }

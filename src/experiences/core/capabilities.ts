@@ -9,9 +9,6 @@ export interface ExperienceCapabilities {
 export function canAnimate(capabilities: ExperienceCapabilities): boolean {
   return !capabilities.reducedMotion && !capabilities.saveData;
 }
-export function canRenderAtmosphere(capabilities: ExperienceCapabilities): boolean {
-  return canAnimate(capabilities) && !capabilities.coarsePointer && capabilities.width >= 1024 && capabilities.cores >= 4;
-}
 export function readCapabilities(): ExperienceCapabilities {
   const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
   return {

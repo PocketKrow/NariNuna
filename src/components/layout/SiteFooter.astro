@@ -1,6 +1,7 @@
 ---
 // Build-time shell projection; navigation is ordinary document anchors.
 import { ArrowUpRight, Heart } from "@lucide/vue";
+import GhostieArt from "@/components/art/GhostieArt.vue";
 import { havenRoomNotes } from "@/data/rooms";
 import { footerNavigation } from "@/data/navigation";
 import { socialLinks } from "@/data/socials";
@@ -16,10 +17,14 @@ const roomNote = havenRoomNotes[currentPath] ?? "The little world next door.";
 <footer class="site-footer site-footer--compact">
   <div class="site-footer__inner page-width">
     <div class="site-footer__top">
-      <a class="site-footer__brand" href="/">
-        <strong>Nari Nuna</strong>
-        <span>{roomNote}</span>
-      </a>
+      <div class="site-footer__welcome">
+        <div class="site-footer__ghostie"><GhostieArt variant="cozy" sizes="80px" /></div>
+        <a class="site-footer__brand" href="/">
+          <span class="site-footer__farewell">Until next time</span>
+          <strong>Nari Nuna</strong>
+          <span>{roomNote}</span>
+        </a>
+      </div>
       <div class="site-footer__socials" aria-label="Nari's social profiles">
         {featuredSocials.map((link) => (
           <a href={link.url} target="_blank" rel="noreferrer noopener">
@@ -31,10 +36,12 @@ const roomNote = havenRoomNotes[currentPath] ?? "The little world next door.";
     </div>
     <div class="site-footer__bottom">
       <nav aria-label="Footer navigation">
-        <a href="/meet-nari/">Meet Nari</a>
-        <a href="/haven/">The Haven</a>
+        <a href="/meet-nari/" aria-current={currentPath === "/meet-nari/" ? "page" : undefined}>Meet Nari</a>
+        <a href="/streams/" aria-current={currentPath === "/streams/" ? "page" : undefined}>Streams</a>
+        <a href="/nail-studio/" aria-current={currentPath === "/nail-studio/" ? "page" : undefined}>Nail Studio</a>
+        <a href="/haven/" aria-current={currentPath === "/haven/" ? "page" : undefined}>The Haven</a>
         {footerNavigation.map((item) => (
-          <a href={item.href}>{item.label}</a>
+          <a href={item.href} aria-current={currentPath === item.href ? "page" : undefined}>{item.label}</a>
         ))}
       </nav>
       <p>
@@ -51,31 +58,64 @@ const roomNote = havenRoomNotes[currentPath] ?? "The little world next door.";
   .site-footer--compact .site-footer__inner {
     display: grid;
     gap: 0;
-    padding-block: 1.25rem 1rem;
+    padding-block: 2rem 1rem;
   }
   .site-footer__top,
   .site-footer__bottom {
     display: flex;
+    min-width: 0;
+    max-width: 100%;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.9rem;
   }
   .site-footer__top {
+    align-items: flex-start;
     padding-block-end: 1rem;
     border-bottom: 1px solid var(--story-line);
+    border-top: 2px solid var(--paper-edge);
+    padding-block-start: 1.5rem;
   }
   .site-footer__bottom {
     padding-block-start: 0.9rem;
   }
   .site-footer__brand {
     display: grid;
+    flex: 1 1 10rem;
+    min-width: 0;
+    overflow-wrap: anywhere;
     gap: 0.08rem;
     color: var(--text);
     text-decoration: none;
   }
+  .site-footer__welcome {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    min-width: 0;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .site-footer__ghostie {
+    flex: 0 0 4.5rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    border: 1px solid var(--storybook-rule);
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 65%, #835b653d, transparent 70%);
+  }
+  .site-footer__brand .site-footer__farewell {
+    color: var(--storybook-gold);
+    font-family: var(--font-detail);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
   .site-footer__brand strong {
     font-family: var(--font-display);
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     font-style: italic;
     letter-spacing: -0.025em;
   }
@@ -85,11 +125,16 @@ const roomNote = havenRoomNotes[currentPath] ?? "The little world next door.";
   }
   .site-footer__socials {
     display: flex;
+    min-width: 0;
+    max-width: 100%;
     flex-wrap: wrap;
     gap: 0.4rem;
   }
   .site-footer__socials > a {
     display: inline-flex;
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
     min-height: 2.75rem;
     align-items: center;
     gap: 0.3rem;
@@ -116,10 +161,14 @@ const roomNote = havenRoomNotes[currentPath] ?? "The little world next door.";
     font-weight: 720;
     text-decoration: none;
   }
+  .site-footer__bottom nav a[aria-current="page"],
   .site-footer__bottom nav a:hover,
   .site-footer__socials > a:hover {
     color: var(--text);
   }
+  .site-footer__socials > a:focus-visible,
+  .site-footer__bottom nav a:focus-visible,
+  .site-footer__brand:focus-visible { outline-offset: 0.2rem; }
   .site-footer__bottom > p {
     display: inline-flex;
     align-items: center;
@@ -133,7 +182,7 @@ const roomNote = havenRoomNotes[currentPath] ?? "The little world next door.";
   }
   @media (min-width: 48rem) {
     .site-footer--compact .site-footer__inner {
-      padding-block: 1.35rem 1.05rem;
+      padding-block: 2.5rem 1.25rem;
     }
     .site-footer__top,
     .site-footer__bottom {
@@ -142,7 +191,8 @@ const roomNote = havenRoomNotes[currentPath] ?? "The little world next door.";
       justify-content: space-between;
     }
     .site-footer__bottom {
-      gap: 2rem;
+      gap: 1rem 2rem;
+      flex-wrap: wrap;
     }
   }
 </style>

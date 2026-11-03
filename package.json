@@ -4,7 +4,7 @@
   "private": true,
   "description": "Nari Nuna's static Astro Haven with focused Vue islands.",
   "engines": {
-    "node": ">=22.13.0"
+    "node": ">=22.19.0"
   },
   "scripts": {
     "dev": "astro dev --host 0.0.0.0",
@@ -55,5 +55,16 @@
     "vue-tsc": "^3.0.7"
   },
   "type": "module",
-  "displayName": "Nari Nuna's Haven"
+  "displayName": "Nari Nuna's Haven",
+  "overrides": {
+    "@eslint/config-array": {
+      "minimatch": "11.0.4"
+    },
+    "eslint": {
+      "minimatch": "11.0.4"
+    },
+    "@typescript-eslint/typescript-estree": {
+      "minimatch": "11.0.4"
+    }
+  }
 }

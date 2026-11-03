@@ -1,85 +1,56 @@
-// Painting, copy and material edge share geometry. Mobile shows the art above paper; desktop keeps Nari clear of the copy lane.
-.room-arrival {
-  position: relative;
-  isolation: isolate;
-  max-width: 120rem;
-  margin-inline: auto;
-  overflow: clip;
-  border-bottom: 1px solid var(--story-line);
-  background: var(--bg-inset);
-}
-.room-arrival__painting {
-  position: relative;
-  aspect-ratio: 16 / 9;
-  background: var(--responsive-hero-art) center / contain no-repeat;
-}
-.room-arrival__light {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(0deg, rgb(32 19 25 / 30%), transparent 40%);
-  pointer-events: none;
-}
-
-.room-arrival__body { position: relative; z-index: 1; padding-block: 2rem 2.25rem; }
-.room-arrival__copy { max-width: 34rem; }
-.room-arrival__copy h1 { margin-bottom: 1.25rem; font-size: clamp(2.4rem, 4.3vw, 4.2rem); line-height: 1.08; letter-spacing: -0.04em; }
+// Framed paintings and one readable placard. Keep responsive selection/preloads in artworkDelivery.
+.room-arrival { position: relative; isolation: isolate; width: calc(100% - var(--page-gutter) * 2); max-width: var(--page-width); margin: clamp(1rem, 2.5vw, 2rem) auto 0; padding: 0.5rem; overflow: clip; background: var(--bg-inset); border: 1px solid var(--storybook-rule); box-shadow: inset 0 0 0 3px var(--bg-raised), 0 1.2rem 3rem #10080c35; }
+.room-arrival__painting { position: relative; aspect-ratio: 16 / 9; border: 1px solid var(--storybook-rule); background: var(--responsive-hero-art) center / cover no-repeat; }
+.room-arrival__light { position: absolute; inset: 0; pointer-events: none; }
+.room-arrival__body { position: relative; z-index: 1; width: 100%; padding: 1.75rem 1.25rem 1.5rem; }
+.room-arrival__copy { min-width: 0; max-width: 35rem; margin-inline: auto; }
+.room-arrival__copy h1 { margin-bottom: 1rem; font-size: clamp(2.3rem, 3.7vw, 3.6rem); line-height: 1.12; letter-spacing: -0.04em; overflow-wrap: anywhere; }
 .room-arrival__copy h1 em { color: var(--lavender); }
 .room-arrival__copy > p:not(.eyebrow) { max-width: 32rem; color: var(--text-muted); line-height: 1.75; }
-.room-arrival__copy .eyebrow { color: var(--storybook-gold); font-size: 0.7rem; letter-spacing: 0.09em; }
+.room-arrival__copy .eyebrow { color: var(--storybook-gold); font-size: 0.75rem; letter-spacing: 0.07em; }
 .room-arrival__copy .button-row { gap: 0.75rem; }
 .room-arrival__copy .artwork-credit-link { margin-top: 1rem; }
-.ambient-field { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.55; }
-.atmosphere-control {
-  position: absolute; z-index: 3; top: 0.75rem; right: var(--page-gutter);
-  min-height: 2.75rem; padding: 0.5rem 0.75rem; border: 1px solid var(--story-line);
-  background: #2a1820eb; color: var(--text); border-radius: 0.2rem;
-  font-size: 0.75rem; cursor: pointer;
-}
-.atmosphere-control[hidden] { display: none; }
-.room-arrival--home .room-arrival__body { padding-block: 2rem 2.5rem; }
-.room-arrival--home h1 { display: flex; flex-wrap: wrap; gap: 0.3em; font-size: clamp(2.8rem, 5vw, 4.6rem); }
+.arrival-location { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.65rem; margin-bottom: 1.5rem; color: var(--text-muted); font-size: 0.75rem; }
+.arrival-location a { display: inline-flex; min-height: 2rem; align-items: center; text-underline-offset: 0.2em; }
+.arrival-location > span:last-child { color: var(--storybook-gold); }
 .arrival-subtitle { font-family: var(--font-display); font-size: 1.4rem; font-style: italic; }
 .arrival-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.25rem; margin-block: 1.5rem 0; }
-.room-arrival--home .social-dock { justify-content: start; margin-block: 1.25rem; gap: 0.5rem; }
-.room-arrival--home .social-dock > a { width: 2.75rem; height: 2.75rem; border-radius: 0.25rem; background: transparent; border-color: transparent; }
+.room-arrival--home h1 { display: flex; flex-wrap: wrap; gap: 0.25em; font-size: clamp(3.2rem, 5.5vw, 4.7rem); }
+.room-arrival--home .social-dock { display: flex; flex-wrap: wrap; justify-content: start; width: fit-content; max-width: 100%; margin-block: 1.25rem 0; gap: 0.35rem; }
+.room-arrival--home .social-dock > a { width: 2.75rem; height: 2.75rem; border-radius: 0.25rem; background: var(--bg-inset); border: 1px solid var(--storybook-rule); }
 .room-arrival--home .social-dock__label { display: none; }
+.home-arrival-note { display: flex; align-items: center; gap: 0.65rem; margin-bottom: 1.25rem; color: var(--text-muted); font-size: 0.8rem; }
+.home-arrival-note::before { width: 1.5rem; height: 1px; background: var(--storybook-gold); content: ""; }
 @media (min-width: 64rem) {
-  .room-arrival { min-height: clamp(35rem, 44vw, 44rem); }
-  // Keep the whole illustration on wide canvases; the cocoa copy lane absorbs the spare width.
-  .room-arrival__painting { position: absolute; inset: 0; height: 100%; aspect-ratio: auto; background-position: right center; }
-  .room-arrival__light { background: linear-gradient(90deg, #21151ef7 0%, #21151eed 23%, #21151e9c 39%, transparent 62%); }
-  .room-arrival__body { display: flex; min-height: inherit; align-items: center; padding-block: 4rem; }
-  .room-arrival__copy { width: min(37vw, 32rem); }
-  .room-arrival--home { min-height: min(48rem, calc(100svh - var(--header-height))); }
-  .room-arrival--home .room-arrival__body { min-height: inherit; padding-block: 3rem; }
-  .room-arrival--home h1 { display: flex; gap: 0.25em; font-size: clamp(3.6rem, 5.2vw, 4.6rem); }
-  .room-arrival--resources .room-arrival__light { background: linear-gradient(90deg, #21151efc 0%, #21151ee8 31%, #21151e66 58%, transparent); }
-  .room-arrival--work { min-height: 35rem; }
+  .room-arrival { min-height: 35rem; }
+  .room-arrival__painting { position: absolute; inset: 0.5rem; aspect-ratio: auto; background-size: cover; background-position: center; }
+  .room-arrival__light { background: linear-gradient(90deg, #21151eb0, transparent 65%); }
+  .room-arrival__body { display: flex; min-height: inherit; align-items: center; padding: 2.5rem; }
+  .room-arrival__copy { width: min(37vw, 30rem); margin: 0; padding: clamp(1.5rem, 2.4vw, 2.25rem); background: #24151df5; border: 1px solid var(--storybook-rule); border-top: 3px solid var(--plum); box-shadow: 0 1rem 2rem #10080c38; }
+  .room-arrival--home { min-height: clamp(36rem, 45vw, 42rem); }
+  .room-arrival--home .room-arrival__copy { padding-block: 2rem; }
+  .room-arrival--home .room-arrival__body { padding-block: 2.25rem; }
+  .room-arrival--home h1 { font-size: clamp(3.3rem, 4.6vw, 4.5rem); }
 }
 @media (max-width: 63.99rem) {
-  .room-arrival__body { background: var(--bg); border-top: 3px solid var(--storybook-gold); }
-  .room-arrival--meet .room-arrival__body,
-  .room-arrival--nails .room-arrival__body,
-  .room-arrival--work .room-arrival__body {
-    --focus: var(--focus-on-paper);
-    background: var(--storybook-paper); color: var(--ink);
-    border-top-color: var(--plum);
-  }
-  :is(.room-arrival--meet, .room-arrival--nails, .room-arrival--work) .room-arrival__copy > p:not(.eyebrow) { color: var(--ink-muted); }
-  :is(.room-arrival--meet, .room-arrival--nails, .room-arrival--work) .room-arrival__copy h1 em { color: #79516b; }
-  :is(.room-arrival--meet, .room-arrival--nails, .room-arrival--work) .eyebrow { color: var(--ink-muted); }
-  .room-arrival__copy { max-width: 40rem; margin-inline: auto; }
-  .room-arrival--home .room-arrival__copy { max-width: 34rem; }
+  .room-arrival__body { border-top: 2px solid var(--storybook-gold); background: var(--bg); }
+  :is(.room-arrival--meet, .room-arrival--nails, .room-arrival--work) .room-arrival__body { --focus: var(--focus-on-paper); background: var(--storybook-paper); color: var(--ink); border-top-color: var(--plum); }
+  :is(.room-arrival--meet, .room-arrival--nails, .room-arrival--work) :is(.room-arrival__copy > p:not(.eyebrow), .eyebrow, .arrival-location, .arrival-location > span:last-child) { color: var(--ink-muted); }
+  :is(.room-arrival--meet, .room-arrival--nails, .room-arrival--work) .room-arrival__copy h1 em { color: var(--paper-edge); }
+  :is(.room-arrival--meet, .room-arrival--nails, .room-arrival--work) .text-link { color: var(--interaction-on-paper); }
+  .room-arrival--work .letter-link { color: var(--interaction-on-paper); }
+  .room-arrival--home .room-arrival__copy { max-width: 35rem; }
 }
 @media (max-width: 30rem) {
-  .room-arrival__body { padding-block: 1.75rem 2rem; }
-  .room-arrival__copy h1 { font-size: clamp(2.25rem, 9vw, 2.75rem); }
-  .room-arrival--home h1 { font-size: clamp(3rem, 12vw, 3.5rem); }
+  .room-arrival { width: calc(100% - 1rem); padding: 0.3rem; }
+  .room-arrival__body { padding: 1.4rem 1rem; }
+  .room-arrival__copy h1 { font-size: clamp(2.15rem, 9vw, 2.65rem); }
+  .room-arrival--home h1 { font-size: clamp(2.8rem, 12vw, 3.5rem); }
   .arrival-actions { align-items: stretch; flex-direction: column; gap: 0.5rem; }
   .arrival-actions > a { justify-content: center; }
   .room-arrival__copy .button-row { flex-direction: column; align-items: stretch; }
+  .arrival-location { margin-bottom: 1rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .ambient-field, .atmosphere-control { display: none; }
   .room-arrival__painting { transform: none !important; }
 }

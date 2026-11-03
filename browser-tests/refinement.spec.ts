@@ -98,32 +98,6 @@ for (const width of [320, 390, 430, 768, 1440, 1920]) {
   });
 }
 
-test("Haven leaves the atmosphere unloaded until the doorway approaches", async ({ page }) => {
-  await page.setViewportSize({ width: 1440, height: 900 });
-  await page.emulateMedia({ reducedMotion: "no-preference" });
-  await page.addInitScript(() => Object.defineProperty(navigator, "hardwareConcurrency", { value: 8 }));
-  const requests: string[] = [];
-  page.on("request", (request) => {
-    if (/\/assets\/atmosphere\./.test(request.url())) requests.push(request.url());
-  });
-  await page.goto("/haven/");
-  await settle(page);
-  expect(await page.locator("#haven-door").evaluate((node) => node.getBoundingClientRect().top)).toBeGreaterThan(1200);
-  // Allow the existing post-load/idle scheduler to run without reaching the door.
-  await page.waitForTimeout(2200);
-  expect(requests, "No graphics request for a visitor reading the arrival and charter").toEqual([]);
-  await expect(page.locator("[data-atmosphere]")).toHaveAttribute("data-atmosphere-state", "static");
-  await page.locator("#haven-door").scrollIntoViewIfNeeded();
-  // Existing capability tests cover machines that cannot create a valid renderer.
-  const supported = await page.evaluate(() => !!document.createElement("canvas").getContext("webgl2"));
-  test.skip(!supported, "No WebGL2; pre-door network exclusion was still checked.");
-  await expect(page.locator("[data-atmosphere]")).toHaveAttribute("data-atmosphere-state", "active");
-  await page.emulateMedia({ reducedMotion: "reduce" });
-  await expect(page.locator("[data-atmosphere]")).toHaveAttribute("data-atmosphere-state", "static");
-  await page.emulateMedia({ reducedMotion: "no-preference" });
-  await expect(page.locator("[data-atmosphere]")).toHaveAttribute("data-atmosphere-state", "active");
-});
-
 for (const path of ["/meet-nari/", "/nail-studio/", "/work-with-nari/"]) {
   test(`mobile paper introduction retains a dark focus outline on ${path}`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 900 });
@@ -149,38 +123,4 @@ test("Haven fragment entry can enhance without changing three knocks", async ({ 
     await page.getByRole("button", { name: label, exact: true }).last().click();
   }
   await expect(page.getByRole("link", { name: /Enter Nari's Haven on Discord/ })).toBeFocused();
-});
-
-test("Haven remains usable when its deferred graphics import fails", async ({ page }) => {
-  await page.setViewportSize({ width: 1440, height: 900 });
-  await page.emulateMedia({ reducedMotion: "no-preference" });
-  await page.addInitScript(() => Object.defineProperty(navigator, "hardwareConcurrency", { value: 8 }));
-  await page.route(/\/assets\/atmosphere\./, (route) => route.abort());
-  const errors: string[] = [];
-  page.on("pageerror", (error) => errors.push(error.message));
-  await page.goto("/haven/#haven-door");
-  await settle(page);
-  for (const label of ["Give the first knock", "Give the second knock", "Promise kindness · third knock"]) {
-    await page.getByRole("button", { name: label, exact: true }).last().click();
-  }
-  await expect(page.getByRole("link", { name: /Enter Nari's Haven on Discord/ })).toBeFocused();
-  await expect(page.locator("[data-atmosphere]")).toHaveAttribute("data-atmosphere-state", "static");
-  expect(errors).toEqual([]);
-});
-
-test("missing proximity observation keeps decorative graphics static", async ({ page }) => {
-  await page.setViewportSize({ width: 1440, height: 900 });
-  await page.emulateMedia({ reducedMotion: "no-preference" });
-  await page.addInitScript(() => {
-    Object.defineProperty(navigator, "hardwareConcurrency", { value: 8 });
-    Reflect.deleteProperty(window, "IntersectionObserver");
-  });
-  const graphics: string[] = [];
-  page.on("request", (request) => { if (/\/assets\/atmosphere\./.test(request.url())) graphics.push(request.url()); });
-  await page.goto("/haven/#haven-door");
-  await settle(page);
-  await page.waitForTimeout(2200);
-  expect(graphics).toEqual([]);
-  await expect(page.locator("[data-atmosphere]")).toHaveAttribute("data-atmosphere-state", "static");
-  await expect(page.getByRole("button", { name: "Give the first knock", exact: true }).last()).toBeEnabled();
 });

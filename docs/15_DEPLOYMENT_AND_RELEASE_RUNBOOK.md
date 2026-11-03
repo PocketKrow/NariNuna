@@ -4,7 +4,7 @@ Current contract: 19 October 2026. Repository `PocketKrow/NariNuna`, Astro stati
 
 ## Install, develop and preview
 
-Node 22.13+ (CI: Node 22), npm and committed lockfile:
+Node 22.19+ (CI: Node 22), npm and committed lockfile:
 
 ```bash
 npm ci

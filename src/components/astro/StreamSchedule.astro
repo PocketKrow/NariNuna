@@ -1,0 +1,90 @@
+---
+import { ArrowUpRight, CalendarDays } from "@lucide/vue";
+import { getPublishedStreamSchedule, streamSchedule } from "@/data/schedule";
+import { twitchUrl } from "@/data/socials";
+import GhostieArt from "@/components/art/GhostieArt.vue";
+// Static output reflects publication/expiry at build time; rebuild before expiry.
+const publishedSchedule = getPublishedStreamSchedule(streamSchedule);
+---
+<section class="stream-schedule page-width" aria-labelledby="schedule-title">
+  <div class="stream-schedule__board">
+    <div class="stream-schedule__crest" aria-hidden="true"><span></span><i>✦</i><span></span></div>
+    <div class="stream-schedule__intro">
+      <p class="room-kicker"><CalendarDays size={16} aria-hidden="true" /> A note from the broadcast desk</p>
+      <h2 id="schedule-title">When to <em>drop by.</em></h2>
+      <p>Looking for a little chaos and company? Here's where you'll find Nari's stream plans.</p>
+      <a class="stream-schedule__link" href={twitchUrl} target="_blank" rel="noreferrer noopener">Visit Nari on Twitch <ArrowUpRight size={16} aria-hidden="true" /><span class="sr-only"> (opens in a new tab)</span></a>
+    </div>
+    <div class="stream-schedule__paper" data-surface="paper">
+      {publishedSchedule ? (
+        <>
+          <div class="stream-schedule__paper-heading"><p>Stream schedule</p><span>{publishedSchedule.periodLabel}</span></div>
+          <p class="stream-schedule__zone">Times shown in {publishedSchedule.timeZone}</p>
+          <ul class="stream-schedule__entries">
+            {publishedSchedule.entries.map((entry) => (
+              <li>
+                <div><strong>{entry.dateLabel}</strong><span>{entry.timeLabel}</span></div>
+                <div><strong>{entry.title}</strong>{entry.note && <p>{entry.note}</p>}</div>
+              </li>
+            ))}
+          </ul>
+          <p class="stream-schedule__updated">Posted {publishedSchedule.updatedLabel} · Plans may change.</p>
+        </>
+      ) : (
+        <div class="stream-schedule__empty">
+          <div class="stream-schedule__empty-copy">
+            <span class="stream-schedule__paper-label">A little note</span>
+            <h3>Schedule coming soon</h3>
+            <p>Nari's next schedule isn't posted here yet. Check Twitch for the latest updates.</p>
+          </div>
+          <div class="stream-schedule__ghostie"><GhostieArt variant="cozy" sizes="(min-width: 48rem) 144px, 104px" /></div>
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+<style lang="scss">
+  .stream-schedule { padding-block: clamp(2.5rem, 5vw, 4.5rem) 0; }
+  .stream-schedule__board { position: relative; isolation: isolate; display: grid; gap: 1.5rem; padding: clamp(1.5rem, 3.5vw, 2.75rem); background: linear-gradient(140deg, #50303a, #2d1923 75%); border: 0.3rem solid #70494e; outline: 1px solid #d2a17d99; outline-offset: -0.6rem; box-shadow: inset 0 0 0 1px #21131d, 0 1rem 2.5rem #10080c38; }
+  .stream-schedule__board::before, .stream-schedule__board::after { position: absolute; width: 1rem; height: 1rem; border-color: var(--storybook-gold); border-style: solid; content: ""; pointer-events: none; opacity: 0.8; }
+  .stream-schedule__board::before { top: 0.55rem; left: 0.55rem; border-width: 1px 0 0 1px; }
+  .stream-schedule__board::after { right: 0.55rem; bottom: 0.55rem; border-width: 0 1px 1px 0; }
+  .stream-schedule__crest { display: flex; grid-column: 1 / -1; align-items: center; justify-content: center; gap: 0.7rem; margin: -0.15rem 0 0; color: var(--storybook-gold); }
+  .stream-schedule__crest span { width: min(4rem, 18%); height: 1px; background: currentColor; opacity: 0.6; }
+  .stream-schedule__crest i { font-size: 0.8rem; font-style: normal; line-height: 1; }
+  .stream-schedule__intro { align-self: center; }
+  .stream-schedule__intro .room-kicker { display: flex; align-items: center; gap: 0.5rem; }
+  .stream-schedule__intro h2 { margin: 0 0 1rem; font-size: clamp(2rem, 3.6vw, 3rem); line-height: 1.12; }
+  .stream-schedule__intro h2 em { color: var(--lavender); }
+  .stream-schedule__intro > p:not(.room-kicker) { max-width: 30rem; color: var(--text-muted); line-height: 1.7; }
+  .stream-schedule__link { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 2.75rem; color: var(--cream); font-weight: 700; text-underline-offset: 0.2em; }
+  .stream-schedule__link:hover { color: var(--storybook-gold); }
+  .stream-schedule__paper { position: relative; min-width: 0; padding: clamp(1.5rem, 3vw, 2.2rem); color: var(--ink); background: linear-gradient(145deg, #fff7e9, var(--storybook-paper) 75%); border: 1px solid #bd9b88; border-top: 0.3rem solid var(--plum); box-shadow: 0.4rem 0.45rem 0 #140a1050, 0 0.8rem 1.5rem #140a1029; }
+  .stream-schedule__paper::before { position: absolute; inset: 0.45rem; border: 1px solid #9c73634a; content: ""; pointer-events: none; }
+  .stream-schedule__paper-heading { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.4rem 1rem; border-bottom: 1px solid var(--line-dark); padding-bottom: 0.75rem; }
+  .stream-schedule__paper-heading p { margin: 0; font: 700 0.75rem/1.5 var(--font-detail); letter-spacing: 0.06em; text-transform: uppercase; }
+  .stream-schedule__paper-heading span, .stream-schedule__zone, .stream-schedule__updated { color: var(--ink-muted); font-size: 0.875rem; }
+  .stream-schedule__zone { margin: 0.75rem 0 0; }
+  .stream-schedule__entries { margin: 0; padding: 0; list-style: none; }
+  .stream-schedule__entries li { display: grid; grid-template-columns: minmax(6rem, 0.65fr) minmax(0, 1.35fr); gap: 1rem; padding-block: 1rem; border-bottom: 1px solid var(--line-dark); overflow-wrap: anywhere; }
+  .stream-schedule__entries li > div { display: grid; align-content: start; gap: 0.2rem; }
+  .stream-schedule__entries span, .stream-schedule__entries p { margin: 0; color: var(--ink-muted); font-size: 0.9rem; }
+  .stream-schedule__updated { margin: 1rem 0 0; }
+  .stream-schedule__empty { display: grid; grid-template-columns: minmax(0, 1fr) minmax(4rem, 7.5rem); align-items: center; gap: 0.5rem; }
+  .stream-schedule__empty-copy { min-width: 0; }
+  .stream-schedule__paper-label { color: #79516b; font: 700 0.7rem/1.5 var(--font-detail); letter-spacing: 0.08em; text-transform: uppercase; }
+  .stream-schedule__empty h3 { margin: 0.4rem 0 0.5rem; font-size: 1.6rem; }
+  .stream-schedule__empty p { max-width: 28rem; margin: 0; color: var(--ink-muted); line-height: 1.65; }
+  .stream-schedule__ghostie { width: 100%; aspect-ratio: 1; }
+  @media (min-width: 48rem) { .stream-schedule__board { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 2rem; } }
+  @media (max-width: 39.99rem) {
+    .stream-schedule__empty { grid-template-columns: minmax(0, 1fr); }
+    .stream-schedule__ghostie { display: none; }
+    .stream-schedule__board { padding: 1.4rem 1.1rem; }
+    .stream-schedule__paper { padding: 1.4rem 1.1rem; }
+    .stream-schedule__empty h3 { font-size: 1.5rem; }
+    .stream-schedule__link { overflow-wrap: anywhere; }
+    .stream-schedule__link svg { flex: none; }
+  }
+  @media (max-width: 23rem) { .stream-schedule__entries li { grid-template-columns: 1fr; gap: 0.4rem; } .stream-schedule__empty h3 { font-size: 1.35rem; } }
+</style>
