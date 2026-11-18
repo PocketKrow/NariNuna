@@ -19,8 +19,6 @@
 .room-arrival--home .social-dock { display: flex; flex-wrap: wrap; justify-content: start; width: fit-content; max-width: 100%; margin-block: 1.25rem 0; gap: 0.35rem; }
 .room-arrival--home .social-dock > a { width: 2.75rem; height: 2.75rem; border-radius: 0.25rem; background: var(--bg-inset); border: 1px solid var(--storybook-rule); }
 .room-arrival--home .social-dock__label { display: none; }
-.home-arrival-note { display: flex; align-items: center; gap: 0.65rem; margin-bottom: 1.25rem; color: var(--text-muted); font-size: 0.8rem; }
-.home-arrival-note::before { width: 1.5rem; height: 1px; background: var(--storybook-gold); content: ""; }
 @media (min-width: 64rem) {
   .room-arrival { min-height: 35rem; }
   .room-arrival__painting { position: absolute; inset: 0.5rem; aspect-ratio: auto; background-size: cover; background-position: center; }

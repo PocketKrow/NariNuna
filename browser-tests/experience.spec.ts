@@ -208,3 +208,23 @@ for (const width of [320, 768, 1440]) {
     }
   });
 }
+
+test("stream dates roll off an open page while the Twitch schedule stays reachable", async ({ page }) => {
+  await page.clock.install({ time: new Date("2026-11-06T12:00:00Z") });
+  await page.goto("/streams/");
+  await page.evaluate(async () => {
+    await customElements.whenDefined("stream-dates");
+    const host = document.createElement("stream-dates");
+    host.dataset.published = "2026-11-06T11:00:00Z";
+    host.dataset.expires = "2026-11-06T12:10:00Z";
+    host.innerHTML = '<ul><li data-start="2026-11-06T12:05:00Z">Earlier</li><li data-start="2026-11-06T13:00:00Z">Later</li></ul>';
+    document.querySelector(".stream-schedule")!.append(host);
+  });
+  const sample = page.locator("stream-dates").last();
+  await expect(sample.locator("li:visible")).toHaveCount(2);
+  await page.clock.fastForward("05:00");
+  await expect(sample.locator("li:visible")).toHaveText(["Later"]);
+  await page.clock.fastForward("05:00");
+  await expect(sample).toBeHidden();
+  await expect(page.getByRole("link", { name: "Check stream times on Twitch" })).toBeVisible();
+});

@@ -5,7 +5,7 @@ import { getPublishedStreamSchedule, type StreamSchedule } from "@/data/schedule
 const fixture: StreamSchedule = {
   periodLabel: "Test period", timeZone: "Test timezone", updatedLabel: "Test date",
   publishedAt: "2026-11-02T12:00:00Z", expiresAt: "2026-11-09T12:00:00Z",
-  entries: [{ dateLabel: "Test day", timeLabel: "Test time", title: "Test stream" }],
+  entries: [{ startsAt: "2026-11-07T14:00:00Z", dateLabel: "Test day", timeLabel: "Test time", title: "Test stream" }],
 };
 describe("build-time stream schedule publication", () => {
   it("accepts an unpublished schedule", () => { expect(getPublishedStreamSchedule(null)).toBeNull(); });
@@ -25,6 +25,7 @@ describe("build-time stream schedule publication", () => {
       expect(getPublishedStreamSchedule({ ...fixture, publishedAt: invalid }, now)).toBeNull();
       expect(getPublishedStreamSchedule({ ...fixture, expiresAt: invalid }, now)).toBeNull();
     }
+    expect(getPublishedStreamSchedule({ ...fixture, entries: [{ ...fixture.entries[0], startsAt: "invalid" }] }, now)).toBeNull();
     expect(getPublishedStreamSchedule({ ...fixture, expiresAt: fixture.publishedAt }, now)).toBeNull();
     expect(getPublishedStreamSchedule({ ...fixture, expiresAt: "2026-11-01T12:00:00Z" }, now)).toBeNull();
     expect(getPublishedStreamSchedule(fixture, new Date("invalid"))).toBeNull();

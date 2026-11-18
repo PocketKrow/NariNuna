@@ -1,4 +1,4 @@
-// Reviewed local content is selected when the static site is built. Rebuild before expiry.
+// Reviewed local content is selected when the static site is built. The browser also checks expiry when displaying dated plans.
 export interface StreamSchedule {
   periodLabel: string;
   timeZone: string;
@@ -7,6 +7,7 @@ export interface StreamSchedule {
   publishedAt: string;
   expiresAt: string;
   entries: Array<{
+    startsAt: string;
     dateLabel: string;
     timeLabel: string;
     title: string;
@@ -29,6 +30,7 @@ export function getPublishedStreamSchedule(schedule: StreamSchedule | null, now:
   const currentTime = now.getTime();
   if (!Number.isFinite(publishedAt) || !Number.isFinite(expiresAt) || !Number.isFinite(currentTime)) return null;
   if (expiresAt <= publishedAt || currentTime < publishedAt || currentTime >= expiresAt) return null;
+  if (schedule.entries.some((entry) => !Number.isFinite(parseUtc(entry.startsAt)))) return null;
   return schedule;
 }
 

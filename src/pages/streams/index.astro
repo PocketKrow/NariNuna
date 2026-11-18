@@ -1,5 +1,6 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
+import StreamSchedule from "@/components/astro/StreamSchedule.astro";
 import RoomArrival from "@/components/astro/RoomArrival.astro";
 
 // Own the Twitch/YouTube broadcast desk. The first curated moment leads; MediaCard owns blocked-thumbnail fallback.
@@ -44,9 +45,10 @@ const supportingMoments = featuredMoments.slice(1);
       </div>
 
   </RoomArrival>
+  <StreamSchedule />
   <nav class="broadcast-tabs page-width" aria-label="Stream room shortcuts">
     <a href="#selected-moments">Selected moments <ArrowRight size={16} aria-hidden="true" /></a>
-    <a href="#whole-evening">Full streams &amp; times <ArrowRight size={16} aria-hidden="true" /></a>
+    <a href="#whole-evening">Full streams <ArrowRight size={16} aria-hidden="true" /></a>
   </nav>
   <!-- The curated lead and supporting clips share MediaCard fallback behavior. -->
   <section id="selected-moments" class="clip-desk room-section page-width" aria-labelledby="moments-title">
@@ -74,11 +76,11 @@ const supportingMoments = featuredMoments.slice(1);
         <Radio size={25} aria-hidden="true" />
         <p>
           <strong>Want the whole evening?</strong>
-          <span>Find current stream times on Twitch and Nari's socials.</span>
+          <span>Catch a full broadcast on Twitch or browse the videos on YouTube.</span>
         </p>
       </div>
       <div class="broadcast-tuning__links">
-        <a class="text-link" href={twitchUrl} target="_blank" rel="noreferrer noopener">Stream times on Twitch <ArrowUpRight size={16} aria-hidden="true" /><span class="sr-only"> (opens in a new tab)</span></a>
+        <a class="text-link" href={twitchUrl} target="_blank" rel="noreferrer noopener">Visit Twitch <ArrowUpRight size={16} aria-hidden="true" /><span class="sr-only"> (opens in a new tab)</span></a>
         {youtube ? <a class="text-link" href={youtube.url} target="_blank" rel="noreferrer noopener">More videos on YouTube <ArrowUpRight size={16} aria-hidden="true" /><span class="sr-only"> (opens in a new tab)</span></a> : null}
       </div>
     </div>

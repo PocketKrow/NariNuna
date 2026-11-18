@@ -120,7 +120,7 @@ Official references: [source deployment](https://docs.cloud.google.com/run/docs/
 | Credits and approval boundaries | `src/data/artCredits.json`, offline validator and independent release gate |
 | Tests | Vitest, built-artifact validators, Playwright + axe and eight composition snapshots |
 
-### Updating the Home stream schedule
+### Updating the Home and Streams schedule
 
 Edit `src/data/schedule.ts` and replace `null` with an approved, dated schedule. For example, the shape below uses illustrative text only; replace every value with Nari's actual plans:
 
@@ -132,12 +132,12 @@ export const streamSchedule: StreamSchedule | null = {
   publishedAt: "2026-11-02T12:00:00Z", // Illustrative UTC publication time
   expiresAt: "2026-11-09T12:00:00Z", // Illustrative UTC expiry time
   entries: [
-    { dateLabel: "Day and date", timeLabel: "Start time", title: "Stream title", note: "Optional note" }
+    { startsAt: "2026-11-05T23:00:00Z", dateLabel: "Day and date", timeLabel: "Start time", title: "Stream title", note: "Optional note" }
   ]
 };
 ```
 
-List each stream separately and specify the time zone alongside the times. The site displays labels as entered without time-zone conversion. At build time, future, expired, empty or malformed schedules use the not-yet-posted message. The UTC publication window must be valid and ordered. Static output does not update itself at expiry: rebuild when publishing and before expiry. Replace it when plans change, or set `streamSchedule` back to `null` to show the not-yet-posted message. Commit the edit to the intended branch to publish it through the existing build and hosting workflow. There is no in-site posting interface or automatic Twitch sync.
+Add each stream’s UTC `startsAt` alongside its public date, time and zone. Home and Streams share this record. Build during the publication window to publish it. The browser shows upcoming entries in time order and retires them at their start time or at schedule expiry, including on a cached page. Visitors with JavaScript disabled can use the Twitch schedule link. Rebuild after edits or cancellations, or set the record to `null` to withdraw it.
 
 Astro 7, Vue 3, strict TypeScript, SCSS, Lucide, GSAP/ScrollTrigger and selective Three.js. No backend, CMS, database, account, analytics, form, iframe, heavy media player, Tailwind or UI kit. Native View Transitions were evaluated and disabled after rapid history navigation exposed browser abort errors. All navigation is immediate ordinary document navigation.
 

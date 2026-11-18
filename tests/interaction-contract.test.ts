@@ -49,7 +49,8 @@ describe("client-feedback interaction contracts", () => {
     const home = sourceAt("src/pages/index.astro");
     const haven = sourceAt("src/pages/haven/index.astro");
 
-    expect(home).toContain('class="button button--ember" href="/haven/"');
+    expect(home).toContain('class="button button--ember" href={homeMoment.url}');
+    expect(home).toContain('class="text-link" href="/haven/">Explore the Haven');
     expect(home).not.toContain('import { twitchUrl } from "@/data/socials"');
     expect(haven).toContain('id="haven-door" class="haven-entry page-width section-pad"');
   });

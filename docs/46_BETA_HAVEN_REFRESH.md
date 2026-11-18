@@ -30,7 +30,7 @@ Each interior remains in its route Astro file and `styles/rooms/` stylesheet. Tw
 
 `src/data/schedule.ts` remains `null` until Nari supplies plans. A helper checks strict UTC `publishedAt`/`expiresAt`, nonempty entries and the build timestamp. Future, expired, malformed or empty records show the honest hold. Display labels/time zones stay as supplied; there is no conversion, Twitch feed or in-site editor.
 
-Static HTML does not disappear at expiry without another build. Rebuild when publishing/replacing and before expiry. README contains the complete shape. Focused deterministic tests cover null, valid/boundary publication, future/expiry and invalid data without pinning the live record to null.
+The subsequent Home and Streams pass adds UTC start times and checks the clock when displaying a posted schedule. See the current authoring example in the README. The three object illustrations under `src/assets/source/room-entrances/` are original AI-generated environment artwork for this review. Astro exports local, responsive WebP sizes for the homepage cards.
 
 ## Engineering and verification contracts
 
