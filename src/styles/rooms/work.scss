@@ -132,6 +132,10 @@
   font-size: 0.875rem;
   font-weight: 750;
 }
+.collaboration-letter .letter-link,
+.collaboration-letter .letter-link:is(:hover, :focus-visible) {
+  color: var(--interaction-on-paper);
+}
 .public-directory {
   padding-top: 0;
   scroll-margin-top: calc(var(--header-height) + 1rem);

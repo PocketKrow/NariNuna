@@ -87,7 +87,8 @@ for (const width of [320, 390, 430, 768, 1440, 1920]) {
     await page.setViewportSize({ width, height: width <= 430 ? 568 : 900 });
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto("/");
-    const action = page.locator(".arrival-actions .button").first();
+    const action = page.getByRole("link", { name: "Explore the Haven", exact: true });
+    await expect(action).toHaveAttribute("href", "/haven/");
     await action.focus();
     await page.keyboard.press("Enter");
     await expect(page).toHaveURL("http://127.0.0.1:4175/haven/");
