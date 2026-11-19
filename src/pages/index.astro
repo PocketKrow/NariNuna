@@ -33,16 +33,6 @@ const corners = [
     <ArtworkCreditLink creditId="website-storybook-artwork" pageOnly />
   </RoomArrival>
   <StreamSchedule />
-  {homeMoment && <section class="home-moment room-section page-width" aria-labelledby="home-moment-title">
-    <div class="home-moment__intro">
-      <p class="room-kicker"><Sparkles size={15} aria-hidden="true" /> A taste of the chaos</p>
-      <h2 id="home-moment-title">You had to<br /><em>be there.</em></h2>
-      <p>Or you can watch the clip. Same Nari energy, a much smaller time commitment.</p>
-      <a class="text-link" href="/streams/#selected-moments">More stream moments <ArrowRight size={16} aria-hidden="true" /></a>
-      <div class="home-moment__ghostie"><GhostieArt variant="gaming" sizes="112px" /><span>One more good bit.</span></div>
-    </div>
-    <div class="home-moment__clip"><MediaCard moment={homeMoment} client:visible /></div>
-  </section>}
   <section class="haven-corners room-section page-width" aria-labelledby="corners-title">
     <header class="room-heading">
       <h2 id="corners-title">Around the <em>Haven.</em></h2>
@@ -50,7 +40,7 @@ const corners = [
     <div class="haven-corners__shelf">
       {corners.map((corner) => (
         <a class="haven-corner" href={corner.href} data-material-reveal>
-          <div class="haven-corner__frame"><Image src={corner.artwork} widths={[192, 320, 500]} sizes="(min-width: 80rem) 24rem, (min-width: 40rem) 31vw, 36vw" alt="" loading="lazy" decoding="async" /></div>
+          <div class="haven-corner__frame"><Image src={corner.artwork} widths={[192, 320, 500]} sizes="(min-width: 88rem) 26rem, (min-width: 40rem) 30vw, 36vw" alt="" loading="lazy" decoding="async" /></div>
           <div class="haven-corner__caption">
             <p class="haven-corner__label"><corner.icon size={15} aria-hidden="true" />{corner.label}</p>
             <h3>{corner.name} <ArrowRight size={18} aria-hidden="true" /></h3>
@@ -60,6 +50,21 @@ const corners = [
       ))}
     </div>
   </section>
+  {homeMoment && <section class="home-moment room-section page-width" aria-labelledby="home-moment-title">
+    <div class="home-moment__intro">
+      <p class="room-kicker"><Sparkles size={15} aria-hidden="true" /> A taste of the chaos</p>
+      <h2 id="home-moment-title">You had to<br /><em>be there.</em></h2>
+      <p>Or you can watch the clip. Same Nari energy, a much smaller time commitment.</p>
+
+    </div>
+    <div class="home-moment__clip">
+      <MediaCard moment={homeMoment} client:visible />
+      <div class="home-moment__footer">
+        <GhostieArt variant="gaming" sizes="64px" />
+        <div><span>One more good bit.</span><a class="text-link" href="/streams/#selected-moments">More stream moments <ArrowRight size={16} aria-hidden="true" /></a></div>
+      </div>
+    </div>
+  </section>}
   <section class="welcome-room page-width" aria-labelledby="welcome-room-title">
     <div class="welcome-room__image">
       <img src="/media/storybook/welcome/welcome-room-1200.webp" srcset="/media/storybook/welcome/welcome-room-720.webp 720w, /media/storybook/welcome/welcome-room-1200.webp 1200w" sizes="(min-width: 64rem) 52vw, calc(100vw - 32px)" width="1200" height="600" loading="lazy" decoding="async" alt="A Ghostie waits beside two cups of tea in a warmly lit autumn room." />

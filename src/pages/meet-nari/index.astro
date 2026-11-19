@@ -2,7 +2,7 @@
 import SiteLayout from "@/layouts/SiteLayout.astro";
 import RoomArrival from "@/components/astro/RoomArrival.astro";
 
-// Preserve arrival → identity journal → protective promise. One reading Ghostie belongs to the journal opening.
+// Preserve arrival → identity journal → protective promise. Companions live in the paper masthead and boundary heading.
 import { ArrowRight, Eye, MoonStar, Sparkles } from "@lucide/vue";
 import GhostieArt from "@/components/art/GhostieArt.vue";
 import ArtworkCreditLink from "@/components/art/ArtworkCreditLink.vue";
@@ -33,7 +33,7 @@ import { identityPillars } from "@/data/content";
       <ArtworkCreditLink creditId="website-storybook-artwork" />
 
   </RoomArrival>
-  <!-- A single companion reads over the journal; the entries keep their editorial rhythm. -->
+  <!-- The reader shares the journal masthead; the entries retain their editorial rhythm. -->
   <section id="nari-journal" class="nari-journal room-section page-width" aria-labelledby="journal-title">
     <header class="nari-journal__opening">
       <p class="room-kicker">Notes from the girl next door</p>
@@ -44,12 +44,15 @@ import { identityPillars } from "@/data/content";
       </h2>
       <p class="nari-journal__note">The warmth, the chaos, and the craft. Three very Nari things.</p>
       <a class="text-link" href="#nari-boundaries">A word about boundaries <ArrowRight size={16} aria-hidden="true" /></a>
-      <GhostieArt class="nari-journal__reader" sizes="160px" variant="study" />
     </header>
     <div class="nari-journal__surface" data-material-reveal>
       <span class="nari-journal__bookmark" aria-hidden="true">
         NARI
       </span>
+      <div class="nari-journal__masthead">
+        <p class="room-kicker">The warmth, the chaos, and the craft.</p>
+        <GhostieArt class="nari-journal__reader" sizes="64px" variant="study" />
+      </div>
       <div class="nari-journal__entries">
         {identityPillars.map((entry) => (
           <article class="journal-entry">
@@ -69,14 +72,16 @@ import { identityPillars } from "@/data/content";
   </section>
   <!-- Boundary copy follows the introduction; symbolism stays limited to Nari-approved meaning. -->
   <section id="nari-boundaries" class="nari-promise-note room-section page-width" aria-labelledby="promise-title">
-    <GhostieArt class="nari-promise-note__guardian" sizes="(min-width: 48rem) 320px, 192px" variant="protective" />
     <div>
-      <p class="room-kicker">Sweet doesn't mean spineless</p>
+      <header class="nari-promise-note__heading">
+        <GhostieArt class="nari-promise-note__guardian" sizes="(min-width: 48rem) 96px, 64px" variant="protective" />
+        <div><p class="room-kicker">Sweet doesn't mean spineless</p>
       <h2 id="promise-title">
         We take care
         <br />
         <em>of our people here.</em>
-      </h2>
+      </h2></div>
+      </header>
       <p>
         The jokes can be loud and the chaos can be legendary. But nobody has to earn basic respect, and nobody gets to
         mistake kindness for permission to cross a boundary.

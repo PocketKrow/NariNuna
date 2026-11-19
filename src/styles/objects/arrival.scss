@@ -4,7 +4,7 @@
 .room-arrival__light { position: absolute; inset: 0; pointer-events: none; }
 .room-arrival__body { position: relative; z-index: 1; width: 100%; padding: 1.75rem 1.25rem 1.5rem; }
 .room-arrival__copy { min-width: 0; max-width: 35rem; margin-inline: auto; }
-.room-arrival__copy h1 { margin-bottom: 1rem; font-size: clamp(2.3rem, 3.7vw, 3.6rem); line-height: 1.12; letter-spacing: -0.04em; overflow-wrap: anywhere; }
+.room-arrival__copy h1 { margin-bottom: 1rem; font-size: clamp(2.15rem, 3.2vw, 3.1rem); line-height: 1.12; letter-spacing: -0.04em; overflow-wrap: anywhere; }
 .room-arrival__copy h1 em { color: var(--lavender); }
 .room-arrival__copy > p:not(.eyebrow) { max-width: 32rem; color: var(--text-muted); line-height: 1.75; }
 .room-arrival__copy .eyebrow { color: var(--storybook-gold); font-size: 0.75rem; letter-spacing: 0.07em; }
@@ -20,12 +20,12 @@
 .room-arrival--home .social-dock > a { width: 2.75rem; height: 2.75rem; border-radius: 0.25rem; background: var(--bg-inset); border: 1px solid var(--storybook-rule); }
 .room-arrival--home .social-dock__label { display: none; }
 @media (min-width: 64rem) {
-  .room-arrival { min-height: 35rem; }
-  .room-arrival__painting { position: absolute; inset: 0.5rem; aspect-ratio: auto; background-size: cover; background-position: center; }
+  .room-arrival { min-height: 29rem; }
+  .room-arrival__painting { position: absolute; inset: 0.5rem; aspect-ratio: auto; background-size: cover; background-position: center top; }
   .room-arrival__light { background: linear-gradient(90deg, #21151eb0, transparent 65%); }
-  .room-arrival__body { display: flex; min-height: inherit; align-items: center; padding: 2.5rem; }
-  .room-arrival__copy { width: min(37vw, 30rem); margin: 0; padding: clamp(1.5rem, 2.4vw, 2.25rem); background: #24151df5; border: 1px solid var(--storybook-rule); border-top: 3px solid var(--plum); box-shadow: 0 1rem 2rem #10080c38; }
-  .room-arrival--home { min-height: clamp(36rem, 45vw, 42rem); }
+  .room-arrival__body { display: flex; min-height: inherit; align-items: center; padding: 1.75rem; }
+  .room-arrival__copy { width: min(38vw, 31rem); margin: 0; padding: clamp(1.25rem, 2vw, 1.75rem); background: #24151df5; border: 1px solid var(--storybook-rule); border-top: 3px solid var(--plum); box-shadow: 0 1rem 2rem #10080c38; }
+  .room-arrival--home { min-height: clamp(32rem, 43vw, 39rem); }
   .room-arrival--home .room-arrival__copy { padding-block: 2rem; }
   .room-arrival--home .room-arrival__body { padding-block: 2.25rem; }
   .room-arrival--home h1 { font-size: clamp(3.3rem, 4.6vw, 4.5rem); }
@@ -40,7 +40,7 @@
   .room-arrival--home .room-arrival__copy { max-width: 35rem; }
 }
 @media (max-width: 30rem) {
-  .room-arrival { width: calc(100% - 1rem); padding: 0.3rem; }
+  .room-arrival { padding: 0.3rem; }
   .room-arrival__body { padding: 1.4rem 1rem; }
   .room-arrival__copy h1 { font-size: clamp(2.15rem, 9vw, 2.65rem); }
   .room-arrival--home h1 { font-size: clamp(2.8rem, 12vw, 3.5rem); }

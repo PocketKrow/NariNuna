@@ -1,5 +1,9 @@
 # Current State Audit
 
+## 18 November 2026 — PR 39 composition
+
+[PR 39 composition](48_PR39_COMPOSITION.md) records the owner-requested spacing, artwork placement and contextual Ghostie pass on `codex/nari-first-visit`. Earlier branch/evidence sections below remain historical.
+
 ## 2 November 2026 — complete beta refresh
 
 Branch `beta`, draft PR #37, continues from `467c814`. [Document 46](46_BETA_HAVEN_REFRESH.md) owns the refreshed arrivals, navigation, Home and nine public interiors, schedule publication contract, dependency remediation and current verification. Older results below remain historical. Source artwork, twelve routes and the static Astro/Vue architecture are preserved.
