@@ -17,7 +17,7 @@ async function settle(page: Page): Promise<void> {
   await page.waitForFunction(() => [...document.querySelectorAll('astro-island[client="load"]')].every((island) => !island.hasAttribute("ssr")));
   await page.evaluate(() => document.fonts.ready);
 }
-for (const width of [390, 1440]) {
+for (const width of [320, 390, 768, 1440]) {
   test(`review evidence: production typography at ${width}px`, async ({ page }, testInfo) => {
     test.setTimeout(120_000);
     await page.setViewportSize({ width, height: 900 });
@@ -25,11 +25,16 @@ for (const width of [390, 1440]) {
     await page.route("https://i.ytimg.com/**", (route) => route.abort());
     for (const [name, path] of [
       ["home", "/"], ["meet", "/meet-nari/"], ["streams", "/streams/"], ["nails", "/nail-studio/"],
-      ["haven", "/haven/"], ["resources", "/resources/"], ["work", "/work-with-nari/"], ["stories", "/stories/"],
+      ["haven", "/haven/"], ["support", "/support/"], ["resources", "/resources/"], ["work", "/work-with-nari/"], ["stories", "/stories/"],
     ]) {
       await page.goto(path);
       await settle(page);
+      // Let visible islands replace failed remote thumbnails before collecting image locators.
+      for (const card of await page.locator(".media-card").all()) await card.scrollIntoViewIfNeeded();
+      await page.waitForFunction(() => [...document.querySelectorAll('astro-island[client="visible"]')].every((island) => !island.hasAttribute("ssr")));
+      await page.waitForFunction(() => document.querySelectorAll('.media-card__image img[src^="https://i.ytimg.com"]').length === 0);
       for (const image of await page.locator("img").all()) {
+        if (!(await image.isVisible())) continue;
         await image.scrollIntoViewIfNeeded();
         await image.evaluate((element: HTMLImageElement) => element.decode().catch(() => undefined));
       }

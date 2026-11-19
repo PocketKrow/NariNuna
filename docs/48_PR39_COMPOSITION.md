@@ -4,7 +4,7 @@
 
 ## Layout decisions
 
-- Keep the existing autumn paintings, Nari identity, native navigation and Astro/Vue architecture. No dependency or artwork-byte changes.
+- Keep the existing autumn paintings, Nari identity, native navigation and Astro/Vue architecture. No artwork-byte changes. A follow-up validation fix updates the existing Astro dependency from 7.3.5 to 7.4.13 to clear the dependency audit; the stack is unchanged.
 - Home: arrival → schedule → three room entrances → featured clip → welcome room. The gaming companion belongs to the clip footer and its next action. The clip uses a bounded widescreen frame with its full thumbnail contained.
 - Meet Nari: the reading companion sits in the journal masthead. The protective companion belongs to the boundaries heading; it no longer occupies a large empty column.
 - Haven: the caring companion signs off the values on their paper surface, before the door.
@@ -21,10 +21,11 @@ Existing Ghostie variants, original source masters, responsive derivatives, cred
 ## Evidence
 
 - Clean `npm ci`: passed on Node 24.22.3.
-- `npm run check`: passed for the initial composition implementation: lint, Astro/Vue/TypeScript diagnostics, twelve-page static build, credits/assets/performance validators, 95 passing tests (one environment-dependent startup skip), and HTTP verification of twelve documents, 165 essential assets and 27 retained Prinnies.
+- `npm run check`: passed after the composition changes and Astro audit fix: lint, Astro/Vue/TypeScript diagnostics, twelve-page static build, credits/assets/performance validators, 95 passing tests (one environment-dependent startup skip), and HTTP verification of twelve documents, 165 essential assets and 27 retained Prinnies.
 - Baseline PR preview was visually inspected in desktop Chrome for Home and Meet Nari.
 - Local Chromium launch is blocked by the execution environment's Unix socket restriction. Playwright's browser download returned an invalid archive. The browser verification command was attempted; it is not recorded as a pass.
-- Candidate visual review and CI results will be recorded after the preview updates. Minimum-width, reduced-motion, keyboard, assistive-technology and native zoom approval are not inferred from source or unit tests.
+- Updated desktop preview reviewed on Home, Meet Nari and Nail Studio: the gaming Ghostie is contained in the clip footer and the reader is attached to the journal masthead. The evidence collector now waits for visible-island thumbnail fallback before collecting images, skips hidden images, and covers 320, 390, 768 and 1440px, including Support. Previously it timed out on hidden mobile illustrations or detached thumbnail nodes. CI results remain separate from the manual review. Minimum-width, reduced-motion, keyboard, assistive-technology and native zoom approval are not inferred from source or unit tests.
+- Full and production dependency audits after the Astro update: zero reported vulnerabilities.
 - Existing screenshot baselines are not silently regenerated; material composition differences require review.
 
 Rollback: revert the focused composition commit. All original art remains available.

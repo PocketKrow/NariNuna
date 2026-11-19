@@ -29,7 +29,7 @@
   "dependencies": {
     "@astrojs/vue": "7.0.3",
     "@lucide/vue": "^1.31.0",
-    "astro": "7.3.5",
+    "astro": "7.4.13",
     "gsap": "^3.15.0",
     "three": "^0.186.1",
     "vue": "^3.5.44"
