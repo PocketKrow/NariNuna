@@ -1,5 +1,5 @@
 // The journal opens as an editorial spread. One paper surface owns the entries at every width.
-.nari-journal { display: grid; grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.4fr); align-items: start; gap: 2rem clamp(2rem, 4vw, 4rem); }
+.nari-journal { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; gap: 2rem; }
 .nari-journal__opening { padding-top: 1rem; border-top: 2px solid var(--story-line); }
 .nari-journal__note { max-width: 25rem; color: var(--text-muted); }
 .nari-journal__masthead { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1.25rem 0.5rem; border-bottom: 1px solid var(--line-dark); }
@@ -17,7 +17,7 @@
 .journal-entry__copy { grid-column: 1 / -1; }
 .journal-entry__copy h3 { font-size: clamp(1.5rem, 2vw, 1.85rem); line-height: 1.2; }
 .journal-entry__copy p { color: var(--ink-muted); margin: 0; line-height: 1.8; max-width: 37rem; }
-.nari-journal > .room-discovery { grid-column: 2; }
+.nari-journal > .room-discovery { grid-column: 1; }
 .nari-promise-note { display: block; width: calc(100% - var(--page-gutter) * 2); max-width: var(--page-width); padding: clamp(1.25rem, 3vw, 2.5rem); margin-block-end: 3rem; border: 1px solid var(--story-line); border-top: 3px solid var(--paper-edge); background: var(--bg-inset); box-shadow: inset 0 0 0 0.4rem var(--bg); }
 .nari-promise-note__heading { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1.25rem; }
 .nari-promise-note__heading > div { min-width: 0; }
@@ -30,6 +30,20 @@
 .nari-promise-note dt { display: flex; align-items: center; gap: 0.5rem; font-weight: 700; }
 .nari-promise-note dt svg { color: var(--lavender); flex-shrink: 0; }
 .nari-promise-note dd { margin: 0.35rem 0 0; color: var(--text-muted); font-size: 0.9rem; }
+@media (min-width: 64rem) {
+  .nari-journal__opening { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.75fr); column-gap: 3rem; align-items: start; }
+  .nari-journal__opening > .room-kicker { grid-column: 1 / -1; }
+  .nari-journal__opening h2 { grid-row: 2 / 4; margin-bottom: 0; }
+  .nari-journal__note { margin-block: 0 0.75rem; }
+  .nari-journal__opening > .text-link { justify-self: start; }
+  .nari-journal__entries { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .journal-entry { display: block; padding: 1.5rem; }
+  .journal-entry:first-child { padding-left: 0; }
+  .journal-entry:last-child { padding-right: 0; }
+  .journal-entry + .journal-entry { border-top: 0; border-left: 1px solid var(--line-dark); }
+  .journal-entry__marker { margin-bottom: 0.75rem; }
+  .nari-promise-note__details { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
+}
 @media (max-width: 63.99rem) {
   .nari-journal { grid-template-columns: 1fr; gap: 1.5rem; }
   .nari-journal__opening { padding: 0; }
