@@ -35,3 +35,11 @@ Rollback: revert the focused composition commit. All original art remains availa
 CI-produced 390px Home, Meet Nari, Haven and Nails captures were visually reviewed, along with desktop Home, Meet, Haven, Nails and Support. The full desktop captures revealed tall empty columns in Meet and Haven; the final spread layout addresses these instead of filling them with more decoration.
 
 The existing full browser checks also found a low-contrast public-profile link on the Work paper. Its normal, hover and focus colors now use the dark paper interaction token. The Haven keyboard-navigation test now selects the named Explore the Haven link instead of assuming the first hero button goes to Haven (that button now opens the featured clip).
+
+## Navigation and reading-spine correction — 19 November 2026
+
+Jake's preview review identified remaining centering and spacing problems. The header's 3.1rem Ghostie figure exceeded its 2.9rem frame; inherited image chrome also drew a second circular frame. SiteHeader now owns the emblem, gives its nested figure/image the available content box, and removes the obsolete global brand-image rules. The wordmark's grid targets its named text wrapper rather than every nested span.
+
+RoomDiscovery now follows the available reading width, with a trailing action at tablet/desktop widths and a stacked action on phones. Journal shortcuts use the journal's existing grid gap instead of adding component margins; mobile boundary art centers against its heading. Artwork bytes, content and destinations are unchanged.
+
+Validation: clean npm installation and repository check passed locally before the final spacing adjustment. The added browser geometry regression checks mascot containment and both center axes at 320/390/768/896/1440px. Local Chromium cannot launch because Unix sockets are restricted; hosted review and CI are required for rendered verification. Existing screenshot baselines remain unchanged pending inspection of this revision.

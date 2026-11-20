@@ -50,6 +50,33 @@ for (const width of [390, 1440]) {
   }
 }
 
+// Check actual nested boxes: an oversized figure can appear centered in its own box
+// while the whole mascot overflows the emblem, especially across mobile overrides.
+test("navigation Ghostie fits and centers in its frame across breakpoints", async ({ page }) => {
+  await page.goto("/");
+  await settle(page);
+  for (const width of [320, 390, 768, 896, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    const geometry = await page.locator(".brand-mark__emblem").evaluate((frame) => {
+      const outer = frame.getBoundingClientRect();
+      return [...frame.querySelectorAll("figure, img")].map((child) => {
+        const box = child.getBoundingClientRect();
+        return {
+          dx: Math.abs(box.x + box.width / 2 - outer.x - outer.width / 2),
+          dy: Math.abs(box.y + box.height / 2 - outer.y - outer.height / 2),
+          contained: box.left >= outer.left && box.right <= outer.right && box.top >= outer.top && box.bottom <= outer.bottom
+        };
+      });
+    });
+    expect(geometry).toHaveLength(2);
+    for (const box of geometry) {
+      expect(box.dx).toBeLessThan(1);
+      expect(box.dy).toBeLessThan(1);
+      expect(box.contained).toBe(true);
+    }
+  }
+});
+
 test("navigation and every doorway state pass axe", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 667 });
   await page.emulateMedia({ reducedMotion: "reduce" });

@@ -113,7 +113,7 @@ onBeforeUnmount(() => {
     <div class="site-header__inner page-width">
       <a class="brand-mark" href="/" aria-label="Nari Nuna's Haven, home">
         <span class="brand-mark__emblem"><GhostieArt variant="wave" sizes="48px" loading="eager" /></span>
-        <span>
+        <span class="brand-mark__wording">
           <strong>Nari <i>Nuna</i></strong>
           <small>The little world next door</small>
         </span>
@@ -191,19 +191,37 @@ onBeforeUnmount(() => {
 
 <style scoped>
 /* Header-only disclosure, brand and mobile directory. The desktop breakpoint must match the media-query listener above. */
+/* The emblem owns one frame; nested artwork must fit its content box. */
 .brand-mark__emblem {
   display: grid;
-  width: 3.15rem;
-  height: 3.15rem;
-  flex: 0 0 auto;
+  width: 2.9rem;
+  height: 2.9rem;
+  flex: none;
   place-items: center;
-  overflow: visible;
-  background: radial-gradient(circle at 50% 55%, color-mix(in srgb, var(--story-accent) 22%, transparent), transparent 70%);
-  border: 0;
-  border-radius: 50%;
-  box-shadow: none;
+  overflow: hidden;
+  padding: 0.15rem;
+  background: var(--bg-raised);
+  border: 1px solid var(--storybook-rule);
+  border-radius: 0.4rem;
 }
-.brand-mark__emblem :deep(.ghostie-art) { --ghostie-size: 3.15rem; }
+.brand-mark__emblem :deep(.ghostie-art) {
+  --ghostie-size: 100%;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+}
+.brand-mark__emblem :deep(img) {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  padding: 0;
+  object-fit: contain;
+  background: none;
+  border: 0;
+  border-radius: 0;
+}
+.brand-mark__wording { display: grid; gap: 0.3rem; line-height: 1.05; }
+.brand-mark__wording small { margin: 0; }
 .site-header__more { position: relative; }
 .site-header__mobile-context { display: none; }
 .site-header__mobile-nav { display: none; }
@@ -345,7 +363,6 @@ onBeforeUnmount(() => {
     width: 2.75rem;
     height: 2.75rem;
   }
-  .brand-mark__emblem :deep(.ghostie-art) { --ghostie-size: 2.75rem; }
   .brand-mark strong { display: grid; line-height: 0.9; }
   .brand-mark strong i { padding-inline-start: 0.55rem; }
 }
@@ -364,8 +381,6 @@ onBeforeUnmount(() => {
 .brand-mark > span:last-child { min-width: 0; }
 .brand-mark strong { overflow-wrap: anywhere; font-size: 1.4rem; }
 .nav-toggle { flex: none; border-radius: 0.2rem; background: var(--bg-raised); }
-.brand-mark__emblem { width: 2.9rem; height: 2.9rem; border: 1px solid var(--storybook-rule); border-radius: 0.4rem; background: var(--bg-raised); }
-.brand-mark__emblem :deep(.ghostie-art) { --ghostie-size: 3.1rem; width: 3.1rem; height: 3.1rem; }
 .brand-mark small { color: var(--text-muted); font-size: 0.58rem; letter-spacing: 0.09em; }
 .site-header__main-nav > a { border-radius: 0.2rem; }
 .site-header__main-nav > a[aria-current="page"] { background: var(--bg-soft); }

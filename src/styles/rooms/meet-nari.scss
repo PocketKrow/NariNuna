@@ -17,7 +17,7 @@
 .journal-entry__copy { grid-column: 1 / -1; }
 .journal-entry__copy h3 { font-size: clamp(1.5rem, 2vw, 1.85rem); line-height: 1.2; }
 .journal-entry__copy p { color: var(--ink-muted); margin: 0; line-height: 1.8; max-width: 37rem; }
-.nari-journal > .room-discovery { grid-column: 1; }
+.nari-journal > :global(.room-discovery) { grid-column: 1; margin-block: 0; }
 .nari-promise-note { display: block; width: calc(100% - var(--page-gutter) * 2); max-width: var(--page-width); padding: clamp(1.25rem, 3vw, 2.5rem); margin-block-end: 3rem; border: 1px solid var(--story-line); border-top: 3px solid var(--paper-edge); background: var(--bg-inset); box-shadow: inset 0 0 0 0.4rem var(--bg); }
 .nari-promise-note__heading { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1.25rem; }
 .nari-promise-note__heading > div { min-width: 0; }
@@ -48,13 +48,13 @@
   .nari-journal { grid-template-columns: 1fr; gap: 1.5rem; }
   .nari-journal__opening { padding: 0; }
   .nari-journal__opening > p:last-child { max-width: 34rem; }
-  .nari-journal > .room-discovery { grid-column: 1; }
+  .nari-journal > :global(.room-discovery) { grid-column: 1; margin-block: 0; }
 }
 @media (max-width: 47.99rem) {
   .nari-journal__surface { padding: 1rem 1.25rem; border-left-width: 0.25rem; box-shadow: 0.35rem 0.35rem 0 #1a0e1640; }
   .journal-entry { grid-template-columns: minmax(0,1fr); padding-block: 1.5rem; }
   .nari-promise-note { padding: 1.25rem; }
-  .nari-promise-note__heading { align-items: flex-start; gap: 0.75rem; }
+  .nari-promise-note__heading { align-items: center; gap: 0.75rem; }
   .nari-promise-note__heading h2 { font-size: clamp(1.65rem, 5vw, 2.3rem); }
   .nari-promise-note__heading :global(.nari-promise-note__guardian) { --ghostie-size: 4rem; width: 4rem; height: 4rem; }
 }
