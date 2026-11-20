@@ -9,7 +9,7 @@
 .room-arrival__copy > p:not(.eyebrow) { max-width: 32rem; color: var(--text-muted); line-height: 1.75; }
 .room-arrival__copy .eyebrow { color: var(--storybook-gold); font-size: 0.75rem; letter-spacing: 0.07em; }
 .room-arrival__copy .button-row { gap: 0.75rem; }
-.room-arrival__copy .artwork-credit-link { margin-top: 1rem; }
+.room-arrival__copy .artwork-credit-link { display: flex; width: fit-content; max-width: 100%; margin-top: 1rem; }
 .arrival-location { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.65rem; margin-bottom: 1.5rem; color: var(--text-muted); font-size: 0.75rem; }
 .arrival-location a { display: inline-flex; min-height: 2rem; align-items: center; text-underline-offset: 0.2em; }
 .arrival-location > span:last-child { color: var(--storybook-gold); }
