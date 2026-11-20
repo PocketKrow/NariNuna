@@ -4,7 +4,7 @@ import RoomArrival from "@/components/astro/RoomArrival.astro";
 
 // Render three stable shelf fragments with curating copy. Category positions below must remain Nail desk, Creator shelf, Game pile.
 import RoomDiscovery from "@/components/ui/RoomDiscovery.vue";
-import { BookMarked } from "@lucide/vue";
+import { ArrowRight, BookMarked } from "@lucide/vue";
 import { environmentArtwork } from "@/data/artwork";
 import { resourceCategories } from "@/data/content";
 
@@ -43,6 +43,9 @@ const resourceShelves = [
         <em>A little more making.</em>
       </h2>
       <p class="room-caption">Empty space beats a recommendation she cannot stand behind.</p>
+      <nav class="resource-library__shortcuts" aria-label="Resource shelves">
+        {resourceShelves.map((shelf) => <a href={`#${shelf.id}`}>{shelf.category.title}<ArrowRight size={15} aria-hidden="true" /></a>)}
+      </nav>
       <RoomDiscovery discoveryId="shelf-broadcast-stub" />
     </header>
     <div class="resource-library__shelves">

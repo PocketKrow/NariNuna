@@ -28,11 +28,12 @@ const albumMemories = featuredMoments.slice(1);
       <p>
         The same selected clips as Streams, kept in an album. Personal stories wait until Nari chooses them herself.
       </p>
+      <a class="text-link" href="#memory-album">Open the album <ArrowRight size={16} aria-hidden="true" /></a>
       <ArtworkCreditLink creditId="website-storybook-artwork" />
 
   </RoomArrival>
   <!-- Album order follows the media record; no participant or story permissions are inferred here. -->
-  <section class="memory-album room-section page-width" aria-labelledby="album-title">
+  <section id="memory-album" class="memory-album room-section page-width" aria-labelledby="album-title">
     <header class="room-heading">
       <div>
         <p class="room-kicker">Saved from the stream room</p>

@@ -62,10 +62,14 @@ describe("responsive artwork delivery", () => {
     const maximum = (source: keyof typeof manifest, maxWidth = Infinity) => Math.max(...manifest[source].candidates.filter((candidate) => candidate.width <= maxWidth).map((candidate) => candidate.bytes));
     const total = maximum(environmentArtwork.homeSunset) + maximum(communityGhostieArtwork.wave, 256);
     expect(total).toBeLessThanOrEqual(200_000);
-    const home = readFileSync("src/pages/index.astro", "utf8");
-    expect(home).toContain("storybookPostcards");
-    const component = readFileSync("src/components/art/ResponsiveArtwork.vue", "utf8");
-    expect(component).toContain('loading: "lazy"');
+    const home = readFileSync("dist/index.html", "utf8");
+    const entrances = home.match(/<img src="\/assets\/(?:broadcast-desk|polish-desk|haven-door)\.[^>]+>/g);
+    expect(entrances).toHaveLength(3);
+    for (const tag of entrances ?? []) {
+      expect(tag).toContain('loading="lazy"');
+      expect(tag).toContain('192w,');
+      expect(tag).toContain('500w"');
+    }
   });
 
   it("gives all nine ordinary documents matching CSS/picture/preload candidates", () => {

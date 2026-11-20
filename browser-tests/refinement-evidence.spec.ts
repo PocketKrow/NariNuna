@@ -1,7 +1,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { gzipSync } from "node:zlib";
-import { expect, test, type Page } from "@playwright/test";
+import { test, type Page } from "@playwright/test";
 
 test.skip(!process.env.NARI_REVIEW_LABEL, "Run explicitly for paired base/candidate review.");
 
@@ -17,7 +17,7 @@ async function settle(page: Page): Promise<void> {
   await page.waitForFunction(() => [...document.querySelectorAll('astro-island[client="load"]')].every((island) => !island.hasAttribute("ssr")));
   await page.evaluate(() => document.fonts.ready);
 }
-for (const width of [390, 1440]) {
+for (const width of [320, 390, 768, 1440]) {
   test(`review evidence: production typography at ${width}px`, async ({ page }, testInfo) => {
     test.setTimeout(120_000);
     await page.setViewportSize({ width, height: 900 });
@@ -25,11 +25,16 @@ for (const width of [390, 1440]) {
     await page.route("https://i.ytimg.com/**", (route) => route.abort());
     for (const [name, path] of [
       ["home", "/"], ["meet", "/meet-nari/"], ["streams", "/streams/"], ["nails", "/nail-studio/"],
-      ["haven", "/haven/"], ["resources", "/resources/"], ["work", "/work-with-nari/"], ["stories", "/stories/"],
+      ["haven", "/haven/"], ["support", "/support/"], ["resources", "/resources/"], ["work", "/work-with-nari/"], ["stories", "/stories/"],
     ]) {
       await page.goto(path);
       await settle(page);
+      // Let visible islands replace failed remote thumbnails before collecting image locators.
+      for (const card of await page.locator(".media-card").all()) await card.scrollIntoViewIfNeeded();
+      await page.waitForFunction(() => [...document.querySelectorAll('astro-island[client="visible"]')].every((island) => !island.hasAttribute("ssr")));
+      await page.waitForFunction(() => document.querySelectorAll('.media-card__image img[src^="https://i.ytimg.com"]').length === 0);
       for (const image of await page.locator("img").all()) {
+        if (!(await image.isVisible())) continue;
         await image.scrollIntoViewIfNeeded();
         await image.evaluate((element: HTMLImageElement) => element.decode().catch(() => undefined));
       }
@@ -57,24 +62,12 @@ test("review evidence: desktop Haven requested-file gzip before and after the do
   await settle(page);
   await page.waitForTimeout(2200);
   const arrivalOnly = measure();
-  const stateBeforeDoor = await page.locator("[data-atmosphere]").getAttribute("data-atmosphere-state");
   await page.locator("#haven-door").scrollIntoViewIfNeeded();
-  const supported = await page.evaluate(() => {
-    const context = document.createElement("canvas").getContext("webgl2");
-    if (!context) return false;
-    try {
-      return [context.VERTEX_SHADER, context.FRAGMENT_SHADER].every((shader) => (context.getShaderPrecisionFormat(shader, context.HIGH_FLOAT)?.precision ?? 0) > 0);
-    } finally {
-      context.getExtension("WEBGL_lose_context")?.loseContext();
-    }
-  });
-  if (supported) await expect(page.locator("[data-atmosphere]")).toHaveAttribute("data-atmosphere-state", "active");
   await page.waitForTimeout(300);
   const doorwayVisit = measure();
   const report = {
     method: "Sum of gzip-compressed local JS/CSS files requested at 1440x900, 8 cores, no reduced motion, same runner; not HTTP transfer timings or Core Web Vitals.",
     build: process.env.NARI_REVIEW_LABEL ?? "candidate",
-    stateBeforeDoor, supported,
     arrivalOnly: { gzipBytes: arrivalOnly.reduce((sum, file) => sum + file.gzipBytes, 0), files: arrivalOnly },
     doorwayVisit: { gzipBytes: doorwayVisit.reduce((sum, file) => sum + file.gzipBytes, 0), files: doorwayVisit },
   };

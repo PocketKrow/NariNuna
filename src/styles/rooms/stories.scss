@@ -6,8 +6,9 @@
   margin: 0;
   color: var(--ink);
   background: var(--storybook-paper);
-  border: 1px solid color-mix(in srgb, var(--line-dark) 56%, transparent);
-  border-radius: 0.35rem 0.8rem 0.8rem 0.35rem;
+  border: 1px solid var(--paper-edge);
+  border-top: 4px solid var(--plum);
+  border-radius: 0.2rem;
   box-shadow: 0 1.4rem 3.3rem rgb(13 7 11 / 23%), inset 1rem 0 1.4rem rgb(62 32 47 / 8%);
 }
 .memory-album__pages > li {
@@ -36,4 +37,12 @@
     padding: 1.15rem 0 1.65rem;
   }
   .memory-album__closing { font-size: 1.2rem; line-height: 1.45; }
+}
+
+// The lead opens the album; supporting memories make a separate two-page spread.
+@media (min-width: 64rem) {
+  .memory-album__pages { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 2rem; }
+  .memory-album__pages > .memory-album__lead { grid-column: 1 / -1; padding-bottom: 2rem; }
+  .memory-album__pages > li:not(.memory-album__lead) :global(.media-card--album > a) { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+  .memory-album__pages > li:not(.memory-album__lead) :global(.media-card__body h3) { font-size: 1.65rem; }
 }

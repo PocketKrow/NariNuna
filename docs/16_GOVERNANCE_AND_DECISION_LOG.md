@@ -316,3 +316,8 @@ Branch `kiva/nari-v1-readiness`, PR #35, starts at `23ab2b2c2ddd111d9d5c97b42a77
 ## 20 October 2026 — cohesive refinement review
 
 Jake supplied an implementation handoff authorizing a feature branch and one PR from fresh Main `cadc391`. Scope: semantic paper interaction/focus colors; Home discovery before the charter/door; truthful shared-clip/resource labels; proximity-gated optional atmosphere; regression and paired CI evidence; bounded style ownership cleanup. [Document 45](45_COHESIVE_REFINEMENT.md) records owners, method, limits and rollback. Branch `kiva/haven-cohesive-refinement`, PR #36, remains a review proposal. No merge, release, hosting change, new font/dependency/artwork, canon, content approval or rights clearance is authorized or inferred. Larger visual changes await rendered review; existing production blockers remain.
+
+
+## 2 November 2026 — complete beta refresh
+
+Jake requested a complete NariNuna refresh with specialist subagents. Continue `beta` draft PR #37 from `467c814` for review. Scope: shared arrivals/shell, all public room compositions, Home room discovery/schedule/existing clip, native in-page navigation, narrow/enlarged-text and keyboard repairs, dependency audit remediation and matching tests/docs. Nail Studio joins the visible principal header links; Work remains accessible through More and mobile navigation. No new route, canon, artwork bytes, backend, host/domain or production release. Existing asset and client statuses remain truthful. See document 46 for evidence and rollback.

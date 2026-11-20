@@ -300,3 +300,5 @@ The maintenance branch preserves 63 existing files (14,411,064 bytes) outside de
 Full provenance in `responsive-artwork.json` is unchanged. Its new sibling `responsive-artwork.runtime.json` is generated in the same operation with only intrinsic dimensions and ordered candidate URL/dimensions; CI checks exact agreement. No raster, crop, candidate, source master or retained collection changed. Eighteen editable vector snapshots gained XML maintenance notes only; the other 103 SVGs remain imported pack outputs documented at their copy boundary. All SVG geometry/content compares identically.
 
 The [asset disposition record](39_ASSET_DISPOSITION.md) retains every public URL and records all 129 baseline review candidates with full hashes and matching owners. Social compression and candidate pruning remain deferred pending visual/network evidence. [Document 37](37_SIZE_MAINTENANCE.md) distinguishes shared gzip reduction from total delivery and repository size.
+
+Beta welcome room derivatives are documented in [ASSET-2026-023](asset-records/ASSET-2026-023-beta-welcome-room.md); the existing storybook credit and pending review states apply.

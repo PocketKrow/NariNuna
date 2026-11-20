@@ -1,10 +1,10 @@
 # Nari Nuna's Haven
 
-A warm illustrated Astro website for Nari: streaming, self-taught nail art, community and creative collaboration. Twelve real static documents, focused Vue islands and ordinary links. The v1 engineering candidate preserves Main’s illustrated refinement merged in PR #33.
+A warm illustrated Astro website for Nari: streaming, self-taught nail art, community and creative collaboration. Twelve real static documents, focused Vue islands and ordinary links. The complete Haven refresh is reviewed on `beta` in draft PR #37; see [the refresh record](docs/46_BETA_HAVEN_REFRESH.md).
 
 ## Run
 
-Node.js 22.13+ and npm:
+Node.js 22.19+ and npm:
 
 ```bash
 npm ci
@@ -28,6 +28,10 @@ npm run verify:experience
 
 `NARI_BROWSER_PATH` can select an existing Chromium executable. `npm run verify:browsers` covers Chromium + Firefox after both are installed; `npm run verify:release-browsers` adds WebKit. Eight visual baselines cover Home, Meet Nari, Haven and Nails at 390/1440px. Inspect deliberate changes before running `npm run verify:visual-update`.
 
+## Beta review on Netlify
+
+The `beta` branch is the review branch for the Netlify demo. `netlify.toml` builds the static `dist/` artifact using Node 22; deploy-preview and branch-deploy contexts explicitly use the noindex preview configuration. A connected Netlify site must have deploy previews or branch deploys enabled to provide a demo URL. Review deployments do not clear the artwork, client, or production-release gates below.
+
 ## Deploy to Google Cloud Run
 
 The client uses **Cloud Run services with source deployment and Google's Node.js buildpacks**. Cloud Run builds the source into a container and launches the entrypoint selected by the buildpack, normally the `start` script in `package.json`. The website remains an Astro static build: the serving process delivers the generated files in `dist/`; no SSR migration or database is required.
@@ -44,7 +48,7 @@ Configure these as **build environment variables**, not only runtime/service var
 
 | Build variable | Value / purpose |
 | --- | --- |
-| `GOOGLE_NODEJS_VERSION` | `22.x.x`, selecting the CI-tested Node 22 line; the project requires Node 22.13+ |
+| `GOOGLE_NODEJS_VERSION` | `22.x.x`, selecting the CI-tested Node 22 line; the project requires Node 22.19+ |
 | `GOOGLE_NODE_RUN_SCRIPTS` | `build`, running the repository's full build script |
 | `NARI_DEPLOY_CONTEXT` | `production` for the approved public site |
 | `NARI_SITE_ORIGIN` | The approved canonical HTTPS origin, with no path, query, fragment or credentials |
@@ -74,7 +78,7 @@ Once this entrypoint is implemented and validated, the client's source-deploymen
 
 ### 3. Verify the build and deployed revision
 
-Local build verification uses Node.js 22.13+ and npm. Replace the example origin with the approved real domain:
+Local build verification uses Node.js 22.19+ and npm. Replace the example origin with the approved real domain:
 
 ```bash
 export NARI_DEPLOY_CONTEXT=production
@@ -115,6 +119,25 @@ Official references: [source deployment](https://docs.cloud.google.com/run/docs/
 | Responsive artwork | Full provenance + compact runtime manifest, unchanged hashed WebP candidates |
 | Credits and approval boundaries | `src/data/artCredits.json`, offline validator and independent release gate |
 | Tests | Vitest, built-artifact validators, Playwright + axe and eight composition snapshots |
+
+### Updating the Home and Streams schedule
+
+Edit `src/data/schedule.ts` and replace `null` with an approved, dated schedule. For example, the shape below uses illustrative text only; replace every value with Nari's actual plans:
+
+```ts
+export const streamSchedule: StreamSchedule | null = {
+  periodLabel: "Example week, month and year",
+  timeZone: "Time zone supplied by Nari",
+  updatedLabel: "Date posted",
+  publishedAt: "2026-11-02T12:00:00Z", // Illustrative UTC publication time
+  expiresAt: "2026-11-09T12:00:00Z", // Illustrative UTC expiry time
+  entries: [
+    { startsAt: "2026-11-05T23:00:00Z", dateLabel: "Day and date", timeLabel: "Start time", title: "Stream title", note: "Optional note" }
+  ]
+};
+```
+
+Add each stream’s UTC `startsAt` alongside its public date, time and zone. Home and Streams share this record. Build during the publication window to publish it. The browser shows upcoming entries in time order and retires them at their start time or at schedule expiry, including on a cached page. Visitors with JavaScript disabled can use the Twitch schedule link. Rebuild after edits or cancellations, or set the record to `null` to withdraw it.
 
 Astro 7, Vue 3, strict TypeScript, SCSS, Lucide, GSAP/ScrollTrigger and selective Three.js. No backend, CMS, database, account, analytics, form, iframe, heavy media player, Tailwind or UI kit. Native View Transitions were evaluated and disabled after rapid history navigation exposed browser abort errors. All navigation is immediate ordinary document navigation.
 

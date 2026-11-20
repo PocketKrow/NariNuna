@@ -1,0 +1,81 @@
+---
+import { ArrowUpRight, CalendarDays } from "@lucide/vue";
+import { getPublishedStreamSchedule, streamSchedule } from "@/data/schedule";
+import { twitchUrl } from "@/data/socials";
+
+const schedule = getPublishedStreamSchedule(streamSchedule);
+---
+<aside class="stream-schedule page-width" aria-label="Stream schedule">
+  <div class="stream-schedule__bar">
+    <CalendarDays size={18} aria-hidden="true" />
+    <a class="text-link" href={twitchUrl + "/schedule"}>Check stream times on Twitch <ArrowUpRight size={15} aria-hidden="true" /></a>
+  </div>
+  {schedule && (
+    <stream-dates data-published={schedule.publishedAt} data-expires={schedule.expiresAt} hidden>
+      <h2>Upcoming streams</h2>
+      <p>{schedule.periodLabel} · {schedule.timeZone}</p>
+      <ul>
+        {[...schedule.entries].sort((a, b) => Date.parse(a.startsAt) - Date.parse(b.startsAt)).map((entry) => (
+          <li data-start={entry.startsAt}>
+            <time datetime={entry.startsAt}>{entry.dateLabel} · {entry.timeLabel}</time>
+            <strong>{entry.title}</strong>
+            {entry.note && <span>{entry.note}</span>}
+          </li>
+        ))}
+      </ul>
+    </stream-dates>
+  )}
+</aside>
+
+<script>
+  // A cached document can outlive its schedule. Keep Twitch usable without JavaScript.
+  class StreamDates extends HTMLElement {
+    private timer?: number;
+
+    private refresh = () => {
+      window.clearTimeout(this.timer);
+      const now = Date.now();
+      const expires = Date.parse(this.dataset.expires ?? "");
+      const published = Date.parse(this.dataset.published ?? "");
+      let nextChange = expires;
+      let upcoming = false;
+      for (const row of this.querySelectorAll<HTMLElement>("[data-start]")) {
+        const start = Date.parse(row.dataset.start ?? "");
+        row.hidden = !(start > now);
+        if (!row.hidden) {
+          upcoming = true;
+          nextChange = Math.min(nextChange, start);
+        }
+      }
+      this.hidden = !(published <= now && now < expires && upcoming);
+      if (nextChange > now && upcoming) {
+        const boundary = now < published ? published : nextChange;
+        this.timer = window.setTimeout(this.refresh, Math.min(boundary - now, 2_147_483_647));
+      }
+    };
+
+    connectedCallback() {
+      this.refresh();
+      window.addEventListener("pageshow", this.refresh);
+      document.addEventListener("visibilitychange", this.refresh);
+    }
+
+    disconnectedCallback() {
+      window.clearTimeout(this.timer);
+      window.removeEventListener("pageshow", this.refresh);
+      document.removeEventListener("visibilitychange", this.refresh);
+    }
+  }
+
+  if (!customElements.get("stream-dates")) customElements.define("stream-dates", StreamDates);
+</script>
+<style lang="scss">
+  .stream-schedule { margin-block: 1rem; }
+  .stream-schedule__bar { display: flex; gap: 0.65rem; align-items: center; color: var(--storybook-gold); border-block-end: 1px solid var(--storybook-rule); }
+  .stream-schedule__bar .text-link { display: inline-flex; align-items: center; gap: 0.4rem; min-height: 2.75rem; }
+  stream-dates:not([hidden]) { display: block; padding: clamp(1rem, 3vw, 2rem); color: var(--ink); background: var(--storybook-paper); border-inline-start: 3px solid var(--paper-edge); }
+  stream-dates h2 { margin: 0; font-size: clamp(1.5rem, 3vw, 2rem); }
+  stream-dates p { color: var(--ink-muted); margin: 0.4rem 0; }
+  stream-dates ul { padding: 0; margin: 0; list-style: none; }
+  stream-dates li:not([hidden]) { display: grid; gap: 0.15rem; padding-block: 0.75rem; border-block-start: 1px solid var(--paper-edge); overflow-wrap: anywhere; }
+</style>

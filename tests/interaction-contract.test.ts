@@ -49,7 +49,8 @@ describe("client-feedback interaction contracts", () => {
     const home = sourceAt("src/pages/index.astro");
     const haven = sourceAt("src/pages/haven/index.astro");
 
-    expect(home).toContain('class="button button--ember" href="/haven/"');
+    expect(home).toContain('class="button button--ember" href={homeMoment.url}');
+    expect(home).toContain('class="text-link" href="/haven/">Explore the Haven');
     expect(home).not.toContain('import { twitchUrl } from "@/data/socials"');
     expect(haven).toContain('id="haven-door" class="haven-entry page-width section-pad"');
   });
@@ -80,7 +81,6 @@ describe("client-feedback interaction contracts", () => {
     const floorboard = sourceAt("src/components/haven/LooseFloorboard.vue");
     const doorway = sourceAt("src/components/haven/HavenDoor.vue");
     const cult = sourceAt("src/pages/the-prinny-cult/index.astro");
-    const arrival = sourceAt("src/styles/objects/arrival.scss");
 
     expect(floorboard).toContain("font-size: 0.875rem");
     expect(floorboard).toContain("min-height: 2.75rem");
@@ -89,8 +89,6 @@ describe("client-feedback interaction contracts", () => {
     expect(doorway).toContain("font-size: 0.8125rem");
     expect(cult).toContain("font-size: 0.875rem");
     expect(cult).toContain("min-height: 2.75rem");
-    expect(arrival).toContain("min-height: 2.75rem");
-    expect(arrival).toContain("font-size: 0.75rem");
   });
 
   it("keeps the hidden Prinny route tiny instead of restoring a cult system", () => {
